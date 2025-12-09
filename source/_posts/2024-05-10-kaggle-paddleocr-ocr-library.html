@@ -1,0 +1,18 @@
+---
+layout: post
+title: 在Kaggle執行PaddleOCR(百度的OCR library)
+tag:
+- kaggle
+- paddleocr
+---
+
+1.安裝PaddlePaddle
+<pre><code class="bash">!python3 -m pip install paddlepaddle-gpu -i https://mirror.baidu.com/pypi/simple</code></pre>
+2.安裝PaddleOCR whl包
+<pre><code class="bash">!pip install "paddleocr>=2.0.1"</code></pre>
+3.下載測試用圖片(可自定義)
+<pre><code class="bash">!wget https://paddleocr.bj.bcebos.com/dygraph_v2.1/ppocr_img.zip</code></pre>
+4.解壓縮圖片
+<pre><code class="bash">!unzip ppocr_img.zip</code></pre>
+5.執行識別指令
+<pre><code class="bash">!paddleocr --image_dir &lt;圖片路徑&gt; --use_angle_cls true --use_gpu true</code></pre>

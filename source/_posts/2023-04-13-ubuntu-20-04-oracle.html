@@ -1,0 +1,10 @@
+---
+layout: post
+title: Ubuntu 20.04連Oracle資料庫
+tag:
+- linux
+- oracle
+- python
+---
+
+<p>1.下載Oracle Instant Client的壓縮包&nbsp;<a href="https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html#ic_x64_inst">Instant Client for Linux x86-64 (64-bit) (oracle.com)</a>，本例為instantclient-basiclite-linux.x64-21.9.0.0.0dbru.zip。</p><p>2.解壓縮，移至/opt/oracle目錄下，本例為/opt/oracle/instantclient_21_9。</p><p>3.設定環境變數，在/etc/profile.d目錄下，新增set-ld_library_path.sh，內容為：</p><p><pre><code class="language-bash"><p>#!/bin/bash</p><p>export LD_LIBRARY_PATH="/opt/oracle/instantclient_21_9"</p></code></pre></p><p>4.執行sudo apt install libaio1安裝APT套件。</p><p>5.執行pip install cx_oracle安裝Python套件。</p><p>6.完成。</p>

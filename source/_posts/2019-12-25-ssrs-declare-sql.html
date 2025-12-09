@@ -1,0 +1,45 @@
+---
+layout: post
+title: 在SSRS使用DECLARE陳述式的SQL無法預覽錯誤
+tag:
+- ssrs
+---
+
+<font face="inherit">原因:<br />
+在SSRS的查詢SQL中,<br />
+如果有自行宣告的變數跟查詢參數同時存在,<br />如</font><pre><code class="sql"><font face="inherit">DECLARE @processDefinitionId NVARCHAR(100) = @processDefId;
+DECLARE @formSerialNumber NVARCHAR(50) = @formSN; </font></code></pre><div><span style="background-color: white; font-family: inherit; font-size: small; white-space: pre;"><br /></span><font face="inherit">
+因為兩者都是@開頭,<br />
+在解析時會把查詢參數當成自行宣告的變數,<br />
+才會顯示以下異常</font><br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKyMbGlCDWu17S3HQ3CArJDVngByl3WNaZ5xuTc7VendiH25_2-q9WPqEYRhMBb1FqAfPLYGXPBCKIayC-7tDDObbnpsbphCBsQeAtPxhvCND3tSjuOX0rL0yqZ-gFQIxrjd4mkioi30T6/s1600/Image_20191225152343.png" style="clear: left; float: left; margin-bottom: 1em; margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="315" data-original-width="483" height="260" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKyMbGlCDWu17S3HQ3CArJDVngByl3WNaZ5xuTc7VendiH25_2-q9WPqEYRhMBb1FqAfPLYGXPBCKIayC-7tDDObbnpsbphCBsQeAtPxhvCND3tSjuOX0rL0yqZ-gFQIxrjd4mkioi30T6/s400/Image_20191225152343.png" width="400" /></a></div>
+<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJRkBMvwTAB6VL7kN5HzwjfiQ8xnY5ER6JJIOZ-c2766WJotrLft8W19J7oxG7A2OKeqfdc8fHV2qsz2VwumUSOPkqNTUcSbv5Wm04_9R1S_gif8l2lG60vGwokYRgheq0LeQUot3VwrpO/s1600/Image_20191225152633.png" style="clear: left; float: left; margin-bottom: 1em; margin-left: 1em; margin-right: 1em;"><br /></a><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJRkBMvwTAB6VL7kN5HzwjfiQ8xnY5ER6JJIOZ-c2766WJotrLft8W19J7oxG7A2OKeqfdc8fHV2qsz2VwumUSOPkqNTUcSbv5Wm04_9R1S_gif8l2lG60vGwokYRgheq0LeQUot3VwrpO/s1600/Image_20191225152633.png" style="clear: left; float: left; margin-bottom: 1em; margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="297" data-original-width="622" height="190" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJRkBMvwTAB6VL7kN5HzwjfiQ8xnY5ER6JJIOZ-c2766WJotrLft8W19J7oxG7A2OKeqfdc8fHV2qsz2VwumUSOPkqNTUcSbv5Wm04_9R1S_gif8l2lG60vGwokYRgheq0LeQUot3VwrpO/s400/Image_20191225152633.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br /><font face="inherit">
+解法:<br />
+按[當成文字編輯]即可正確解析預覽結果。</font><br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwfkyTWMkw-iuqnGXXtvUd76qixR7jk736iD30XXyD2rX5mCD9Vfj3mISRstAjPVBQPgTf0oZXzTB04pN-E_lFUbnfhlHzFk2LQeCOe21Cfem7uILlFvZiXQqTv6xoXO5nonAp1vlgYr-Q/s1600/Image_20191226150225.png" style="clear: left; float: left; margin-bottom: 1em; margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="443" data-original-width="901" height="196" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwfkyTWMkw-iuqnGXXtvUd76qixR7jk736iD30XXyD2rX5mCD9Vfj3mISRstAjPVBQPgTf0oZXzTB04pN-E_lFUbnfhlHzFk2LQeCOe21Cfem7uILlFvZiXQqTv6xoXO5nonAp1vlgYr-Q/s400/Image_20191226150225.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /></div>

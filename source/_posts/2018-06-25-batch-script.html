@@ -1,0 +1,25 @@
+---
+layout: post
+title: 備份文件/清理電腦暫存檔的batch script
+tag:
+- dos command
+- windows
+---
+
+<pre><code class="bat">::備份我的文件夾<br />
+robocopy "&lt;我的文件夾位置&gt;" "&lt;遠端備份主機位置&gt;" /MIR /Z /ZB /TBD /NP /R:5 /W:0 /MT:32<br />
+<br />
+::磁碟清理<br />
+%windir%\System32\cleanmgr.exe /SAGERUN:99<br />
+<br />
+::清除暫存資料夾<br />
+%windir%\System32\cmd.exe /C DEL /F /S /Q %TEMP%\*<br />
+%windir%\System32\cmd.exe /C FOR /D %d IN (%TEMP%\"*") DO RMDIR "%d" /S /Q<br />
+<br />
+::清理登錄檔null值<br />
+"C:\Program Files\RegDelNull\RegDelNull64.exe" -s hkcr<br />
+"C:\Program Files\RegDelNull\RegDelNull64.exe" -s hkcu<br />
+"C:\Program Files\RegDelNull\RegDelNull64.exe" -s hklm<br />
+"C:\Program Files\RegDelNull\RegDelNull64.exe" -s hku<br />
+"C:\Program Files\RegDelNull\RegDelNull64.exe" -s hkcc
+</code></pre>

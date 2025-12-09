@@ -1,0 +1,35 @@
+---
+layout: post
+title: SSIS讀入Excel只能讀到前幾列資料的解決方法
+tag:
+- ssis
+---
+
+狀況:<br />
+User將數個表格放在同一個工作表中，<br />
+用SSIS讀入發現前8列有值，但之後的列內容都是null。<br />
+<br />
+解法:<br />
+1.Excel檔的連線字串需增加IMEX=1→指定唯讀模式。<br />
+2.讀Excel的主機(開發區&amp;正式區)的登錄檔需修改TypeGuessRows:8→0，<br />
+意指不以前8列推斷以下所有列的欄位型態<br />
+(因為當時前8列是屬於第1個表格，內容是數字，<br />
+但之後的列是屬於第2個表格，內容是文字，欄位型態不同導致讀取失敗)，<br />
+而是強制Excel讀取每列內容判斷欄位型態。<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmhOvGBE8O9LZ5uaQ_WKK2HPT4Jvb5352ejcbvxVtmJJhN2t6cEWuzwoQ8agfzVK4mxbM8InmFLvdQnCTvJ_7AiYjbD8o4IHiAzEEcAivjQtWvduT1WPee-1fGvoekzFWq3gwm-1loPeYn/s1600/type.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="215" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmhOvGBE8O9LZ5uaQ_WKK2HPT4Jvb5352ejcbvxVtmJJhN2t6cEWuzwoQ8agfzVK4mxbM8InmFLvdQnCTvJ_7AiYjbD8o4IHiAzEEcAivjQtWvduT1WPee-1fGvoekzFWq3gwm-1loPeYn/s400/type.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+參考:<a href="http://blog.miniasp.com/post/2008/08/05/How-to-read-Excel-file-using-OleDb-correctly.aspx" target="_blank">透過 OleDb 精準讀入</a><a href="http://blog.miniasp.com/post/2008/08/05/How-to-read-Excel-file-using-OleDb-correctly.aspx" target="_blank">Excel 檔的方法</a>

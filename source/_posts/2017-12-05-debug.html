@@ -1,0 +1,26 @@
+---
+layout: post
+title: 只在debug組態下設定變數及執行方法
+tag:
+- visual studio
+---
+
+在程式片段前後加上<b><span style="color: #cc0000;">#if DEBUG</span></b>及<b><span style="color: #cc0000;">#endif</span></b><br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQVfjeGg_kcMr5itgV9Hcy4J7s7ewQf4G8fIE4_54uObopqR7f6nkjqWUasY9vvHZQXz5XITgXBBKwPcqDOWGhQerH_V_zW8zItdNHppAeRsTsfXPyOhU9XsB7HY1CWzcfHUy_SjHqDcG3/s1600/step1.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="370" data-original-width="628" height="235" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQVfjeGg_kcMr5itgV9Hcy4J7s7ewQf4G8fIE4_54uObopqR7f6nkjqWUasY9vvHZQXz5XITgXBBKwPcqDOWGhQerH_V_zW8zItdNHppAeRsTsfXPyOhU9XsB7HY1CWzcfHUy_SjHqDcG3/s400/step1.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+當切換release組態則不會執行該程式片段;<br />
+另外視情況可加上<b><span style="color: #cc0000;">#else</span></b>作為當處於非debug模式(release或自訂組態)的動作。

@@ -1,0 +1,19 @@
+---
+layout: post
+title: ReportingService已更新SQL但報表預覽異常
+tag:
+- ssrs
+---
+
+<font face="inherit">情況:<br />
+SQL已修改但未反應在預覽的欄位,<br />
+而且有錯誤訊息(如下圖)<br />
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0_TSTCv_YajeHe5WFpPisN1peqr4bzZCJX_xibRmC0HfPH09nhm4v6QcTOJgYJASBfs9o_J82_4qqDOi8KglKBaLephE3TQBxLdfmHXsqaWthSqsdKXDe9r2agygQTMY1wg9IjU7Hhe3l/s1600/Image_20190828141703.png" style="clear: left; display: inline; margin-bottom: 1em; margin-right: 1em; text-align: center;"><img border="0" data-original-height="338" data-original-width="881" height="152" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0_TSTCv_YajeHe5WFpPisN1peqr4bzZCJX_xibRmC0HfPH09nhm4v6QcTOJgYJASBfs9o_J82_4qqDOi8KglKBaLephE3TQBxLdfmHXsqaWthSqsdKXDe9r2agygQTMY1wg9IjU7Hhe3l/s400/Image_20190828141703.png" width="400" /></a><br />
+<br />
+解決方法:<br />
+刪除&lt;報表名稱&gt;.rdl.data檔即可。<br />
+<br />
+參考:<br /><a href="https://stackoverflow.com/a/21430840">SQL Server Reporting Studio report showing “ERROR#” or invalid data type error</a><br />
+</font><div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhA9WPgXpoDwfcTWyfNvktn9pF8faiSaL-vlA-nUYSQGh0tJtqifyZR4qaLgBF8e_aqVye6ymRzKSTXMuTsbBekVYwPCFW1yHZCBOLDrQrHzCbjc5GRliWgGZYXi44PUNXDwSeUToj9SGKC/s1600/Image_20190828143405.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><font face="inherit"><img border="0" data-original-height="210" data-original-width="230" height="365" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhA9WPgXpoDwfcTWyfNvktn9pF8faiSaL-vlA-nUYSQGh0tJtqifyZR4qaLgBF8e_aqVye6ymRzKSTXMuTsbBekVYwPCFW1yHZCBOLDrQrHzCbjc5GRliWgGZYXi44PUNXDwSeUToj9SGKC/s400/Image_20190828143405.png" width="400" /></font></a></div>
+<br />

@@ -1,0 +1,8 @@
+---
+layout: post
+title: docker compose v1遷移到v2指令的變化
+tag:
+- docker
+---
+
+<p>&nbsp;影響：</p><p>docker-compose指令在v2版本改成docker compose(整合進docker變成副指令)</p><p>有些舊專案卻還是用v1版本的docker-compose造成執行異常(找不到指令)</p><p><br /></p><p>解法：</p><p>1. 建立捷徑檔(<span face="Arial, Tahoma, Helvetica, FreeSans, sans-serif" style="color: #38761d; font-size: 13.5px;">user@host</span><span face="Arial, Tahoma, Helvetica, FreeSans, sans-serif" style="color: #333333; font-size: 13.5px;">:</span><span face="Arial, Tahoma, Helvetica, FreeSans, sans-serif" style="color: #0b5394; font-size: 13.5px;">~</span><span face="Arial, Tahoma, Helvetica, FreeSans, sans-serif" style="color: #333333; font-size: 13.5px;">$&nbsp;</span>sudo touch /bin/docker-compose)</p><p>2. 編輯內容為docker compose --compatibility "$@"</p><p>3. 增加捷徑檔執行權限(<span face="Arial, Tahoma, Helvetica, FreeSans, sans-serif" style="color: #38761d; font-size: 13.5px;">user@host</span><span face="Arial, Tahoma, Helvetica, FreeSans, sans-serif" style="color: #333333; font-size: 13.5px;">:</span><span face="Arial, Tahoma, Helvetica, FreeSans, sans-serif" style="color: #0b5394; font-size: 13.5px;">~</span><span face="Arial, Tahoma, Helvetica, FreeSans, sans-serif" style="color: #333333; font-size: 13.5px;">$&nbsp;</span>sudo chmod +x /bin/docker-compose)</p><p>4. docker compose與docker-compose都能執行成功</p><p><br /></p><p>參考來源：<a href="https://stackoverflow.com/a/72187587" rel="nofollow" target="_blank">How to alias docker-compose to docker compose?</a></p>

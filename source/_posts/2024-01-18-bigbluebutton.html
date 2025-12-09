@@ -1,0 +1,34 @@
+---
+layout: post
+title: 安裝BigBlueButton(白板系統)注意事項
+tag:
+- bigbluebutton
+---
+
+<h2 data-sourcepos="7:1-7:9" dir="auto"><span style="font-family: inherit;">安裝</span></h2><span><span style="font-family: inherit;"><a name='more'></a></span></span><ol data-sourcepos="9:1-18:0" dir="auto"><li data-sourcepos="9:1-9:38"><span style="font-family: inherit;">主機OS版本需為Ubuntu 20.04。</span></li>
+<li data-sourcepos="10:1-10:145"><span style="font-family: inherit;">將SSL憑證上傳到/local/certs/目錄下，並將 <code>STAR_&lt;公司名稱&gt;_com.pem</code>更名為 <code>fullchain.pem</code>、<code>private.key</code>更名為 <code>privkey.pem</code>。</span></li>
+<li data-sourcepos="11:1-11:165"><span style="font-family: inherit;">執行安裝腳本&nbsp;<code style="background-color: #f3f3f3;">wget -qO- https://raw.githubusercontent.com/bigbluebutton/bbb-install/v2.7.x-release/bbb-install.sh | bash -s -- -v focal-270 -s &lt;主機FQDN&gt; -g -k -d</code>。</span></li>
+<li data-sourcepos="12:1-12:60">執行<span style="background-color: #f3f3f3;">cd greenlight-v3</span>。</li>
+<li data-sourcepos="13:1-13:78"><span style="font-family: inherit;">修改設定檔 <code>.env</code>### SMTP CONFIGURATION設定。</span></li>
+<li data-sourcepos="14:1-14:166"><span style="font-family: inherit;">修改設定檔 <code>.env</code>### EXTERNAL AUTHENTICATION METHODS(參照<a href="https://docs.bigbluebutton.org/greenlight/v3/external-authentication" rel="nofollow noreferrer noopener" target="_blank">External Authentication</a>)。</span></li>
+<li data-sourcepos="17:1-18:0"><span style="font-family: inherit;">執行 <code style="background-color: #f3f3f3;">docker-compose down &amp;&amp; docker-compose up -d</code>重啟容器即可。</span></li></ol><div><span style="font-family: inherit;"><br /></span></div><h2 data-sourcepos="19:1-19:9" dir="auto"><span style="font-family: inherit;">注意</span></h2><span><span style="font-family: inherit;"><!--more--></span></span><ul data-sourcepos="21:1-21:24" dir="auto"><li data-sourcepos="21:1-21:24"><span style="font-family: inherit;">升級BigBlueButton：</span></li>
+</ul><ol data-sourcepos="22:1-24:0" dir="auto">
+<li data-sourcepos="22:1-22:118"><span style="font-family: inherit;">不可直接升級套件(<code style="background-color: #f3f3f3;">apt upgrade</code> or <code style="background-color: #f3f3f3;">apt dist-upgrade</code>)會造成設定檔設定錯誤而無法正常使用。</span></li>
+<li data-sourcepos="23:1-24:0"><span style="font-family: inherit;">升級需再次執行安裝腳本 <code style="background-color: #f3f3f3;">wget -qO- https://raw.githubusercontent.com/bigbluebutton/bbb-install/v2.7.x-release/bbb-install.sh | bash -s -- -v focal-270 -s &lt;主機FQDN&gt; -g -k -d</code>，將會進行套件升級及BigBlueButton升級。</span></li>
+</ol><ul data-sourcepos="25:1-26:0" dir="auto">
+<li data-sourcepos="25:1-26:0"><span style="font-family: inherit;">將GreenLight使用者提升為管理員：</span></li>
+</ul><p>
+
+
+
+
+
+</p><ol data-sourcepos="27:1-34:57" dir="auto">
+<li data-sourcepos="27:1-27:76"><span style="font-family: inherit;">執行 <code style="background-color: #f3f3f3;">docker exec -it greenlight-v3 /bin/bash</code>進入GreenLight容器。</span></li>
+<li data-sourcepos="28:1-28:65"><span style="font-family: inherit;">在GreenLight容器執行 <code style="background-color: #f3f3f3;">rails console</code>進入RoR控制台。</span></li>
+<li data-sourcepos="29:1-29:39"><span style="font-family: inherit;">執行&nbsp;<code style="background-color: #f3f3f3;">mail="&lt;使用者信箱&gt;"</code>。</span></li>
+<li data-sourcepos="30:1-30:71"><span style="font-family: inherit;">執行&nbsp;<code style="background-color: #f3f3f3;">user = User.find_by(email: mail, provider: "greenlight")</code>。</span></li>
+<li data-sourcepos="31:1-31:86"><span style="font-family: inherit;">執行&nbsp;<code style="background-color: #f3f3f3;">user.role = Role.find_by(name: "Administrator", provider: "greenlight")</code>。</span></li>
+<li data-sourcepos="32:1-32:25"><span style="font-family: inherit;">執行&nbsp;<code style="background-color: #f3f3f3;">user.save!</code>。</span></li>
+<li data-sourcepos="33:1-33:37"><span style="font-family: inherit;">連續執行&nbsp;<code style="background-color: #f3f3f3;">exit</code>斷開連線。</span></li>
+<li data-sourcepos="34:1-34:57"><span style="font-family: inherit;">重新登入BigBlueButton+GreenLight即為管理者。</span></li></ol>

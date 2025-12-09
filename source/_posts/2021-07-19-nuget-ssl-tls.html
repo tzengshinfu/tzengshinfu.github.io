@@ -1,0 +1,15 @@
+---
+layout: post
+title: Nuget無法取得套件清單，顯示"無法建立 SSL/TLS 的安全通道"的錯誤
+tag:
+- ".net core"
+- ".net framework"
+- dos command
+---
+
+<div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3TDpe2WpttOECt071vzFfQcXOLLK1K1u4CVwVIEfSETR5QgIvewN75YUGK3CTEDtfCY7X1eqkiCMmYRZjbFYu9VkLHQyoD33YrG68H8LS7Ue_6Cw9Cz7egOswd_h6zDJy22kQeT5puVQm/s969/Image_20210719113923.png" style="clear: left; display: block; float: left; padding: 1em 0px; text-align: center;"><img alt="" border="0" data-original-height="275" data-original-width="969" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3TDpe2WpttOECt071vzFfQcXOLLK1K1u4CVwVIEfSETR5QgIvewN75YUGK3CTEDtfCY7X1eqkiCMmYRZjbFYu9VkLHQyoD33YrG68H8LS7Ue_6Cw9Cz7egOswd_h6zDJy22kQeT5puVQm/s320/Image_20210719113923.png" width="320" /></a></div><div><br /></div><div><br /></div><div><br /></div><div><br /></div><div><br /></div><div><br /></div><div><br /></div><div><br /></div>
+
+原因：Nuget於2020/04移除對TLS 1.0/1.1的支援。&nbsp;<div>對策：執行以下指令即可。</div><div><pre><code class="bat">reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client" /v DisabledByDefault /t REG_DWORD /d 0 /f /reg:32
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client" /v DisabledByDefault /t REG_DWORD /d 0 /f /reg:64
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client" /v Enabled /t REG_DWORD /d 1 /f /reg:32
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client" /v Enabled /t REG_DWORD /d 1 /f /reg:64</code></pre></div><div><br /></div><div>參考：<a href="https://devblogs.microsoft.com/nuget/deprecating-tls-1-0-and-1-1-on-nuget-org/" target="_blank">Deprecating TLS 1.0 and 1.1 on NuGet.org</a></div>

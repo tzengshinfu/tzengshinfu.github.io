@@ -1,0 +1,27 @@
+---
+layout: post
+title: 用AutoHotKey針對應用程式自訂快捷鍵
+tag:
+- autohotkey
+---
+
+<p>想在某些無法自訂快捷鍵的應用程式，如：Mozilla ThunderBird，達到按Esc=Ctrl+W，即關閉Tab的<del>(偷懶)</del>目的，</p>
+<p>本例使用AutoHotKey v2.0：</p>
+<p>1.開啟AutoHotKey Window Spy，移到ThunderBird視窗，複製整行<span style="color: #cc0000;">ahk_exe thunderbird.exe</span></p>
+<p>2.撰寫AHK script，建立檔案myhotkey.ahk，內容為</p>
+<pre><code class="autohotkey">
+<p>#Requires AutoHotkey v2.0</p>
+<p><br /></p>
+<p>HotIfWinActive "<span style="color: #cc0000;">ahk_exe thunderbird.exe</span>"</p>
+<p>Hotkey "Esc", CloseTab</p>
+<p><br /></p>
+<p>CloseTab(Thiskey)</p>
+<p>{</p>
+<p>&nbsp; &nbsp; Send "{Ctrl down}w{Ctrl up}"</p>
+<p><span style="white-space: normal;"><span style="white-space: pre;"> </span>Return</span></p>
+<p>}</p>
+</code></pre>
+<p>3.雙點script即執行，亦可用Ahk2Exe轉成執行檔，建立捷徑放在<b>啟動</b>資料夾。</p>
+<p><br /></p>
+<p>參考來源：<a href="https://www.autohotkey.com/docs/v2/lib/HotIf.htm" rel="nofollow" target="_blank">HotIf / HotIfWin</a>
+</p>

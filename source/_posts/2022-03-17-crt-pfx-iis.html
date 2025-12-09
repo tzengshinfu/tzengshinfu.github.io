@@ -1,0 +1,19 @@
+---
+layout: post
+title: 將CRT憑證轉換成PFX格式供IIS使用
+tag:
+- internet information server
+- ssl
+---
+
+<div><pre><code class="bash">
+#cat intermediate.crt                                            intermediate.crt      root.crt                    &gt; ca_bundle.crt
+cat  &lt;證書頒發機構名稱&gt;RSAOrganizationValidationSecureServerCA.crt USERTrustRSAAAACA.crt AAACertificateServices.crt &gt; ca_bundle.crt
+#產生PFX格式憑證
+openssl pkcs12 -export -in STAR_&lt;公司名稱&gt;_com.crt -inkey private.key -certfile ca_bundle.crt -out STAR_&lt;公司名稱&gt;_com.pfx
+</code></pre>
+</div>
+1.安裝步驟可參照網友John Wu心得：<a href="https://blog.johnwu.cc/article/iis-install-ssl-certificate.html" rel="nofollow" target="_blank">IIS - 安裝SSL憑證</a><br />
+2.如果出現【憑證鏈結中缺少一或多個中繼憑證】的錯誤訊息，
+<div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/a/AVvXsEgeoZdkHWbpN2dn7bXwmAi6uUapU1WLfQ3u4NYLAD-dk3gbVgwn4Z8QQgnyddL3_b_kvzwuwoQYlctCgc69xf7Mv456umB5bT5Pp9nY-66O0rR9QSVS2FzzW_GZYIHYqbcEL9r-2DUfm68e2DxYWb0Ktj81hYJv3bStoCJSJtvKiLHCYT1IcuTuuJS2mg=s660" style="display: block; padding: 1em 0px; text-align: left;"><img alt="" border="0" data-original-height="386" data-original-width="660" src="https://blogger.googleusercontent.com/img/a/AVvXsEgeoZdkHWbpN2dn7bXwmAi6uUapU1WLfQ3u4NYLAD-dk3gbVgwn4Z8QQgnyddL3_b_kvzwuwoQYlctCgc69xf7Mv456umB5bT5Pp9nY-66O0rR9QSVS2FzzW_GZYIHYqbcEL9r-2DUfm68e2DxYWb0Ktj81hYJv3bStoCJSJtvKiLHCYT1IcuTuuJS2mg=s320" width="320" /></a></div>
+則再另外安裝缺少的中繼憑證即可。&nbsp;<div>步驟可參照：<a href="https://docs.microsoft.com/zh-tw/troubleshoot/developer/webapps/iis/www-authentication-authorization/configure-intermediate-certificates" rel="nofollow" target="_blank">在執行伺服器驗證的 IIS 電腦上設定中繼憑證</a></div><div><br /></div><div>下圖為現在安裝的所有中繼憑證，缺什麼就裝什麼。</div><div><a href="https://blogger.googleusercontent.com/img/a/AVvXsEgAOrOhLGB3HnUL13eakpPmXpUnuCte2m86v1A5FH9bizBzghyjCNk6FMeayP1Fx3BJSMtmLPljkx3NCEm6B8ySFeXNdsp4vtL43GRTaEqkMb_r07mVPEGWjT9Dli6GgoQhIB42C6XiSNwm3LPqw6Zty4cqoO9wSRY_JDMaaY3rd30VBbSotH_f4EhtXg=s959" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="489" data-original-width="959" height="163" src="https://blogger.googleusercontent.com/img/a/AVvXsEgAOrOhLGB3HnUL13eakpPmXpUnuCte2m86v1A5FH9bizBzghyjCNk6FMeayP1Fx3BJSMtmLPljkx3NCEm6B8ySFeXNdsp4vtL43GRTaEqkMb_r07mVPEGWjT9Dli6GgoQhIB42C6XiSNwm3LPqw6Zty4cqoO9wSRY_JDMaaY3rd30VBbSotH_f4EhtXg=s320" width="320" /></a></div><div><br /></div><div>3.若需將現有http連線導向至https，</div><div>可參考Will保哥心得：<a href="https://blog.miniasp.com/post/2014/06/04/Redirect-to-HTTPS-from-HTTP-using-IIS-URL-Rewrite" rel="nofollow" target="_blank">強迫網站轉向到 HTTPS 加密安全連線 ( IIS URL Rewrite )</a></div><div><br /><div class="separator" style="clear: both; text-align: left;"><br /></div><br /><br /></div>

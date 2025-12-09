@@ -1,0 +1,29 @@
+---
+layout: post
+title: 同一筆SQL指令進行新增/修改/刪除(MERGE)
+tag:
+- sql
+---
+
+<span style="font-size: xx-small;"><span style="font-family: inherit;">MERGE enginner AS <span style="color: #cc0000;">Target</span></span><br />
+<span style="font-family: inherit;">USING(<span style="color: #e69138;">&lt;比對的條件語法&gt;</span>) AS <span style="color: #6aa84f;">Source</span></span><br />
+<span style="font-family: inherit;">ON (<span style="color: #cc0000;">Target</span>.name = <span style="color: #6aa84f;">Source</span>.name AND <span style="color: #cc0000;">Target</span>.dept = <span style="color: #6aa84f;">Source</span>.dept)<span style="color: #999999;">→目的和來源比較條件</span></span><br />
+<span style="font-family: inherit;">WHEN MATCHED THEN<span style="color: #999999;">→當目的符合來源就更新</span></span><br />
+<span style="font-family: inherit;">UPDATE SET Target.position = Source.position</span><br />
+<span style="font-family: inherit;">WHEN NOT MATCHED BY TARGET THEN<span style="color: #999999;">→當目的無此紀錄就新增</span></span><br />
+<span style="font-family: inherit;">INSERT (name, position) VALUES (Source.name, Source.position, Source.dept)</span><br />
+<span style="font-family: inherit;">WHEN NOT MATCHED BY SOURCE THEN<span style="color: #999999;">→當來源無此紀錄就刪除</span></span><br />
+<span style="font-family: inherit;">DELETE;</span></span><br />
+<span style="font-family: inherit;"><br /></span>
+<span style="color: #e69138; font-family: inherit;">&lt;比對的條件語法&gt;</span><br />
+<span style="font-family: inherit;">可以指定Table</span><br />
+<span style="font-family: inherit;"><span style="font-size: xx-small;">SELECT name, position from employee</span></span><br />
+<span style="font-family: inherit;">或指定固定值</span><br />
+<span style="font-family: inherit;"><span style="font-size: xx-small;">SELECT ‘frank_tseng’ AS name, ‘engineer’ AS position</span></span><br />
+<span style="font-family: inherit;">或指定參數(程式使用)</span><br />
+<span style="font-family: inherit;"><span style="font-size: xx-small;">SELECT ? AS name, ? AS position</span></span><br />
+<span style="font-family: inherit;"><br /></span>
+<span style="font-family: inherit;">*需MS SQL Server 2008以上;另外MERGE是ANSI SQL:2003的標準,</span><br />
+<span style="font-family: inherit;">&nbsp; 每家資料庫廠商都有實作,所以不用擔心移殖的問題。</span><br />
+<span style="font-family: inherit;"><br /></span>
+<span style="font-family: inherit;">*僅針對單一紀錄合併新增/更新/刪除動作。</span>

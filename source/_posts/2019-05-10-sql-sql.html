@@ -1,0 +1,9 @@
+---
+layout: post
+title: SQL註冊器 SQL語法 測試區同步至正式區
+tag:
+- easyflow gp
+- sql
+---
+
+<pre><code class="sql">/*SQL註冊器 SQL語法 測試區同步至正式區*/ <br /> INSERT INTO [正式區EFGP DB].dbo.FormSqlClause <br />     SELECT <br />         * <br />     FROM [測試區EFGP DB].dbo.FormSqlClause <br />     WHERE id IN ('[SQL代號]'); <br /> <br /> /*SQL註冊器 表單權限 測試區同步至正式區*/ <br /> INSERT INTO [正式區EFGP DB].dbo.SqlAllowedForm <br />     SELECT <br />         * <br />     FROM [測試區EFGP DB].dbo.SqlAllowedForm <br />     WHERE containerOID IN ( <br />         SELECT <br />             OID <br />         FROM [測試區EFGP DB].dbo.FormSqlClause <br />         WHERE id IN ('[SQL代號]') <br />     ); </code></pre>

@@ -1,0 +1,8 @@
+---
+layout: post
+title: msdeploy(web deploy)後顯示錯誤連線{"初始化字串的格式和開始於索引 0 的規格不相符"}
+tag:
+- asp.net
+---
+
+<span class="hljs-tag" style="white-space: pre;"><span style="font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, sans-serif;">狀況:<br /> 部署後在web.config的連線字串會變成$(ReplacableToken_連線字串名稱-Web.config Connection String_0)<br /> <br /> 解法:<br /> 在專案的csproj檔,在各組態的&lt;PropertyGroup&gt;都加入<br /> &lt;AutoParameterizationWebConfigConnectionStrings&gt;False&lt;/AutoParameterizationWebConfigConnectionStrings&gt;<br /> <br /> 來源:<br /> <a href="https://www.blogger.com/#">https://docs.microsoft.c</a><a href="https://docs.microsoft.com/zh-tw/aspnet/web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting#format-of-the-initialization-string-does-not-conform-to-specification-starting-at-index-0" style="font-family: consolas, menlo, monaco, &quot;lucida console&quot;, &quot;liberation mono&quot;, &quot;dejavu sans mono&quot;, &quot;bitstream vera sans mono&quot;, &quot;courier new&quot;, monospace, sans-serif; white-space: pre;">om/zh-tw/aspnet/web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting#format-of-the-initialization-string-does-not-conform-to-specification-starting-at-index-0</a></span></span>

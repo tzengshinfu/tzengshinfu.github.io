@@ -1,0 +1,12 @@
+---
+layout: post
+title: 欄位別名在同一筆SQL指令立即使用
+tag:
+- sql
+---
+
+使用通用資料表運算式(CTE)<br />
+<br /><pre><code class="sql">WITH RESULT AS (<br /> SELECT<br />     5 - 1 AS COLUMN1<br />     ,4 - 1 AS COLUMN2<br /> )<br /> SELECT COLUMN1, COLUMN2 FROM RESULT;</code></pre>
+<br />
+<br />
+參考:<a href="http://sqlmag.com/blog/tip-apply-and-reuse-column-aliases" target="_blank">Tip: APPLY and Reuse of Column Aliases</a>

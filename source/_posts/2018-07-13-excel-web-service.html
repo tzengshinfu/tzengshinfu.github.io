@@ -1,0 +1,35 @@
+---
+layout: post
+title: Excel叫用Web service
+tag:
+- excel
+- vba
+- web service
+---
+
+1.VBA編輯器→工具→設定引用項目<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAIXWRHgzC9kCRsrmO1pXtKC93MVr3Mo9JzgxI5Ni1C7XXqwAZF1DliqrImoMQaPkLFLLbsv1MKB4w7ZrmlUW-kzyGhZlUe8ZeEYaFA-_WD9_IRriNZv0QlCFgEhSRyYId2wE6zZUf6uvd/s1600/Image_20180713093944.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="183" data-original-width="244" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAIXWRHgzC9kCRsrmO1pXtKC93MVr3Mo9JzgxI5Ni1C7XXqwAZF1DliqrImoMQaPkLFLLbsv1MKB4w7ZrmlUW-kzyGhZlUe8ZeEYaFA-_WD9_IRriNZv0QlCFgEhSRyYId2wE6zZUf6uvd/s1600/Image_20180713093944.png" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<br /></div>
+<div class="separator" style="clear: both; text-align: left;">
+<br /></div>
+<div class="separator" style="clear: both; text-align: left;">
+2.增加<span style="background-color: #fff2cc;">Microsoft Office Soap Type Library v3.0</span></div>
+<div class="separator" style="clear: both; text-align: left;">
+(路徑:C:\Program Files (x86)\Common Files\microsoft shared\OFFICE14\MSSOAP30.DLL)</div>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div class="separator" style="clear: both; text-align: left;">
+及<span style="background-color: #fff2cc;">Microsoft XML, v6.0</span></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5X-DsAkja4MDi7WupyPF8M4-qyONltJOiKCpnSyJvfVFj2Z5iXB6AgkWAhDc8womM1fxMb0zvBYPcj6MkHOO5r90nit2r0Wy2pY63p-1eLZIMN5cAYUWI7FGMwRgE0Nv6xexukIoBZHuk/s1600/Image_20180713094108.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="348" data-original-width="463" height="240" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5X-DsAkja4MDi7WupyPF8M4-qyONltJOiKCpnSyJvfVFj2Z5iXB6AgkWAhDc8womM1fxMb0zvBYPcj6MkHOO5r90nit2r0Wy2pY63p-1eLZIMN5cAYUWI7FGMwRgE0Nv6xexukIoBZHuk/s320/Image_20180713094108.png" width="320" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<br /></div>
+<div class="separator" style="clear: both; text-align: center;">
+<br /></div>
+<div class="separator" style="clear: both; text-align: left;">
+3.以下代碼叫用即可&nbsp;</div><div class="separator" style="clear: both; text-align: left;"><pre><code class="vba"> Dim service As SoapClient30 <br /> <br /> Dim result As MSXML2.IXMLDOMSelection '回傳結果 <br /> Dim isOk As MSXML2.IXMLDOMElement '回傳結果屬性(執行結果OK/NG) <br /> Dim message As MSXML2.IXMLDOMElement '回傳結果屬性(返回訊息) <br /> Dim value As MSXML2.IXMLDOMElement '回傳結果屬性(返回值) <br /> <br /> <br /> Set service = New SoapClient30 <br /> Call service.MSSoapInit("WSDL的URL") <br />    <br /> Set result = service.方法名稱("參數") <br /> Set isOk = result.Item(0) <br /> Set message = result.Item(1) <br /> Set value = result.Item(2)</code></pre></div>
+<div class="separator" style="clear: both; text-align: center;">
+</div>

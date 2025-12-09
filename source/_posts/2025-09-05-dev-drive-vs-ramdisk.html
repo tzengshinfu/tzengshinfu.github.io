@@ -1,0 +1,9 @@
+---
+layout: post
+title: Dev Drive vs RamDisk
+tag:
+- dev drive
+- ramdisk
+---
+
+<p>純個人體感，RamDisk勝！</p><p><br /></p><p>Windows form專案，在<a href="https://learn.microsoft.com/zh-tw/windows/dev-drive/" rel="nofollow" target="_blank">Dev Drive</a>編譯，未開啟Microsoft Defender，<br />時不時會繞圈圈甚至卡死必須重啟Visual Studio；</p><p>用RamDisk(<a href="https://sourceforge.net/projects/aim-toolkit/" rel="nofollow" target="_blank">AIM Toolkit</a>，新版ImDisk Toolkit)，編譯過程絲滑，<br />單元測試也是亳無卡頓。</p><p><br /></p><p>目前使用方法：</p><p>1.原始碼備份儲存在D:\Workspace。</p><p>2.開機時會複製至AIM Toolkit建立的R:\。</p><p>3.關機時會同步回D:\Workspace。</p><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4d_HRYH3nGJiGGC7FjloEmI2L2b7kDFQWhMsy_taLEckBx6UD321Wi6p8AYjAuxzpMLX1PriusiAQ1phyphenhyphen9Jm-no54NKqcIfGk-dZs7pn9EgPxJeNb3fDZKxKHQTK-gTbGUhFrg1JEnjnrChNijxTap7-Ag3pbnqQ3bD5j1LzjIlpfhzb1qJTeAVKkpbui/s489/RamDiskUI_20250911_084159.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="489" data-original-width="462" height="320" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4d_HRYH3nGJiGGC7FjloEmI2L2b7kDFQWhMsy_taLEckBx6UD321Wi6p8AYjAuxzpMLX1PriusiAQ1phyphenhyphen9Jm-no54NKqcIfGk-dZs7pn9EgPxJeNb3fDZKxKHQTK-gTbGUhFrg1JEnjnrChNijxTap7-Ag3pbnqQ3bD5j1LzjIlpfhzb1qJTeAVKkpbui/s320/RamDiskUI_20250911_084159.png" width="302" /></a></div><br /><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p>4.為避免當機等意外造成進度消失，在開發過程須上傳到版控主機。<br />5.亦可用同步軟體或腳本(如Robocopy)進行複製和偵測到檔案變更時回寫D:\Workspace。</p><p><br /></p><p>網友AIM Toolkit使用心得：<a href="https://otogeworks.com/blog/creation-ramdisk-using-aim-toolkit/" rel="nofollow" target="_blank">AIM Toolkit(ImDisk Toolkitの後継)がリリースされたので使ってみた</a></p>

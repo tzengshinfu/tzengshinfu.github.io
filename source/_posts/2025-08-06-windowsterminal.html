@@ -1,0 +1,9 @@
+---
+layout: post
+title: 在資料夾右鍵新增"在終端中開啟"(WindowsTerminal)
+tag:
+- windows 11
+- windows terminal
+---
+
+<pre><code class="batch">將以下內容另存.reg檔，修改</code>[WindowsTerminal路徑(以兩個反斜線區隔)]並匯入登錄檔：</pre><pre><code class="batch"><p>Windows Registry Editor Version 5.00<br /><br />[HKEY_CLASSES_ROOT\Directory\shell\wt]<br />@="在終端中開啟"<br />"Icon"="\"%USERPROFILE%\AppData\Local\Microsoft\WindowsApps\wt.exe\""<br /><br />[HKEY_CLASSES_ROOT\Directory\shell\wt\command]<br />@="\"%USERPROFILE%\AppData\Local\Microsoft\WindowsApps\wt.exe\" -d \"%V\""</p></code></pre>

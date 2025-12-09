@@ -1,0 +1,139 @@
+---
+layout: post
+title: IIS不卡頓的設定
+---
+
+<span style="font-family: 微軟正黑體, sans-serif; font-size: 12pt;">1.應用集區初始化</span><span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;">:</span><br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjr-qC5sGcN8uVAJyG4sL1229DugcygNFcxOkLgXDLYI4Cr_vYtR18jJa9U66nBSjHiRRoKtaapY112o_lN0kY7CcUC5fjuSJw3r5Dlps7MBMi2mZectTr-ZyeCFAHV0MwBUyKb_kH0XB6b/s1600/1-1.jpg" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="728" data-original-width="1024" height="283" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjr-qC5sGcN8uVAJyG4sL1229DugcygNFcxOkLgXDLYI4Cr_vYtR18jJa9U66nBSjHiRRoKtaapY112o_lN0kY7CcUC5fjuSJw3r5Dlps7MBMi2mZectTr-ZyeCFAHV0MwBUyKb_kH0XB6b/s400/1-1.jpg" width="400" /></a></div>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br />
+<!--[if !supportLineBreakNewLine]--><br />
+<!--[endif]--></span><br />
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;">2.</span><span style="font-family: 微軟正黑體, sans-serif; font-size: 12pt;">應用集區</span><span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"> - </span><span style="font-family: 微軟正黑體, sans-serif; font-size: 12pt;">啟動模式</span><span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;">:</span><br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNWjmlndeg2PEiIQr1b9t-XA8PhOOH5i90C6V6dL-0C_8su08lvWlaWdTTPKuRQacJo5-kCbsX_Jor0VL3EpGFR7nmx1BwAl8Bul24IYdAEjzUOeZH4RMgZDsVUSBiUXOuM0gtX6Ee-N6a/s1600/333.jpg" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="549" data-original-width="518" height="400" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNWjmlndeg2PEiIQr1b9t-XA8PhOOH5i90C6V6dL-0C_8su08lvWlaWdTTPKuRQacJo5-kCbsX_Jor0VL3EpGFR7nmx1BwAl8Bul24IYdAEjzUOeZH4RMgZDsVUSBiUXOuM0gtX6Ee-N6a/s400/333.jpg" width="376" /></a></div>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;">3.</span><span style="font-family: 微軟正黑體, sans-serif; font-size: 12pt;">網站進階設定</span><span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"> - </span><span style="font-family: 微軟正黑體, sans-serif; font-size: 12pt;">預先載入</span><span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;">:</span><br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqR4UoT4bJpv7tH1XLCOocRbAp7w_i4UOAwLWuOtYVZS1BcQkeqTGE6Wm4fX6LnKGA3SujXSSNLouVkUXgq9u8wHgwPF4GjFiNMYjipb6xy9KMJpFwWGwZOFPQqeVDd9NhmdX8j6gqoplA/s1600/2-22.jpg" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="551" data-original-width="450" height="400" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqR4UoT4bJpv7tH1XLCOocRbAp7w_i4UOAwLWuOtYVZS1BcQkeqTGE6Wm4fX6LnKGA3SujXSSNLouVkUXgq9u8wHgwPF4GjFiNMYjipb6xy9KMJpFwWGwZOFPQqeVDd9NhmdX8j6gqoplA/s400/2-22.jpg" width="326" /></a></div>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;">4.</span><span style="font-family: 微軟正黑體, sans-serif; font-size: 12pt;">應用集區</span><span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"> – </span><span style="font-family: 微軟正黑體, sans-serif; font-size: 12pt;">閒置逾時動作</span><span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;">:</span><br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwZ0YqoadLXYHBQZ-gNgjThHDGhV9W-68IMZ1v7q-APwKeBQExEb6YEehzWWf9HZGypgOBwyEDQ8ginZLDgRF3RH4mc2lxRfTdWQfNGM4kLkFE1xgmlFITN5gHF35Qtx4AjY-lMRy65KW0/s1600/5.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="553" data-original-width="593" height="372" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwZ0YqoadLXYHBQZ-gNgjThHDGhV9W-68IMZ1v7q-APwKeBQExEb6YEehzWWf9HZGypgOBwyEDQ8ginZLDgRF3RH4mc2lxRfTdWQfNGM4kLkFE1xgmlFITN5gHF35Qtx4AjY-lMRy65KW0/s400/5.png" width="400" /></a></div>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;">5.</span><span style="font-family: 微軟正黑體, sans-serif; font-size: 12pt;">應用集區</span><span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"> - </span><span style="font-family: 微軟正黑體, sans-serif; font-size: 12pt;">回收</span><span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"> - </span><span style="font-family: 微軟正黑體, sans-serif; font-size: 12pt;">固定時間間隔</span><span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;">:</span><br />
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEixLoF0SLSra-EKLtTXNEb37IUeXSMGE6DmWkuWZT5YPA26md3ucnrLhyphenhyphen1ctbG-oIPVMHyOBdkOUQ9L9iKyqduO8WwENNPXv8j-ysR6ci70Z_DwwOEKdOl0RPmcxeQ5TnwYHgaAdlCzR_li/s1600/44444.jpg" style="clear: left; display: inline; float: left; margin-bottom: 1em; margin-right: 1em; text-align: center;"><img border="0" data-original-height="628" data-original-width="627" height="400" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEixLoF0SLSra-EKLtTXNEb37IUeXSMGE6DmWkuWZT5YPA26md3ucnrLhyphenhyphen1ctbG-oIPVMHyOBdkOUQ9L9iKyqduO8WwENNPXv8j-ysR6ci70Z_DwwOEKdOl0RPmcxeQ5TnwYHgaAdlCzR_li/s400/44444.jpg" width="398" /></a><br />
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;"><br /></span>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<span lang="EN-US" style="font-family: calibri, sans-serif; font-size: 12pt;">6.</span><span style="font-family: 微軟正黑體, sans-serif; font-size: 12pt;">取消壓縮:<br />(如果頁面size都不大)</span><br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0TlcoCJaYIQzP8athn69eCmOXJs-PGbLF463FhdelOo27ZDdEhUeNm1aXH17fk9OraZ9sA_OMkDG79urHe4XxLBVe1Yhyphenhyphen5S1znL68G48l6OfY7Oc6N5jCkUGWvilKCsQQEOf0Il3F-eN7/s1600/6.jpg" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="326" data-original-width="747" height="173" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0TlcoCJaYIQzP8athn69eCmOXJs-PGbLF463FhdelOo27ZDdEhUeNm1aXH17fk9OraZ9sA_OMkDG79urHe4XxLBVe1Yhyphenhyphen5S1znL68G48l6OfY7Oc6N5jCkUGWvilKCsQQEOf0Il3F-eN7/s400/6.jpg" width="400" /></a></div>
+<span style="font-family: 微軟正黑體, sans-serif; font-size: 12pt;"><br /></span>

@@ -1,0 +1,9 @@
+---
+layout: post
+title: 修正線上正在執行的流程關卡的SQL語法
+tag:
+- easyflow gp
+- sql
+---
+
+<pre><code class="sql"> DECLARE @serialNumber nvarchar(50) = '&lt;要修正的流程序號&gt;'; <br /> DECLARE @activityDefinitionName nvarchar(100) = '&lt;要修正的關卡ID&gt;'; <br /> DECLARE @contextOID char(32) = (SELECT contextOID FROM ProcessInstance WHERE serialNumber = @serialNumber); <br /> DECLARE @processPackageOID char(32) = (SELECT processPackageOID FROM ProcessContext WHERE OID = @contextOID); <br /> DECLARE @ProcessDefinitionOID char(32) = (SELECT ProcessDefinitionOID FROM ProcessPackage_ProcessDef WHERE ProcessPackageOID = @processPackageOID); <br /><br /> SELECT <br />     ParticipantDefinition.* <br /> FROM ActivityDefinition <br /> INNER JOIN ParticipantDefinition <br /> ON ActivityDefinition.containerOID = ParticipantDefinition.containerOID <br /> AND ParticipantDefinition.id LIKE '%' + CAST(ActivityDefinition.performerIds AS VARCHAR(MAX)) + '%' <br /> AND ActivityDefinition.containerOID = @ProcessDefinitionOID <br /> AND activityDefinitionName = @activityDefinitionName; <br /><br /> UPDATE ParticipantDefinition <br /> SET organizationUnitId = '&lt;修正後的部門代號&gt;' <br /> ,objectVersion = objectVersion + 1 <br /> WHERE OID = '&lt;為上個SQL指令查出的ParticipantDefinition.OID&gt;';</code></pre>

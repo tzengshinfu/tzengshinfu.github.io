@@ -1,0 +1,23 @@
+---
+layout: post
+title: PowerShell刪除啟動已逾期的特定執行緒
+tag:
+- powershell
+---
+
+<pre><code class="powershell">
+param([Int32]$second=10&lt;# 逾期秒數 #&gt;)
+
+Get-Process | ForEach-Object {
+    if ($_.ProcessName -eq "EXCEL"&lt;# 要尋找的執行序名稱 #&gt;) {
+        $commandline = Get-CimInstance Win32_Process -Filter "ProcessId = '$($_.Id)'" | Select Commandline
+
+        if ($commandline -like '*automation*'&lt;# 當命令列包含特定文字 #&gt;) {
+            if ((NEW-TIMESPAN -Start $_.StartTime -End (Get-Date)).TotalSeconds -ge $second) {
+                Stop-Process -Id $_.Id
+            }
+        }    
+    }
+}
+</code>
+</pre>

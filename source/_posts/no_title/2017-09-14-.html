@@ -1,0 +1,8 @@
+---
+layout: post
+title: 刪除特定天數以前的檔案
+tag:
+- dos command
+---
+
+通常使用forfiles指令去遍歷某路徑下的檔案並執行刪除<br /> 如:<pre><code class="bat"> forfiles /P "D:\xx"[路徑] /D -3[天數] /C "cmd /c del /q /f @file"</code></pre> <br /> 若要刪除遠端主機的檔案(路徑格式為\\xx\xx\xx = UNC格式)，<br /> 但因為forfiles不支援UNC格式，<br /> 除了使用網路磁碟機對應(\\xx\xx\xx→X:\)，<br /> 還可以使用以下指令:<br /><pre><code class="bat"> PushD "\\xx\xx\xx"[UNC路徑] &amp;&amp;(<br /> forfiles /D -3[天數] /C "cmd /c del /q /f @file"<br /> ) &amp; PopD</code></pre>

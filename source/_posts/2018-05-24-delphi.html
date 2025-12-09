@@ -1,0 +1,8 @@
+---
+layout: post
+title: 點擊Delphi專案檔時會顯示[傳送命令給程式時發生錯誤]而無法直接開啟
+tag:
+- delphi
+---
+
+【狀況】<br /> 雙點dpr檔圖示(Delphi專案檔), 在開啟Delphi 時IDE卻顯示錯誤訊息,<br /> 而直接開啟一個空的作業環境。<br /> <a href="https://www.blogger.com/#"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiC2msqzH9i5uisnYqwhTbB2Z-l0e7UBM5PSRrkhocRP1Rvkag2pi94UKImRT_G53FwBB-nIiRcPdmt2J8lc5kAA0aEAPb1aGW18P5KmJ0zWUFE-VCiybTd4EnkJaG8BTc44nqf_yGdwAiv/s400/Image_20180524173330.png" /></a> <br /> <br /> 【解法】<br /> 開啟{登錄編輯程式}。<br /> 搜尋{DelphiProject}，展開並刪除{ddeexec}這個機碼。<br /> <a href="https://www.blogger.com/#"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikK7eAYOqYsBQl469Ivpy8E3GE3UXOUPhzxtV_XXxZ4zBKJKCT0587_RVoeophR_W8JRC3fMy3u4s7bALVRnghTSpTePV0G8MfiqWH9yfyoV9NT9DaPFrr2u5HjsoJw43PWJPn2Gn3Cnzp/s400/Image_20180524173733.png" /></a> <br /> <br /> <br /> 將同階的{command}機碼的內容由<br /> C:\Delphi6\Bin\Delphi32.exe /np<br /> 改為<br /> C:\Delphi6\Bin\Delphi32.exe "%1"<br /> 即可。<br /> <a href="https://www.blogger.com/#"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzB8yNjz5tmAogjZLXPxjFagv4JoEv7H6JGJuI1FUCYOFfYOHmeXsul7azRc3ijUu-mb_lou87-5zyeXdWZ0Bz6Hj21gHdAcji-G7yi2RNsP3RBoUYdTwCDvu4RkwqDDKFtHs_WyurfA7_/s400/Image_20180524173753.png" /></a> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />

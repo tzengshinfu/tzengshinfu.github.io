@@ -1,0 +1,276 @@
+---
+layout: post
+title: MSSQL連結MySQL
+tag:
+- ssms
+---
+
+<div class="MsoNormal">
+<span lang="EN-US" style="font-family: 微軟正黑體, sans-serif;">1_</span><span style="font-family: 微軟正黑體, sans-serif;">在My<span lang="EN-US">SQL資料庫</span>新增連線帳號<span lang="EN-US">(</span>本例為<span lang="EN-US">root)</span>允許存取的主機位址<span lang="EN-US">(</span>本例為<span lang="EN-US">192.168.2.11)</span>。<span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOQp-jryv7Tb1c-Mz7EaPjCEvgOiG_BPw80vUfJa3QmGgBDjfUtRyLoqrLnxlGyUR0lbRwn0MaUHEbQ1aQI2Hri1ii8OBtKrCjkIadnQ2wwS7YJ0bcGGnUY9VYWfJeW-rbsts2ljMcGQlq/s1600/1_.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="722" data-original-width="904" height="318" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOQp-jryv7Tb1c-Mz7EaPjCEvgOiG_BPw80vUfJa3QmGgBDjfUtRyLoqrLnxlGyUR0lbRwn0MaUHEbQ1aQI2Hri1ii8OBtKrCjkIadnQ2wwS7YJ0bcGGnUY9VYWfJeW-rbsts2ljMcGQlq/s400/1_.png" width="400" /></a></div>
+<div class="MsoNormal">
+<span style="font-family: 微軟正黑體, sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<br /></div>
+<div class="MsoNormal">
+</div>
+<div class="MsoNormal">
+<span lang="EN-US" style="font-family: 微軟正黑體, sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="font-family: 微軟正黑體, sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="font-family: 微軟正黑體, sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="font-family: 微軟正黑體, sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="font-family: 微軟正黑體, sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="font-family: 微軟正黑體, sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="font-family: 微軟正黑體, sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="font-family: 微軟正黑體, sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="font-family: 微軟正黑體, sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="font-family: 微軟正黑體, sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="font-family: 微軟正黑體, sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="font-family: 微軟正黑體, sans-serif;"><br /></span></div>
+<div class="MsoNormal"><br /></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="font-family: 微軟正黑體, sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="font-family: 微軟正黑體, sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="font-family: 微軟正黑體, sans-serif;"><br /></span>
+<span lang="EN-US" style="font-family: 微軟正黑體, sans-serif;">2_<span lang="EN-US"><span lang="EN-US">設定root@192.168.2.11</span></span></span><span style="font-family: 微軟正黑體, sans-serif;">的存取權限<span lang="EN-US">(</span>本例為<span lang="EN-US">Select)</span>。<span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiktGM0iWx3Y6YD9GXoIJy0My_2GhJFmxKCoGiRaaPJi-wmQXVueeICEh7F8BraOcKVXYkXKHK_ZuJlB0al5aj5WJDoegB_JDypGdar4cwUSUJJoh-N-dUmiIRyYTe6UbY7uHOpATny8UAN/s1600/2_.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="722" data-original-width="901" height="320" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiktGM0iWx3Y6YD9GXoIJy0My_2GhJFmxKCoGiRaaPJi-wmQXVueeICEh7F8BraOcKVXYkXKHK_ZuJlB0al5aj5WJDoegB_JDypGdar4cwUSUJJoh-N-dUmiIRyYTe6UbY7uHOpATny8UAN/s400/2_.png" width="400" /></a></div>
+<div class="MsoNormal">
+<span style="font-family: 微軟正黑體, sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal"><br /></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span>
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span>
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;">3_</span><span style="background: white; color: #333333; font-family: , sans-serif;">在<span lang="EN-US">192.168.2.11</span>設定<span lang="EN-US">ODBC</span>驅動程式<span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEheqE9h3P4-J0yaGXDIb8Aaw39atvA04Iwo6myCB8cUGpnAtTg-q6yzmwKz9X3lVdCw7AVUFsxMQh6DsZlY3ZmEfZ6d-3-EuGn1iqlQrsXz6hDbkDqF_ks7uEfPk6tZPb5a15uOAKrSzuy6/s1600/3_.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="685" data-original-width="1210" height="226" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEheqE9h3P4-J0yaGXDIb8Aaw39atvA04Iwo6myCB8cUGpnAtTg-q6yzmwKz9X3lVdCw7AVUFsxMQh6DsZlY3ZmEfZ6d-3-EuGn1iqlQrsXz6hDbkDqF_ks7uEfPk6tZPb5a15uOAKrSzuy6/s400/3_.png" width="400" /></a></div>
+<div class="MsoNormal">
+<span style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span style="background: white; color: #333333; font-family: , sans-serif;"></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal"><br /></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span>
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span>
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;">4_MySQL</span><span style="background: white; color: #333333; font-family: , sans-serif;">設定頁面<span lang="EN-US">1<o:p></o:p></span></span></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxXoe0WoHJuFhrOZmkxtWs3CwswIu7uyVtTp33lErRVnJ3FZvvknPhNGCbPHOTKLv6uU0EPKzdxzKueCyscYvxX5qTpFgQsMmBIsq2rGQ_qQXV_WnnPjlBXMEDhokwODdRgpbxSqJ63nsY/s1600/4_1.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="712" data-original-width="1217" height="233" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxXoe0WoHJuFhrOZmkxtWs3CwswIu7uyVtTp33lErRVnJ3FZvvknPhNGCbPHOTKLv6uU0EPKzdxzKueCyscYvxX5qTpFgQsMmBIsq2rGQ_qQXV_WnnPjlBXMEDhokwODdRgpbxSqJ63nsY/s400/4_1.png" width="400" /></a></div>
+<div class="MsoNormal">
+<span style="background: white; color: #333333; font-family: , sans-serif;"><span lang="EN-US"><br /></span></span></div>
+<div class="MsoNormal">
+<span style="background: white; color: #333333; font-family: , sans-serif;"><span lang="EN-US"></span></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal"><br /></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span>
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span>
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;">5_MySQL</span><span style="background: white; color: #333333; font-family: , sans-serif;">設定頁面<span lang="EN-US">2<o:p></o:p></span></span></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiL_DTXXI3AfAYI9-bC1IgVGjBJeu4XgPQKoulaZkrOa2CEtyfmoHzucaMg7X5msQr2rNK9f2GWo9v0v9bxP_dNR11j5LeBZqnCECSGvLb9I1JCh9ju2eiVDcoxUgq6CnRenBUaCPcc2ECK/s1600/5_.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="702" data-original-width="1207" height="232" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiL_DTXXI3AfAYI9-bC1IgVGjBJeu4XgPQKoulaZkrOa2CEtyfmoHzucaMg7X5msQr2rNK9f2GWo9v0v9bxP_dNR11j5LeBZqnCECSGvLb9I1JCh9ju2eiVDcoxUgq6CnRenBUaCPcc2ECK/s400/5_.png" width="400" /></a></div>
+<div class="MsoNormal">
+<span style="background: white; color: #333333; font-family: , sans-serif;"><span lang="EN-US"><br /></span></span></div>
+<div class="MsoNormal">
+<span style="background: white; color: #333333; font-family: , sans-serif;"><span lang="EN-US"></span></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal"><br /></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span>
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;">6_</span><span style="background: white; color: #333333; font-family: , sans-serif;">在<span lang="EN-US">192.168.2.11</span>的<span lang="EN-US">SSMS</span>設定連結伺服器<span lang="EN-US">(</span>資料來源<span lang="EN-US">=ODBC</span>驅動程式的名稱<span lang="EN-US">)<o:p></o:p></span></span></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUZdVEwl1F0-HJkMjT6i0S3tGCvmNF4D_KilGVq_r_DszAEMubZusPJOfVPzG4Fy34jERUfzZBZ3ZGaMrrmEWdv7cRHuyIiZS27etm9u02D0dtYN7M24m7UToDvYLL0q6IRNzYdaxmDhvJ/s1600/6_.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="632" data-original-width="704" height="358" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUZdVEwl1F0-HJkMjT6i0S3tGCvmNF4D_KilGVq_r_DszAEMubZusPJOfVPzG4Fy34jERUfzZBZ3ZGaMrrmEWdv7cRHuyIiZS27etm9u02D0dtYN7M24m7UToDvYLL0q6IRNzYdaxmDhvJ/s400/6_.png" width="400" /></a></div>
+<div class="MsoNormal">
+<span style="background: white; color: #333333; font-family: , sans-serif;"><span lang="EN-US"><br /></span></span></div>
+<div class="MsoNormal">
+<span style="background: white; color: #333333; font-family: , sans-serif;"><span lang="EN-US"></span></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal"><br /></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span>
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span>
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;">7_</span><span style="background: white; color: #333333; font-family: , sans-serif;">連結伺服器頁面<span lang="EN-US"><o:p></o:p></span></span></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifNYRnxGxzoyZ5vxLUlgjQ4bcOFFlsurJ61ZWXakFP6X0rJaAgldV24JpN7FlEySrPT6wDNoqbimvuyq3oRPaxrUkjU1NWpngykTZu6s2J6w9YIAcnJWTLhsMhERj_GTIzEPLfjyH_SmF8/s1600/7_.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="632" data-original-width="704" height="358" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifNYRnxGxzoyZ5vxLUlgjQ4bcOFFlsurJ61ZWXakFP6X0rJaAgldV24JpN7FlEySrPT6wDNoqbimvuyq3oRPaxrUkjU1NWpngykTZu6s2J6w9YIAcnJWTLhsMhERj_GTIzEPLfjyH_SmF8/s400/7_.png" width="400" /></a></div>
+<div class="MsoNormal">
+<span style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span style="background: white; color: #333333; font-family: , sans-serif;"></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal"><br /></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>
+<div class="MsoNormal">
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span>
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;"><br /></span>
+<span lang="EN-US" style="background: white; color: #333333; font-family: , sans-serif;">8_</span><span style="background: white; color: #333333; font-family: , sans-serif;">使用<span lang="EN-US">openquery</span>語法即可查詢資料。<span lang="EN-US" style="font-size: 11.5pt;"><o:p></o:p></span></span></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQaec-RKPixXKoX0bpX6fRWTAWoqdgc75r5xpu1jjxzPSxwDjpV4dreJtkh32yGhKyC8ZdW01wOwuEh2_cPdjKuEm23M8rmfOW6uQoZGIB1Jv1SJBpajkwqGZbbxeAEb1Pinmc1zyG7xY2/s1600/8_.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="872" data-original-width="1600" height="217" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQaec-RKPixXKoX0bpX6fRWTAWoqdgc75r5xpu1jjxzPSxwDjpV4dreJtkh32yGhKyC8ZdW01wOwuEh2_cPdjKuEm23M8rmfOW6uQoZGIB1Jv1SJBpajkwqGZbbxeAEb1Pinmc1zyG7xY2/s400/8_.png" width="400" /></a></div>
+<div class="MsoNormal">
+<span style="background: white; color: #333333; font-family: , sans-serif;"><br /></span></div>

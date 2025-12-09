@@ -1,0 +1,54 @@
+---
+layout: post
+title: Outlook存檔時自動格式化圖片(加上邊框及超過規定大小則自動縮小)
+tag:
+- vba
+---
+
+在ThisOutlookSession新增<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHA61OeGrOBs0r5jpYWdPp1SQG2Wot5ici6kpRiN-VvY6u2615wDynZYkQiyhwrll6lqcDFRFQaFmP1iAzCxZta8Sqq7YNJPZtVRRy15ZENZOHPK_KKCUtxhzCzi97ReCLQ9E4RlMhvVQL/s1600/Image+016.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="549" data-original-width="1186" height="185" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHA61OeGrOBs0r5jpYWdPp1SQG2Wot5ici6kpRiN-VvY6u2615wDynZYkQiyhwrll6lqcDFRFQaFmP1iAzCxZta8Sqq7YNJPZtVRRy15ZENZOHPK_KKCUtxhzCzi97ReCLQ9E4RlMhvVQL/s400/Image+016.png" width="400" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<pre><code class="vba">
+Public WithEvents outlookInspectors As Outlook.Inspectors
+Public WithEvents outlookMailItem As Outlook.mailItem
+
+Private Sub Application_Startup()
+    Set outlookInspectors = Application.Inspectors
+End Sub
+
+Private Sub outlookInspectors_NewInspector(ByVal Inspector As Inspector)
+    Set currentOutlookMailItem = Inspector.CurrentItem
+    
+    If TypeName(currentOutlookMailItem) = "MailItem" Then
+        Set outlookMailItem = currentOutlookMailItem
+    End If
+End Sub
+
+'發現outlookMailItem_Write事件並不會每次都觸發,所以改在BeforeCheckNames事件(檢查名稱前)
+Private Sub outlookMailItem_BeforeCheckNames(Cancel As Boolean)
+    On Error Resume Next
+    
+    If Not Application.ActiveInspector Is Nothing Then
+        Set editor = Application.ActiveInspector.WordEditor
+        
+        For Each Picture In editor.InlineShapes
+            '不處理簽名檔圖片(替代文字=簽名檔圖片匯入時的檔名)
+            If Picture.AlternativeText &lt;&gt; "signature" Then
+                If Picture.Width &gt; 750 Then
+                    Picture.Width = 750
+                End If
+                
+                '樣式=實線(wdLineStyleSingle)
+                '寬度=1pt(wdLineWidth100pt)
+                With Picture.Borders
+                    .OutsideLineStyle = 1
+                    .OutsideLineWidth = 8
+                    .OutsideColor = RGB(85, 142, 213)
+                End With
+            End If
+        Next
+    End If
+End Sub
+</code></pre>

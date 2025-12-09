@@ -1,0 +1,9 @@
+---
+layout: post
+title: GitHub Copilot CLI在Windows Terminal按Shift+Enter換行
+tag:
+- github copilot cli
+- windows terminal
+---
+
+<p>目前v0.0349仍無法直接設定，但可修改Windows Terminal設定檔以達成相同目的。<br /></p><p></p><pre><code class="json">{<p></p><p>&nbsp; &nbsp; "actions":</p><p>&nbsp; &nbsp; [</p><p>&nbsp; &nbsp; &nbsp; &nbsp; //#region 新增這段</p><p>&nbsp; &nbsp; &nbsp; &nbsp; {</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "command":</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "action": "sendInput",</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "input": "\n"</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "id": "linefeed"</p><p>&nbsp; &nbsp; &nbsp; &nbsp; }</p><p>&nbsp; &nbsp; &nbsp; &nbsp; //#endregion</p><p>&nbsp; &nbsp; ],</p><p>&nbsp; &nbsp; "keybindings":</p><p>&nbsp; &nbsp; [</p><p>&nbsp; &nbsp; &nbsp; &nbsp; //#region 新增這段</p><p>&nbsp; &nbsp; &nbsp; &nbsp; {</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "id": "linefeed",</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "keys": "shift+enter"</p><p>&nbsp; &nbsp; &nbsp; &nbsp; }</p><p>&nbsp; &nbsp; &nbsp; &nbsp; //#endregion</p><p>&nbsp; &nbsp; ]</p><p>}</p></code></pre><p><br /></p><p>參考來源：<a href="https://github.com/github/copilot-cli/issues/14#issuecomment-3399405101" rel="nofollow" target="_blank">CLI should support multi-line mode in input box</a></p>

@@ -1,0 +1,49 @@
+---
+layout: post
+title: Android Studio顯示錯誤訊息"Cannot resolve XXX"
+tag:
+- android studio
+---
+
+狀況:<br />
+變數名稱顯示紅色,有錯誤訊息"Cannot resolve XXX"<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgnKC5FpFtE8OUmrsaN-Ta5AP0hDmAqwVb_2w0ihldg7iL3RpTQ0K3mR4YpcVI5rvZJLxCc-btKRg4ItqIiwTuXR2ojcmAw4g0S03jfnojNGAnW6E0ciI_WKJkMjcQkhpVPnKaRoV1636-J/s1600/step1.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="352" data-original-width="583" height="241" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgnKC5FpFtE8OUmrsaN-Ta5AP0hDmAqwVb_2w0ihldg7iL3RpTQ0K3mR4YpcVI5rvZJLxCc-btKRg4ItqIiwTuXR2ojcmAw4g0S03jfnojNGAnW6E0ciI_WKJkMjcQkhpVPnKaRoV1636-J/s400/step1.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+解法:<br />
+1_在功能列&gt;Build&gt;Rebuild Project<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiatFfikOzuH_JkZBNJnkABjyNNEwmd0sdlgx7-5KFV-sAMG3fPBMeeXq1gdpaz7LzuHWuNRA0p72uwoTPi1ltUjdqEss7ZS9HwuPkxIzfaJX1ClWY6F-tmBebkgU5h2Q8QeZqQD4mNOnMZ/s1600/step2.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="324" data-original-width="590" height="218" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiatFfikOzuH_JkZBNJnkABjyNNEwmd0sdlgx7-5KFV-sAMG3fPBMeeXq1gdpaz7LzuHWuNRA0p72uwoTPi1ltUjdqEss7ZS9HwuPkxIzfaJX1ClWY6F-tmBebkgU5h2Q8QeZqQD4mNOnMZ/s400/step2.png" width="400" /></a></div>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<br />
+2_當解法1無效時,可更動(如輸入空白再刪除等)build.gradle(Project)內容,以觸發Sync功能<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpwA2oBhligVxOEv490wP1wkjz9ruYInpEVauqbaLo04_YI2HEF7OfuwRlI6RWYSRk_PjF0MOoybnTrbAxhy8BoZnPM1VenurSTKURtTiA9-JDXPSfK5HRtMUssBFQie7r9mOU0BkTqo8q/s1600/step3.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="524" data-original-width="1412" height="147" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpwA2oBhligVxOEv490wP1wkjz9ruYInpEVauqbaLo04_YI2HEF7OfuwRlI6RWYSRk_PjF0MOoybnTrbAxhy8BoZnPM1VenurSTKURtTiA9-JDXPSfK5HRtMUssBFQie7r9mOU0BkTqo8q/s400/step3.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+3_亦可嘗試清除快取<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgX4Amvn2jyQ18OyUjMp6BYwsYuobCUGnr_MVvrwi9swdSyZfX_-OaY-54VaKm_sdQwgwbvuK6mwgCDA4pWns1lzeV__NKswtZKvy0_QHrD886z_MJQZLVzcaLRcHPh8-71HtCypS5QOAPI/s1600/step1.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="709" data-original-width="1088" height="260" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgX4Amvn2jyQ18OyUjMp6BYwsYuobCUGnr_MVvrwi9swdSyZfX_-OaY-54VaKm_sdQwgwbvuK6mwgCDA4pWns1lzeV__NKswtZKvy0_QHrD886z_MJQZLVzcaLRcHPh8-71HtCypS5QOAPI/s400/step1.png" width="400" /></a></div>
+<br />

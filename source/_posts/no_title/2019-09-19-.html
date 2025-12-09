@@ -1,0 +1,58 @@
+---
+layout: post
+title: 組織異動相關語法
+tag:
+- easyflow gp
+- sql
+---
+
+<pre><code class="sql"><font face="inherit">DECLARE @action nvarchar(50) = 'CREATE'; --CREATE=新部門設主部門,保留原部門(主部門代號異動或兼任)/MODIFY=主部門異動(調部門)
+DECLARE @userId nvarchar(100) = '{工號}';
+DECLARE @newMainUnitId nvarchar(100) = '{異動部門代號}';
+DECLARE @userOID char(32) = (SELECT OID FROM Users WHERE id = @userId);
+DECLARE @newMainUnitOID char(32) = (SELECT OID FROM OrganizationUnit WHERE id = @newMainUnitId);
+DECLARE @approvalLevelOID char(32) = (SELECT approvalLevelOID FROM Functions WHERE isMain = 1 AND occupantOID = (SELECT OID FROM Users WHERE id = @userId));
+DECLARE @definitionOID char(32) = (SELECT definitionOID FROM Functions WHERE isMain = 1 AND occupantOID = (SELECT OID FROM Users WHERE id = @userId));
+
+--檢查參數
+IF @userOID IS NULL
+BEGIN
+    THROW 50000, '@userId無對應OID' ,1
+END
+
+IF @newMainUnitOID IS NULL
+BEGIN
+    THROW 50000, '@newMainUnitId無對應OID' ,1
+END
+
+IF @action NOT IN ('CREATE', 'MODIFY')
+BEGIN
+    THROW 50000, '@action只能是(CREATE/MODIFY)其中之一' ,1
+END
+
+--部門代號已存在則設為主部門
+DECLARE @existingUnitOID char(32) = (SELECT OID FROM OrganizationUnit WHERE OID IN (SELECT organizationUnitOID FROM Functions WHERE occupantOID = @userOID) AND id = @newMainUnitId);
+IF @existingUnitOID IS NOT NULL
+BEGIN
+    UPDATE Functions SET isMain = 0, objectVersion = objectVersion + 1 WHERE isMain = 1 AND occupantOID = @userOID;
+    UPDATE Functions SET isMain = 1, objectVersion = objectVersion + 1 WHERE occupantOID = @userOID AND organizationUnitOID = @existingUnitOID;
+    RETURN
+END
+ELSE
+BEGIN
+    IF @action = 'CREATE'
+    BEGIN
+        --主部門先改成非主部門
+        UPDATE Functions SET isMain = 0, objectVersion = objectVersion + 1 WHERE isMain = 1 AND occupantOID = @userOID;
+        --新增主部門
+        INSERT INTO Functions VALUES (REPLACE(LOWER(NEWID()),'-',''), 1, @approvalLevelOID, @definitionOID, @userOID, @newMainUnitOID, NULL, 1);
+        RETURN
+    END
+    ELSE
+    BEGIN
+        --修改主部門        
+        UPDATE Functions SET organizationUnitOID = @newMainUnitOID, objectVersion = objectVersion + 1, specifiedManagerOID = NULL WHERE isMain = 1 AND occupantOID = @userOID;
+        RETURN
+    END
+END</font>
+</code></pre>

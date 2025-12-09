@@ -1,0 +1,44 @@
+---
+layout: post
+title: MSSQL Server新增連結伺服器以取得網域資訊
+tag:
+- sql server
+---
+
+<font face="inherit">1.連結的伺服器屬性<br />
+</font><div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidxIUxAUrtfqsxlde6LcFUy66yWV1Ni_CwFBhZFpJRbkMkQe2PhG9k3lh3uV0TH7fFQ73fL1YbpZkvQs_DXxQywOKcD5lJylf_wSYO0-mtyKf_iKEb_53ziyaCzPhG7hskJJY8xHBUt7mF/s1600/att1.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><font face="inherit"><img border="0" data-original-height="641" data-original-width="719" height="356" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidxIUxAUrtfqsxlde6LcFUy66yWV1Ni_CwFBhZFpJRbkMkQe2PhG9k3lh3uV0TH7fFQ73fL1YbpZkvQs_DXxQywOKcD5lJylf_wSYO0-mtyKf_iKEb_53ziyaCzPhG7hskJJY8xHBUt7mF/s400/att1.png" width="400" /></font></a></div>
+<font face="inherit"><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTUij6CfY2EzbNVp6FQE_YqsS6AlfbXovcjFECaNSrRezvfPTkvV9kDEFkNMK4ZJg87sM9GFxqEYQ5lZmFR76eh8ePLlj9-tq7xtY6cAN3a67z-wahW2TUkeKUsDGJ1YqwQiZdnGkdUK7e/s1600/att2.png" style="clear: left; display: inline; margin-bottom: 1em; margin-right: 1em; text-align: center;"><img border="0" data-original-height="640" data-original-width="717" height="356" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTUij6CfY2EzbNVp6FQE_YqsS6AlfbXovcjFECaNSrRezvfPTkvV9kDEFkNMK4ZJg87sM9GFxqEYQ5lZmFR76eh8ePLlj9-tq7xtY6cAN3a67z-wahW2TUkeKUsDGJ1YqwQiZdnGkdUK7e/s400/att2.png" width="400" /></a><br />
+<br />
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhREJtQt6tr2T0HCG8SA2OThr8wUCVgIlJMGb9mrRWLQVjHChUFAYgU0u43Gmh6ylFtMwudRWcXejGt5AfYCqGthINIn97uytpudHzcHj-pgy4FF9UjM67owuhtqdFIsLGFz19GyHRZk5Gx/s1600/att3.png" style="clear: left; display: inline; margin-bottom: 1em; margin-right: 1em; text-align: center;"><img border="0" data-original-height="641" data-original-width="717" height="357" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhREJtQt6tr2T0HCG8SA2OThr8wUCVgIlJMGb9mrRWLQVjHChUFAYgU0u43Gmh6ylFtMwudRWcXejGt5AfYCqGthINIn97uytpudHzcHj-pgy4FF9UjM67owuhtqdFIsLGFz19GyHRZk5Gx/s400/att3.png" width="400" /></a><br />
+<br />
+<br />
+2.如果不能查詢,再進行以下步驟</font><font face="inherit"><pre><code class="sql">/**預設SQL Server不允許OpenQuery,所以要先啟用系統預儲程式進階選項*/
+sp_configure 'show advanced options', 1   
+reconfigure with override   
+
+/**再啟用特定分散式查詢選項*/
+sp_configure 'Ad Hoc Distributed Queries', 1   
+reconfigure  <font size="2">
+</font></code></pre></font>

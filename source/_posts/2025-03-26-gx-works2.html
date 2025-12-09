@@ -1,0 +1,8 @@
+---
+layout: post
+title: GX Works2 切換介面語系
+tag:
+- gx works2
+---
+
+<p>問題：</p><p>要切換介面顯示語系，但發現工具&gt;選擇語言是針對工程內容，而不是介面顯示。</p><p>解法：</p><p>1. 關閉GX Works2。</p><p><br /></p><p>2. 開啟登錄編輯程式，路徑：</p><p>HKEY_CURRENT_USER\Software\MITSUBISHI\SWnDN-GPPW2\App\CodePage</p><p>編輯<u> DWORD (32-位元) 值</u></p><p>底數選<u>十進位(D)</u></p><p>數值資料輸入如下：</p><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQCqmGYrFEAbre4sGGE4MnAk6x60fYKwBIDYy-ynn4LjgoBYbSDIdxNJa_SEb5sSip7E_8Gzq5tVEXN_jZnK9zxKHNZ3Fz20VUgztbDyfQq_5Faeb9ScqKvwfwlTiLzqItwoyn6eIqnCBu2FCEuIPkrHFI0exiWInaxvInOksORliipHfbPxG5WkrMwd1y/s385/regedit_20250326_130507.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="225" data-original-width="385" height="234" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQCqmGYrFEAbre4sGGE4MnAk6x60fYKwBIDYy-ynn4LjgoBYbSDIdxNJa_SEb5sSip7E_8Gzq5tVEXN_jZnK9zxKHNZ3Fz20VUgztbDyfQq_5Faeb9ScqKvwfwlTiLzqItwoyn6eIqnCBu2FCEuIPkrHFI0exiWInaxvInOksORliipHfbPxG5WkrMwd1y/w400-h234/regedit_20250326_130507.png" width="400" /></a></div><br /><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p>數值資料內容<a href="https://zh.wikipedia.org/zh-tw/%E4%BB%A3%E7%A0%81%E9%A1%B5" rel="nofollow" target="_blank">說明</a>：</p><p>1252 西歐拉丁字母ISO-8859-1</p><p>950&nbsp; 繁體中文（大五碼）</p><p>936&nbsp; 簡體中文（GBK）</p><p>932&nbsp; 日文（Shift_JIS）</p><p><br /></p><p>3. 重新啟動GX Works2即可。</p><p><br /></p><p><br /></p><p>參考來源：<a href="http://www.ymmfa.com/read-gktid-1371103-uid-3.html" rel="nofollow" target="_blank">GX WORKS2 1.77F 語言檔問題,簡中,繁中,英文</a></p>

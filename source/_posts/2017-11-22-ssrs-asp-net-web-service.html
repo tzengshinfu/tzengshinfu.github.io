@@ -1,0 +1,57 @@
+---
+layout: post
+title: SSRS無法解析ASP.NET Web Service回傳結果
+tag:
+- asp.net
+- ssrs
+- web service
+---
+
+場景:<br />
+1_使用ASP.NET建立Web Service，回傳結果格式為DataSet。<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5fgGdf6tJp8k6qwj3XFaiOWUkIIf055A6cBztk3RVlAMs6JPS1KPxjcLaQNbH6R8FrMMEHLWDm9fNi4_tuj5DprtKmtzBIG7tuKW2SeCntwxJfHqkyZyj3IK45dzRm91JKKky-78_cKW9/s1600/step1.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="560" data-original-width="908" height="246" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5fgGdf6tJp8k6qwj3XFaiOWUkIIf055A6cBztk3RVlAMs6JPS1KPxjcLaQNbH6R8FrMMEHLWDm9fNi4_tuj5DprtKmtzBIG7tuKW2SeCntwxJfHqkyZyj3IK45dzRm91JKKky-78_cKW9/s400/step1.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+2_欲使用SSRS將回傳結果當成Data Source以利重用，卻發現結果不是我們要的。<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQLcQSmasr7EDo3TTVmc8xxhJK9k_xR2T-B_Y4EDtvQ_gkm7fC7acEmcfkZdknMPC_CL0Twy4Z3_nZSQLLcof4zA6F2mhTPdpVI2_Wp5enN97PsWOHCOIrQF7gh7-lQWpZ6BWRxS6MGkn_/s1600/step2.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="401" data-original-width="1221" height="131" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQLcQSmasr7EDo3TTVmc8xxhJK9k_xR2T-B_Y4EDtvQ_gkm7fC7acEmcfkZdknMPC_CL0Twy4Z3_nZSQLLcof4zA6F2mhTPdpVI2_Wp5enN97PsWOHCOIrQF7gh7-lQWpZ6BWRxS6MGkn_/s400/step2.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+3_建立自訂類別取代DataSet如下，將屬性為基本類型並設為公開：<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZ878TCWNf49OcSQtT8FREfE5BBkkFNbrtkwO5dSlexkOUegiM2puDPIxiiEeywi5XR0erylk3YXNBGbDutS2PztKc6-E5orrmOKbzANwpM-DNAj3x_zLGbn8XyZMKo-dZpqmQfYlQaMW3/s1600/step3.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="252" data-original-width="595" height="168" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZ878TCWNf49OcSQtT8FREfE5BBkkFNbrtkwO5dSlexkOUegiM2puDPIxiiEeywi5XR0erylk3YXNBGbDutS2PztKc6-E5orrmOKbzANwpM-DNAj3x_zLGbn8XyZMKo-dZpqmQfYlQaMW3/s400/step3.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+4_SSRS可正確解析。<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAr0kkxy7yoWwxV6Zm97MNzsOhzjoPRvoH8LELXUs9T_xaDBaycipcneyEj7h_qr9a8NvROapP7DNP-kIYCzPeNzDuTvD2Inots-Yjk1TiC3ZST3W9OQdZP_2IieYXlOo61nKVK0n8KuQG/s1600/step4.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="408" data-original-width="687" height="237" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAr0kkxy7yoWwxV6Zm97MNzsOhzjoPRvoH8LELXUs9T_xaDBaycipcneyEj7h_qr9a8NvROapP7DNP-kIYCzPeNzDuTvD2Inots-Yjk1TiC3ZST3W9OQdZP_2IieYXlOo61nKVK0n8KuQG/s400/step4.png" width="400" /></a></div>
+<br />

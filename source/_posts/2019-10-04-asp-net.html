@@ -1,0 +1,55 @@
+---
+layout: post
+title: ASP.NET網站瓶頸測量
+tag:
+- asp.net
+- internet information server
+- visual studio
+---
+
+<font face="inherit">1.測量對象主機需安裝[IIS Metabase 及 IIS 6 設定相容性]功能。<br />
+</font><div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFN_XbqZH50QLRm1s8qg7eAx8c-BrnGmBNXhNNBGps0cBhR-rAm-V3l2TzzFjKko1LdY_vKpb5xh52MpK-TvB-0M53a_4fOMP9hL9gys5joVoNsFoRzaCF_q5audGoOOK5wH4qZybDbfCL/s1600/att2.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><font face="inherit"><img border="0" data-original-height="181" data-original-width="368" height="196" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFN_XbqZH50QLRm1s8qg7eAx8c-BrnGmBNXhNNBGps0cBhR-rAm-V3l2TzzFjKko1LdY_vKpb5xh52MpK-TvB-0M53a_4fOMP9hL9gys5joVoNsFoRzaCF_q5audGoOOK5wH4qZybDbfCL/s400/att2.png" width="400" /></font></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<font face="inherit"><br />
+<br />
+2.複製Visual Studio Profiler安裝檔到測量對象主機並安裝。<br />
+(在Visual Studio安裝路徑\Team Tools\Performance Tools\Setups)<br />
+</font><div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3Aq6JMpdepvY1M6Btdhu1ZTTDfqLXgnxIC0YfAcO0yghz07Y7jn-NkhH-e8qdkklHnGcoxqSEvL_-CN0BwVifrZUqlfqNSQpc3wAl0Cq7RmHhkq2JyQJ9MnW4tDtPQjdPl3DtVCWHZt6e/s1600/att3.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><font face="inherit"><img border="0" data-original-height="295" data-original-width="955" height="122" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3Aq6JMpdepvY1M6Btdhu1ZTTDfqLXgnxIC0YfAcO0yghz07Y7jn-NkhH-e8qdkklHnGcoxqSEvL_-CN0BwVifrZUqlfqNSQpc3wAl0Cq7RmHhkq2JyQJ9MnW4tDtPQjdPl3DtVCWHZt6e/s400/att3.png" width="400" /></font></a></div>
+<font face="inherit"><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+</font><div><font face="inherit">3.執行VSPerfASPNetCmd,依照指示執行之。<br />
+(選項可參照:<a href="https://docs.microsoft.com/zh-tw/visualstudio/profiling/vsperfaspnetcmd?view=vs-2015">https://docs.microsoft.com/zh-tw/visualstudio/profiling/vsperfaspnetcmd?view=vs-2015</a>)<br />
+<span style="background-color: #fff2cc;">※發現此動作會將該台IIS全部應用程式集區'</span><span style="background-color: #f4cccc;">停止</span><span style="background-color: #fff2cc;">',最好在另外的測試區IIS執行。</span><br />
+<br /><br />
+</font></div><div><font face="inherit">4.將產生的vspx檔用Visual Studio開啟即可看到分析結果。<br />
+</font><div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDGRnAMZBHiu-m7V2Y58WfgDNyCnLNNZD6ajqb8dhokceCcs3n-MqhGBX7eUsTWmgceaTVeRKOH5CVt6Vt0tD6C3yN5dig3TT-i1GufH19VCg47xEp7tUcGgcaaZsLJ1hePE1wJUx0Iu1y/s1600/Image_20191004095920.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><font face="inherit"><img border="0" data-original-height="522" data-original-width="1204" height="172" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDGRnAMZBHiu-m7V2Y58WfgDNyCnLNNZD6ajqb8dhokceCcs3n-MqhGBX7eUsTWmgceaTVeRKOH5CVt6Vt0tD6C3yN5dig3TT-i1GufH19VCg47xEp7tUcGgcaaZsLJ1hePE1wJUx0Iu1y/s400/Image_20191004095920.png" width="400" /></font></a></div>
+<font face="inherit"><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+</font></div><div><font face="inherit"><br /></font></div><div><font face="inherit"><br /></font></div><div><font face="inherit">*2019/10/07更新<br />
+發現Prefix更好用,可以即時監控每個連線的.Net函式及DB連線耗時。<br />
+參考來源:<a href="http://kevintsengtw.blogspot.com/2016/04/profile-aspnet-application-prefix.html">http://kevintsengtw.blogspot.com/2016/04/profile-aspnet-application-prefix.html</a><br />
+<br />
+另外如果發現瓶頸都在DB,亦可使用SQL Server Profiler錄製耗時較多的SQL。<br />
+1.一般&gt;使用範本:TSQL_Duration。<br />
+2.事件選取範圍&gt;資料行篩選&gt;Duration大於等於x亳秒。<br /></font>
+<br /></div>

@@ -1,0 +1,19 @@
+---
+layout: post
+title: 用docker-compose啟動docker有時佔用內網網段造成連線異常
+tag:
+- docker
+---
+
+<p>用指令docker network inspect container_default查詢，</p>
+<p>可發現該內網網段被佔用。</p>
+<p><br /></p>
+<p>1.編輯/etc/docker/daemon.json。(不存在則新增。)</p>
+<p>2.編輯內容：</p>
+<p>
+<pre><code class="json">{<p>&nbsp; "default-address-pools": [</p><p>&nbsp; &nbsp; {</p><p>&nbsp; &nbsp; &nbsp; "base": "172.17.1.0/16",</p><p>&nbsp; &nbsp; &nbsp; "size": 24</p><p>&nbsp; &nbsp; }</p><p>&nbsp; ]</p>}</code></pre>
+</p>
+<p>3.執行docker-compose down關閉container。</p>
+<p>4.執行docker network prune清除docker網路設定。</p>
+<p>5.執行sudo systemctl restart docker重啟docker服務。</p>
+<p>6.執行docker-compose up -d啟動container。</p>

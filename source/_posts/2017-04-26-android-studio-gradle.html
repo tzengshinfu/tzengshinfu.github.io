@@ -1,0 +1,59 @@
+---
+layout: post
+title: 加速Android Studio/Gradle建置
+tag:
+- android studio
+---
+
+1.在gradle.properties新增<br /><font color="#0b8043"> #守護進程，改善Gradle的啟動和執行時間</font><br /><font color="#3367d6"> org.gradle.daemon=true</font><br /><font color="#0b8043"> #並行編譯</font><br /><font color="#3367d6"> org.gradle.parallel=true</font><br /><font color="#0b8043"> #按需配置，大型多項目的構建速度更快</font><br /><font color="#3367d6"> org.gradle.configureondemand=true</font><br /><font color="#0b8043"> #依主機配罝調整</font><br /><font color="#3367d6"> org.gradle.jvmargs=-Xms2048m -Xmx2048m -XX:PermSize=512m -XX:MaxPermSize=512m</font><br /> 參考:<a href="https://www.blogger.com/#">Xms Xmx PermSize MaxPermSize 区别</a><br />
+<br /><br />
+2.Gradle設定Use local gradle distribution和Offline work→避免編譯前更新<br />
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZZq6fYXWj1_2IUqJ5SF87YnWrEUwAi9eKojx7MQVshnvs1FHf5i37puNiUtl9ZO9q2EqXgW3ZIje2n-DozPREkRe3qbHu_OO60DWT69eX2uPs_n2HTKu7epZj9JzAe4Tc0H21HnbLr4AB/s1600/%25E5%259C%2596%25E7%2589%258720170506_180043.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="268" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZZq6fYXWj1_2IUqJ5SF87YnWrEUwAi9eKojx7MQVshnvs1FHf5i37puNiUtl9ZO9q2EqXgW3ZIje2n-DozPREkRe3qbHu_OO60DWT69eX2uPs_n2HTKu7epZj9JzAe4Tc0H21HnbLr4AB/s400/%25E5%259C%2596%25E7%2589%258720170506_180043.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+3.Compiler新增命令列參數--offline<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrGAwZtON3IOy7wVahuCi52gas0RLQuqa9-dQOrB92gugQJE662u8R36-v4Xeuv0Q_NPRbZhZ37bbtxBoNsgkkNUbNz4B_hIfnAv70SXNJ0jTRkNIS354etDKnHR6xs4wYBxUF-9F3muJQ/s1600/%25E5%259C%2596%25E7%2589%258720170506_033139.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="268" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrGAwZtON3IOy7wVahuCi52gas0RLQuqa9-dQOrB92gugQJE662u8R36-v4Xeuv0Q_NPRbZhZ37bbtxBoNsgkkNUbNz4B_hIfnAv70SXNJ0jTRkNIS354etDKnHR6xs4wYBxUF-9F3muJQ/s400/%25E5%259C%2596%25E7%2589%258720170506_033139.png" width="400" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<br />
+<br />
+4.SDK選21以上<br />
+<br />
+5.修改studio64.exe.vmoptions設定檔(與執行檔同一目錄)<br />
+新增(或修改)以下字段<br /><font color="#3367d6">-Xms2048m<br /> -Xmx2048m<br /> -XX:PermSize=512m<br /> -XX:MaxPermSize=512m<br /> -XX:ReservedCodeCacheSize=512m</font><div><font color="#3367d6"><br /></font>
+<span style="background-color: black; color: white;"><span style="font-family: &quot;helvetica neue&quot;, helvetica, &quot;pingfang sc&quot;, &quot;hiragino sans gb&quot;, &quot;microsoft yahei&quot;, &quot;noto sans cjk sc&quot;, &quot;wenquanyi micro hei&quot;, arial, sans-serif; font-size: 15px; white-space: pre-wrap;"><br /></span></span>
+
+
+6.停用Android Studio未使用插件<br />
+<strong style="background-color: white; border: 0px; color: #242729; font-family: arial, &quot;helvetica neue&quot;, helvetica, sans-serif; font-size: 15px; margin: 0px; padding: 0px;">1.CVS Integration</strong><br />
+<strong style="background-color: white; border: 0px; color: #242729; font-family: arial, &quot;helvetica neue&quot;, helvetica, sans-serif; font-size: 15px; margin: 0px; padding: 0px;">2.Git Integration</strong><br />
+<strong style="background-color: white; border: 0px; color: #242729; font-family: arial, &quot;helvetica neue&quot;, helvetica, sans-serif; font-size: 15px; margin: 0px; padding: 0px;">3.GitHub</strong><br />
+<strong style="background-color: white; border: 0px; color: #242729; font-family: arial, &quot;helvetica neue&quot;, helvetica, sans-serif; font-size: 15px; margin: 0px; padding: 0px;">4.Google Cloud Tools for Android Studio</strong><br />
+<strong style="background-color: white; border: 0px; color: #242729; font-family: arial, &quot;helvetica neue&quot;, helvetica, sans-serif; font-size: 15px; margin: 0px; padding: 0px;">5.Subversion Integration</strong><br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfkLR5zqRUKGdYwtrVWz1B0gcvySjSnEDMpXn4UeGEQNCQiDRANR1BzjSgvShYSY7024t8ZqqU7ZX1666awlzzNaMzA0AuZxScOVAk9obFuRECtH4BtAg8jFJ3KFJ4LuaHeFp2YRacdYjK/s1600/%25E5%259C%2596%25E7%2589%258720170506_023218.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="267" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfkLR5zqRUKGdYwtrVWz1B0gcvySjSnEDMpXn4UeGEQNCQiDRANR1BzjSgvShYSY7024t8ZqqU7ZX1666awlzzNaMzA0AuZxScOVAk9obFuRECtH4BtAg8jFJ3KFJ4LuaHeFp2YRacdYjK/s400/%25E5%259C%2596%25E7%2589%258720170506_023218.png" width="400" /></a></div>
+<strong style="background-color: white; border: 0px; color: #242729; font-family: arial, &quot;helvetica neue&quot;, helvetica, sans-serif; font-size: 15px; margin: 0px; padding: 0px;"><br /></strong>
+<br />
+<span style="background-color: black; color: white;"><span style="font-family: &quot;helvetica neue&quot;, helvetica, &quot;pingfang sc&quot;, &quot;hiragino sans gb&quot;, &quot;microsoft yahei&quot;, &quot;noto sans cjk sc&quot;, &quot;wenquanyi micro hei&quot;, arial, sans-serif; font-size: 15px; white-space: pre-wrap;"><br /></span></span>
+</div>

@@ -1,0 +1,9 @@
+---
+layout: post
+title: SSIS引用第3方DLL發生異常
+tag:
+- ssis
+---
+
+場景:<br /> 1_SSIS專案引用第3方DLL(如想用epplus解析Excel內容)<br /> <a href="https://www.blogger.com/#"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiw_UJ2lp4CCahANFsHrq_bG6k5pRzG06cGnJBUEPW0ReQUUoig3acKkwrS1zxxYTu73J7WfUaeaJH9guLQA0x1kkkBm6MJGc7Qvz_WZT3QWj4OwoQrLonjcFpbbUckQh9Fw8LSAZcTxTVv/s400/step2.png" /></a> <br /> <br /> <br /> <br /> 2_偵錯時顯示錯誤訊息而無法執行。<br /> <a href="https://www.blogger.com/#"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivbXPay6VdF2Z5IBsTHhMYmGtOfVDZQDrGTS2twLMjUspGdRQzjYRa6xdCkrgVtLJysz7mxGvXpW1YDF4RDV0Bcp_7tmZ0Ff33DKp0xokq2fELOFq8AQ4DIaaPsFfNpCHTvY-kxa-5U5zV/s640/step1.png" /></a> <br /> <br /><br />解法:<br /> 將第3方DLL加入GAC(全域組件快取)<div><br /> 1_以管理員權限執行命令視窗。<br /> 2_進入對應版本的.Net framework目錄下(本案例為SSIS 2014，使用.Net 4.0)<br /> 所以到 C:\Program Files (x86)\Microsoft SDKs\Windows\v8.0A\bin\NETFX 4.0 Tools<br /> 執行 gacutil.exe /i (DLL路徑)\EPPlus.dll<br /> <a href="https://www.blogger.com/#"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXT_Q-Qf0RaYBaFaW1RxJuJy71GEADAJOAsjcSateF2ob9KHmbTk8iwOyfTogGUjmKYEcZ6CuqFoUC3LhzSEH5Q9_oHv0ZQEkD7NrMmSCJGsSP6rbHtBY7hIjFNktCX7lZeHzY-7ZZqart/s400/step3.png" /></a>
+</div>

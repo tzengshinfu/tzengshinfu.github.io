@@ -1,0 +1,10 @@
+---
+layout: post
+title: GitHub Copilot CLI工作完成發送桌面通知
+tag:
+- github copilot cli
+- windows
+---
+
+目前v0.0349無hook可設定在執行事件前後觸發，<div>但可以用系統層級的提示詞達到相同目的。</div><div><br /></div><div>1.安裝PowerShell模組
+<span style="color: #990000;">`Install-Module -Name BurntToast -Scope CurrentUser`</span></div><div>2.在系統層級提示詞%USERPROFILE%\.copilot\copilot-instructions.md新增</div><div><span style="color: #cc0000;">- The PowerShell module `BurntToast` has been installed on this machine. You must send me a notification after each work. Execute the PowerShell command `New-BurntToastNotification -Text "{title}", "{content}" -Sound Alarm2`</span></div><div><span style="color: #cc0000;"><br /></span></div><div><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-fLFjobco_y8v20q8558j5vEgoA8Zpre4oWg5Tfx9z5sgSReQFi3XdvP21NzS16X2Kb7dSLQ5Qtc8rO11g1_1d1UdLuGDVEug5WkKy-SKSCMGeP_ei3qmZPOoJI3SN8TN42_x_hqVKGEEyNAZubGFeQFU4tSx8E31-orM0CHLBO1WUOVCTI-CjiHqJWPk/s1076/Capture_20251023_164252.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="701" data-original-width="1076" height="416" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-fLFjobco_y8v20q8558j5vEgoA8Zpre4oWg5Tfx9z5sgSReQFi3XdvP21NzS16X2Kb7dSLQ5Qtc8rO11g1_1d1UdLuGDVEug5WkKy-SKSCMGeP_ei3qmZPOoJI3SN8TN42_x_hqVKGEEyNAZubGFeQFU4tSx8E31-orM0CHLBO1WUOVCTI-CjiHqJWPk/w640-h416/Capture_20251023_164252.png" width="640" /></a></div><br /><span style="color: #cc0000;"><br /></span></div>

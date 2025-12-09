@@ -1,0 +1,31 @@
+---
+layout: post
+title: 設定流程變數注意事項
+tag:
+- easyflow gp
+---
+
+1.流程字串型態變數無法從表單Js程式設定為空字串,若設定會拋出異常(【''=空字串】被用在流程初始值)。<br />
+2.如果在formCreate/formOpen/formSave/formClose事件已設定變數內容,在控制項事件設定變數內容則無效。<br />
+3.如果未在formCreate/formOpen/formSave/formClose事件設定變數內容,則以控制項事件設定變數內容為主。<br />
+4.最好在formSave事件判斷並設定變數內容,可以如下設定:
+<pre><code class="js">
+function formOpen() {
+    //設定流程變數預設內容
+}
+
+function formSave(){  
+    if (符合條件) {
+      //設定符合條件的流程變數內容(覆蓋預設值)
+    }  
+
+    return true;
+}
+</code></pre>
+5.流程設計師-流程變數雖然有字串/整數/浮點數/布林值/日期/XML型態,<br />
+建議只使用字串/整數/浮點數/布林值型態。<br />
+<br />
+字串內容以單引號或雙引號包覆皆可,<br />
+整數不可包含小數點,相反地浮點數可接受整數(無小數點),<br />
+布林值在比較時不寫true/false,而是1/0。<div>(需符合Jython語法)<br />
+<div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKsdqkUChQ-qfPEbvcgqPuhw4Bu0Vt54aakDI6U2WsFaJOu_Fzn-ep3JZC9N0lHUhJEooXzEGqVbzz75rydWeGvt8lTHsahIdiluHSbb8Rv9MbehhANXcdV9G2_kr9u97D4MKcZfPiK2nz/s650/Image+006.png" style="display: block; padding: 1em 0px; text-align: left;"><img alt="" border="0" data-original-height="250" data-original-width="650" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKsdqkUChQ-qfPEbvcgqPuhw4Bu0Vt54aakDI6U2WsFaJOu_Fzn-ep3JZC9N0lHUhJEooXzEGqVbzz75rydWeGvt8lTHsahIdiluHSbb8Rv9MbehhANXcdV9G2_kr9u97D4MKcZfPiK2nz/s400/Image+006.png" width="400" /></a></div></div>

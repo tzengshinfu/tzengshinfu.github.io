@@ -1,0 +1,11 @@
+---
+layout: post
+title: VS Code對Blazor應用程式偵錯時顯示[遠端憑證無效]的異常
+tag:
+- visual studio code
+---
+
+<p>&nbsp;狀況：</p><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUfurGOr_6wq0EvyXWFVFgGz6Os4sJdrvkg35l_ujELeU7aXDXqUPBSVipQUR-k8gOYv9Q6TyRerc7lpzjRqrbRUFRf007pgVXOPLfAhh9hgaYifvwavgoogl4q73vYDuAmh9ro0M72blM/s1384/image_20210728082150-1.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="1034" data-original-width="1384" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUfurGOr_6wq0EvyXWFVFgGz6Os4sJdrvkg35l_ujELeU7aXDXqUPBSVipQUR-k8gOYv9Q6TyRerc7lpzjRqrbRUFRf007pgVXOPLfAhh9hgaYifvwavgoogl4q73vYDuAmh9ro0M72blM/s320/image_20210728082150-1.png" width="320" /></a></div><br /><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p>解法：</p><p>在終端視窗輸入</p><pre><code class="language-dos">dotnet dev-certs https --clean
+dotnet dev-certs https --trust
+</code></pre><p>
+會顯示憑證安裝視窗</p><p><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyrLMmnlWHQFeuX-IJQ2teC6dL9MyLq3OkZfDqF2Q28qcTEqRKQMMtXrS2OmUb8fvknqd10bglNHK-qVHWaAadlGcRCNr495hyrEyzB9E1UJjOohPlBPEFuMW1Lq-r0gDNUYWN9VUpZuUk/s501/Image_20210728082117.png" style="clear: left; display: inline !important; padding: 1em 0px; text-align: center;"><img alt="" border="0" data-original-height="411" data-original-width="501" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyrLMmnlWHQFeuX-IJQ2teC6dL9MyLq3OkZfDqF2Q28qcTEqRKQMMtXrS2OmUb8fvknqd10bglNHK-qVHWaAadlGcRCNr495hyrEyzB9E1UJjOohPlBPEFuMW1Lq-r0gDNUYWN9VUpZuUk/s320/Image_20210728082117.png" width="320" /></a></p><p><br /></p><p>按是(Y)安裝後即可正常偵錯。</p>

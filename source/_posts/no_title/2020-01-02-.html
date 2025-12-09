@@ -1,0 +1,28 @@
+---
+layout: post
+title: 修改代理人時段注意事項
+tag:
+- easyflow gp
+- 踩坑
+---
+
+<font face="inherit">指派代理優先順序<br />
+<i>※代理機制指已設定<u>工作處理方式為"允許系統改派代理人處理"</u>及<u>目前時間在"代理期間起迄內"</u>。</i><br />
+<br />
+<span style="background-color: white; color: #990000;">❶</span><span style="background-color: white;">流程關卡 - 允許系統改派他人→需啟用。<br /></span></font><div><font face="inherit"><span style="color: #990000;">❷</span>流程代理人 - 永久代理→只要是該流程一律轉派,不論是否啟動代理機制。<br /><span style="background-color: white; color: #990000;">❸</span>流程代理人 - 代理期間→符合該流程並在代理期間內並啟動代理機制才會轉派。<br />
+　(同一流程的代理期間與永久代理只能擇一設定。)<br /><span style="color: #990000;">❹</span>預設代理人 - 代理期間→不符合<span style="background-color: white;"><span style="color: #990000;">❷</span>及</span></font><span style="color: #990000;">❸</span><span style="font-family: inherit;">設定時,在代理期間內並啟動代理機制才會轉派。</span></div><div><font face="inherit"><span style="color: #990000;">❺</span>預設代理人 - 預設代理人→不符合</font><span style="color: #990000;">❷</span><font face="inherit">、</font><span style="color: #990000;">❸</span><font face="inherit">及<span style="color: #990000;">❹</span>設定時,</font>在代理期間內並<span style="font-family: inherit;">啟動代理機制才會轉派。</span></div><div><div><font face="inherit"><span lang="EN-US" style="font-family: Wingdings; font-size: 12.0pt; mso-ansi-language: EN-US; mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-font-size: 11.0pt; mso-bidi-language: AR-SA; mso-bidi-theme-font: minor-bidi; mso-char-type: symbol; mso-fareast-font-family: 新細明體; mso-fareast-language: ZH-TW; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin; mso-symbol-font-family: Wingdings;"><span style="color: #990000;"></span></span>處理者本身→當上述所有代理人都無法處理時,最後才會停置。<br />
+<br />
+代理人有設定多個連續時段時,<br />
+需注意時段起迄需重疊。</font><br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilIc-h5RV0dJXw4cuV9r5cNH4lHjqh-zdLahh6JU4UXMOklYdBdFRozATJO6Vv9tHzdtbsF9M3xFYu2h3PExRCCxRigC2odI5sEUZ9oVOpgzkfpx4DoNwWp4gQp0gy1WSjL_nfwbpV83Eq/s1600/att1.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="253" data-original-width="1160" height="86" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilIc-h5RV0dJXw4cuV9r5cNH4lHjqh-zdLahh6JU4UXMOklYdBdFRozATJO6Vv9tHzdtbsF9M3xFYu2h3PExRCCxRigC2odI5sEUZ9oVOpgzkfpx4DoNwWp4gQp0gy1WSjL_nfwbpV83Eq/s400/att1.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br /><font face="inherit"><br /><br />
+因為時間都是為00秒開始計算,<br />
+如果時段1結束時間設23:59(=23:59:00),時段2開始時間設00:00(=00:00:00),<br />
+則23:59這1分鐘將會找不到代理人,<br />
+<br />
+如果有預設代理人,會跑到預設代理人,<br />
+如果沒有設</font>預設代理人<span style="font-family: inherit;">則回到請假人身上。</span></div></div><div><font face="inherit"><br /></font></div><div><font face="inherit">如果代理人只有一位而且也啟用代理機制時則直接</font>回到請假人身上。</div><div><span style="font-family: inherit;">(不支援鏈式代理)</span></div>

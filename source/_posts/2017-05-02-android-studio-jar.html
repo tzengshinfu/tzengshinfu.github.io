@@ -1,0 +1,53 @@
+---
+layout: post
+title: Android Studio引用外部jar
+tag:
+- android studio
+---
+
+1.取得宣告連結<br />
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhG9O3VXbXyOqFEJiSHMDPM4atqWoDMaIcbh_YzP_HKC2goqVhZKDO6b3Tcc2_si08NnQvNdE7k2MGsbE3kjn4gKAL_8w7V-uo_9HCSXTMS9i4PDTGFIkw6GIsCRf8rPs9mQ_f7ZMrtdcvt/s1600/Image_20170502163145.jpg" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="216" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhG9O3VXbXyOqFEJiSHMDPM4atqWoDMaIcbh_YzP_HKC2goqVhZKDO6b3Tcc2_si08NnQvNdE7k2MGsbE3kjn4gKAL_8w7V-uo_9HCSXTMS9i4PDTGFIkw6GIsCRf8rPs9mQ_f7ZMrtdcvt/s400/Image_20170502163145.jpg" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+2.在該項目的build.gradle增加<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTudNquh114J4sa-DWYEqB_4YBb1g5MSEr_1hz-bY-f8HTn8VWbuxShwuHpEJ7AxUD87nCzNm1c3VW6gqkCW3i2ANDwUejd6uJylrmFPBvMY0UL4RHKDQvT6w7feQJCOVAa5ZF-tIpPYh5/s1600/gradle.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="216" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTudNquh114J4sa-DWYEqB_4YBb1g5MSEr_1hz-bY-f8HTn8VWbuxShwuHpEJ7AxUD87nCzNm1c3VW6gqkCW3i2ANDwUejd6uJylrmFPBvMY0UL4RHKDQvT6w7feQJCOVAa5ZF-tIpPYh5/s400/gradle.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+3.如果建置時發生錯誤【Duplicate files copied in APK META-INF/LICENSE】如下圖示:<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjZJBVJrTG1tXtmJyk4nFlQojg1Ci0wm6dpM71pQsLURFYcFZw-x08nDg1NoWOKG0J_dqjiiYrc7zE7G-F-Pf7CKhmPOjhlGVr6BiGTT0Ef_NxCyNmHIcAcD8HfzkzakIQN0wcUQkz0lmq/s1600/Image_20170508175212.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="42" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjZJBVJrTG1tXtmJyk4nFlQojg1Ci0wm6dpM71pQsLURFYcFZw-x08nDg1NoWOKG0J_dqjiiYrc7zE7G-F-Pf7CKhmPOjhlGVr6BiGTT0Ef_NxCyNmHIcAcD8HfzkzakIQN0wcUQkz0lmq/s400/Image_20170508175212.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+則需要再增加<br /><pre><code class="json">android {<br />     packagingOptions {<br />         exclude 'META-INF/DEPENDENCIES'<br />         exclude 'META-INF/NOTICE'<br />         exclude 'META-INF/LICENSE'<br />         exclude 'META-INF/LICENSE.txt'<br />         exclude 'META-INF/NOTICE.txt'<br />     }<br /> }</code></pre>
+<span style="background-color: white;"><br /></span>
+<span style="background-color: white;">**因為很多的第三方函式庫會拆解成多個(基本和擴充)，都擁有相同的版權宣告檔案，就會造成編譯時檔案衝突的錯誤而無法編譯。</span>

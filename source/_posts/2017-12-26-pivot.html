@@ -1,0 +1,8 @@
+---
+layout: post
+title: 列欄轉置語法(PIVOT)
+tag:
+- sql
+---
+
+<pre><code class="sql"> SELECT "欄位1"<br />       ,"欄位2"<br />       ,"欄位3"<br />       ,"A","B","C","D" /**轉置後的欄位*/<br /> FROM<br /> (<br />     SELECT "欄位1"<br />           ,"欄位2"<br />           ,"欄位3"<br />           ,"條件欄位"<br />           ,"要統計的欄位"<br />     FROM "表格名稱"<br /> ) AS "SOURCE"<br /> PIVOT<br /> (<br />     SUM("要統計的欄位") /**彙總函式*/<br />     FOR "條件欄位" IN ("A","B","C","D") /**轉置後的欄位,即條件欄位的值*/<br /> ) AS "PIVOT_COLUMN"</code></pre><br /> <br />

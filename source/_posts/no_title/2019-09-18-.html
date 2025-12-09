@@ -1,0 +1,30 @@
+---
+layout: post
+title: 流程定義相關語法
+tag:
+- easyflow gp
+- sql
+---
+
+<pre><code class="sql">/**流程序號*/<br />DECLARE @SerialNumber nvarchar(50) = 'PKG1564733072307100000069';<br /><br />/**以序號找到流程定義OID*/<br />DECLARE @ProcessDefinitionOID char(32) = (<br />    SELECT ProcessDefinitionOID FROM ProcessPackage_ProcessDef WHERE ProcessPackageOID = (<br />        SELECT processPackageOID FROM ProcessContext WHERE containerOID = (<br />            SELECT OID FROM ProcessInstance WHERE serialNumber = @SerialNumber<br />        )<br />    )<br />);<br /><br />/**列出流程定義所有活動*/<br />SELECT * FROM ActivityDefinition WHERE containerOID = @ProcessDefinitionOID;<br /><br /><br />/**以序號找到流程序號OID*/<br />DECLARE @ProcessInstanceOID char(32) = (SELECT OID FROM ProcessInstance WHERE serialNumber = @SerialNumber);<br /><br /><br />/**列出流程設定*/<br />/*<br />活動定義(ActivityDefinition):新流程會套用<br />活動實體(ParticipantActivityInstance):進行中流程設定<br />(如果要修改則上述兩個table都要修改,不然會有異常)<br />加簽(addingActivityAuthority):1=前一活動/2=後一活動/3=前後/0=不允<br />退回(ableToAskActivityReexecute):3=1.直接送回要求退件者/2=2.按流程定義送回要求退件者/0=3.不允許退件/4=允許1、2。預設直接送回要求退件者/1=允許1、2。預設按流程定義送回要求退件者<br />轉他人處理(reassignable):1=允許/0=不允許<br />取回重辦(regainable):1=允許/0=不允許(僅ActivityDefinition有)<br />批次簽核(batchPerformable):1=允許/0=不允許<br />活動類型(performType):NORMAL/NOTICE/EXECUTION<br />參與者(performerIds):如果有多位以逗號區隔,只能寫入同一版流程定義的參與者定義ID(ParticipantDefinition),不然會異常無法派送(僅ActivityDefinition有)<br />*/<br />SELECT OID, activityDefinitionName, addingActivityAuthority, ableToAskActivityReexecute, reassignable, regainable, batchPerformable, performType, performerIds FROM ActivityDefinition WHERE containerOID = @ProcessDefinitionOID;<br />SELECT OID, addingActivityAuthority, ableToAskActivityReexecute, reassignable, batchPerformable, performType FROM ParticipantActivityInstance WHERE containerOID = @ProcessInstanceOID;<br /><br /><br />/**活動連接阜設定:joinType=合併限制條件/splitType=分流限制條件*/<br />SELECT joinType, splitType FROM TransitionRestriction where containerOID = '{特定關卡的ActivityDefinition.OID}';
+<br /><br />/**
+關卡間的每條路徑,其名稱/型別/條件運算式
+路徑定義(TransitionDefinition):即關卡間的每條路徑
+條件定義(ConditionDefinition):路徑分支的條件
+型別(conditionType):CONDITION=條件型別/OTHERWISE=否則型別/EXCEPTION=例外條件型別/DEFAULTEXCEPTION=預設例外型別
+運算式(content):當conditionType=CONDITION則有值,其他型別為空字串
+*/
+SELECT id, transitionDefinitionName, conditionOID, conditionType, content
+FROM TransitionDefinition
+LEFT JOIN ConditionDefinition
+ON TransitionDefinition.conditionOID = ConditionDefinition.OID
+WHERE containerOID = @ProcessDefinitionOID;
+<br /><br />/**<br />核決權限表<br />參考活動ID(referActivityId)<br />單位主管核定(isManagerDecide)
+*/
+SELECT activityDefinitionName, referActivityId, isManagerDecide, decisionRuleListOID
+FROM ActivityDefinition
+INNER JOIN DecisionRuleList
+ON ActivityDefinition.decisionRuleListOID = DecisionRuleList.OID
+WHERE containerOID = @ProcessDefinitionOID;<br /><br /><br />/**核決權限表規則<br />運算式(content)<br />判斷順序(showIndex):逐筆判斷的順位,由小到大
+*/<br />SELECT content, showIndex FROM DecisionRuleList<br />INNER JOIN DecisionCondition ON DecisionRuleList.OID = DecisionCondition.containerOID<br />WHERE DecisionRuleList.OID = '{特定核決權限關卡的ActivityDefinition.decisionRuleListOID}';
+</code></pre>

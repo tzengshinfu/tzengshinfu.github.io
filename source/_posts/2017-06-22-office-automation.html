@@ -1,0 +1,130 @@
+---
+layout: post
+title: 執行Office Automation異常
+tag:
+- ssis
+---
+
+狀況：用指令碼工作(或元件)執行Excel會顯示以下錯誤<br />
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvMWGInuwjgbcvjNvn3Nf4XReT90ulsowGrbfgMSDujxmsyIweV0ORb4GCG-d4nJ13EH1VPS7y2ksaxPOXEMBc8N3aU9of7eq41XnxLa_C-vCtoXH6uR-FfDT7GZV7Bf_98cDDsZd5tOKF/s1600/Image_20170622143636.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="257" data-original-width="887" height="115" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvMWGInuwjgbcvjNvn3Nf4XReT90ulsowGrbfgMSDujxmsyIweV0ORb4GCG-d4nJ13EH1VPS7y2ksaxPOXEMBc8N3aU9of7eq41XnxLa_C-vCtoXH6uR-FfDT7GZV7Bf_98cDDsZd5tOKF/s400/Image_20170622143636.png" width="400" /></a><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+解法：<br />
+1.執行【嵌入式管理單元】，指令：mmc(如果Excel是32位元，需新增參數 /32)<br />
+2.【檔案】&gt;&gt;【新增/移除崁入式管理單元】&gt;&gt;新增【元件服務】<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQdVon9m77qoLEDRokmIM7-LEhyphenhypheni8L_5IHTpWiQwmv5A1_EWEeYeNDbwRdiI6I_G8tPTz2nMhXb5DyHebRwNRsTuIFii-KxNfiZfUYd5xyca7a5FYvwDjo3YjAHsGcC1lNX-vvN7w3SGMc/s1600/step2.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="449" data-original-width="688" height="260" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQdVon9m77qoLEDRokmIM7-LEhyphenhypheni8L_5IHTpWiQwmv5A1_EWEeYeNDbwRdiI6I_G8tPTz2nMhXb5DyHebRwNRsTuIFii-KxNfiZfUYd5xyca7a5FYvwDjo3YjAHsGcC1lNX-vvN7w3SGMc/s400/step2.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+3.【元件服務】&gt;&gt;【我的電腦】&gt;&gt;【DCOM設定】&gt;&gt;在【Microsoft Excel Application】按右鍵&gt;&gt;【內容】<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhx98_5pL4fTnJWEF8NJzLKSyf6dtqaMmdS6M5Ez0oJl6oc5vlH9rMsEpy5g5Bjb0FX8yUpgPElF6Zp6LaRgelbxN8_BHMOn0bewGqwknEl5qTVi26GdCUDCHfgVop2NxxFqlrtdYU37eOg/s1600/step3.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="525" data-original-width="1024" height="205" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhx98_5pL4fTnJWEF8NJzLKSyf6dtqaMmdS6M5Ez0oJl6oc5vlH9rMsEpy5g5Bjb0FX8yUpgPElF6Zp6LaRgelbxN8_BHMOn0bewGqwknEl5qTVi26GdCUDCHfgVop2NxxFqlrtdYU37eOg/s400/step3.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+4.【內容】&gt;&gt;【識別身份】頁籤&gt;&gt;【使用下列使用者】新增執行SQL AGENT的帳號(本例為prologium/mes)<br />
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZEvHembkxYf0hQgm9CjdxCjaWOPF-IcKnkmuX4u-47x4xcLsxuKFJxGa7vsl6nZ1r5V1Xevt0nbynuW-NeyG-E-mjt69MqM7L47AYETRQclfDX98-oh1CoMqVDN_M8BFTTs3ERDduNad3/s1600/Image_20170622161048.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="621" data-original-width="478" height="400" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZEvHembkxYf0hQgm9CjdxCjaWOPF-IcKnkmuX4u-47x4xcLsxuKFJxGa7vsl6nZ1r5V1Xevt0nbynuW-NeyG-E-mjt69MqM7L47AYETRQclfDX98-oh1CoMqVDN_M8BFTTs3ERDduNad3/s400/Image_20170622161048.png" width="307" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+5.【內容】&gt;&gt;【安全性】頁籤&gt;&gt;所有【權限】都新增執行SQL AGENT的帳號(本例為prologium/mes)<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoIxOeyxmmP7zh5cCB286QRlOFf3LTZ2K4Ou3AtM2igAnrjEkjdxN_ugd_8VymhCkt66PsWMKv1j6WzbPulCc0bXvzVWANaU0CGixCfCb3XH-JKnp708iFTo4dSkNbhcbIg0eIlJ3MExHj/s1600/step5.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="622" data-original-width="479" height="400" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoIxOeyxmmP7zh5cCB286QRlOFf3LTZ2K4Ou3AtM2igAnrjEkjdxN_ugd_8VymhCkt66PsWMKv1j6WzbPulCc0bXvzVWANaU0CGixCfCb3XH-JKnp708iFTo4dSkNbhcbIg0eIlJ3MExHj/s400/step5.png" width="307" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5iMLJFTzAEdruOegxUlLo2-QKwTfyVh6vfbpBxvyBg7pxfacPR5vF1b4yOFUnQFNxXU_TDQ6J_GB1LM67TqCt-k4KYC2QucXsiEOqMr_PJe2ZYRis0WfYvgEWUIdvnSP8D0twOV0BK75y/s1600/step6.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="519" data-original-width="436" height="400" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5iMLJFTzAEdruOegxUlLo2-QKwTfyVh6vfbpBxvyBg7pxfacPR5vF1b4yOFUnQFNxXU_TDQ6J_GB1LM67TqCt-k4KYC2QucXsiEOqMr_PJe2ZYRis0WfYvgEWUIdvnSP8D0twOV0BK75y/s400/step6.png" width="335" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+參考:<a href="https://stackoverflow.com/questions/35642527/unhandled-exception-system-runtime-interopservices-comexception-0x800a03ec">Unhandled Exception: System.Runtime.InteropServices.COMException (0x800A03EC)</a>

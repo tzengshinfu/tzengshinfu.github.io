@@ -1,0 +1,8 @@
+---
+layout: post
+title: 快速切換網路介面卡設定
+tag:
+- windows
+---
+
+<p>場景1: 筆電有線網路連接內部路由器與PLC連線</p><p>執行</p><pre><code class="bat">netsh interface ip set address "[有線網路名稱]" static [PLC內網的IP位址] 255.255.255.0 [PLC內網的預設閘道IP位址] 1</code></pre><p></p><p><br /></p><p>場景2: 回到辦公室改回DHCP</p><p>執行</p><pre><code class="bat">netsh interface ip set address "[有線網路名稱]" dhcp</code></pre><p></p><p><br /></p><p>上述指令可製成批次檔</p><p>(檔案編碼需為Big5)</p><p><br /></p><p>參考來源：<a href="https://ithelp.ithome.com.tw/m/articles/10080955" rel="nofollow" target="_blank">使用 netsh 設定網路卡 IP 位址 - 1</a></p>

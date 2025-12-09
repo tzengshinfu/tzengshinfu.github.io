@@ -1,0 +1,8 @@
+---
+layout: post
+title: Linux無法用.local域名連線
+tag:
+- linux
+---
+
+<p>啟動AVAHI服務即可</p><p></p><pre><code>systemctl start avahi-daemon</code></pre><p></p><p>再將AVAHI服務設定為開機啟用</p><p></p><pre><code>systemctl enable avahi-daemon</code></pre><p></p>

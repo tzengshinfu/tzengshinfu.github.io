@@ -1,0 +1,42 @@
+---
+layout: post
+title: 'Linux無法連接MSSQL(provider: SSL Provider, error: 31 - Encryption(ssl/tls) handshake
+  failed)的暫時解法'
+tag:
+- java
+- linux
+- remote development
+- sql server
+- visual studio code
+- wsl2
+---
+
+在/etc/ssl/openssl.cnf加入一段
+<div><pre><code class=".properties">
+#region 連接到USUN-SQL需降低TLS版本
+openssl_conf = default_conf
+
+[default_conf]
+ssl_conf = ssl_sect
+
+[ssl_sect]
+system_default = system_default_sect
+
+[system_default_sect]
+MinProtocol = TLSv1
+CipherString = DEFAULT@SECLEVEL=1
+#endregion
+</code></pre></div>
+
+Java程式需移除所指向版本目錄的conf/security/java.security<div>※VSCode + Remote developement + JUnit時，需修改~/.vscode-server/extensions/redhat.java-&lt;插件版本&gt;-linux-x64/jre/&lt;Java版本&gt;-linux-x86_64/conf/security</div><div><br /></div><div>
+找到<br />
+jdk.tls.disabledAlgorithms=SSLv3, <span style="color: #cc0000;">TLSv1, TLSv1.1, </span>RC4, DES, MD5withRSA, \<br />
+移除<span style="color: #cc0000;">TLSv1, TLSv1.1</span><br />
+變成<br />
+jdk.tls.disabledAlgorithms=SSLv3, RC4, DES, MD5withRSA, \<br />
+存檔<br /><br />
+連線字串需新增<br />
+trustServerCertificate=true<div><br /></div><div>重啟Java程式</div><div><br /></div><div>但盡速升級MSSQL的SSL版本才是正道。</div><div>
+<br />
+參考來源：<br />
+<a href="http://www.zhishibo.com/articles/57511.html" target="_blank">LINUX 下连接 SQL SERVER 数据库遇到了错误</a></div></div>

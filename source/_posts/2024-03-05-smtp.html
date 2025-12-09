@@ -1,0 +1,30 @@
+---
+layout: post
+title: 假的SMTP伺服器
+tag:
+- docker
+- smtp
+- testing
+---
+
+<pre><code class="yml">
+version: "3.8"
+
+services:
+  fake-smtp-server:
+    container_name: fake-smtp-server
+    image: gessnerfl/fake-smtp-server:latest
+    restart: always #重開機自動帶起
+    ports:
+      - "465:465"
+      - "8081:8081"
+      - "8082:8082"
+    environment:
+      - FAKESMTP_PORT=465 #SMTP埠號
+      - SERVER_PORT=8081 #Web管理介面埠號
+      - MANAGEMENT_SERVER_PORT=8082 #API埠號
+    volumes:
+      - /etc/timezone:/etc/timezone # 使用宿主機時區
+      - /etc/localtime:/etc/localtime # 使用宿主機時間
+</code></pre>
+啟動後連接到http://&lt;假的SMTP伺服器位址&gt;:8081/可以看到所寄送的郵件列表。<div><div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi80aEbY8ylbAiVWil-ZrBChZiYk4TliGnpL064UGatYf0_eVzA1X5T7SPickVyvOCXGOXNeLFNV_IY5_PNFTe-zCjgIQE4mg8uTg1nl-G8BFExco2sXibT_OxKn54BH0imVVX1PME8Ap57ZyG1LNQDyVk_JwHpDqdfi-UuU576BSDPwuGc1O-A13ObJig9/s1925/image_20240305_114231.png" style="clear: left; display: block; float: left; padding: 1em 0px; text-align: center;"><img alt="" border="0" data-original-height="481" data-original-width="1925" height="137" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi80aEbY8ylbAiVWil-ZrBChZiYk4TliGnpL064UGatYf0_eVzA1X5T7SPickVyvOCXGOXNeLFNV_IY5_PNFTe-zCjgIQE4mg8uTg1nl-G8BFExco2sXibT_OxKn54BH0imVVX1PME8Ap57ZyG1LNQDyVk_JwHpDqdfi-UuU576BSDPwuGc1O-A13ObJig9/w548-h137/image_20240305_114231.png" width="548" /></a></div><br /><br /><br /><br /><br /><div><br /></div><div><br /></div><div><br /></div><div><br /></div><div><br /></div><div>參考來源：<a href="https://github.com/gessnerfl/fake-smtp-server" rel="nofollow" target="_blank">Fake SMTP Server</a></div></div>

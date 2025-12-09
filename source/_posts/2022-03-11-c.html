@@ -1,0 +1,17 @@
+---
+layout: post
+title: C# 非同步方法鏈式呼叫
+tag:
+- c#
+---
+
+原本是巢式呼叫
+
+<pre><code class="csharp"><div>var a<span style="background-color: white; font-size: 10.8px;">syncCalculator</span>= new <span style="background-color: white; font-size: 10.8px;">AsyncCalculator</span>(0);</div><div>var asyncCalculateResult =</div><div>(</div><div>    await (</div><div>        await (</div><div>            await (</div><div>                await a<span style="background-color: white; font-size: 10.8px;">syncCalculator</span>.PlusAsync(1)</div><div>            ).MinusAsync(2)</div><div>        ).MultiplyAsync(3)</div><div>    ).DivideAsync(4)</div><div>).CalculateResult;</div>
+</code></pre>
+
+<div><br /></div>
+
+改寫成鏈式呼叫，一目瞭然
+
+<pre><code class="csharp"><div>var a<span style="background-color: white; font-size: 10.8px;">syncCalculator</span>= new <span style="background-color: white; font-size: 10.8px;">AsyncCalculator</span>(0);</div><div>var asyncCalculateResult = await a<span style="background-color: white; font-size: 10.8px;">syncCalculator</span>.PlusAsync(1)</div><div>    .ContinueWith(t =&gt; t.GetAwaiter().GetResult().MinusAsync(2)).Unwrap()</div><div>    .ContinueWith(t =&gt; t.GetAwaiter().GetResult().MultiplyAsync(3)).Unwrap()</div><div>    .ContinueWith(t =&gt; t.GetAwaiter().GetResult().DivideAsync(4)).Unwrap()</div><div>    .ContinueWith(t =&gt; t.GetAwaiter().GetResult().CalculateResult);</div><div>//因為t.Result的異常會被包裝在AggregateException異常裡，所以改成呼叫t.GetAwaiter().GetResult()方法。</div><div>//與JavaScript不同，會再多包一層Task回傳，所以要用Unwrap()方法剝掉。</div></code></pre>

@@ -1,0 +1,28 @@
+---
+layout: post
+title: 將Notepad++設為開啟未知副檔名檔案的預設程式
+tag:
+- windows
+---
+
+將以下文字另存為登錄檔(副檔名為.reg)，並將{Notepad++執行檔路徑}取代為實際路徑(\需改成\\)，再雙擊檔案執行即可。
+<div><pre><code class="reg">
+Windows Registry Editor Version 5.00
+
+; 所有檔案的右鍵選單新增"Edit with Notepad++"
+[HKEY_CLASSES_ROOT\*\shell\Edit with Notepad++]
+@="Edit with Notepad++"
+"Icon"="{Notepad++執行檔路徑},0"
+
+[HKEY_CLASSES_ROOT\*\shell\Edit with Notepad++\command]
+@="\"{Notepad++執行檔路徑}\" \"%1\""
+
+; 所有未知副檔名檔案都以Notepad++開啟
+[HKEY_CLASSES_ROOT\Unknown\shell\Notepad++]
+@="Open with Notepad++"
+
+[HKEY_CLASSES_ROOT\Unknown\shell\Notepad++\command]
+@="\"{Notepad++執行檔路徑}\" \"%1\""
+<br /></code></pre><pre><code class="reg">參考來源：
+</code></pre></div>
+<a href="https://superuser.com/a/1613337" target="_blank">Can I set default program for unknown/not registered extensions in Windows 10?</a><br />

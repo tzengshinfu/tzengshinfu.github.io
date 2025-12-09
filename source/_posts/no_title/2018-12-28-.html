@@ -1,0 +1,13 @@
+---
+layout: post
+title: 批次修改流程代理人啟用結束時間
+tag:
+- easyflow gp
+---
+
+<pre><code class="sql"><font face="inherit">UPDATE ProcessSubstituteDefinition
+SET startSubstituteTime = '&lt;開始代理 年年年年-月月-日日 時時:分分:秒秒.000&gt;'
+,endSubstituteTime = '&lt;結束代理 年年年年-月月-日日 時時:分分:秒秒.000&gt;'
+,substituteOID = (SELECT OID FROM Users WHERE id = '&lt;代理者工號&gt;')
+,objectVersion = objectVersion + 1
+WHERE ownerOID = (SELECT OID FROM Users WHERE id = '&lt;被代理者工號&gt;');</font></code><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsTOfdqwQZg-OqIbOdq6FAL9nxV7gDS4tkQA4wLu1iz-qgTocGc_ox70gUq6iWV0l0QyhHqR_LyaHFKj-k9CfAnI5MWy7BmoU97yKmJBmbcC_XA2Ay288HxoPf_Ip1dHsWiL-4Fkmy-BSX/s1600/pro1.png" style="background-color: transparent; clear: left; display: inline !important; float: left; font-family: &quot;fira code retina&quot;, hack, consolas, &quot;courier new&quot;, monospace; margin-bottom: 1em; margin-right: 1em; text-align: center;"><img border="0" data-original-height="509" data-original-width="811" height="250" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsTOfdqwQZg-OqIbOdq6FAL9nxV7gDS4tkQA4wLu1iz-qgTocGc_ox70gUq6iWV0l0QyhHqR_LyaHFKj-k9CfAnI5MWy7BmoU97yKmJBmbcC_XA2Ay288HxoPf_Ip1dHsWiL-4Fkmy-BSX/s400/pro1.png" width="400" /></a></pre>

@@ -1,0 +1,13 @@
+---
+layout: post
+title: Visual Studio Code插件Debugger for Chrome偵錯本機檔案
+tag:
+- chrome
+- debugger
+- visual studio code
+---
+
+1.Visual Studio Code→開啟要偵錯的檔案的【所在資料夾】。<br />
+<br />
+2.編輯偵錯組態檔launch.json如下:<div><pre><code class="json">{ <br /> /**使用 IntelliSense 以得知可用的屬性。*/ <br /> /**暫留以檢視現有屬性的描述。*/ <br /> /**如需詳細資訊，請瀏覽: https://go.microsoft.com/fwlink/?linkid=830387*/ <br /> "version": "0.2.0", <br /> "configurations": [ <br /> { <br /> "type": "chrome", <br /> "request": "launch", <br /> "name": "本機檔案偵錯", <br /> /**"file": "${workspaceFolder}/&lt;指定檔案名稱&gt;",*/ /**--&gt;每次都偵錯此檔案*/ <br /> "file": "${file}", /**--&gt;或偵錯目前所編輯的檔案*/ <br /> "sourceMaps": true, <br /> "userDataDir": "${workspaceFolder}/profile" <br /> } <br /> ] <br /> }</code></pre><br /><div>
+</div></div>

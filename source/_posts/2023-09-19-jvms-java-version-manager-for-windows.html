@@ -1,0 +1,9 @@
+---
+layout: post
+title: JVMS - Java version manager for Windows
+tag:
+- java
+- windows
+---
+
+<p><a href="https://github.com/ystyle/jvms" rel="nofollow" target="_blank">JVMS</a>作用與Linux平台的SDKMan!相同，可安裝管理不同版本的Java JDK。</p><p><strike>※另外一套<a href="https://github.com/shyiko/jabba" rel="nofollow" target="_blank">Jabba</a>雖然⭐數有2.7k，但在Windows 10切換版本根本沒有作用。</strike></p><p>安裝執行如下：</p><p>0.移除本機已安裝的所有Java版本。</p><p>1.下載<a href="https://github.com/ystyle/jvms/releases" rel="nofollow" target="_blank">最新版</a>JVMS。</p><p>2.解壓縮放到<span style="font-family: courier;">%USERPROFILE%\.jvms</span>目錄下。</p><p>3.執行<span style="font-family: courier;">jvms init</span>初始化。</p><p>4.JVMS會建立全域系統變數<span style="font-family: courier;">JAVA_HOME=C:\Program Files\jdk</span>，實際指向<span style="font-family: courier;">%USERPROFILE%\.jvms\store\</span>&lt;所安裝的Java版本&gt;，並在Path變數新增<span style="font-family: courier;">C:\Program Files\jdk\bin</span>項目。</p><p>5.查看遠端指定Java版本可執行如：<span style="font-family: courier;">jvms rls -a | find "1.6"</span>。</p><p>6.執行<span style="font-family: courier;">jvms install</span> &lt;Java版本&gt;，如：<span style="font-family: courier;">jvms install 1.6.0_43</span>，可安裝1個或多個Java版本。</p><p>7.執行<span style="font-family: courier;">jvms switch </span>&lt;Java版本&gt;，如：<span style="font-family: courier;">jvms switch 1.6.0_43</span>，切換到想要的Java版本。</p><p>8.執行<span style="font-family: courier;">java -version</span>驗證切換結果。</p><p><br /></p>

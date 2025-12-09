@@ -1,0 +1,65 @@
+---
+layout: post
+title: IIS設定遷移至新主機
+tag:
+- internet information server
+---
+
+步驟:<br />
+1_在舊主機匯出IIS設定(站台及應用集區)<br />
+輸入指令(要以[系統管理員]權限執行):<br /><pre><code class="bat">%windir%\system32\inetsrv\appcmd list site /config /xml &gt; d:\sites.xml<br />%windir%\system32\inetsrv\appcmd list apppool /config /xml &gt; d:\apppools.xml</code></pre>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXGO4A-gbBs7-FK9GdIjNTvKkOjLime95-btaU3eMdtPIs3iIHJvOUAGmIwxmpbdlG9LwIuOldUrMrGMrVIoA8-1-CcYMKW-eKv-uha_K8SdIOteuvwwhJI13Ps4PaBUOEPypM6bHzqG3G/s1600/step1.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="189" data-original-width="805" height="93" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXGO4A-gbBs7-FK9GdIjNTvKkOjLime95-btaU3eMdtPIs3iIHJvOUAGmIwxmpbdlG9LwIuOldUrMrGMrVIoA8-1-CcYMKW-eKv-uha_K8SdIOteuvwwhJI13Ps4PaBUOEPypM6bHzqG3G/s400/step1.png" width="400" /></a></div>
+<span style="font-size: x-small;"><br /></span>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+2_刪除新主機預設站台及應用集區<br />
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKgr3Y9NJbX-ZydJfIIK5csroDXdEMzYLnzVxnuEI4eiKHI5q3BLJmvlht2j8UIf8oUlhDAKFr9L9P_PDSPn8354yC9dYScwMsAVKq0QJHPLmtwW4BVSHV3uYpwq55cN8ar5rUs0MDXchT/s1600/step2.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="506" data-original-width="674" height="300" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKgr3Y9NJbX-ZydJfIIK5csroDXdEMzYLnzVxnuEI4eiKHI5q3BLJmvlht2j8UIf8oUlhDAKFr9L9P_PDSPn8354yC9dYScwMsAVKq0QJHPLmtwW4BVSHV3uYpwq55cN8ar5rUs0MDXchT/s400/step2.png" width="400" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEtbbv3AEtMmTzHJNPuVpkD4ZtndHTKU3IvE5SriwkD7lHL4X2DpEeZyKxKO5UJ5bOaav802nVaBT9vhWm8wdwp1rawhClkHBP8tAfe6BnKxwtnZCob2XBgk5SBxwSO12hao0JGT-TDl8g/s1600/step3.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="533" data-original-width="863" height="246" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEtbbv3AEtMmTzHJNPuVpkD4ZtndHTKU3IvE5SriwkD7lHL4X2DpEeZyKxKO5UJ5bOaav802nVaBT9vhWm8wdwp1rawhClkHBP8tAfe6BnKxwtnZCob2XBgk5SBxwSO12hao0JGT-TDl8g/s400/step3.png" width="400" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<br /></div>
+<br />
+<br />
+3_匯入IIS設定到新主機即完成<br />
+輸入指令(要以[系統管理員]權限執行):<br /><pre><code class="bat">%windir%\system32\inetsrv\appcmd add site /in &lt; d:\sites.xml<br />%windir%\system32\inetsrv\appcmd add apppool /in &lt; d:\apppools.xml</code></pre>
+<span style="font-size: x-small;"><br /></span>
+<br />
+例外處理:<br />
+1_匯入應用集區設定檔時發生錯誤如下圖<br />
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfy5IA1MFoCJ0TQqUfQddfDjgUFQaTCV_OfAfE-FaElGJoOkYzVb5C5ycwKBoIPZuIVwa-BhKxIy2ZQXd0GL_sFvd_LNhUFox-9gwaimqBO4joVuytOyOXgGzDv8F-Kqrkg7LvMFSZ_172/s1600/step5.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="153" data-original-width="678" height="72" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfy5IA1MFoCJ0TQqUfQddfDjgUFQaTCV_OfAfE-FaElGJoOkYzVb5C5ycwKBoIPZuIVwa-BhKxIy2ZQXd0GL_sFvd_LNhUFox-9gwaimqBO4joVuytOyOXgGzDv8F-Kqrkg7LvMFSZ_172/s320/step5.png" width="320" /></a><br />
+<br />
+<br /><br />
+<br />
+<br />
+2_因為舊主機IIS版本是10.0，而新主機是前1版的8.5，查閱MSDN可發現10.0新增一節點名為[environmentVariables]<br />
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYlIiWGNugmttKoU-qrrabaCi_aWksMzmx76T40SESpLYU6dnbhEnqB_-ich44_XJCqRW19qCjyVDSD_Ta58P3tQqlF-YPFpY-Rwnp3UD9xdfI2ATy9n23wbU10oDbYoVVuVTWrwVV1AGK/s1600/step4.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="517" data-original-width="984" height="210" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYlIiWGNugmttKoU-qrrabaCi_aWksMzmx76T40SESpLYU6dnbhEnqB_-ich44_XJCqRW19qCjyVDSD_Ta58P3tQqlF-YPFpY-Rwnp3UD9xdfI2ATy9n23wbU10oDbYoVVuVTWrwVV1AGK/s400/step4.png" width="400" /></a></div>
+<environmentvariables><br /></environmentvariables>
+<environmentvariables><br /></environmentvariables>
+<environmentvariables><br /></environmentvariables>
+<environmentvariables><br /></environmentvariables>
+<environmentvariables><br /></environmentvariables>
+<environmentvariables><br /></environmentvariables>
+<environmentvariables><br /></environmentvariables>
+<environmentvariables><br /></environmentvariables>
+<environmentvariables><br /></environmentvariables><environmentvariables><br /></environmentvariables>
+<environmentvariables><br /></environmentvariables>
+<environmentvariables><br /></environmentvariables>
+<environmentvariables><br /></environmentvariables>
+<environmentvariables>所以將設定檔中所有8.5版本不支援的節點刪除，即可正常匯入。</environmentvariables><br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhya3UgljmBAQd-yjES8k-jP_2HPnlrbAgC36DhRNRlDr6vdU0mSVGYjI8hRoPXcNh27sNYaR0IEqI_KbETAfVHHzTvNVt45PBloUuwVeD-bQCFrYBWdP6V1bq324Y-3K9oUdaFoWoMVvuD/s1600/step6.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="539" data-original-width="988" height="217" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhya3UgljmBAQd-yjES8k-jP_2HPnlrbAgC36DhRNRlDr6vdU0mSVGYjI8hRoPXcNh27sNYaR0IEqI_KbETAfVHHzTvNVt45PBloUuwVeD-bQCFrYBWdP6V1bq324Y-3K9oUdaFoWoMVvuD/s400/step6.png" width="400" /></a></div>
+<br />
+<br />
+<br />

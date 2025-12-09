@@ -1,0 +1,9 @@
+---
+layout: post
+title: JetBrains Toolbox在WSL執行未回應
+tag:
+- jetbrains toolbox
+- wsl2
+---
+
+<p>1.依照<a href="https://www.jetbrains.com/help/idea/installation-guide.html#toolbox_linux" rel="nofollow" target="_blank">SOP</a>安裝Toolbox。</p><p>2.在命令列執行JetBrains Toolbox後無回應</p><p>(<span style="color: #38761d;">user@host</span>:<span style="color: #0b5394;">/opt/jetbrains-toolbox-&lt;build&gt;</span>$ ./jetbrains-toolbox)</p><p><br /></p><p>解法：安裝以下元件即可正常執行</p><p><span style="background-color: #f7f8fa; color: #27282e; font-family: Menlo, &quot;Bitstream Vera Sans Mono&quot;, &quot;Ubuntu Mono&quot;, Consolas, &quot;Courier New&quot;, Courier, monospace; font-size: 14px; white-space-collapse: preserve;">sudo apt install libgtk-3-dev</span></p><p>參考來源：<a href="https://youtrack.jetbrains.com/issue/TBX-8755/Cannot-launch-jetbrains-toolbox-from-WSL2-environment#focus=Comments-27-6724754.0-0" rel="nofollow" target="_blank">Cannot launch jetbrains-toolbox from WSL2 environment</a></p><p><br /></p>

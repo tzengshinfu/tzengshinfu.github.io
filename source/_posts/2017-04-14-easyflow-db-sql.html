@@ -1,0 +1,76 @@
+---
+layout: post
+title: 監看EasyFlow與DB間的SQL指令
+tag:
+- easyflow gp
+- sql
+- ssms
+---
+
+<div style="direction: ltr; line-height: 150%; margin-bottom: 0pt; margin-left: 0in; margin-top: 0pt; unicode-bidi: embed; word-break: normal;"><font face="inherit">
+開啟[SQL Server Profiler]&gt;&gt;[新增追蹤]</font></div>
+<div style="direction: ltr; line-height: 150%; margin-bottom: 0pt; margin-left: 0in; margin-top: 0pt; unicode-bidi: embed; word-break: normal;">
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<font face="inherit"><span style="font-family: &quot;calibri&quot;;">1.事件選取範圍</span><br />
+<span style="font-family: &quot;calibri&quot;;">→選取事件RPC:Completed及</span><span style="font-family: &quot;calibri&quot;;">SQL:BatchCompleted</span><br />
+</font><div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhA6zgZVgFGhKRu_jVhAurhC80WVy7c0UTbTD_r9pKFPLbQV7hYU4ZPAz7iSiouqiq5iZ1JXCMzE8gE30tOforEFGUT3FyzAjfs1PiPHG0zHXidTTw4MRgMlxt7o2_h0gvR2nJNFOJR_AmN/s1600/at1.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><font face="inherit"><img border="0" data-original-height="655" data-original-width="1129" height="231" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhA6zgZVgFGhKRu_jVhAurhC80WVy7c0UTbTD_r9pKFPLbQV7hYU4ZPAz7iSiouqiq5iZ1JXCMzE8gE30tOforEFGUT3FyzAjfs1PiPHG0zHXidTTw4MRgMlxt7o2_h0gvR2nJNFOJR_AmN/s400/at1.png" width="400" /></font></a></div>
+<font face="inherit"><span style="font-family: &quot;calibri&quot;;"><br /></span>
+
+<span style="font-family: &quot;calibri&quot;;"><br /></span><br />
+<span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span><span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span><br />
+<span style="font-family: &quot;calibri&quot;;">2.資料行篩選</span><br /><span style="font-family: &quot;calibri&quot;;">在DatabaseName</span><span style="font-family: &quot;calibri&quot;;">新增資料庫名稱</span><br />
+</font><div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiEbH6L6cbTsxg5XOZGRwLP6Y4G4IhI2Pk7kBw3AhAvBHMlAwVDF7KE0GhsWhrzgfFLT0Uov34LEKsdrhCRa0QGYORjSgZFgNMM3tTG_L3RqumHWs3n6-1CYF4us_MhLXaXEKSWu0JuSEJb/s1600/at2.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><font face="inherit"><img border="0" data-original-height="390" data-original-width="482" height="322" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiEbH6L6cbTsxg5XOZGRwLP6Y4G4IhI2Pk7kBw3AhAvBHMlAwVDF7KE0GhsWhrzgfFLT0Uov34LEKsdrhCRa0QGYORjSgZFgNMM3tTG_L3RqumHWs3n6-1CYF4us_MhLXaXEKSWu0JuSEJb/s400/at2.png" width="400" /></font></a></div>
+<font face="inherit"><span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span><br />
+<span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span><br />
+<span style="font-family: &quot;calibri&quot;;"><br /></span></font></div><div style="direction: ltr; line-height: 150%; margin-bottom: 0pt; margin-left: 0in; margin-top: 0pt; unicode-bidi: embed; word-break: normal;"><font face="inherit"><span style="font-family: &quot;calibri&quot;;">在TextData新增</span><br />
+<span style="font-family: &quot;calibri&quot;;">declare @p1 int%</span><br />
+<span style="font-family: &quot;calibri&quot;;">select%</span><br />
+<span style="font-family: &quot;calibri&quot;;">update%</span><br />
+<span style="font-family: &quot;calibri&quot;;">delete%</span><br />
+<span style="font-family: &quot;calibri&quot;;">insert%</span><br />
+</font><div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqm6GZvcdN0fr31pNR5i2yr3JyBZ66tJehT-9nnEw-pTVo2tRAf6MGJn2angszjnq3AKQcpUK6fnx428OxpbiaX4WvjqruRiWzX011ApKaUHcNC2zvnrOH4SxtIKLzjaYIvyiVmLV65iDw/s1600/at3.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><font face="inherit"><img border="0" data-original-height="390" data-original-width="477" height="326" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqm6GZvcdN0fr31pNR5i2yr3JyBZ66tJehT-9nnEw-pTVo2tRAf6MGJn2angszjnq3AKQcpUK6fnx428OxpbiaX4WvjqruRiWzX011ApKaUHcNC2zvnrOH4SxtIKLzjaYIvyiVmLV65iDw/s400/at3.png" width="400" /></font></a></div>
+<font face="inherit"><span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span>
+<span style="font-family: &quot;calibri&quot;;"><br /></span>
+<br />
+</font><div class="separator" style="clear: both; text-align: center;">
+</div>
+<font face="inherit"><br /><br />
+3.即可在結果尋找相關的SQL指令</font></div>
+<div style="direction: ltr; line-height: 150%; margin-bottom: 0pt; margin-left: 0in; margin-top: 0pt; unicode-bidi: embed; word-break: normal;">
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_O6LvY84fZqLTbg6OfhO6dqLe6wFh8lZtuk2AHGoTPg2ugFAM75Igquyd0vQW2KvnMvERktxMXrxHv8uWbINrRzSJWyvBlLBiSiHctCnd8FPOxS9hx2w7oUhN6hd3mwjXihmthYQ9-JwV/s1600/Image_20170414112019+%25283%2529.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><font face="inherit"><img border="0" height="186" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_O6LvY84fZqLTbg6OfhO6dqLe6wFh8lZtuk2AHGoTPg2ugFAM75Igquyd0vQW2KvnMvERktxMXrxHv8uWbINrRzSJWyvBlLBiSiHctCnd8FPOxS9hx2w7oUhN6hd3mwjXihmthYQ9-JwV/s400/Image_20170414112019+%25283%2529.png" width="400" /></font></a></div>
+<font face="inherit"><span style="font-family: &quot;calibri&quot;; font-size: 20pt;"><br /></span>
+<span style="font-family: &quot;calibri&quot;; font-size: 20pt;"><br /></span>
+<span style="font-family: &quot;calibri&quot;; font-size: 20pt;"><br /></span>
+<span style="font-family: &quot;calibri&quot;; font-size: 20pt;"><br /></span>
+<span style="font-family: &quot;calibri&quot;; font-size: 20pt;"><br /></span></font></div>
+<div style="direction: ltr; line-height: 150%; margin-bottom: 0pt; margin-left: 0in; margin-top: 0pt; unicode-bidi: embed; word-break: normal;">
+<br /></div>

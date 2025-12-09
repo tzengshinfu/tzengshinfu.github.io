@@ -1,0 +1,42 @@
+---
+layout: post
+title: Delphi 6呼叫ASP.NET Web service
+tag:
+- delphi
+---
+
+<ol><li>用WSDL Import將指定的 Web service 介面轉成 Delphi 的介面。</li>
+<li>修改生成的檔案(如service<web service="">.pas)<br />[1]在<span style="background-color: #eeeeee; color: #6aa84f;">RIO := THTTPRIO.Create(nil);</span><span style="background-color: white;">的下一行加入</span><br /><span style="background-color: #eeeeee; color: blue;">RIO.HTTPWebNode.UseUTF8InHeader := True;</span><br /><br />[2]在<span style="background-color: #eeeeee; color: #6aa84f;">InvRegistry.RegisterDefaultSOAPAction(TypeInfo(ServiceSoap), 'http://&lt;命名空間&gt;/%operationName%');</span>的下一行加入<br /><span style="background-color: #eeeeee;"><span style="color: blue;">InvRegistry.RegisterInvokeOptions(TypeInfo(ServiceSoap), ioDocument);</span></span></web></li>
+<li>添加參考並使用介面提供的函數呼叫即可<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxWUgymCyK5sxPWGKg0DD2jo8O9lMRprlF-xrYGwvHcAj8q51BnNbc6VG7qo1sA-awml0jXQbYUy7KmoxwLVZ97Cjqp3tx6BrlHLVRRRfZN2hawkqzGyKHUAtgLZPKQ9IHKDn6p0itsj1M/s1600/step3.png" style="clear: left; display: inline !important; float: left; margin-bottom: 1em; margin-right: 1em; text-align: center;"><img border="0" data-original-height="564" data-original-width="697" height="322" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxWUgymCyK5sxPWGKg0DD2jo8O9lMRprlF-xrYGwvHcAj8q51BnNbc6VG7qo1sA-awml0jXQbYUy7KmoxwLVZ97Cjqp3tx6BrlHLVRRRfZN2hawkqzGyKHUAtgLZPKQ9IHKDn6p0itsj1M/s400/step3.png" width="400" /></a></li></ol>
+<div>
+<br /></div>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div>
+<br /></div>
+<div>
+<span style="color: #990000;"><br /></span></div>
+<br />
+<br />

@@ -1,0 +1,38 @@
+---
+layout: post
+title: 測試專案顯示組件相依性問題
+tag:
+- ".net framework"
+---
+
+<p>被測試專案組件如下</p>
+<p>Serilog, Version=4.3.0.0</p>
+<p>Serilog.Sinks.Async, Version=2.1.0.0</p>
+<p>專案本身啟動能正常執行，</p>
+<p>因為被測試專案csproj檔本身已有AutoGenerateBindingRedirects屬性，且內容為true；</p>
+<p>但在引用該專案進行單元測試時，會拋出例外，FusionLog內容如下：</p>
+<pre><code class="log">
+<p>=== 繫結前狀態資訊 ===</p>
+<p>...</p>
+<p>正在呼叫組件 : Serilog.Sinks.Async, Version=2.1.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10。</p>
+<p>===</p>
+<p>...</p>
+<p>記錄: 原則後參考: Serilog, Version=<span style="color: red;"><b>4.1.0.0</b></span>, Culture=neutral,
+    PublicKeyToken=24c2f752a8e58a10</p>
+<p>...</p>
+<p>警告: 比較組件名稱發現不符項目: <span style="color: red;"><b>次要版本</b></span></p>
+<p>錯誤: 無法完成組件的安裝 (hr = 0x80131040)。已終止探查。</p>
+</code></pre>
+<p><br /></p>
+<p>此時要在測試專案csproj檔的<b>目前啟動的</b>組態屬性群組新增GenerateBindingRedirectsOutputType屬性，且內容為true：</p>
+<pre><code class="xml">
+<p>&lt;?xml version="1.0" encoding="utf-8"?&gt;<br />&lt;Project ToolsVersion="15.0"
+    xmlns="http://schemas.microsoft.com/developer/msbuild/2003"&gt;<br />&nbsp; &nbsp; &lt;Import
+    Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"
+    Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" /&gt;<br />&nbsp;
+    &nbsp; &lt;PropertyGroup&gt;<br />&nbsp; &nbsp; &nbsp; &nbsp; ...
+        &lt;!--↓↓↓在此插入↓↓↓--&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #073763;"><b>&lt;GenerateBindingRedirectsOutputType&gt;true&lt;/GenerateBindingRedirectsOutputType&gt;
+</b></span>      &lt;/PropertyGroup&gt;</p>
+</code></pre>
+<p>並重載測試專案即可正常測試。</p>

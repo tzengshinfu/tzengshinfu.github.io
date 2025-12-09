@@ -1,0 +1,32 @@
+---
+layout: post
+title: VSCode使用JUnit對Java程式除錯並以Fiddler Classic擷取封包內容
+tag:
+- fiddler classic
+- java
+- visual studio code
+---
+
+<p>&nbsp;1.VSCode該Workspace的settings.json加上</p>
+<div><pre><code class="json">"java.debug.settings.vmArgs": "-Dhttp.proxyHost=&lt;Fiddler所在主機位址&gt; -Dhttp.proxyPort=&lt;Fiddler開啟Port號&gt; -Dhttps.proxyHost=&lt;Fiddler所在主機位址&gt; -Dhttps.proxyPort=&lt;Fiddler開啟Port號&gt;",
+"java.test.config": [{
+	"name": "fiddler", // 測試時啟用Fiddler擷取封包的Profile名稱
+	"vmArgs": [
+		"-Dhttp.proxyHost=&lt;Fiddler所在主機位址&gt;",
+		"-Dhttp.proxyPort=&lt;Fiddler開啟Port號&gt;",
+		"-Dhttps.proxyHost=&lt;Fiddler所在主機位址&gt;",
+		"-Dhttps.proxyPort=&lt;Fiddler開啟Port號&gt;"
+	]
+},{
+	"name":"direct" // 測試時不啟用Fiddler擷取封包的Profile名稱
+}
+],
+"java.test.defaultConfig": "fiddler", // 測試時啟用Fiddler擷取封包的Profile名稱
+"testing.defaultGutterClickAction": "debug", //測試按鈕行為改成debug
+</code></pre></div>
+<p>&nbsp;2.Fiddler Classic&gt;Tools&gt;Options&gt;HTTPS</p>
+<div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEil3pbyANbc5ej7H6c_uZB_IJHL7aeFqe_OGxU_CQZDnFlOY5wt62KvL5Elvl_mPu05rm8GgSRwHnyR7bJOULlIKKLdW9Bu4qbZNwCIrFNV8JPI-nU8CU0zVpzcObmOsf9z_LGlqy-_EM0-sj_lwM30z9MantEUGP7k1JZY1a_isWAAAJGRf_BIYCBzFg/s576/img-20221114-201247.png" style="display: block; padding: 1em 0px; text-align: left;"><img alt="" border="0" data-original-height="381" data-original-width="576" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEil3pbyANbc5ej7H6c_uZB_IJHL7aeFqe_OGxU_CQZDnFlOY5wt62KvL5Elvl_mPu05rm8GgSRwHnyR7bJOULlIKKLdW9Bu4qbZNwCIrFNV8JPI-nU8CU0zVpzcObmOsf9z_LGlqy-_EM0-sj_lwM30z9MantEUGP7k1JZY1a_isWAAAJGRf_BIYCBzFg/s320/img-20221114-201247.png" width="320" /></a><div class="separator" style="clear: both; text-align: left;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoAxlYnBnmGJCUDukMI_TYY6bvvVfpYnt0sEmJW4BnPDCPy0Wa5jPN0R7vAeOOzZ_QzOpAhYKokko3Kn3l0ZYeTxPNyvFkUTz_GqfEQTqV8fh-2inErcuTIlrWaGqQZRYq0beqaqtvfFE43zX6X5X8kX-UvRKVEnUTbRlcnseA8XrayzagdSemLkEQNA/s669/img-20221114-165229.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="306" data-original-width="669" height="146" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoAxlYnBnmGJCUDukMI_TYY6bvvVfpYnt0sEmJW4BnPDCPy0Wa5jPN0R7vAeOOzZ_QzOpAhYKokko3Kn3l0ZYeTxPNyvFkUTz_GqfEQTqV8fh-2inErcuTIlrWaGqQZRYq0beqaqtvfFE43zX6X5X8kX-UvRKVEnUTbRlcnseA8XrayzagdSemLkEQNA/s320/img-20221114-165229.png" width="320" /></a></div><br /><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEil3pbyANbc5ej7H6c_uZB_IJHL7aeFqe_OGxU_CQZDnFlOY5wt62KvL5Elvl_mPu05rm8GgSRwHnyR7bJOULlIKKLdW9Bu4qbZNwCIrFNV8JPI-nU8CU0zVpzcObmOsf9z_LGlqy-_EM0-sj_lwM30z9MantEUGP7k1JZY1a_isWAAAJGRf_BIYCBzFg/s576/img-20221114-201247.png" style="display: block; padding: 1em 0px; text-align: left;"><br /></a></div>
+
+<p>&nbsp;3.Fiddler Classic&gt;Tools&gt;Options&gt;Connections</p><div class="separator" style="clear: both; text-align: left;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2MmHejs82rXaTy2FNcHAJRY5ngR0HrkpOboxrAGnrguns4EKN6ccqEGKDqdky8Od6iwEsQRgfB8DdFARC07oFirYd0PgQUgo3WTg9QuS3XQNv23lMEuh8kSGiRlXg_ZANd9qULUYytP2sLiZZ8yB_Gf6wXIkism8pnICyQW-LOnSUnT09CjW-j465YA/s578/img-20221114-201301.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="379" data-original-width="578" height="210" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2MmHejs82rXaTy2FNcHAJRY5ngR0HrkpOboxrAGnrguns4EKN6ccqEGKDqdky8Od6iwEsQRgfB8DdFARC07oFirYd0PgQUgo3WTg9QuS3XQNv23lMEuh8kSGiRlXg_ZANd9qULUYytP2sLiZZ8yB_Gf6wXIkism8pnICyQW-LOnSUnT09CjW-j465YA/s320/img-20221114-201301.png" width="320" /></a></div><div><br /></div>4.擷取成功畫面如下<div class="separator" style="clear: both; text-align: left;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4eog6Ap0ii1_9DnFpxGByx-gBGjNFTK5HOn-SvZKpFRKN-H2hs2mSEz-EnMPS7BtoBP43zeODZJWssaf4w6Ocp3o0PXZFPkulhBZc_jA2OWncbAAonChOBhiA2GGwz9EunH4hd2S3HzlRhTXRSHi6dYKvYcgRr6kYfXuYCDbmsHFBA-1d6sW0ArWH9A/s1370/img-20221114-201430.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="732" data-original-width="1370" height="171" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4eog6Ap0ii1_9DnFpxGByx-gBGjNFTK5HOn-SvZKpFRKN-H2hs2mSEz-EnMPS7BtoBP43zeODZJWssaf4w6Ocp3o0PXZFPkulhBZc_jA2OWncbAAonChOBhiA2GGwz9EunH4hd2S3HzlRhTXRSHi6dYKvYcgRr6kYfXuYCDbmsHFBA-1d6sW0ArWH9A/s320/img-20221114-201430.png" width="320" /></a></div><br /><div><br /><p><br /></p>
+
+</div>

@@ -1,0 +1,69 @@
+---
+layout: post
+title: 用更直覺的欄位名稱進行儲存格計算而不須使用位址參照(欄名列號)
+tag:
+- excel
+---
+
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">場景:</span><br />
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">1_Excel常常會看到像這種相鄰的兩欄要做計算,但因為Excel的特性,</span><br />
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">每一欄計算結果的公式會像這樣</span><br />
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">=A2+B2</span><br />
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">=A3+B3</span><br />
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">=A4+B4</span><br />
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">=A5+B5</span><br />
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">‧</span><span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">‧</span><span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">‧</span><span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">‧</span><span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">‧</span><span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">‧</span><br />
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">其實很難看出A(及B)2,A</span><span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">(及B)</span><span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">3,A</span><span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">(及B)</span><span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">4...就是step1(及2)</span><span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">欄位</span><br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBeSnZ9uIA4J2FVrOjvAvsI00ADG-r1BDmSXvlOQe40kwI9waWq-LkEzCYv4do62qsyjM6hBPb95d3RPiDuhvldnfUyx3k-mMkEv9t-HR36FZxprvEqudWmEzrxiGkb8axg-pyK1B28SLH/s1600/step1.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="879" data-original-width="1600" height="218" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBeSnZ9uIA4J2FVrOjvAvsI00ADG-r1BDmSXvlOQe40kwI9waWq-LkEzCYv4do62qsyjM6hBPb95d3RPiDuhvldnfUyx3k-mMkEv9t-HR36FZxprvEqudWmEzrxiGkb8axg-pyK1B28SLH/s400/step1.png" width="400" /></a></div>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span><span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">解法:</span><br />
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">1_在[名稱管理員]新增step1(及2)欄位的[名稱]</span><br />
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">2_[</span><span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">參照到:]</span><span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">輸入公式</span><br />
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="font-size: x-small;">step1如右 </span><b>=</b></span><span style="background-color: white; color: #bf9000; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><b>$A:$A</b></span><br />
+<div>
+<ul>
+<li><span style="font-size: x-small;"><b style="color: #bf9000; font-family: arial, tahoma, helvetica, freesans, sans-serif;">$A:$A</b>→代表對應儲存格的該欄內所有的儲存格都指定成step1</span></li>
+</ul>
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFujAQb2mNyRzUigUTNBFu58lbqC6rDHKwMvwbclfaDzVzCFtWopaLqmzpLFq7Dxan9Lz84_5zJP38xF2BLiKn5Kgyd-G_4mg9vLjGVwl4_nNu6zidL98QMKHS9yLsGoSiAZBJvBHWFqkr/s1600/qq.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="626" data-original-width="688" height="363" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFujAQb2mNyRzUigUTNBFu58lbqC6rDHKwMvwbclfaDzVzCFtWopaLqmzpLFq7Dxan9Lz84_5zJP38xF2BLiKn5Kgyd-G_4mg9vLjGVwl4_nNu6zidL98QMKHS9yLsGoSiAZBJvBHWFqkr/s400/qq.png" width="400" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">3_就可用比較直覺的公式</span></div>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">=step1+step2</span><br />
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">來計算結果,</span><br />
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;">而且每一列都不用修改參照位置</span><br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6cUyLHYI8pQiUacLSufokuWxWn9LySME66y77tZHk5aYKB6Dj_RZrghyphenhyphen1T9nNiUuhXLfJmAaluQnN5MXueREKbtjFJxQOh6hh98nr9pC0xMCoYpJoDztwlQd_vpWo9ME5BxuJE2sKgnD8/s1600/step2.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="879" data-original-width="1600" height="218" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6cUyLHYI8pQiUacLSufokuWxWn9LySME66y77tZHk5aYKB6Dj_RZrghyphenhyphen1T9nNiUuhXLfJmAaluQnN5MXueREKbtjFJxQOh6hh98nr9pC0xMCoYpJoDztwlQd_vpWo9ME5BxuJE2sKgnD8/s400/step2.png" width="400" /></a></div>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span><br />
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>
+<span style="background-color: white; color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: 13px;"><br /></span>

@@ -1,0 +1,38 @@
+---
+layout: post
+title: 'Error: 無法套用 ForEach Variable Mapping 數字 1 至變數 "User::xxxx"'
+tag:
+- ssis
+---
+
+狀況：此錯誤偶爾會發生，導致擷轉程式異常。<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3v-BS8puOZbOgL5Hbj50RjGY1Kx8zIcNzoBr7yBEhZXolG_2b8axJHFzyqNGreG0d6BGb_fjK6ZW3lBzSYeyZgw9qZqc0j5gBU1zynL5IH20m9Enwl9o_E6D53J0B7vPlNFZXKixL2bVc/s1600/step1.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="216" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3v-BS8puOZbOgL5Hbj50RjGY1Kx8zIcNzoBr7yBEhZXolG_2b8axJHFzyqNGreG0d6BGb_fjK6ZW3lBzSYeyZgw9qZqc0j5gBU1zynL5IH20m9Enwl9o_E6D53J0B7vPlNFZXKixL2bVc/s400/step1.png" width="400" /></a></div>
+<div class="separator" style="clear: both; text-align: left;">
+此元件所承接的結果是前1個元件(Execute SQL Task)所傳回的Result Set。</div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnUVcTecHS99jPD4cR6Ypjne8m9iJxAXZDc-sZwJ0RTTrMJrqIGtRq3qF7cO7uHVztByBVGWfYtQ0N9ez1g4eRyH_pDpM33sHNhpXtKy9lE7_DU25v5j_DlXFSTQPdMhSrIVU7ygZLuB_e/s1600/result2.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="216" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnUVcTecHS99jPD4cR6Ypjne8m9iJxAXZDc-sZwJ0RTTrMJrqIGtRq3qF7cO7uHVztByBVGWfYtQ0N9ez1g4eRyH_pDpM33sHNhpXtKy9lE7_DU25v5j_DlXFSTQPdMhSrIVU7ygZLuB_e/s400/result2.png" width="400" /></a></div>
+<div class="separator" style="clear: both; text-align: left;">
+<br /></div>
+<div class="separator" style="clear: both; text-align: center;">
+<br /></div>
+<div class="separator" style="clear: both; text-align: left;">
+解法：</div>
+<div class="separator" style="clear: both; text-align: left;">
+因為所傳回的Result Set含有NULL值，使用SQL指令過濾即可。</div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZtNIw1JaAUKTroWJpkU246FgguonSvZybJ2rQsKr8VA3a4YHCC7sKGjInMn5e_H9zPJYMmaZWqRwfa-RTvumLbxSLPgCpN0dzB1x3b3j6stuBwqd0p1R21E_YNZQyc9i4HRRDsTr1cUYg/s1600/result.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="241" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZtNIw1JaAUKTroWJpkU246FgguonSvZybJ2rQsKr8VA3a4YHCC7sKGjInMn5e_H9zPJYMmaZWqRwfa-RTvumLbxSLPgCpN0dzB1x3b3j6stuBwqd0p1R21E_YNZQyc9i4HRRDsTr1cUYg/s400/result.png" width="400" /></a></div>
+<div class="separator" style="clear: both; text-align: left;">
+<br /></div>
+<div class="separator" style="clear: both; text-align: left;">
+<br /></div>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div class="separator" style="clear: both; text-align: left;">
+<br /></div>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<br />
+<div class="separator" style="clear: both; text-align: left;">
+</div>
+<br />

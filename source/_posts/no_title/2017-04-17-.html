@@ -1,0 +1,38 @@
+---
+layout: post
+title: 建立磁碟用量監控機制
+tag:
+- ssis
+---
+
+1.用dos指令取得欲監控主機的固定式磁碟使用率(<span style="color: #cc0000;">drivetype=3</span>)<br /><pre><code class="bat">wmic logicaldisk where drivetype=3 get SystemName,Name,Size,FreeSpace &gt; .\127.0.0.1.txt</code></pre>
+<br />
+<br />
+2.[欲監控主機]的[系統管理工具]&gt;&gt;[工作排程器]設定每小時25及55分執行1次[取得主機固定式磁碟使用率]的dos指令並匯出文字檔。<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgo0Xd-SXfvgK7Xc3EOjuIn63DqjYqmCgznteD1VSShyvWRrFs8pfqNC2R8ALYA0rZbf-4GSAyfLK2wpnKYyCMRKTg-XGb_eSQiOE-E-YOUS-D_EW_fRVdS0qMzJbRo28xqn8N8CeqN0sa4/s1600/step1.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="320" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgo0Xd-SXfvgK7Xc3EOjuIn63DqjYqmCgznteD1VSShyvWRrFs8pfqNC2R8ALYA0rZbf-4GSAyfLK2wpnKYyCMRKTg-XGb_eSQiOE-E-YOUS-D_EW_fRVdS0qMzJbRo28xqn8N8CeqN0sa4/s400/step1.png" width="400" /></a></div>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5JYUo-LNK7aa-UCHcV9VKlUp2I_k96tBOAfh-0WoFsk_3YhPYy_1TJ79C-sKZefxH1X6B6BWTdQ7-ClJ4ayYADZ1X73p6VgwuijVGZio0Y-YqsK8trGqNEqRqk7p_4srzzHO4TTEa_ln6/s1600/step2.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="292" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5JYUo-LNK7aa-UCHcV9VKlUp2I_k96tBOAfh-0WoFsk_3YhPYy_1TJ79C-sKZefxH1X6B6BWTdQ7-ClJ4ayYADZ1X73p6VgwuijVGZio0Y-YqsK8trGqNEqRqk7p_4srzzHO4TTEa_ln6/s400/step2.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+3.使用SSIS解析文字檔，將超標數值設為[Parameters]，當使用率大於等於超標界線時即發信通知管理者。<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_vOdisCQ4kgXcRMF9_tIIXNpVDr5mLkq3TB39TN1yJV0OSCFrI6yjz6gMLPBoKZc9nfEzQXW5odjojxUx_Xu11unUs9DLANi2l_dOG4jO17zfnMIp5B_6HGc-5ij1yKkrYY8Se_OuIIrK/s1600/step3.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="216" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_vOdisCQ4kgXcRMF9_tIIXNpVDr5mLkq3TB39TN1yJV0OSCFrI6yjz6gMLPBoKZc9nfEzQXW5odjojxUx_Xu11unUs9DLANi2l_dOG4jO17zfnMIp5B_6HGc-5ij1yKkrYY8Se_OuIIrK/s400/step3.png" width="400" /></a></div>
+<br />
+<br />

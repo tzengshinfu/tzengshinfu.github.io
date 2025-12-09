@@ -1,0 +1,53 @@
+---
+layout: post
+title: C# Roslyn Scripting API(程式靈活性上升, 但穩健性卻會大幅下降, 需配合大量[單元測試]服用!)
+tag:
+- c#
+- roslyn scripting api
+---
+
+以呼叫轉換月份縮碼的方法為例:<br />
+<br />
+該dll內容如下圖:<br />
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtnEi_iYe_hjqah5bw7NmEXMsC1YPd9HoOAMTVUPGcpPDY7oNxz04TW1aoyfKYt27eVPA54ZPoOC_lQ5oiGslY3tfZrzMfcgumqNL6J5vgAVpnxrD-25ENltIMu3C0mrANz1bZSus07Vwp/s1600/Image_20180626173803.png" style="clear: left; display: inline; margin-bottom: 1em; margin-right: 1em; text-align: center;"><img border="0" data-original-height="613" data-original-width="1164" height="210" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtnEi_iYe_hjqah5bw7NmEXMsC1YPd9HoOAMTVUPGcpPDY7oNxz04TW1aoyfKYt27eVPA54ZPoOC_lQ5oiGslY3tfZrzMfcgumqNL6J5vgAVpnxrD-25ENltIMu3C0mrANz1bZSus07Vwp/s400/Image_20180626173803.png" width="400" /></a><br />
+<br />
+1.專案需加入該dll作為參考。<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8wxbWMR3JCZgBOVSuusZKPFSkhlzc7EfcwY35rgGaTLRsctyqIRdxTTPN1U03g4Yc5r379V1_b6q2XP8eVgD2iz15-fOM4zS-DF1pUnXB58HOFz61ppdmte793OmffgYi6BtPj-EKyG_s/s1600/step1.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="284" data-original-width="331" height="342" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8wxbWMR3JCZgBOVSuusZKPFSkhlzc7EfcwY35rgGaTLRsctyqIRdxTTPN1U03g4Yc5r379V1_b6q2XP8eVgD2iz15-fOM4zS-DF1pUnXB58HOFz61ppdmte793OmffgYi6BtPj-EKyG_s/s400/step1.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+2.重點是<br />
+Type.GetType(&lt;該類別的AssemblyQualifiedName&gt;).Assembly<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjCyqNJmk1wqJJlUWRRRyLRSB7wFnYavHGOlKKYhsKy_PJfq05J6EuHe6fnNQs5JT-rhm3UJsglfbaVWzvLzUrYd26aIjF7ZHMoIr010y2lC9SkolBSvpbO-xvC7G2W5eiOHYtuwzQz-9tD/s1600/step3.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="376" data-original-width="1241" height="120" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjCyqNJmk1wqJJlUWRRRyLRSB7wFnYavHGOlKKYhsKy_PJfq05J6EuHe6fnNQs5JT-rhm3UJsglfbaVWzvLzUrYd26aIjF7ZHMoIr010y2lC9SkolBSvpbO-xvC7G2W5eiOHYtuwzQz-9tD/s400/step3.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+3.執行結果如下圖:<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjx1OE9Ms2cmEDWgQprOTRSoNp0y2DGRB_uKLW5woqqpsi8UpvQETU7JV560qtWPElr_jFOgi-I8Hku9pu3ZhFO-6GBBsGKoK1SaeAzO1MxPZHJZf6SNSIZd-f7oUjLvt2sxjiqtkjnzJrz/s1600/Image_20180626174236.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="400" data-original-width="684" height="233" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjx1OE9Ms2cmEDWgQprOTRSoNp0y2DGRB_uKLW5woqqpsi8UpvQETU7JV560qtWPElr_jFOgi-I8Hku9pu3ZhFO-6GBBsGKoK1SaeAzO1MxPZHJZf6SNSIZd-f7oUjLvt2sxjiqtkjnzJrz/s400/Image_20180626174236.png" width="400" /></a></div>
+<br />

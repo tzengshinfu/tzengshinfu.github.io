@@ -1,0 +1,10 @@
+---
+layout: post
+title: 取得線上全部流程序號名稱
+tag:
+- easyflow gp
+- sql
+---
+
+<pre><code class="sql">SELECT <br />     ProcessDefinition.id, <br />     ProcessDefinition.processDefinitionName <br /> FROM <br />     ProcessPackage <br />     INNER JOIN ProcessPackageCmItem ON ProcessPackage.containerOID = ProcessPackageCmItem.OID <br />     INNER JOIN RedefinableHeader ON ProcessPackage.redefinableHeaderOID = RedefinableHeader.OID <br />     INNER JOIN ProcessPackageHeader ON ProcessPackage.headerOID = ProcessPackageHeader.OID <br />     INNER JOIN ProcessPackage_ProcessDef ON ProcessPackage.OID = ProcessPackage_ProcessDef.ProcessPackageOID <br />     INNER JOIN ProcessDefinition ON ProcessPackage.id = ProcessDefinition.id <br />     INNER JOIN ProcessDefinitionHeader ON ProcessDefinition.headerOID = ProcessDefinitionHeader.OID <br /> WHERE <br />     ProcessDefinition.OID = ProcessPackage_ProcessDef.ProcessDefinitionOID <br />     AND ProcessPackageCmItem.lastVersion = RedefinableHeader.version <br />     AND validTo &gt;= GETDATE() <br />     AND RedefinableHeader.publicationStatus = 'RELEASED'
+</code></pre>

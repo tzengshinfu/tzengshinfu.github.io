@@ -1,0 +1,13 @@
+---
+layout: post
+title: 開發端在不同OS的git換行符號設定
+tag:
+- git
+- linux
+- windows
+---
+
+<div style="text-align: left;">先前將git repository push到版控主機，<br />使用VSCode remote development在另一台server(Ubuntu 20.04)開發，</div><div style="text-align: left;">在重新pull git repository後，<br /><br /></div><div style="text-align: left;">執行shellscript顯示錯誤訊息<span style="color: #cc0000;">xxxx.sh:
+/bin/sh^M: bad interpreter: No such file or directory<br /></span>詢問New Bing後應該是跟git的換行符號設定有關。<br /><br /></div><div style="text-align: left;">先用Notepad++開啟該檔並開啟View→Show
+Symbol→Show All Characters，<br />發現換行符號不是Linux的[LF]而是Windows的[CR][LF]。<br /><br /></div><div style="text-align: left;">再查該台Ubuntu的git轉換換行符號的設定，<br />user@host:path$ git config --global
+core.autocrlf<br />居然顯示為true</div><div style="text-align: left;"><br />這代表雖然push到repository時是[LF]，但在該台Ubuntu執行pull時，<br />卻又被轉換成[CR][LF]而造成執行錯誤。<br /><br /></div><div style="text-align: left;">所以在該台Linux主機執行</div><div style="text-align: left;">user@host:path$ sudo git config --<span style="color: #274e13;"><b>global</b></span><b><span style="color: #0c343d;">&nbsp;</span></b>core.autocrlf&nbsp;<span style="color: #741b47;"><b>input</b></span><br />(--<b><span style="color: #0c343d;">global</span></b>代表該帳號的全局設定；而<b style="color: #741b47;">input</b>代表push時轉成[LF]，pull時不變動。)</div><div style="text-align: left;"><br />另外再執行</div><div style="text-align: left;">user@host:path$ sudo git config --<b><span style="color: #0c343d;">system&nbsp;</span></b>core.autocrlf&nbsp;<span style="color: #741b47;"><b>input</b></span><br />(--<b><span style="color: #0c343d;">system</span></b>代表整個系統所有帳號都適用這個規則。)</div><div style="text-align: left;"><br /></div><div style="text-align: left;">而在Windows主機則是執行</div><div style="text-align: left;">C:\Users\user&gt; git config --<b><span style="color: #0c343d;">system</span></b>&nbsp;core.autocrlf <span style="color: #783f04;"><b>true</b></span></div><div style="text-align: left;"><span style="color: #783f04;"><span style="color: black;">C:\Users\user&gt; git config --</span><b style="color: black;"><span style="color: #0c343d;">global</span></b><span style="color: black;">&nbsp;core.autocrlf&nbsp;</span><span style="color: #783f04;"><b>true</b></span></span></div><div style="text-align: left;">(<b style="color: #783f04;">true</b>代表push時轉成[LF]，但在pull時要自動轉成[CR][LF]。)</div>

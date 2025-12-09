@@ -1,0 +1,35 @@
+---
+layout: post
+title: 在Kaggle執行QAnything(支援任意格式檔或資料庫的本地知識庫問答系統)
+tag:
+- kaggle
+- qanything
+---
+
+1.複製QAnything倉庫
+<pre><code class="bash">!git clone -b develop_for_v1.3.1 https://github.com/netease-youdao/QAnything.git</code></pre>
+2.切換工作目錄
+<pre><code class="bash">%cd '/kaggle/working/QAnything'</code></pre>
+3.更新Kaggle vllm版本
+<pre><code class="bash">!pip install vllm -U</code></pre>
+4.更新Kaggle pydantic版本
+<pre><code class="bash">!pip install -U pydantic</code></pre>
+5.安裝QAnything所需元件
+<pre><code class="bash">!pip install -e .</code></pre>
+6.安裝ngrok執行檔
+<pre><code class="bash"> !curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok</code></pre>
+7.新增ngrok認證token(需預先註冊)
+<pre><code class="bash">!ngrok config add-authtoken &lt;ngrok認證token&gt;</code></pre>
+8.安裝pyngrok
+<pre><code class="bash">!pip install pyngrok</code></pre>
+9.執行完成後會顯示public_url="&lt;公開網址&gt;"
+<pre><code class="python">
+from pyngrok import ngrok, conf
+
+conf.get_default().auth_token = "&lt;ngrok認證token&gt;"
+port = "8777"
+public_url = ngrok.connect(port).public_url
+print(f"public_url=\"{public_url}\"")
+</code></pre>
+10.執行完成後即可連至&lt;公開網址&gt;/qanything/進行知識庫問答
+<pre><code class="bash">!bash scripts/run_for_3B_in_Linux_or_WSL.sh</code></pre>

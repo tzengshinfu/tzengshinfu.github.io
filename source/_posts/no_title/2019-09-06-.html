@@ -1,0 +1,23 @@
+---
+layout: post
+title: 優化主機效能設定
+---
+
+<font face="inherit">網卡進階</font><span style="font-size: small;">建議</span><font face="inherit">選項:<br />
+Large Send Offload V2 (IPv4)→Disabled<br />
+Large Send Offload V2 (IPv6)→Disabled<br />
+IPv4 TSO Offload→Disabled<br />
+IPv4 Checksum Offload→Disabled<br />
+Offload IP Options→Disabled<br />
+Offload tagged traffic→Disabled<br />
+Offload TCP Options→Disabled<br />
+TCP Checksum Offload (IPv4)→Disabled<br />
+TCP Checksum Offload (IPv6)→Disabled<br />
+UDP Checksum Offload (IPv4)→Disabled<br />
+UDP Checksum Offload (IPv6)→Disabled<br />
+如果有的話<br />
+Recv Segment Coalescing(IPV4)→Disabled<br />
+Recv Segment Coalescing(IPV6)→Disabled<br />
+Large Receive Offload(IPV4)→Disabled<br />
+Large Receive Offload(IPV6)→Disabled<br />
+<br /></font>參考來源:<br /> <a href="https://www.blogger.com/#">https://support.rackspace.com/how-to/disabling-tcp-offloading-in-windows-server-2012/</a><br /> <a href="https://www.blogger.com/#">http://lifeofageekadmin.com/network-performance-vmxnet3-windows-server-2012-r2/</a><br /> <a href="https://www.blogger.com/#">http://www.peerwisdom.org/2013/04/03/large-send-offload-and-network-performance/</a><br /> <br /><br /> <br />設定電源管理:平衡→高效能<br /> <br /> 參考來源:<br /> <a href="https://www.blogger.com/#">https://codeday.me/bug/20181119/396266.html</a><br /> <a href="https://www.blogger.com/#">https://dotblogs.com.tw/jamesfu/2012/12/18/powercfg</a><br /> <a href="https://www.blogger.com/#">https://www.netadmin.com.tw/netadmin/zh-tw/technology/A034BD3916454F388D9F03C9F1190FF3?page=3</a><br />

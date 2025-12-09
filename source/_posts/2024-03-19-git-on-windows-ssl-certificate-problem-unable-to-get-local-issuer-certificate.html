@@ -1,0 +1,10 @@
+---
+layout: post
+title: 'Git on Windows: SSL certificate problem: unable to get local issuer certificate'
+tag:
+- git
+- ssl
+- windows
+---
+
+<p>狀況：</p><p>在Windows平台使用git push/pull/clone等指令遇到錯誤如下，</p><p>D:\<span style="color: #999999;">SomeRepo</span>&gt;<span style="color: #2b00fe;">git</span> <span style="color: #f1c232;">pull</span></p><p>fatal: unable to access 'https://mygit.com/<span style="color: #999999;">SomeRepo</span>.git/': <span style="color: #cc0000;">SSL certificate problem: unable to get local issuer certificate</span></p><p><br /></p><p>解法：</p><p>設定Windows憑證儲存機制即可。</p><p>D:\<span style="color: #999999;">SomeRepo</span>&gt;<span style="color: #2b00fe;">git </span><span style="color: #f1c232;">config --system http.sslbackend "schannel"</span></p>

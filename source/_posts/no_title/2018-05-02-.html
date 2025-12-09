@@ -1,0 +1,8 @@
+---
+layout: post
+title: 檢查某目錄下檔案數量決定進行後續作業
+tag:
+- dos command
+---
+
+<pre><code class="bat"> @ECHO OFF<br /> ::初始化變數[檔案數量]<br /> SET FileCount=0<br /> ::遍歷檔案,累加到[檔案數量]<br /> FOR %A IN (D:\WorkDirectory\*) DO SET /A FileCount+=1<br /> ::如果[檔案數量]大於等於100則進行後續作業<br /> IF %FileCount% GEQ 100 (ECHO "file count greater or equal to 100!")</code></pre>

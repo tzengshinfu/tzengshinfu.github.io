@@ -1,0 +1,39 @@
+---
+layout: post
+title: 合併SSL憑證供Nginx使用
+tag:
+- nginx
+- ssl
+---
+
+<div><pre><code class="bash">
+#cat intermediate.crt                                            intermediate.crt      root.crt                    &gt; ca_bundle.crt
+cat  &lt;證書頒發機構名稱&gt;RSAOrganizationValidationSecureServerCA.crt USERTrustRSAAAACA.crt AAACertificateServices.crt &gt; ca_bundle.crt
+#cat *_company_com.crt          ca_bundle.crt &gt; server.crt
+cat  STAR_&lt;公司名稱&gt;_com.crt ca_bundle.crt &gt; server.crt</code></pre><pre><span style="font-size: x-small;">內容由上而下會是</span></pre><pre><span style="font-size: x-small;">[STAR_&lt;公司名稱&gt;_com.crt]</span></pre><pre><span style="font-size: x-small;">[&lt;證書頒發機構名稱&gt;RSAOrganizationValidationSecureServerCA.crt]</span></pre><pre><pre><span style="font-size: x-small;">[USERTrustRSAAAACA.crt]</span></pre><pre><pre><span style="font-size: x-small;">[AAACertificateServices.crt]</span></pre><pre><pre><span style="font-size: x-small;"><br /></span></pre><pre><span style="font-size: x-small;">可對比以下2個指令的輸出</span></pre><pre><span style="font-size: x-small;">openssl x509 -noout -modulus -in server.crt | openssl md5</span></pre><pre><span style="font-size: x-small;">openssl rsa -noout -modulus -in server.key | openssl md5</span></pre><pre><span style="font-size: x-small;">如果相同代表組合無誤，不然就是順序錯誤或內容有誤(空格造成位移等)</span></pre><pre><br /></pre><pre>另可執行以下指令檢查憑證到期日</pre><pre>openssl x509 -enddate -noout -in server.crt
+</pre><div><br /></div><div>輸出如下</div><div>notAfter=Apr  6 23:59:59 2026 GMT</div><pre><br /></pre></pre></pre></pre>
+</div>
+<div>
+在Nginx設定檔填入<pre><code class="nginx">
+server {
+    listen 80;
+
+    server_name #網域名稱;
+
+    return 302 https://$host$request_uri; #將http要求導向到https
+}
+server {
+        listen 443 ssl;
+
+        server_name #網域名稱;
+        
+        ssl_certificate /etc/nginx/cert/server.crt;
+        ssl_certificate_key /etc/nginx/cert/server.key;
+        ssl_prefer_server_ciphers on;
+
+        location / {
+            #既有設定
+        }
+}
+</code></pre><pre><br /></pre><pre><span style="font-size: medium;">再<span style="color: #3d85c6;">reload </span>Nginx即可</span></pre>
+</div>

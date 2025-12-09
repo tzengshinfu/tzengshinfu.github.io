@@ -1,0 +1,15 @@
+---
+layout: post
+title: 修改表單欄位資料
+tag:
+- easyflow gp
+- sql
+---
+
+<div style="background-color: white; font-family: &quot;Fira Code Retina&quot;, Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><pre><code class="sql">SELECT <br /> FormInstance.OID, <br /> fieldValues, <br /> maskFieldValues <br /> FROM <br /> ProcessInstance <br /> JOIN LocalRelevantData ON contextOID = containerOID <br /> JOIN FormInstance ON valueOID = FormInstance.OID <br /> WHERE <br /> ProcessInstance.serialNumber = '[流程序號]';</code></pre><div style="background-color: white; font-family: &quot;fira code retina&quot;, consolas, &quot;courier new&quot;, monospace; font-size: 14px; white-space: pre;"><br /></div>
+注意事項: <br /> 1.一般流程改[fieldValues]欄位的XML, <br /> 如果是TIPTOP發起的流程則[maskFieldValues]及[fieldValues]欄位的XML都要修改。 <br /> 2.Grid控制項有其特殊規則:<div class="separator" style="background-color: white; clear: both; font-family: &quot;fira code retina&quot;, consolas, &quot;courier new&quot;, monospace; font-size: 14px; text-align: center; white-space: pre;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFkz13QsV7_DfZzJeVUt5BrnsFM8VHzYvBO18lAI0OXz6VK2BQXnvzQ_cjFq9SkJVWn86mfQ7G47qGFFvLONK2oVmzmHOsIzS-8JNVItwE0o6M356LqBEcKbKkiGVVaAtNe-GWDzfZ8Uws/s1600/Image_20190516123925.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="824" data-original-width="860" height="611" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFkz13QsV7_DfZzJeVUt5BrnsFM8VHzYvBO18lAI0OXz6VK2BQXnvzQ_cjFq9SkJVWn86mfQ7G47qGFFvLONK2oVmzmHOsIzS-8JNVItwE0o6M356LqBEcKbKkiGVVaAtNe-GWDzfZ8Uws/s640/Image_20190516123925.png" width="640" /></a></div>
+<div class="separator" style="background-color: white; clear: both; font-family: &quot;fira code retina&quot;, consolas, &quot;courier new&quot;, monospace; font-size: 14px; text-align: center; white-space: pre;">
+</div>
+<div style="background-color: white; font-family: &quot;fira code retina&quot;, consolas, &quot;courier new&quot;, monospace; font-size: 14px; white-space: pre;">
+<br /></div>
+</div>

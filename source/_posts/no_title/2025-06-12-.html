@@ -1,0 +1,16 @@
+---
+layout: post
+title: 取得測試專案路徑
+tag:
+- ".net framework"
+- c#
+---
+
+<p>場景：</p>
+<p>被測試專案組件有以下敘述：</p><pre><code class="csharp"><p>Path.Combine(Path.GetDirectoryName(Assembly.<span style="color: #990000;"><b>GetEntryAssembly</b></span>().Location) ??
+    throw new NullReferenceException(), fileName)</p>
+</code></pre>
+<p>專案本身啟動能正常執行，但因為測試專案無法取得被測試專案的Assembly.GetEntryAssembly().Location(組件路徑，通常是被測試專案的bin目錄)而拋出NullReferenceException。</p>
+<p><br /></p>
+<p>解法：</p>
+<p>改寫為以下敘述取得測試專案路徑即可正常測試。</p><pre><code class="csharp"><p>Path.Combine(Path.GetDirectoryName(Assembly.<span style="color: #38761d;"><b>GetExecutingAssembly</b></span>().Location), fileName)</p></code></pre>

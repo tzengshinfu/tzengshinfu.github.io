@@ -1,0 +1,9 @@
+---
+layout: post
+title: Windows無法用ssh-copy-id複製公鑰的替代方法
+tag:
+- ssh
+- windows
+---
+
+<p>在命令提示字元視窗執行</p><p></p><pre><code>type %USERPROFILE%\.ssh\[SSH公鑰檔名] | ssh [Linux使用者]@[Linux主機] "cat &gt;&gt; .ssh/authorized_keys"</code></pre><p></p><p><br /></p><p>參考來源：<a href="https://superuser.com/a/1815968/209426" rel="nofollow" target="_blank">Alternative to ssh-copy-id on windows</a></p>

@@ -1,0 +1,59 @@
+---
+layout: post
+title: EasyFlow取得附件實體路徑程式碼(C#/VB6=ReportingService用)
+tag:
+- easyflow gp
+---
+
+<div style="font-family: &quot;fira code retina&quot;, consolas, &quot;courier new&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="font-family: &quot;fira code retina&quot;, consolas, &quot;courier new&quot;, monospace; font-size: 14px;"><span style="background-color: purple; color: white;"><font>C#版</font></span><pre><code class="csharp">var physicalName = "42f5a298x16cddb6dd3ex6a19";
+var extension = "jpg";
+var docServerRootPath = "";
+var mod = physicalName.Length % 2;
+var locationTempString = physicalName.Substring(2, physicalName.Length - 4 + mod);
+
+for (var currentIndex = locationTempString.Length - 1; currentIndex &gt;= mod; currentIndex -= 2) {
+    var folder = locationTempString.Substring(currentIndex - 1, 2);
+    folders.Add(folder);
+}
+
+var directoryPath = string.Join(@"\", folders);
+var physicalFilePath = docServerRootPath + @"\" + directoryPath + @"\" + physicalName + "." + extension;
+</code></pre></div><pre style="background-color: white;"><div style="background-color: white; text-align: left;"><br /></div></pre><div style="font-family: &quot;fira code retina&quot;, consolas, &quot;courier new&quot;, monospace; font-size: 14px;"><span style="background-color: orange;"><span style="color: white;">VB6版</span></span></div><pre><code class="vba">Dim physicalName As String
+physicalName = "42f5a298x16cddb6dd3ex6a19"
+
+Dim extension As String
+extension = "jpg"
+
+Dim docServerRootPath As String
+docServerRootPath = "";
+
+Dim folders() As String
+ReDim Preserve folders(0)
+
+Dim modNumber As Integer
+modNumber = Len(physicalName) Mod 2
+
+Dim locationTempString As String
+locationTempString = Mid(physicalName, 3, Len(physicalName) - 4 + modNumber)
+
+Dim currentIndex As Integer
+Dim folderIndex As Integer
+folderIndex = 0
+
+For currentIndex = Len(locationTempString) - 1 To currentIndex &gt; modNumber Step -2
+    Dim folder As String
+    folder = Mid(locationTempString, currentIndex, 2)
+
+    folders(folderIndex) = folder
+    folderIndex = folderIndex + 1
+
+    ReDim Preserve folders(folderIndex)
+Next
+
+Dim directoryPath As String
+directoryPath = Join(folders, "\")
+
+Dim physicalFilePath As String
+physicalFilePath = docServerRootPath + "\" + directoryPath + physicalName + "." + extension 'folder陣列在Join後最後會多一個\符號,所以directoryPath最後不用再加上\符號
+</code></pre><font>
+  </font><div style="background-color: white; font-size: 14px;"><div style="line-height: 19px;"><div style="font-family: &quot;fira code retina&quot;, consolas, &quot;courier new&quot;, monospace; line-height: 19px;"><pre><br /></pre></div></div></div></div>

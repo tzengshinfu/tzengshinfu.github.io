@@ -1,0 +1,9 @@
+---
+layout: post
+title: Visual Studio 2022在方案總管直接打開Windows Terminal
+tag:
+- visual studio 2022
+- windows terminal
+---
+
+<p>因為內建終端機快捷鍵與Visual Studio共用，當安裝Clink(擴充cmd.exe功能)時，<br />像Ctrl+K(刪除游標後所有字元)會被當成快捷鍵的組合鍵而無效。</p><p>可以改在Windows Terminal以解決這個問題。</p><p>1.進入工具(T)&gt;選項(O)...&gt;環境&gt;終端</p><p>2.新增設定檔，並<b><u>設為預設</u></b><br />名稱：Windows Terminal<br />殼層位置：C:\Windows\System32\cmd.exe<br />引數：/c wt.exe -d .\</p><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpINTT-hw_kAEG-9mFBckTDpN6CbdeLTYpPyrbvSjCDOa4TlkQ91q66obKQNFEw4twmGurayzAJx6zymEPyMc6hnYvEQKYy8ljurAiIVUSf4lmPuc1CPcYSltx7-1Pid22R6Cjib3Cx8qK7D7Dy-rEy4tALzruvz94-sP41LXn-nEflMxBWqg22cuVVrc5/s1104/devenv_20250902_084612.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="489" data-original-width="1104" height="178" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpINTT-hw_kAEG-9mFBckTDpN6CbdeLTYpPyrbvSjCDOa4TlkQ91q66obKQNFEw4twmGurayzAJx6zymEPyMc6hnYvEQKYy8ljurAiIVUSf4lmPuc1CPcYSltx7-1Pid22R6Cjib3Cx8qK7D7Dy-rEy4tALzruvz94-sP41LXn-nEflMxBWqg22cuVVrc5/w400-h178/devenv_20250902_084612.png" width="400" /></a></div><br /><p><br /><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br />3.在方案總管任一位置按右鍵&gt;在終端機中開啟，<br />即會在對應路徑打開Windows Terminal。</p>

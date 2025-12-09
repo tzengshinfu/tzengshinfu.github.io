@@ -1,0 +1,25 @@
+---
+layout: post
+title: 如何除錯時在空區塊或方法最後1個陳述式設定中斷點不被跳過
+tag:
+- java
+---
+
+在空區塊內或方法最後1個陳述式之後，新增陳述式<span style="color: #A41818;">""</span>.isBlank();並在其設定中斷點(作用類似JavaScript的<span style="color: #0303FF;">debugger</span>)，如下：
+
+<pre><code class="java">
+public void test() {
+    List<string> variables = new ArrayList<>(List.of("A", "B", "C"));
+
+    for (String variable: variables) {
+      // 這是一個空區塊
+      "".isBlank(); // 在這裡設定IDE中斷點，以查看變數variable的內容
+    }
+
+    // 這是方法最後1個陳述式
+    String variable2 = "D";
+    "".isBlank(); // 在這裡設定IDE中斷點，以查看變數variable2的內容
+}
+</code></pre>
+
+參考來源：<a href="https://stackoverflow.com/a/60399943" target="_blank" rel="nofollow">python - Java do nothing - Stack Overflow</a>

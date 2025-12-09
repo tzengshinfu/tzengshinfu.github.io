@@ -1,0 +1,8 @@
+---
+layout: post
+title: KeePassXC自動輸入{CLEARFIELD}無法清除欄位內容
+tag:
+- keepassxc
+---
+
+<p>由KeePass改用跨平台的KeePassXC，</p><p>發現原本設定的自動輸入{CLEARFIELD}不會清除已有文字存在的欄位內容。</p><p><br /></p><p>解法：</p><p>將{CLEARFIELD}改為^a{DELETE}即可。</p><p>參考來源：<a href="https://github.com/keepassxreboot/keepassxc/issues/10916#issuecomment-2175914913" rel="nofollow" target="_blank">{CLEARFIELD} not working on Windows 11 either (with SQuirreL)</a></p>

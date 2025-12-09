@@ -1,0 +1,19 @@
+---
+layout: post
+title: GNU GLOBAL安裝/使用(for Windows)
+tag:
+- gnu global
+- windows
+---
+
+<ol><li>下載GNU GLOBAL，解壓縮到C:\GLOBAL。</li>
+<li>下載Python 3並安裝。</li>
+<li>我的電腦→右鍵→內容→進階系統設定→環境變數→系統變數→Path→新增C:\GLOBAL\bin。</li>
+<li>系統變數→新增變數名稱GTAGSCONF，變數值C:\GLOBAL\share\gtags\gtags.conf。</li>
+<li>系統變數→新增變數名稱GTAGSLABEL，變數值pygments。</li>
+<li>使用gtags --debug驗證安裝是否正常。</li>
+<li>使用gtags產生索引檔GTAGS,GRTAGS,GPATH</li>
+<li>使用htags產生索引網站，命令列參數：--alphabet --other --symbol --tree-view --frame --fixed-guide --line-number --verbose --warning</li>
+</ol>
+<br />
+<br />

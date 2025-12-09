@@ -1,0 +1,38 @@
+---
+layout: post
+title: Windows 10 桌面右鍵選單出現"很慢"
+tag:
+- windows
+---
+
+一般狀況應該會在1秒內顯示右鍵選單, 延遲原因是因為被Intel顯卡右鍵選單拖慢。<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5hcu2beNeHw34a0yIiVuUzjr4Bd586hozQiFQi-N8iamRheROkEyJ-9zN9RCc1wRoL_0GEBqN430wjUl47qRFpp-g9I6L5JiXIa-p7y4uGSrHVDVuGi1r8c-K3On2GzOikuqMfQB3Moz4/s1600/Capture_20180117232554.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="895" data-original-width="399" height="400" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5hcu2beNeHw34a0yIiVuUzjr4Bd586hozQiFQi-N8iamRheROkEyJ-9zN9RCc1wRoL_0GEBqN430wjUl47qRFpp-g9I6L5JiXIa-p7y4uGSrHVDVuGi1r8c-K3On2GzOikuqMfQB3Moz4/s400/Capture_20180117232554.png" width="177" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+對策:<br />
+在登錄檔,右鍵選單,Intel顯卡控制台移除即可。<br />
+將此機碼<br />
+HKEY_CLASSES_ROOT\Directory\Background\shellex\ContextMenuHandlers\<b><span style="color: #cc0000;">igfxDTCM</span></b><br />
+刪除。<br />
+<br />
+參考來源:<a href="https://www.dcard.tw/f/3c/p/157357544" target="_blank">(分享)解決windows 10桌面右鍵選單反應很慢的方法</a>

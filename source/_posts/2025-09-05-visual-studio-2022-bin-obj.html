@@ -1,0 +1,8 @@
+---
+layout: post
+title: Visual Studio 2022 清除專案同時清空bin/obj資料夾
+tag:
+- visual studio 2022
+---
+
+<p>&nbsp;在專案.csproj檔新增</p><p></p><pre><code class="xml">&lt;Project&gt;</code></pre><p></p><p>...</p><p>&nbsp;<span style="color: #38761d;"> &lt;!-- #region 清理 bin 和 obj 資料夾 --&gt;</span></p><p>&nbsp; &lt;Target Name="CleanBinObjFolders" AfterTargets="Clean"&gt;</p><p><span style="white-space: normal;"><span style="white-space: pre;">	</span><span style="color: #38761d;">&lt;!-- Remove obj folder --&gt;</span></span></p><p>&nbsp; &nbsp; &lt;RemoveDir Directories="$(BaseIntermediateOutputPath)" /&gt;</p><p>&nbsp; &nbsp; <span style="color: #38761d;">&lt;!-- Remove bin folder --&gt;</span></p><p>&nbsp; &nbsp; &lt;RemoveDir Directories="$(BaseOutputPath)" /&gt;</p><p>&nbsp; &lt;/Target&gt;</p><p>&nbsp;<span style="color: #38761d;"> &lt;!-- #endregion --&gt;</span></p><p>&lt;/Project&gt;</p><p><br /></p><p>參考來源：<a href="https://stackoverflow.com/a/12206011" rel="nofollow" target="_blank">How to fully clean bin and obj folders within Visual Studio?</a></p>

@@ -1,0 +1,47 @@
+---
+layout: post
+title: "[構想]自主開發系統 - 權限設計"
+tag:
+- 自主系統開發
+---
+
+<h1 style="border-bottom: 1px solid rgb(234, 236, 239); box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; line-height: 1.25; margin-bottom: 16px; margin-left: 0px; margin-right: 0px; margin-top: 0px !important; padding-bottom: 0.3em;">
+權限設計</h1>
+<h3 style="box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 1.25em; line-height: 1.25; margin-bottom: 16px; margin-top: 24px;">
+<a aria-hidden="true" class="anchor" href="https://gist.github.com/tzengshinfu/8ad7332701058f045e6dbcc7ce0a21ac#%E5%8F%83%E8%80%83apache-shiro%E6%AC%8A%E9%99%90%E5%8A%9F%E8%83%BD" id="user-content-參考apache-shiro權限功能" style="box-sizing: border-box; color: #0366d6; float: left; line-height: 1; margin-left: -20px; padding-right: 4px; text-decoration-line: none;"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>(參考Apache Shiro權限功能)</h3>
+<div style="box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 16px; margin-bottom: 16px;">
+1.管理者</div>
+<table style="border-collapse: collapse; border-spacing: 0px; box-sizing: border-box; color: #24292e; display: block; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 16px; margin-bottom: 16px; margin-top: 0px; overflow: auto; width: 888px;"><thead style="box-sizing: border-box;">
+<tr style="background-color: white; border-top: 1px solid rgb(198, 203, 209); box-sizing: border-box;"><th align="left" style="border: 1px solid rgb(223, 226, 229); box-sizing: border-box; padding: 6px 13px;">角色</th><th align="left" style="border: 1px solid rgb(223, 226, 229); box-sizing: border-box; padding: 6px 13px;">權限</th></tr>
+</thead><tbody style="box-sizing: border-box;">
+<tr style="background-color: white; border-top: 1px solid rgb(198, 203, 209); box-sizing: border-box;"><td align="left" style="border: 1px solid rgb(223, 226, 229); box-sizing: border-box; padding: 6px 13px;">department1:role1</td><td align="left" style="border: 1px solid rgb(223, 226, 229); box-sizing: border-box; padding: 6px 13px;">*</td></tr>
+</tbody></table>
+<div style="box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 16px; margin-bottom: 16px;">
+說明:<br style="box-sizing: border-box;" />在demartment1的role1可使用任何功能。</div>
+<div style="box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 16px; margin-bottom: 16px;">
+2.針對各別功能設定權限</div>
+<table style="border-collapse: collapse; border-spacing: 0px; box-sizing: border-box; color: #24292e; display: block; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 16px; margin-bottom: 16px; margin-top: 0px; overflow: auto; width: 888px;"><thead style="box-sizing: border-box;">
+<tr style="background-color: white; border-top: 1px solid rgb(198, 203, 209); box-sizing: border-box;"><th align="left" style="border: 1px solid rgb(223, 226, 229); box-sizing: border-box; padding: 6px 13px;">角色</th><th align="left" style="border: 1px solid rgb(223, 226, 229); box-sizing: border-box; padding: 6px 13px;">權限</th></tr>
+</thead><tbody style="box-sizing: border-box;">
+<tr style="background-color: white; border-top: 1px solid rgb(198, 203, 209); box-sizing: border-box;"><td align="left" style="border: 1px solid rgb(223, 226, 229); box-sizing: border-box; padding: 6px 13px;">department2:role2</td><td align="left" style="border: 1px solid rgb(223, 226, 229); box-sizing: border-box; padding: 6px 13px;">function1:*;function2:add,view</td></tr>
+</tbody></table>
+<div style="box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 16px; margin-bottom: 16px;">
+說明:<br style="box-sizing: border-box;" />在demartment2的role2 擁有function1的全部權限(新增/修改/刪除/觀看..等); 擁有function2的新增及觀看權限。</div>
+<div style="box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 16px; margin-bottom: 16px;">
+3.針對所有功能設定權限</div>
+<table style="border-collapse: collapse; border-spacing: 0px; box-sizing: border-box; color: #24292e; display: block; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 16px; margin-bottom: 16px; margin-top: 0px; overflow: auto; width: 888px;"><thead style="box-sizing: border-box;">
+<tr style="background-color: white; border-top: 1px solid rgb(198, 203, 209); box-sizing: border-box;"><th align="left" style="border: 1px solid rgb(223, 226, 229); box-sizing: border-box; padding: 6px 13px;">角色</th><th align="left" style="border: 1px solid rgb(223, 226, 229); box-sizing: border-box; padding: 6px 13px;">權限</th></tr>
+</thead><tbody style="box-sizing: border-box;">
+<tr style="background-color: white; border-top: 1px solid rgb(198, 203, 209); box-sizing: border-box;"><td align="left" style="border: 1px solid rgb(223, 226, 229); box-sizing: border-box; padding: 6px 13px;">department3:role3</td><td align="left" style="border: 1px solid rgb(223, 226, 229); box-sizing: border-box; padding: 6px 13px;">*:view</td></tr>
+</tbody></table>
+<div style="box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 16px; margin-bottom: 16px;">
+說明:<br style="box-sizing: border-box;" />在demartment3的role3在所有function都擁有觀看權限。</div>
+<div style="box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 16px; margin-bottom: 16px;">
+4.針對所有角色設定權限</div>
+<table style="border-collapse: collapse; border-spacing: 0px; box-sizing: border-box; color: #24292e; display: block; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 16px; margin-bottom: 16px; margin-top: 0px; overflow: auto; width: 888px;"><thead style="box-sizing: border-box;">
+<tr style="background-color: white; border-top: 1px solid rgb(198, 203, 209); box-sizing: border-box;"><th align="left" style="border: 1px solid rgb(223, 226, 229); box-sizing: border-box; padding: 6px 13px;">角色</th><th align="left" style="border: 1px solid rgb(223, 226, 229); box-sizing: border-box; padding: 6px 13px;">權限</th></tr>
+</thead><tbody style="box-sizing: border-box;">
+<tr style="background-color: white; border-top: 1px solid rgb(198, 203, 209); box-sizing: border-box;"><td align="left" style="border: 1px solid rgb(223, 226, 229); box-sizing: border-box; padding: 6px 13px;">*</td><td align="left" style="border: 1px solid rgb(223, 226, 229); box-sizing: border-box; padding: 6px 13px;">function3:view</td></tr>
+</tbody></table>
+<div style="box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 16px;">
+說明: 所有role都擁有function3的觀看權限。</div>

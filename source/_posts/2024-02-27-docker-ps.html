@@ -1,0 +1,8 @@
+---
+layout: post
+title: docker ps 輸出結果格式化
+tag:
+- docker
+---
+
+1.開啟~/.docker/config.json。(不存在則新增)<div>2.編輯內容，新增屬性"psFormat"，輸出欄位可參照<a href="https://docs.docker.com/reference/cli/docker/container/ls/#format" rel="nofollow" target="_blank">Format the output (--format)</a>。</div><div><br /></div><div><div><span style="color: #f1c232;">{</span></div><div>&nbsp; <span style="color: #e06666;">"psFormat"</span>: <span style="color: #38761d;">"table {{.Names}}\t{{.Image}}\t{{.Status}}</span><span style="color: #38761d;">\t{{.Ports}}</span><span style="color: #38761d;">"</span></div><div><span style="color: #f1c232;">}</span></div></div><div><br /></div><div>參考來源：<a href="https://docs.docker.com/engine/reference/commandline/cli/#docker-cli-configuration-file-configjson-properties" rel="nofollow" target="_blank">Docker CLI configuration file (config.json) properties</a></div><div><br /></div>

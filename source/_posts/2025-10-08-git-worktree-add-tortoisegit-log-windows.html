@@ -1,0 +1,9 @@
+---
+layout: post
+title: 在git worktree add後使用TortoiseGit查看log的錯誤(Windows)
+tag:
+- git
+- windows
+---
+
+<p>&nbsp;</p><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfhv_vkvNR81AIKPf1sgEm73qZ3ohHbCEyy96g83wM3n52YkGveTYcPzUT8h8DYBEb2NR1P9ywvK-e02Hykl9vG3wYgFcJSiEivgIenEOT5D1EyMGy9jqAr2Mn5gfuy9grk8pxITJ6BNUWnDpmyHbTZVija8pzpC5462bl6NHW4egY5Q-5dBNs1iJ5IGv4/s482/2025-10-08_10-11-18.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="239" data-original-width="482" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfhv_vkvNR81AIKPf1sgEm73qZ3ohHbCEyy96g83wM3n52YkGveTYcPzUT8h8DYBEb2NR1P9ywvK-e02Hykl9vG3wYgFcJSiEivgIenEOT5D1EyMGy9jqAr2Mn5gfuy9grk8pxITJ6BNUWnDpmyHbTZVija8pzpC5462bl6NHW4egY5Q-5dBNs1iJ5IGv4/s16000/2025-10-08_10-11-18.png" /></a></div><br /><p></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p>原因</p><p>在Repo1使用git worktree add建立的資料夾Repo2，<br />其擁有者是繼承上位資料夾Workspace，<br />但上位資料夾擁有者和目前使用者並不是同一個人。</p><p>示意如下：<br />Workspace(擁有者：Administrators)<br />└Repo1(擁有者：User1)<br />└Repo2(擁有者：Administrators)</p><p><br /></p><p>解法</p><p>執行以下指令將Repo2擁有者改為目前使用者即可。</p><p><span style="background-color: #282c34; color: #f3f3f3;">takeown /f&nbsp; Workspace\Repo1\.git\worktrees\Repo2 /r /d y<br /></span><span style="background-color: #282c34; color: #f3f3f3;">takeown /f&nbsp; Workspace\Repo2 /r /d y</span></p>

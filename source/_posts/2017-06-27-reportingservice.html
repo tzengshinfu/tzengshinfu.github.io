@@ -1,0 +1,23 @@
+---
+layout: post
+title: ReportingService每日首次啟動緩慢
+tag:
+- ssrs
+---
+
+SSRS每12小時會回收資源,造成每日首次啟動緩慢的現象<br />
+我們可以增加RsReportServer.config的RecycleTime<br />
+但如果設太長導致未收回,恐會資源耗盡影響主機運作。<br />
+<br />
+較佳解法:<br />
+1.在SQL Agent設定每1分鐘執行1次的排程,<br />
+作用是模擬開啟SSRS首頁的行為,在資源回收後強制重新建立,<br />
+加快使用者開啟報表速度。<br />
+<br />
+2.執行類型:CmdExec<br />
+指令如下:<br />
+<pre><code class="bat">curl --ntlm --user &lt;網域&gt;/&lt;使用者帳號&gt;:&lt;密碼&gt; "http://localhost/ReportServer/Pages/ReportViewer.aspx?%2f報表名稱"</code></pre>
+PS:curl執行檔需另外下載。<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfw517qhPQr80Mdqf3MgkrWYB9O2KHDigc_JPaESmdopmo9VSVr7TrO_HZFEWoaKrVtkhoI58-E-93_l1xq9T-FQ7mLGUlng9lrK47BtmWk0WW_fIYVkXbkxwwtPT1KNpXLOHdj3G4fy4U/s1600/runcurl.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="632" data-original-width="770" height="327" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfw517qhPQr80Mdqf3MgkrWYB9O2KHDigc_JPaESmdopmo9VSVr7TrO_HZFEWoaKrVtkhoI58-E-93_l1xq9T-FQ7mLGUlng9lrK47BtmWk0WW_fIYVkXbkxwwtPT1KNpXLOHdj3G4fy4U/s400/runcurl.png" width="400" /></a></div>
+<br />

@@ -1,0 +1,32 @@
+---
+layout: post
+title: Javascript forEach函數的break及continue方式
+tag:
+- javascript
+---
+
+<pre><code class="js">//forEach模擬continue
+const items = [1, 2, 3, 4, 5];
+const no = 3;
+
+items.forEach(function (item) {
+    if (item == no) {
+        return false;
+    }
+
+    console.log(item);
+});
+
+//some模擬break
+const items = [1, 2, 3, 4, 5];
+const no = 3;
+
+items.some(function (item) {
+    if (item == no) {
+        return true;
+    }
+
+    console.log(item);
+});
+</code></pre>
+參考來源:<a href="https://blog.csdn.net/lihefei_coder/article/details/76736296" target="_blank">Javascript Array forEach()中无法return和break，代替方法some()与every()</a>

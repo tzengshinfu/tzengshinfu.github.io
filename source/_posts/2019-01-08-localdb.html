@@ -1,0 +1,63 @@
+---
+layout: post
+title: 本機LocalDB降版
+tag:
+- localdb
+- visual studio
+---
+
+<font face="inherit">場景:<br />
+本機已安裝LocalDB 2016,想降版到2014。<br />
+<br />
+作法:<br />
+1.移除LocalDB 2016。<br />
+2.安裝LocalDB 2014。<br />
+3.如果在新增/連線到LocalDB顯示異常如下圖:<br />
+</font><div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSLRgGT3GZE9iTlEAw-h6dRzM1oTKot5JykZMTlyP-afqx6aEcCEhh_FhaySiQ741BAiEAQBTCGCleeZJ_LoTMyTzWShDGDj5_I1vVBOpp54I741nWYfL47URxZ2Olgaesj95rwg02SiSD/s1600/Image_20190108115342.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><font face="inherit"><img border="0" data-original-height="246" data-original-width="503" height="195" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSLRgGT3GZE9iTlEAw-h6dRzM1oTKot5JykZMTlyP-afqx6aEcCEhh_FhaySiQ741BAiEAQBTCGCleeZJ_LoTMyTzWShDGDj5_I1vVBOpp54I741nWYfL47URxZ2Olgaesj95rwg02SiSD/s400/Image_20190108115342.png" width="400" /></font></a></div>
+<font face="inherit"><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+4.進到事件檢視簿,如果發現錯誤訊息如下圖:<br />
+</font><div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-JhjSlOg-6RbkCUEJK2h5XKFPu-QNIPkKERg-ED1izesw-UFrPpjO6GQPqkkqC3N8tvkJCqqNzzaAnIy3DcBW3q3cqaV3_2eMEZtVcYy_B0IRDk83hISyYycnq2n9fkurjqRuAIh2WWF2/s1600/111.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><font face="inherit"><img border="0" data-original-height="467" data-original-width="1368" height="136" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-JhjSlOg-6RbkCUEJK2h5XKFPu-QNIPkKERg-ED1izesw-UFrPpjO6GQPqkkqC3N8tvkJCqqNzzaAnIy3DcBW3q3cqaV3_2eMEZtVcYy_B0IRDk83hISyYycnq2n9fkurjqRuAIh2WWF2/s400/111.png" width="400" /></font></a></div>
+<font face="inherit"><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+5.編輯登錄檔如下圖:<br />
+路徑:HKEY_CURRENT_USER\Software\Microsoft\Microsoft SQL Server\UserInstances<br />
+刪除錯誤版本即可。<br />
+</font><div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5DjR4fJgoZs5POkEc97jJxM2meyt9BSIEp-m4cW5KtsouOk91A-P62tmayBYwo_pOp_vRcBk3wf7Ir3xGjB42-rdYxIUbLp4EpK9HQ2h-srw9xE9nOHtDU5GsgTitaiWB3MgD1OOxk0Ao/s1600/Image_20190108132124.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><font face="inherit"><img border="0" data-original-height="416" data-original-width="1024" height="162" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5DjR4fJgoZs5POkEc97jJxM2meyt9BSIEp-m4cW5KtsouOk91A-P62tmayBYwo_pOp_vRcBk3wf7Ir3xGjB42-rdYxIUbLp4EpK9HQ2h-srw9xE9nOHtDU5GsgTitaiWB3MgD1OOxk0Ao/s400/Image_20190108132124.png" width="400" /></font></a></div>
+<font face="inherit"><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<font face="inherit"><br /></font></font><font face="inherit">
+<br />
+<br />
+<br />
+<br />
+參考來源:<a href="https://stackoverflow.com/a/43693155" target="_blank">LocalDB parent instance version invalid: MSSQL13E.LOCALDB</a></font>

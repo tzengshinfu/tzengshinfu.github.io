@@ -1,0 +1,9 @@
+---
+layout: post
+title: EasyFlow與Tiptop整合設定存放處
+tag:
+- easyflow gp
+- sql
+---
+
+<pre><code class="sql">UPDATE [測試區DB].dbo.TiptopModel <br /> SET mappingSet = (SELECT mappingSet FROM [正式區DB].dbo.TiptopModel); <br /> /**這table居然在鼎新DB文件裡沒有…*/</code></pre>

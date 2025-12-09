@@ -1,0 +1,17 @@
+---
+layout: post
+title: "[構想]自主開發系統 - 資料儲存格式"
+tag:
+- 自主系統開發
+---
+
+<h1 style="border-bottom: 1px solid rgb(234, 236, 239); box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; line-height: 1.25; margin-bottom: 16px; margin-left: 0px; margin-right: 0px; margin-top: 0px !important; margin: 0px 0px 16px; padding-bottom: 0.3em;">
+資料儲存格式</h1>
+<div style="box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 16px; margin-bottom: 16px;">
+格式如下:<br style="box-sizing: border-box;" />資料1名稱:資料1型態=資料1內容;資料2名稱:資料2型態=資料2內容;資料3名稱:資料3型態=資料3內容;....</div>
+<div style="box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 16px; margin-bottom: 16px;">
+1.儲存一般資料<br style="box-sizing: border-box;" />column1:int=23;column2:varchar(50)="test";column3:datetime2(7)=2017-10-10 10:00:00.000;column4:bit=1;</div>
+<div style="box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 16px; margin-bottom: 16px;">
+2.儲存二進位資料<br style="box-sizing: border-box;" />column5:varbinary(max)=0x3C3F786D6C2076657273696F6E3D22312E302220656E636F646...;</div>
+<div style="box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 16px;">
+3.儲存null<br style="box-sizing: border-box;" />column6:nvarchar(50)=null;</div>

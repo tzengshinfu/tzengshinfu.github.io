@@ -1,0 +1,10 @@
+---
+layout: post
+title: Kettle用Nginx作為反向代理的注意事項
+tag:
+- docker
+- kettle
+- nginx
+---
+
+<div>場景：</div><div>統一用Nginx作為反向代理，而Kettle及Nginx皆為Docker容器。</div><div><br /></div><div>Nginx:</div><div>在Kettle的設定檔，需新增sub_filter修正WebUI連結，避免找不到網頁錯誤。</div><div>{</div><div>&nbsp; &nbsp; sub_filter_once off;</div><div>&nbsp; &nbsp; sub_filter /kettle/status /kettle/status/;</div><div>&nbsp; &nbsp; sub_filter /kettle/jobStatus /kettle/jobStatus/;</div><div>}</div><div><br /></div><div>Kettle:</div><div>需修改&lt;Kettle目錄&gt;/pwd/carte-config-master-8080.xml，</div><div>&lt;hostname&gt;localhost&lt;/hostname&gt;改為</div><div>&lt;hostname&gt;0.0.0.0&lt;/hostname&gt;</div>

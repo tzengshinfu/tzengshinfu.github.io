@@ -1,0 +1,8 @@
+---
+layout: post
+title: OpenAI Codex CLI另一種編寫提示詞的方式
+tag:
+- codex cli
+---
+
+<p>其實在終端機編寫提示詞並不太方便，</p><p>大量文字新增修改貼上及移動鼠標位置等操作還是在文字編輯器最方便，</p><p>因為Codex有支援自訂提示詞功能，</p><p>我們可以在$CODEX_HOME/prompts/</p><p>(Windows是%USERPROFILE%/.codex/prompts</p><p>Linux/WSL 2是~/.codex/prompts/)</p><p>新增自訂提示詞檔案，副檔名必須是.md，如my-prompt.md</p><p>甚至可以直接用IDE編輯該提示詞檔案，</p><p>編輯時Visual Studio 2202可以使用右鍵選單[Copy Full&nbsp; Path]複製檔案路徑；</p><p>Visual Studio Code則能用[Copy Path]或[Copy Relative Path]複製檔案路徑。</p><p><u>重啟Codex</u>(codex resume session_id)並在Codex CLI輸入<span style="background-color: #f3f3f3;">/&lt;自訂提示詞檔名&gt;</span>，如<span style="background-color: #f3f3f3;">/my-prompt</span></p><p>就能將檔案內容作為提示詞送給Codex。</p><p><br /></p><p>參考來源：<a href="https://github.com/openai/codex/blob/main/docs/prompts.md" rel="nofollow" target="_blank">Custom Prompts</a></p><div><br /></div>

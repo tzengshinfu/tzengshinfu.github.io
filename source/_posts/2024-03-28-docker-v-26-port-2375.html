@@ -1,0 +1,8 @@
+---
+layout: post
+title: Docker v.26開啟管理port:2375
+tag:
+- docker
+---
+
+<p>官方文件有2種修改方法：</p><p><a href="https://docs.docker.com/config/daemon/remote-access/#configuring-remote-access-with-systemd-unit-file" rel="nofollow" target="_blank">Configuring remote access with systemd unit file</a></p><p>└→不想動到服務設定，不管是docker.service設定檔本身或是override.conf。</p><p><a href="https://docs.docker.com/config/daemon/remote-access/#configuring-remote-access-with-daemonjson" rel="nofollow" target="_blank">Configuring remote access with daemon.json</a></p><p>└→無法啟動服務，因為設定與docker.service設定檔沖突。</p><p><br /></p><p>解決方法：</p><p>編輯/etc/default/docker，新增<span style="color: #990000;">DOCKER_OPTS</span><span style="color: #0b5394;">=</span><span style="color: #38761d;">"-H tcp://0.0.0.0:2375"</span>，</p><p>再執行sudo systemctl daemon-reload &amp;&amp; sudo systemctl restart docker，</p><p>並驗證如下：</p><p><span style="color: #38761d;">$</span> sudo netstat -lntp | grep dockerd</p><p>tcp6&nbsp; &nbsp; &nbsp; &nbsp;0&nbsp; &nbsp; &nbsp; 0 :::2375&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;:::*&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; LISTEN&nbsp; &nbsp; &nbsp; 534451/<span style="color: #990000;">dockerd</span></p>

@@ -1,0 +1,8 @@
+---
+layout: post
+title: 安裝OpenAI Codex CLI
+tag:
+- openai codex cli
+---
+
+<p><span data-teams="true">1.在[命令提示字元]執行以下指令以安裝Node.js<br />winget install OpenJS.NodeJS.LTS</span></p><p>2.在[命令提示字元]執行以下指令以安裝Git<br />winget install --id Git.Git -e --source winget</p><p>3.在[命令提示字元]執行Codex CLI<br />npm install -g @openai/codex@latest</p><p>4.(選用)在[命令提示字元]執行<br />mkdir "%USERPROFILE%\.codex" 2&gt;nul &amp; (echo approval_policy = "<b><span style="color: #cc0000;">never</span></b>" &amp; echo sandbox_mode = "<span style="color: #cc0000;"><b>danger-full-access</b></span>" &amp; echo&nbsp;web_search_request = <span style="color: #cc0000;"><b>true</b></span>) &gt; "%USERPROFILE%\.codex\config.toml"</p><p>(會直接信任codex，允許不提出任何提升權限要求，有<span style="color: #cc0000;"><b>安全性</b></span>問題，所以需評估便利與安全性的取捨。)</p><p>5.在[命令提示字元]執行<br />codex<br />(會要求登入)</p><p><br /></p>

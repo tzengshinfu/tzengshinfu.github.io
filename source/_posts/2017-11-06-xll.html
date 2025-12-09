@@ -1,0 +1,54 @@
+---
+layout: post
+title: 檢查XLL版本一直是舊版
+tag:
+- excel-dna
+---
+
+<b>狀況</b><br />
+使用FileVersionInfo類別的GetVersionInfo方法，<br />
+所得的FileVersion屬性一直是修改前的舊值(1.0.4)而不會更新(1.0.10)。<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIhCHqPRlzt_zEfkMi1QWxxHFqGaJm7jPhIWAD8kwDAFcJcmFOuK4Q-rpkL7zkrWz6Q0VVBUm6t-6xT5YB44Vbr_q9cKKm4wyfH-aO2NbV3gOwlAvrksE-cg3kg2yf28NnIWQ1vSvs93Oa/s1600/oldversion.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="255" data-original-width="967" height="105" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIhCHqPRlzt_zEfkMi1QWxxHFqGaJm7jPhIWAD8kwDAFcJcmFOuK4Q-rpkL7zkrWz6Q0VVBUm6t-6xT5YB44Vbr_q9cKKm4wyfH-aO2NbV3gOwlAvrksE-cg3kg2yf28NnIWQ1vSvs93Oa/s400/oldversion.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+1_專案屬性&gt;應用程式&gt;組件資訊&gt;檔案版本確實是1.0.10。<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBXBwqUjU67STJQ4FkIICrfBg_Zpwdgit7QuhBCbw6a1kqNENaNyJ-pi1-OATRLpuXwt3GJM4yzjMFCThyuYNyBbEJjIaevD35A6OQPgmPz7DvBXOIMmQzaycQ4BwwuO5HYaJtNBEgz1WN/s1600/step2.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="440" data-original-width="470" height="373" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBXBwqUjU67STJQ4FkIICrfBg_Zpwdgit7QuhBCbw6a1kqNENaNyJ-pi1-OATRLpuXwt3GJM4yzjMFCThyuYNyBbEJjIaevD35A6OQPgmPz7DvBXOIMmQzaycQ4BwwuO5HYaJtNBEgz1WN/s400/step2.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+2_&lt;專案名稱&gt;-AddIn.dna設定檔有加上UseVersionAsOutputVersion="true"。<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEii-DtnVkut_z9PSt0IIMqMPP5q6zflWatOmFgu1ckkW230ym-cyNGLPQ6Pg5V9kvPJPQWo-zFPwTVTfhzBzJfgoYvDlLesXHbBONen2y2VNUOxsSQRpQ7Sw9WiNjH1kkzlh2NE9EwQ9SLw/s1600/step3.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="286" data-original-width="977" height="116" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEii-DtnVkut_z9PSt0IIMqMPP5q6zflWatOmFgu1ckkW230ym-cyNGLPQ6Pg5V9kvPJPQWo-zFPwTVTfhzBzJfgoYvDlLesXHbBONen2y2VNUOxsSQRpQ7Sw9WiNjH1kkzlh2NE9EwQ9SLw/s400/step3.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br /><b>解法</b><br />
+將該檔案路徑停用共享，再重新開啟即正常。

@@ -1,0 +1,12 @@
+---
+layout: post
+title: JavaScript 非同步方法鏈式呼叫
+tag:
+- javascript
+---
+
+原本是巢式呼叫<pre><code class="js"><div>let asyncCalculator = new AsyncCalculator(0);</div><div>let asyncCalculateResult = </div><div>(</div><div>    await (</div><div>        await (</div><div>            await (</div><div>                await asyncCalculator.plusAsync(1)</div><div>            ).minusAsync(2)</div><div>        ).multiplyAsync(3)</div><div>    ).divideAsync(4)</div><div>).calculateResult</div>
+</code></pre>
+<div><br /></div>
+改寫成鏈式呼叫，一目瞭然<pre><code class="js"><div>let asyncCalculator = new AsyncCalculator(0);</div><div><div>let asyncCalculateResult = await asyncCalculator.plusAsync(1)</div><div>&nbsp;   .then(c =&gt; c.minusAsync(2))</div><div>&nbsp;   .then(c =&gt; c.multiplyAsync(3))</div><div>&nbsp;   .then(c =&gt; c.divideAsync(4))</div></div><div>&nbsp;   .then(c =&gt; c.calculateResult)</div><div><br /></div></code></pre>
+參考來源：<a href="https://es.discourse.group/t/await-postfix-operator/1244/4">https://es.discourse.group/t/await-postfix-operator/1244/4</a><div>(分享此用法的該名網友是位JS大師，真的學到了。)</div>

@@ -1,0 +1,8 @@
+---
+layout: post
+title: DOS指令不顯示錯誤訊息且同時ERRORLEVEL設為0(正常結束)
+tag:
+- dos command
+---
+
+場景：<div>遠端執行DOS指令搬移檔案，當檔案不存在時ERRORLEVEL變數會被設為1導致後續判斷異常。</div><div><br /></div><div>解法：</div><div>在指令後加上<b><span style="color: #2b00fe;">2&gt;nul | cmd /c ""</span></b></div><div><b><span style="color: #2b00fe;"><br /></span></b></div><div>例如：</div><div>C:\&gt;move *.txt D:\&nbsp;<b><span style="color: #2b00fe;">2&gt;nul | cmd /c ""</span></b></div><div><b><span style="color: #6aa84f;">(2&gt;nul不顯示找不到檔案的錯誤訊息，| cmd /c ""則將ERRORLEVEL設為0)</span></b></div><div><span style="color: #2b00fe;"><b><br /></b></span></div><div>C:\&gt;echo %errorlevel%</div><div>0</div>

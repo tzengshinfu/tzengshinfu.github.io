@@ -1,0 +1,76 @@
+---
+layout: post
+title: 繼承的表單在設計工具檢視模式顯示錯誤訊息
+tag:
+- visual studio
+- windows form
+---
+
+父表單如下<br />
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFGR1hK1sCBWmICxD3nTV-x6-Qk5Vckh73w-SRFwtCQvgXk3DRBpov0FyjenbHXigWYeMxSQwo9ULOGN7YvdwDpzhTwmDpdWA40gT4X8z4tWz5RIToO2OuEncq3FzDta4PUjONLivJtK5Q/s1600/Image_20180504161919.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em; text-align: center;"><img border="0" data-original-height="249" data-original-width="509" height="195" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFGR1hK1sCBWmICxD3nTV-x6-Qk5Vckh73w-SRFwtCQvgXk3DRBpov0FyjenbHXigWYeMxSQwo9ULOGN7YvdwDpzhTwmDpdWA40gT4X8z4tWz5RIToO2OuEncq3FzDta4PUjONLivJtK5Q/s400/Image_20180504161919.png" width="400" /></a><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+子表單使用父表單的物件<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxhrRMBabLW-3b-nFQU7ycd3bdxShy3tmJ2icAv5dlLjvH0KZNs2eAdMkTKYLPh4IggXXt3NaNp_JejePhtwb-8ORbEpa7oqxcm9hivSWc_phQoFc_y6Q9_cwmHtVXZemjU-hivgYoNFgl/s1600/Image_20180504161844.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="186" data-original-width="516" height="143" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxhrRMBabLW-3b-nFQU7ycd3bdxShy3tmJ2icAv5dlLjvH0KZNs2eAdMkTKYLPh4IggXXt3NaNp_JejePhtwb-8ORbEpa7oqxcm9hivSWc_phQoFc_y6Q9_cwmHtVXZemjU-hivgYoNFgl/s400/Image_20180504161844.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+在設計工具檢視模式下會顯示錯誤訊息如下<br />
+(1)<i>並未將物件參考設定為物件的執行個體。</i><br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXPbMT8qbcTzxkq7YxLyvra2sBwCyxH3-S0NjlrbXhIv8GdNl0w2xYelUXMkRMTKKNcsW9a-HL2b3bZwThictDGKY-TlOKDU13QILIkYvz5ekdh9qWiBOByphd9da7RetaPw-QntsxC-Zt/s1600/Image_20180504153342.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="331" data-original-width="415" height="318" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXPbMT8qbcTzxkq7YxLyvra2sBwCyxH3-S0NjlrbXhIv8GdNl0w2xYelUXMkRMTKKNcsW9a-HL2b3bZwThictDGKY-TlOKDU13QILIkYvz5ekdh9qWiBOByphd9da7RetaPw-QntsxC-Zt/s400/Image_20180504153342.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+或(2)類似如 <i>服務 System.Windows.Forms.Design.IEventHandlerService 已經存在於服務容器中。參數名稱: serviceType</i><br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjI-R0Tff552VgmTCHoJoLpMcFuVCC5ave3nxh_4b9opGE3Xs-fHjW65xrowVNaAwxe6Tum4iZF_7u9GDHeY7KWTL-NNmNFDi5DcWRY8ohko9op2vB6y1xsesntO1Ifs0mTerMOdeUMxYiK/s1600/Image_20180504135851.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="319" data-original-width="619" height="205" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjI-R0Tff552VgmTCHoJoLpMcFuVCC5ave3nxh_4b9opGE3Xs-fHjW65xrowVNaAwxe6Tum4iZF_7u9GDHeY7KWTL-NNmNFDi5DcWRY8ohko9op2vB6y1xsesntO1Ifs0mTerMOdeUMxYiK/s400/Image_20180504135851.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+加上是否為DesignMode判斷式，編譯並重新打開設計工具檢視模式即可<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaWjLJihFG-QwTJrFSlXNPyl6pNfrr0miQwe3eU3sFmyw4NGOdSE9YZHJWSn1lgi4T_C7rdgqBDEkWo4HlpzLgljG27J_2MzgxadoVvtIrghKf1W6HUKGeagYV2zkUb-4bZWZyZFl6ficS/s1600/Image_20180504152049.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="331" data-original-width="538" height="245" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaWjLJihFG-QwTJrFSlXNPyl6pNfrr0miQwe3eU3sFmyw4NGOdSE9YZHJWSn1lgi4T_C7rdgqBDEkWo4HlpzLgljG27J_2MzgxadoVvtIrghKf1W6HUKGeagYV2zkUb-4bZWZyZFl6ficS/s400/Image_20180504152049.png" width="400" /></a></div>
+<br />

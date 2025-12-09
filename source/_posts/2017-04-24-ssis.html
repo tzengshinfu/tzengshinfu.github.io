@@ -1,0 +1,69 @@
+---
+layout: post
+title: SSIS設定需特別注意之處
+tag:
+- ssis
+---
+
+SSISDB的[作業記錄檔]&gt;&gt;[保留週期]預設為365天， 在運行一段時期後，排程週期 x 執行專案數量 x 專案的元件數 所產生的log<br /> 會使該DB容量激增，<br /> 所以在初期規劃時就要注意該設定必須設在一個合理值。
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQWgsQXizI5RPvXTsG18hmh23WmSAA_p-7RQuv1j7NhpHzSSdnRWOVRQbJDY5qd4hCVaF0xF8a4Y7ryzsNAoGpxNejqSSVxArvtW8KPgTXkCmOLsE4xUYIixvTxTMtZ3NpI6-QU27gPuSH/s1600/1.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="216" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQWgsQXizI5RPvXTsG18hmh23WmSAA_p-7RQuv1j7NhpHzSSdnRWOVRQbJDY5qd4hCVaF0xF8a4Y7ryzsNAoGpxNejqSSVxArvtW8KPgTXkCmOLsE4xUYIixvTxTMtZ3NpI6-QU27gPuSH/s400/1.png" width="400" /></a></div>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<br /><br />
+記錄層次設為【效能】(只記錄錯誤事件)<br />
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjn8uErTcCG9UBqRV6XN9-lNESVVSX72XRf0Gj0WRuCHgJ2aC2mfaref4bzD4a3quynCX0C4kY2BU_eVfKXMpjxYWRQWAZD81B8BzJiPbQVCGPoeNs0WI3-b_v3syvSNKsVCDuxwQC8g3Rd/s1600/2.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="216" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjn8uErTcCG9UBqRV6XN9-lNESVVSX72XRf0Gj0WRuCHgJ2aC2mfaref4bzD4a3quynCX0C4kY2BU_eVfKXMpjxYWRQWAZD81B8BzJiPbQVCGPoeNs0WI3-b_v3syvSNKsVCDuxwQC8g3Rd/s400/2.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+定期壓縮ldf檔(因[作業記錄檔]&gt;[定期清除記錄檔]刪除動作會產生大量log)<br />
+→可加入到[SSIS Server Maintenance Job]的最後1個步驟。<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4Hy1eCkfpmhPJhSLlSTzZU9L7xVa8i6IDi15ZreBjHdaain9tKDy8YW6S1hBAKOGH-xMxI6F81vj67QNyYVcrp5iZvgKUVs-PVp80HflG1PzAcVAlfWFjKQwka-ATbWtVPJDLruqArYwG/s1600/step1.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="215" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4Hy1eCkfpmhPJhSLlSTzZU9L7xVa8i6IDi15ZreBjHdaain9tKDy8YW6S1hBAKOGH-xMxI6F81vj67QNyYVcrp5iZvgKUVs-PVp80HflG1PzAcVAlfWFjKQwka-ATbWtVPJDLruqArYwG/s400/step1.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<br /><br />
+指令如下圖示:<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEioTw11M2b2rMd66Gsq2f0zf3mBcsiwhhulXTpOLqphU2Q7W1FnS-2MHYJszhB_inUnz9zksEY33X-MRXoiY4RID6co4PnKXT2pvWcejHQpk6Tnf-7mzaIq1G8hjpM3KeoImfvQRd8ASlpA/s1600/step2.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="215" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEioTw11M2b2rMd66Gsq2f0zf3mBcsiwhhulXTpOLqphU2Q7W1FnS-2MHYJszhB_inUnz9zksEY33X-MRXoiY4RID6co4PnKXT2pvWcejHQpk6Tnf-7mzaIq1G8hjpM3KeoImfvQRd8ASlpA/s400/step2.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+需另外設定權限:<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfQVDMxv6_U6YxmA8vbUlWnEM0aQ_nEEOGwcORia7ytIF-Gm8h0iShx45rOJfDKcdjk8E0pP1h22p3PAHO7vSFS8d16oKFXDY5fHYvY04vqz7F2iyp4TUyeZQnruu0fi4bbtTxLzsZvMmt/s1600/step3.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="215" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfQVDMxv6_U6YxmA8vbUlWnEM0aQ_nEEOGwcORia7ytIF-Gm8h0iShx45rOJfDKcdjk8E0pP1h22p3PAHO7vSFS8d16oKFXDY5fHYvY04vqz7F2iyp4TUyeZQnruu0fi4bbtTxLzsZvMmt/s400/step3.png" width="400" /></a></div>
+<br />

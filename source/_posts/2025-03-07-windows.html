@@ -1,0 +1,62 @@
+---
+layout: post
+title: Windows新電腦快速還原安裝程式(含設定)
+tag:
+- windows
+---
+
+<ol>
+    <li>
+        <p>在舊電腦的準備工作</p>
+        <h4 id="-userprofile-documents-">本例"存放路徑"為使用者文件(%USERPROFILE%\Documents)</h4>
+        <ol>
+            <li>匯出<strong>已安裝程式清單</strong>檔案<br />執行<pre><code class="bat">winget export --output [存放路徑]\[已安裝程式清單JSON檔]</code></pre></li>
+            <li>複製已安裝程式設定檔資料夾到存放路徑</li>
+            <li>工作排程器&gt;匯出&gt;將工作XML檔儲存到存放路徑(如果有需要)</li>
+            <li>複製使用者捷徑到存放路徑(如果有需要)</li>
+            <li>複製使用者啟動資料夾捷徑到存放路徑(如果有需要)</li>
+            <li>記錄使用者路徑(Path)環境變數</li>
+        </ol>
+    </li>
+    <li>
+        <p>在新電腦執行匯入</p>
+        <ol>
+            <li>執行<pre><code class="bat">winget import --import-file [存放路徑]\[已安裝程式清單JSON檔]</code></pre></li>
+            <li>
+                <p>將已安裝程式的設定檔資料夾重新指向存放路徑</p>
+                <h4 id="-batchscript-">以下指令需以BatchScript形式執行</h4>
+                <pre><code class="bat">:: 以下是檢查檔案是否為連結的範例
+:: 檢查.gitconfig檔案是否為連結
+<span class="hljs-built_in">DIR</span> "<span class="hljs-variable">%USERPROFILE%</span>" | <span class="hljs-built_in">FINDSTR</span> ".gitconfig" | <span class="hljs-built_in">FINDSTR</span> "&lt;SYMLINK&gt;"
+
+:: 如果不是，刪除並建立連結到存放路徑
+<span class="hljs-keyword">IF</span> <span class="hljs-variable">%ERRORLEVEL%</span> <span class="hljs-keyword">EQU</span> <span class="hljs-number">1</span> (
+ <span class="hljs-built_in">DEL</span> /Q "<span class="hljs-variable">%USERPROFILE%</span>\.gitconfig"
+ MKLINK "<span class="hljs-variable">%USERPROFILE%</span>\.gitconfig" "[存放路徑]\.gitconfig"
+)
+
+:: 以下是檢查目錄是否為連結的範例
+:: 檢查.ssh資料夾是否為連結
+<span class="hljs-built_in">DIR</span> "<span class="hljs-variable">%USERPROFILE%</span>" | <span class="hljs-built_in">FINDSTR</span> ".ssh" | <span class="hljs-built_in">FINDSTR</span> "&lt;JUNCTION&gt;"
+
+:: 如果不是，刪除並建立連結到存放路徑
+<span class="hljs-keyword">IF</span> <span class="hljs-variable">%ERRORLEVEL%</span> <span class="hljs-keyword">EQU</span> <span class="hljs-number">1</span> (
+ <span class="hljs-built_in">RMDIR</span> /S /Q "<span class="hljs-variable">%USERPROFILE%</span>\.ssh"
+ MKLINK /J "<span class="hljs-variable">%USERPROFILE%</span>\.ssh" "[存放路徑]\.ssh"
+)
+</code></pre>
+            </li>
+            <li>匯入工作排程(如果有需要)<br />執行<pre><code class="bat">SCHTASKS /CREATE /TN \%USERNAME%\[工作名稱] /XML "[存放路徑]\[工作XML檔]"</code></pre></li>
+            <li>複製捷徑至使用者開始功能表以利後續釘選(如果有需要)<br />執行<pre><code class="bat">XCOPY /S "[存放路徑]\[開始功能表捷徑資料夾]\*" "%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\"</code></pre>
+            </li>
+            <li>複製捷徑至使用者啟動資料夾(如果有需要)<br />執行<pre><code class="bat">XCOPY /S "[存放路徑]\[啟動捷徑資料夾]\*" "%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\"</code></pre>
+            </li>
+            <li>設定使用者路徑(Path)變數(如果有需要) <h4 id="-batchscript-">以下指令需以BatchScript形式執行</h4>
+                <pre><code class="bat"><span class="hljs-keyword">FOR</span> /F "delims=" <span class="hljs-variable">%%A</span> <span class="hljs-keyword">IN</span> ('PowerShell -NoProfile -Command "(Get-ItemProperty HKCU:\Environment).<span class="hljs-built_in">Path</span>"') <span class="hljs-keyword">DO</span> <span class="hljs-built_in">SET</span> UserPath=<span class="hljs-variable">%%A</span>
+SETX <span class="hljs-built_in">Path</span> "<span class="hljs-variable">%UserPath%</span>";[使用者路徑清單(以分號區隔)]
+<span class="hljs-built_in">SET</span> UserPath=
+</code></pre>
+            </li>
+        </ol>
+    </li>
+</ol>

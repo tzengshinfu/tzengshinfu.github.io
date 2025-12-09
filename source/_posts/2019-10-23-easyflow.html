@@ -1,0 +1,9 @@
+---
+layout: post
+title: EasyFlow不斷發通知信
+tag:
+- easyflow gp
+- 踩坑
+---
+
+狀況:<br /> 1.使用者反應一直收到通知信,但流程已完成逾5日。<br /> 2.發現Table:<font color="#f57c00">JMS_MESSAGES</font>筆數不斷增多,<br /> <br /> <br /> 處理:<br /> 因為有流程通知關卡是寄送全集團所有成員,<br /> 就會容易導致此現象;<br /> 先建立1位虛擬使用者,<br /> 並將其信箱改成集團群組信箱,<br /> 再將通知者改為此使用者即可。

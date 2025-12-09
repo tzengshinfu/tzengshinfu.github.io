@@ -1,0 +1,70 @@
+---
+layout: post
+title: Visual Studio 2017新增Xamarin專案異常
+tag:
+- visual studio
+- xamarin
+- 踩坑
+---
+
+參照此<a href="https://forums.xamarin.com/discussion/90309/the-resolvelibraryprojectimports-task-failed-unexpectedly" target="_blank">連結</a>的解決方案, 都無效。<br />
+但將所有相關元件都更新完成後, 就已無異常。<br />
+<br />
+新增專案(Cross-platform→行動應用程式→.NET standard)會顯示以下錯誤訊息。<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglD8vl0COapnv8q6HQV_OmzYCfA0naFqB2_SujSibx_ve-5SpVu6HJUBJN_cjdFeiAL9bsR2Dk2y5yuJs1Tz-kFcGfAFF9qEKgDKUhRjSmljI2kB-4jLZuPumT4Pb5mcarAb1405Jmx4o_/s1600/pro1.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="536" data-original-width="1270" height="168" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglD8vl0COapnv8q6HQV_OmzYCfA0naFqB2_SujSibx_ve-5SpVu6HJUBJN_cjdFeiAL9bsR2Dk2y5yuJs1Tz-kFcGfAFF9qEKgDKUhRjSmljI2kB-4jLZuPumT4Pb5mcarAb1405Jmx4o_/s400/pro1.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+1.更新Android專案的NuGet套件, Xamarin相關都要更新。<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXhwvxoCq-pUcZTDRBemqpfk8QHXEO3J25c0iXD0QqrlOE5lSOTRSzj2zDWuzevpYrCqHA5FCt97EQXavBMpURL9yxQADMAh_uVzPIOBqBsdpMYObO44iSSjjIavPE5JrGuXfqqHuXvszF/s1600/pro5.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="1024" data-original-width="1332" height="307" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXhwvxoCq-pUcZTDRBemqpfk8QHXEO3J25c0iXD0QqrlOE5lSOTRSzj2zDWuzevpYrCqHA5FCt97EQXavBMpURL9yxQADMAh_uVzPIOBqBsdpMYObO44iSSjjIavPE5JrGuXfqqHuXvszF/s400/pro5.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+2.Android→Android SDK管理員, 更新Android SDK。<br />(先確認好要安裝到哪些版本的Android, 下載對應的SDK。)<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkJquvZy4qomwM9wdm17p2vpCIElq3Oe6fLqL0dVPkaaoGRSygch7Ifd8kbHC8VAuL4E08fs_4OmKtQ4hpLCNv193IftGTODJhI2MVMIw8y5R4vpOdM9thG5uuQhE7fHAjkgnmAma679FM/s1600/pro4.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="597" data-original-width="719" height="331" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkJquvZy4qomwM9wdm17p2vpCIElq3Oe6fLqL0dVPkaaoGRSygch7Ifd8kbHC8VAuL4E08fs_4OmKtQ4hpLCNv193IftGTODJhI2MVMIw8y5R4vpOdM9thG5uuQhE7fHAjkgnmAma679FM/s400/pro4.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

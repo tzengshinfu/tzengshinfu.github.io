@@ -1,0 +1,9 @@
+---
+layout: post
+title: 避免EasyFlow測試區跑流程會通知使用者造成不必要的誤解
+tag:
+- easyflow gp
+- sql
+---
+
+<pre><code class="sql">UPDATE [測試區DB].dbo.Users <br /> SET mailAddress = '' /**或改成開發者e-mail帳號*/ <br /> ,objectVersion = objectVersion + 1 <br /> WHERE id &lt;&gt; 'administrator'; </code></pre>

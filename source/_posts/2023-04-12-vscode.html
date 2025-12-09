@@ -1,0 +1,11 @@
+---
+layout: post
+title: VSCode 遠端開發無法儲存檔案
+tag:
+- linux
+- remote development
+- visual studio code
+---
+
+情境：
+VSCode遠端開發透過SSH連至Linux主機，連線帳號為一般帳號(已加入sudo群組)，編輯檔案後無法存檔，會顯示錯誤訊息<div><span style="color: #cc0000;">Failed to save '[檔案名稱]': Unable to write file 'vscode-remote://ssh-remote+[帳號]@[主機][檔案路徑]' (NoPermissions (FileSystemError): Error: EACCES: permission denied, open '[檔案路徑]')</span></div><div><div class="separator" style="clear: both;">(如下圖)。<br /><a href="#"></a><img alt="" border="0" data-original-height="176" data-original-width="454" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiD6G95yQ5wySHTgq0f1mu6oHVAt8L0vBz16wiBKEZIA9XEMyDtX3toU-kU7rEL6t-69wMEZZqt4XZelYy-N_HIUWf7krPw9aqr3B6HJMalq7qlTHt_u_wWCubjo7rsLq8UwTzygaX2saBGqJeY9hyUr6mkg1n2KC20-EXSUva8z9I34gvN_6fCbjfzrA/s1600/2023-04-12%2013%2030%2054.png" /></div><div class="separator" style="clear: both;"><br /></div><div class="separator" style="clear: both;">原因：</div><div class="separator" style="clear: both;">微軟表示<a href="https://github.com/microsoft/vscode-remote-release/issues/8269" rel="nofollow" target="_blank">VSCode不支援遠端開發儲存檔案時改用sudo權限</a>，</div><div class="separator" style="clear: both;">目前能找到的替代方案為【安裝擴展套件<a href="https://marketplace.visualstudio.com/items?itemName=yy0931.save-as-root" rel="nofollow" target="_blank">Save as Root in Remote - SSH</a>並設定快捷鍵】，</div></div><div class="separator" style="clear: both;">這樣在按下快捷鍵時就會先自動切換到sudo、詢問帳號密碼並儲存成功。</div>

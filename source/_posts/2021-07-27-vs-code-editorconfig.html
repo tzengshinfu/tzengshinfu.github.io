@@ -1,0 +1,18 @@
+---
+layout: post
+title: VS Code使用EditorConfig設定
+tag:
+- visual studio code
+---
+
+<p>&nbsp;</p><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjOQE3sm2BkIFITdSU7xKJmcMlLlgXZFZEhXiLo3tefmq5azfpec1o0S9nKuMf8AJbgi0dBNXGpFoe5Q951d-hZBqjScRNlhN4bIBOhbpfZ8EsIuB0DbyXZFFtHcQm9mOzQ3yjMxbFh_o0/s433/Image_20210727105733.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="433" data-original-width="426" height="320" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjOQE3sm2BkIFITdSU7xKJmcMlLlgXZFZEhXiLo3tefmq5azfpec1o0S9nKuMf8AJbgi0dBNXGpFoe5Q951d-hZBqjScRNlhN4bIBOhbpfZ8EsIuB0DbyXZFFtHcQm9mOzQ3yjMxbFh_o0/s320/Image_20210727105733.png" /></a></div><br /><p></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p>1.新增.editorconfig及omnisharp.json 2個檔案。</p><p>2.omnisharp.json內容如下：</p><pre><code class="json">
+{
+    "RoslynExtensionsOptions": {
+        "enableAnalyzersSupport": true,
+        "enableMsBuildLoadProjectsOnDemand": true
+    },
+    "FormattingOptions": {
+        "enableEditorConfigSupport": true
+    }
+}
+</code></pre><pre>3..editorconfig內容如下：</pre><pre><br /></pre><p></p><pre><div style="background-color: white; font-family: Consolas, 微軟正黑體, Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px;"><div><span style="color: green;">####&nbsp;C#&nbsp;Formatting&nbsp;Rules&nbsp;####</span></div><br /><div><span style="color: green;">#&nbsp;New&nbsp;line&nbsp;preferences</span></div><div><span style="color: blue;">csharp_new_line_before_catch</span>&nbsp;=&nbsp;true</div><div><span style="color: blue;">csharp_new_line_before_else</span>&nbsp;=&nbsp;true</div><div><span style="color: blue;">csharp_new_line_before_finally</span>&nbsp;=&nbsp;true</div><div><span style="color: blue;">csharp_new_line_before_members_in_anonymous_types</span>&nbsp;=&nbsp;true</div><div><span style="color: blue;">csharp_new_line_before_members_in_object_initializers</span>&nbsp;=&nbsp;true</div><div><span style="color: blue;">csharp_new_line_before_open_brace</span>&nbsp;=&nbsp;none</div><div><span style="color: blue;">csharp_new_line_between_query_expression_clauses</span>&nbsp;=&nbsp;true</div></div></pre><p></p>

@@ -1,0 +1,15 @@
+---
+layout: post
+title: IIS資料夾搬移至其他主機注意事項
+tag:
+- internet information server
+---
+
+<p>1.資料夾內容搬移至另一台檔案主機。</p><p>2.原本資料夾刪除，使用MKLINK指令建立連結如下：</p>
+<div><pre><code class="bat">
+MKLINK /D "原本資料夾名稱" "另一台檔案主機路徑"
+</code></pre></div>
+<p>3.IIS→原本資料夾(現在是MKLINK捷徑)→驗證→匿名驗證→編輯...</p><p>啟用[特定使用者]，輸入有權限存取另一台檔案主機的帳號。</p><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNJ3epAKgpTEy5lxP77f8Wq7vqdQs2SZZ-ZkS4pi58U_hNjfPx9P2wP67MFcz19t6Ecb2rzb3J9msx-G7nvryh21Uh0YS96j0WWruZmw3-9yxJjHSnbje9jKWdLkXTKS88Eh9KzI8Mkt-A58TfTdzAFwwr3SvvBa_MkBueNVAxqzmQ6bWUMhv79meX4g/s453/Image_20220620092639.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="236" data-original-width="453" height="167" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNJ3epAKgpTEy5lxP77f8Wq7vqdQs2SZZ-ZkS4pi58U_hNjfPx9P2wP67MFcz19t6Ecb2rzb3J9msx-G7nvryh21Uh0YS96j0WWruZmw3-9yxJjHSnbje9jKWdLkXTKS88Eh9KzI8Mkt-A58TfTdzAFwwr3SvvBa_MkBueNVAxqzmQ6bWUMhv79meX4g/s320/Image_20220620092639.png" width="320" /></a></div><br /><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p><br /></p><p>4.如果其他AP主機有存取此資料夾的需求，需在該AP主機執行：</p>
+<div><pre><code class="bat">
+fsutil behavior set SymlinkEvaluation R2R:1
+</code></pre></div>

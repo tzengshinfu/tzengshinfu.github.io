@@ -1,0 +1,40 @@
+---
+layout: post
+title: dnSpy偵錯有pdb檔的dll(ASP.NET WebForm)
+tag:
+- asp.net
+- visual studio
+- web form
+---
+
+1.Debug=&gt;Attach to process...=&gt;找到w3wp.exe=&gt;Attach<br />
+(IIS的執行緒,因為開發機的IIS沒連線會自己終止,如果沒有就開啟首頁讓IIS啟動)<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUtMNOjQMFukf7ZCyo3_lZS3wzPnozyOhXtZ_9GW2lhr6pW-9GictIjfR6YFnceo09aLEx93desO7_D18BSgcL-76nzs3b4Rxf4DwZ99wW2hzMm383uW7Otg6i_LcAJR5KuPHV_nJQSCSF/s1600/att1.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="285" data-original-width="742" height="152" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUtMNOjQMFukf7ZCyo3_lZS3wzPnozyOhXtZ_9GW2lhr6pW-9GictIjfR6YFnceo09aLEx93desO7_D18BSgcL-76nzs3b4Rxf4DwZ99wW2hzMm383uW7Otg6i_LcAJR5KuPHV_nJQSCSF/s400/att1.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+2.Debug=&gt;Windows=&gt;Modules=&gt;Search=&gt;輸入要偵錯的dll名稱,路徑會是＜暫存ASP.NET目錄＞\＜網站名稱_資料夾名稱＞\＜亂數名稱目錄...＞\dll名稱<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicI2Uv9YeRkyNwK4GKei-sPrqKl8v15ffGlmjEPmnW23BazjhXQCTNtN4BnE2fPmW2WmMfUKxu_bSiOCeCxhHXS3mlMhXKfer6JYfJ4iKzjDrrMcd6X2mBE8cvXhuhx2Lw6SOrFN7aCU_U/s1600/att2.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="154" data-original-width="907" height="67" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicI2Uv9YeRkyNwK4GKei-sPrqKl8v15ffGlmjEPmnW23BazjhXQCTNtN4BnE2fPmW2WmMfUKxu_bSiOCeCxhHXS3mlMhXKfer6JYfJ4iKzjDrrMcd6X2mBE8cvXhuhx2Lw6SOrFN7aCU_U/s400/att2.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+3.雙點開啟該dll,設中斷點,再進行相關動作即會進入中斷點<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkTsb4HRVWI4z088Zd7AK0xO-Q-vOrkt5DbJg8MAhRmzIZQE5ftLyHzI8qU8YIfUIJXfth9TdTwS-gs7GBk2R23o4hD9lQSXouHXM7efn6GqYtWmreXM3bSHwFdlKH43aejzNZcWxh8y9i/s1600/att3.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="631" data-original-width="1079" height="233" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkTsb4HRVWI4z088Zd7AK0xO-Q-vOrkt5DbJg8MAhRmzIZQE5ftLyHzI8qU8YIfUIJXfth9TdTwS-gs7GBk2R23o4hD9lQSXouHXM7efn6GqYtWmreXM3bSHwFdlKH43aejzNZcWxh8y9i/s400/att3.png" width="400" /></a></div>
+<br />

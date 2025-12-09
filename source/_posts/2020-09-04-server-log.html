@@ -1,0 +1,25 @@
+---
+layout: post
+title: 解決:server.log每次重開機都被覆蓋
+tag:
+- easyflow gp
+---
+
+路徑:&lt;EasyFlow系統路徑&gt;\jboss-4.2.3.GA\server\default\conf<br>
+修改log4j.xml的節點
+param name="Append" value="(改成true)"
+
+位置如下
+<pre><code class="xml">
+&lt;log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false"&gt;
+
+  &lt;!-- ================================= --&gt;
+  &lt;!-- Preserve messages in a local file --&gt;
+  &lt;!-- ================================= --&gt;
+
+  &lt;!-- A time/date based rolling appender --&gt;
+  &lt;appender name="FILE" class="org.jboss.logging.appender.DailyRollingFileAppender"&gt;
+    &lt;errorHandler class="org.jboss.logging.util.OnlyOnceErrorHandler"/&gt;
+    &lt;param name="File" value="${jboss.server.log.dir}/server.log"/&gt;
+    &lt;param name="Append" value="false"/&gt;&lt;!--改成true--&gt;
+</code></pre>

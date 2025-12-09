@@ -1,0 +1,8 @@
+---
+layout: post
+title: Linux修改登入時的目錄位置
+tag:
+- linux
+---
+
+目標為修改所有使用者登入目錄位置預設為根目錄；<div><br /><div>在/etc/profile.d 目錄下新增change-directory-to-root.sh，內容為</div><div><pre><code class="bash">eval "$( bash -c 'echo "cd /"' )"</code></pre></div><div>(如果是用<pre><code class="bash">cd / &amp;&amp; bash</code></pre>，會再產生一個子進程，退出要執行2次exit。)</div><div><br /></div><div>參考來源：<a href="https://unix.stackexchange.com/a/367078" rel="nofollow" target="_blank">shell script - changing current directory from child process - Unix &amp; Linux Stack Exchange</a></div></div>

@@ -1,0 +1,8 @@
+---
+layout: post
+title: Windows 11修改Notepad++檔案圖示
+tag:
+- windows 11
+---
+
+<p>&nbsp;想用Notepad++開啟文字檔，卻想保留Windows文字檔案的圖示</p><p>1.執行regedit.exe</p><p>2.路徑指向HKEY_CLASSES_ROOT\Notepad++_file\DefaultIcon</p><p>3.修改(預設值)數值資料為:%SystemRoot%\System32\Shell32.dll,70</p><p>4.在文字檔按右鍵，開啟檔案(H)&gt;選擇其他應用程式(C)&gt;Notepad++&gt;一律</p><p>5.修改完成</p><p><br /></p><p>參考來源：<a href="https://community.notepad-plus-plus.org/post/99994" rel="nofollow" target="_blank">How can I change the icon for Notepad++</a></p>

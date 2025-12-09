@@ -1,0 +1,59 @@
+---
+layout: post
+title: 取得遠端DB所連接伺服器的檢視有錯誤訊息
+tag:
+- ssis
+---
+
+狀況：要取得遠端DB=OA的特定資料表，但該資料表其實是以[連結的伺服器]=HRM所建立的View(如下圖)<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAJTtdKL9FcQCmThkb2RoRDyr2EKfVLxMCENXqr1lZIhojsNVYkVYxB-ecOgAxbCJjXP5WPHIKUR8algHYgKPZV23Sxj34Bc-e2u-jAX1ujCEMWpKywTjkLoXqa9sa5-5_OGBS81GZ2p5l/s1600/%25E7%25B9%25AA%25E5%259C%25962.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="135" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAJTtdKL9FcQCmThkb2RoRDyr2EKfVLxMCENXqr1lZIhojsNVYkVYxB-ecOgAxbCJjXP5WPHIKUR8algHYgKPZV23Sxj34Bc-e2u-jAX1ujCEMWpKywTjkLoXqa9sa5-5_OGBS81GZ2p5l/s400/%25E7%25B9%25AA%25E5%259C%25962.png" width="400" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<br />
+SSIS程式會有以下問題：<br />
+1.OLE DB來源無法預覽，會顯示"找不到資料行"的錯誤訊息。<br />
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgq6AwJEPQGkT9sRFKduP1V0z1LJJAkMHTFYg5kfB_Cc6hDie3DmEpXotipBPIfTMEHo0mlStfd7sHtAld0LGKS3H3WBMtRCG6TJqQ1ZbsWelTXEyLyXhtu8EB-uS1OeGtidNF-FyvSbj6P/s1600/1.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="252" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgq6AwJEPQGkT9sRFKduP1V0z1LJJAkMHTFYg5kfB_Cc6hDie3DmEpXotipBPIfTMEHo0mlStfd7sHtAld0LGKS3H3WBMtRCG6TJqQ1ZbsWelTXEyLyXhtu8EB-uS1OeGtidNF-FyvSbj6P/s400/1.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+2."指定一個以上的字碼頁"的錯誤訊息。<br />
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjUPnWij35qP3YB36MVtrLIzHL0DGLg9KcoGP5Yq-p7yuy7xbHymP5etTUn5FvW5iUaHeHIM_5td-OetTCIVIMVy13kLsoTbOPV8q1tTdLbctEZklOSrRbZ2kW-QlFpCaiKcdIDirCIs6ZG/s1600/2.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="231" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjUPnWij35qP3YB36MVtrLIzHL0DGLg9KcoGP5Yq-p7yuy7xbHymP5etTUn5FvW5iUaHeHIM_5td-OetTCIVIMVy13kLsoTbOPV8q1tTdLbctEZklOSrRbZ2kW-QlFpCaiKcdIDirCIs6ZG/s400/2.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+解法：把[OLE DB 來源]改成[ADO NET 來源]元件即可。<br />
+<br />
+<br />
+<br />
+參考：<a href="https://social.msdn.microsoft.com/Forums/sqlserver/en-US/554a360d-0265-4ff6-ab9b-d63fbaae5351/how-to-add-a-linked-server-to-the-ssis-data-flow-destination?forum=sqlintegrationservices">How to add a linked server to the SSIS Data Flow destination?</a>

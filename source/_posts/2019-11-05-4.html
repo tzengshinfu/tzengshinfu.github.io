@@ -1,0 +1,87 @@
+---
+layout: post
+title: 全新樹莓派4安裝
+tag:
+- raspberry pi 4
+---
+
+<div style="background-color: white; line-height: 19px;">
+<div style="background-color: white;">
+<div style="white-space: pre;"><font face="inherit"><span style="color: green; font-family: verdana, sans-serif;">#&nbsp;下載映像檔(本次下載基本桌面版)</span></font></div><div style="white-space: pre;"><font face="inherit"><span style="color: green; font-family: verdana, sans-serif;"><a href="https://www.raspberrypi.org/downloads/raspbian/">https://www.raspberrypi.org/downloads/raspbian/</a></span></font></div>
+<div style="white-space: pre;"><font face="inherit">
+<span style="color: green; font-family: verdana, sans-serif;">#&nbsp;下載燒錄軟體並寫入SD卡</span></font></div><div><div style="white-space: pre;"><font face="inherit"><span style="color: green; font-family: verdana, sans-serif;"><a href="https://www.raspberrypi.org/downloads/raspbian/">https://www.balena.io/etcher/</a></span></font></div><div style="white-space: pre;"><font face="inherit"><br /></font></div><div style="font-family: &quot;times new roman&quot;; white-space: pre;"><font face="inherit"><span style="font-family: verdana, sans-serif;"><span style="color: green;">#&nbsp;軟體更新</span></span></font></div>
+<div style="white-space: normal;">
+<span style="color: green; font-family: verdana, sans-serif;"><font face="inherit"><span style="color: black; white-space: pre;"></span></font></span></div>
+<div>
+<font color="#3367d6" face="inherit"><span style="font-family: verdana, sans-serif;"><span style="white-space: pre;">$ sudo apt update
+$ sudo apt full-upgrade</span></span><br />
+<span style="font-family: verdana, sans-serif;"><span style="white-space: pre;">$ sudo shutdown - r now</span></span></font></div></div>
+<div style="white-space: pre;"><font face="inherit">
+<span style="color: green; font-family: verdana, sans-serif;"># HDMI無音效</span></font></div><div style="white-space: pre;"><font face="inherit"><span style="color: green; font-family: verdana, sans-serif;"><span style="color: green; font-family: verdana, sans-serif;"><a href="https://www.raspberrypi.org/documentation/configuration/audio-config.md">https://www.raspberrypi.org/documentation/configuration/audio-config.md</a></span></span></font></div>
+<font face="inherit"><span style="white-space: pre;">修改/boot/config.txt,取消hdmi_drive=2的註解,重新開機</span><br />
+<span style="white-space: pre;"><br /></span>
+<span style="color: green; font-family: verdana, sans-serif; white-space: pre;">#&nbsp;修改GPU</span></font><div style="white-space: pre;"><font color="#3367d6" face="inherit"><span style="font-family: verdana, sans-serif;">$&nbsp;sudo&nbsp;raspi-config</span></font></div><font face="inherit">
+<span style="font-family: verdana, sans-serif; white-space: pre;">選擇Advanced&nbsp;Options→Memory Split→</span><span style="font-family: verdana, sans-serif; white-space: pre;">128</span><br />
+<span style="white-space: pre;"><br /></span>
+<span style="white-space: pre;"><span style="color: green; font-family: verdana, sans-serif;">#&nbsp;修改解析度</span></span></font><div style="white-space: pre;"><font color="#3367d6" face="inherit"><span style="font-family: verdana, sans-serif;">$&nbsp;sudo&nbsp;raspi-config</span></font></div>
+<font face="inherit"><span style="font-family: verdana, sans-serif; white-space: pre;">選擇Advanced&nbsp;Options→選擇Resolution→選擇適合的解析度→Ok</span><span style="font-family: verdana, sans-serif; white-space: pre;">→</span><span style="font-family: verdana, sans-serif; white-space: pre;">Finish→Reboot</span><span style="white-space: pre;"></span><br />
+</font><div><font face="inherit"><span style="color: #274e13; font-family: verdana, sans-serif; white-space: pre;"><font color="#0b8043"><br /></font></span></font></div><div>
+<font face="inherit"><span style="color: #274e13; font-family: verdana, sans-serif; white-space: pre;"><font color="#0b8043"># 重啟後如果畫面會自動縮小:</font></span><br />
+<span style="font-family: verdana, sans-serif; white-space: pre;">左下角選單→偏好設定</span><span style="font-family: verdana, sans-serif; white-space: pre;">→</span><span style="font-family: verdana, sans-serif;"><span style="white-space: pre;">Screen Configuration→右鍵</span></span><span style="font-family: verdana, sans-serif; white-space: pre;">選擇適合的解析度→套用</span><br />
+<span style="color: #38761d; font-family: verdana, sans-serif; white-space: pre;"><br /></span>
+<span style="color: #38761d; font-family: verdana, sans-serif; white-space: pre;"><span style="color: green;">#&nbsp;修改鍵盤佈局</span></span></font><div style="white-space: pre;"><font color="#3367d6" face="inherit"><span style="font-family: verdana, sans-serif;">$&nbsp;sudo&nbsp;raspi-config</span></font></div>
+<font face="inherit"><span style="font-family: verdana, sans-serif; white-space: pre;">選擇Localisation&nbsp;Options→選擇Change Keyboard Layout→選擇一般104鍵盤→按下OK→選擇close</span></font><div><div style="white-space: pre;"><font face="inherit"><span style="color: green; font-family: verdana, sans-serif;"><br /></span></font></div>
+<div style="white-space: normal;">
+<span style="color: #38761d; font-family: verdana, sans-serif; white-space: pre;"><span style="color: green;"><font face="inherit">#&nbsp;修改Wifi頻段</font></span></span></div><div style="white-space: pre;"><font color="#3367d6" face="inherit"><span style="font-family: verdana, sans-serif;">$&nbsp;sudo&nbsp;raspi-config</span></font></div><div style="white-space: pre;"><font face="inherit"><span style="color: green; font-family: verdana, sans-serif;"></span></font></div>
+<div>
+<div>
+<span style="white-space: pre;"><font face="inherit">選擇Localisation Options→選擇Change Wi-fi Country→選擇Taiwan→按下OK→選擇close</font></span></div>
+<div style="white-space: pre;"><font face="inherit">
+<span style="color: green; font-family: verdana, sans-serif;">#&nbsp;設定系統自動對時</span></font></div>
+<font face="inherit"><span style="color: green; font-family: verdana, sans-serif;"><span style="color: black; white-space: pre;"><font color="#3367d6">$&nbsp;sudo&nbsp;timedatectl set-ntp yes</font></span></span><br />
+</font><div style="font-family: &quot;times new roman&quot;; margin: 0px; white-space: pre;"><font face="inherit">
+<span style="color: green; font-family: verdana, sans-serif;">#&nbsp;安裝遠端桌面</span></font></div>
+</div>
+</div>
+<font face="inherit"><font color="#3367d6"><span style="color: green; font-family: verdana, sans-serif;"><span style="color: black; white-space: pre;">$&nbsp;</span></span><span style="font-family: verdana, sans-serif;"><span style="white-space: pre;">sudo apt -y install xrdp</span></span></font><br />
+<br /></font></div>
+<div>
+<span style="color: green; font-family: verdana, sans-serif; white-space: pre;"><font face="inherit">#&nbsp;中文輸入法(預設已安裝)</font></span></div>
+<font face="inherit"><span style="white-space: pre;"><font color="#3367d6">$ sudo apt install fcitx</font></span><br />
+<span style="color: green; font-family: verdana, sans-serif; white-space: pre;"><br /></span></font></div><div style="background-color: white;"><font face="inherit"><span style="color: green; font-family: verdana, sans-serif; white-space: pre;">#&nbsp;中文輸入法(倉頡)</span><br />
+<font color="#3367d6"><span style="font-family: verdana, sans-serif; white-space: pre;">$&nbsp;sudo&nbsp;</span><span style="font-family: verdana, sans-serif;"><span style="white-space: pre;">apt install fcitx-table-cangjie3</span></span></font><br />
+<span style="color: green; font-family: verdana, sans-serif; white-space: pre;"><br /></span></font></div><div style="background-color: white;"><font face="inherit"><span style="color: green; font-family: verdana, sans-serif; white-space: pre;">#&nbsp;中文輸入法(新酷音,</span><span style="color: green; font-family: verdana, sans-serif; white-space: pre;">預設已安裝</span><span style="color: green; font-family: verdana, sans-serif; white-space: pre;">)</span><br />
+<span style="font-family: verdana, sans-serif;"><span style="white-space: pre;"><font color="#3367d6">$ sudo apt install fcitx-chewing</font></span></span><br />
+<span style="font-family: verdana, sans-serif;"><span style="white-space: pre;"><span style="color: green;"><br /></span></span></span></font></div><div style="background-color: white;"><font face="inherit"><span style="font-family: verdana, sans-serif;"><span style="white-space: pre;"><span style="color: green;">#&nbsp;安裝完中文輸入法要重啟</span></span></span><br />
+<span style="font-family: verdana, sans-serif;"><span style="white-space: pre;"><font color="#3367d6">$ sudo reboot</font></span></span><br />
+<span style="color: #38761d;"><span style="font-family: verdana, sans-serif;"><span style="white-space: pre;"><br /></span></span></span></font></div><div><font color="#0b8043"># 修改輸入法設定</font><br /> 選擇全域設定→顯示進階選項→外觀<br /> →只有預編輯字串時不顯示輸入視窗→打勾<br /> →只有一個候選詞和預編輯字串時不顯示輸入視窗→打勾<font face="inherit" style="background-color: white;"><br />
+<span style="font-family: verdana, sans-serif;"><span style="white-space: pre;"><br /></span></span>
+<span style="color: green; font-family: verdana, sans-serif; white-space: pre;">#&nbsp;安裝Samba</span><br /><font color="#3367d6">
+$ sudo apt install samba</font><br />
+<br />
+<span style="color: #38761d;">#&nbsp;</span><span style="color: green; font-family: verdana, sans-serif; white-space: pre;">加入pi到sambashare組</span><br /><font color="#3367d6">
+$ sudo usermod -a -G sambashare pi</font><br />
+<br />
+<span style="color: green; font-family: verdana, sans-serif; white-space: pre;"># 修改pi的Samba密碼</span><br /><font color="#3367d6">
+$ sudo pdbedit -a -u pi</font><br />
+<br />
+<span style="color: #38761d;"># 修改/etc/samba/smb.conf</span><br />
+[global]<br />
+&nbsp; &nbsp;follow symlinks = yes<br />
+&nbsp; &nbsp;wide links = yes<br />
+&nbsp; &nbsp;unix extensions = no<br />
+&nbsp; &nbsp;strict locking = no<br />
+<br />
+<span style="color: #38761d;"># 加入到/etc/samba/smb.conf</span><br />
+[pi]<br />
+&nbsp; comment = pi's home<br />
+&nbsp; path = /home/pi<br />
+&nbsp; read only = no<br />
+&nbsp; guest ok = no<br />
+&nbsp; browseable = yes<br />
+&nbsp; create mask = 0644<br />
+&nbsp; directory mask = 0755<br />
+<br />
+<span style="font-family: verdana, sans-serif; white-space: pre;">參考來源:</span><br />
+<span style="font-family: verdana, sans-serif;"><span style="white-space: pre;"><a href="https://blog.gtwang.org/iot/raspberry-pi/raspberry-pi-samba-setup-tutorial/?source=post_page-----b6a23c06c5a----------------------" target="_blank">raspberry-pi-samba-setup-tutorial</a></span></span><br /></font></div>
+</div>

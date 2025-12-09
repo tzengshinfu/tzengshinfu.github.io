@@ -1,0 +1,32 @@
+---
+layout: post
+title: VSCode新增JShell插件指令(Maven限定)
+tag:
+- java
+- jshell
+- visual studio code
+---
+
+<p>在VSCode的設定檔 C:\Users\&lt;使用者帳號&gt;\AppData\Roaming\Code\User\settings.json</p>
+<p>新增</p>
+<div><pre><code class="json">
+"maven.terminal.favorites":
+[
+{
+"alias": "jshell",
+"command": "com.github.johnpoth:jshell-maven-plugin:1.3:run -Dmaven.test.skip=true"
+}
+]
+</code></pre></div>
+<p>效果如下：</p>
+<p></p>
+<div class="separator" style="clear: both; text-align: center;"><a
+        href="https://blogger.googleusercontent.com/img/a/AVvXsEgxo7y3ZKa0RG0E-o31mpLVGv62FGbbEvisS_KFX0Qz0omJ3VFX_VmkSnpVnEd806qhPba1iVLJn_8gIo_If_AAWqoVR8KCTiGG8reDxgy8v2YYqNlGHQImr0HP4lk7blaxCe9GesOLuWfP6I6714RVezS_NE3NlQlwm_LcJemUSBedcRza6nJEDTeoCw"
+        style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img alt="" data-original-height="1046"
+            data-original-width="1924" height="347"
+            src="https://blogger.googleusercontent.com/img/a/AVvXsEgxo7y3ZKa0RG0E-o31mpLVGv62FGbbEvisS_KFX0Qz0omJ3VFX_VmkSnpVnEd806qhPba1iVLJn_8gIo_If_AAWqoVR8KCTiGG8reDxgy8v2YYqNlGHQImr0HP4lk7blaxCe9GesOLuWfP6I6714RVezS_NE3NlQlwm_LcJemUSBedcRza6nJEDTeoCw=w640-h347"
+            width="640" /></a></div><br /><br />
+<p></p>
+<p></p>
+<div class="separator" style="clear: both; text-align: center;"><br /></div><br /><br />
+<p></p>

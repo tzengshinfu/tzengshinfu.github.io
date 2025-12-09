@@ -1,0 +1,8 @@
+---
+layout: post
+title: Web Deploy成功後執行指令
+tag:
+- visual studio
+---
+
+1.卸載專案<br /> <a href="https://www.blogger.com/#"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7pni-kwZDVbsTZSbbFrlgzpOTfNsQHqqUOdF9eSgUlL0a3zHPmbtU7-fBchorgUJabLNLvj6zxd2Pl2XT-8Kq-ZdWUKoNLsRhm8QkU41157TPrlKJafDA0Rz6ddo24hPv2Lk8Jc_Rqy1m/s400/step1.png" /></a> <br /><br /> <br /> 2.編輯專案組態檔<br /> <a href="https://www.blogger.com/#"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSH92iHzRTcyJwlZXZ93MCnwHPqjGsQalNIbKUengBmD2gS0SrvJ8tdEjgDSAVUepbKonhgwOdq253W1VUI_qoVM_M1KzX-FMK721RqUR7gZcj9P79-fbJ4hWSc3jU60JJiN_JksaX_bAV/s400/step2.png" /></a>&nbsp;<div><br /> <br /> 3.在最下面加上</div><div><pre><code class="xml">&lt;Target Name="{自訂Task名稱}" AfterTargets="MSDeployPublish" Condition="{在哪種組態下執行}"&gt;<br />     &lt;Exec Command="{自訂命令}" /&gt;<br />   &lt;/Target&gt;</code></pre> <a href="https://www.blogger.com/#"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTRrbFL3LYWbTlKQ-nznduCfSXiTNwROBX8LH6XsrFYwLzu5nx7Dgx7MLMhtXlmp5qOinO_D5tifOzWrHep_rzvs6T8C5TGjZTuSkTCi0Uq-y-LTRLS3_0xl5xGnWgb5GrcPh6RDYxXyen/s640/step4.png" /></a> <br /> </div>

@@ -1,0 +1,10 @@
+---
+layout: post
+title: 修改附件檔名SQL
+tag:
+- easyflow gp
+- sql
+---
+
+<pre><code class="sql">/**修改附件檔名SQL*/ <br /><br />/**第1步.找出表單的XML(如果是Tiptop流程,連maskFieldValues也要一併修改)*/ <br /> SELECT FormInstance.OID,fieldValues <br />   FROM ProcessInstance <br />   JOIN LocalRelevantData ON contextOID = containerOID <br />   JOIN FormInstance ON valueOID = FormInstance.OID <br /> WHERE ProcessInstance.serialNumber = '(要修改附件檔名的流程序號)' <br /><br />/**第2步.修改XML內容*/ <br /> UPDATE FormInstance <br /> SET fieldValues = N'(修改附件檔名後的XML)'<br /> ,objectVersion = objectVersion + 1 <br /> WHERE OID = '(第1步的FormInstance.OID)' <br /><br />/**第3步.修改附件檔名(修改此處並不會影響附件名稱,但為了資料完整性所以一併修改)*/ <br /> UPDATE NoCmDocument <br /> SET logicalName = '(附件修改後檔名)'<br /> ,objectVersion = objectVersion + 1 <br /> WHERE OID = '(第2步的附件OID)' 
+</code></pre>

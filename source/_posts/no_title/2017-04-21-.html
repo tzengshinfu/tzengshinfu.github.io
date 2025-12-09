@@ -1,0 +1,31 @@
+---
+layout: post
+title: 加速電腦啟動速度
+---
+
+狀況：<br />
+如果有多個耗用資源較多的大型程式(如Outlook, Skype等)<br />
+都設定在開機時啟動，往往會影響開機的啟動速度。<br />
+<br />
+解法：<br />
+改以[工作排程器]延遲執行(如登入後5分鐘啟動)；<br />
+但因為此種執行方式的程式基本優先順序會為"在標準以下"，<br />
+為了不影響大型程式的執行效能，<br />
+所以要另外增加排程如下圖<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkR6LcPJWz2vcDIOTn62noWRP8Aj8_qVRDCVXBfgh252M_qCem95AmJfvD6hmEP7mj1wOGQK_vQROvFqULH68N4KHsD9Ose1ljUzn6whEY3kMMJjAzGLhOcx9b_BsVz3-DT5Y7wvsNrJt9/s1600/pro.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="215" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkR6LcPJWz2vcDIOTn62noWRP8Aj8_qVRDCVXBfgh252M_qCem95AmJfvD6hmEP7mj1wOGQK_vQROvFqULH68N4KHsD9Ose1ljUzn6whEY3kMMJjAzGLhOcx9b_BsVz3-DT5Y7wvsNrJt9/s400/pro.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+用wmic指令將大型程式的基本優先順序提高到"標準型"。<br /><pre><code class="bat">wmic process where name="OUTLOOK.EXE" CALL setpriority "normal"</code></pre>

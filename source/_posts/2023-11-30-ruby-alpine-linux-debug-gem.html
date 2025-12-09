@@ -1,0 +1,10 @@
+---
+layout: post
+title: Ruby在Alpine Linux安裝debug gem失敗
+tag:
+- alpine linux
+- debugger
+- ruby
+---
+
+<p>&nbsp;1.執行<span style="background-color: #eeeeee;">gem install debug</span>，顯示錯誤</p><p><span style="background-color: black;"><span style="color: #04ff00;">ERROR:&nbsp; Error installing debug:</span></span></p><p><span style="background-color: black;"><span style="color: #04ff00;">ERROR: Failed to build gem native extension.</span></span></p><p>2.缺少編譯用元件，</p><p>Alpine linux執行<span style="background-color: #eeeeee;">apk add make &amp;&amp;&nbsp;apk add gcc &amp;&amp;&nbsp;apk add libc-dev &amp;&amp;&nbsp;</span><span style="background-color: #eeeeee;">gem install debug</span><span style="background-color: #eeeeee;">&nbsp;</span>即可</p><p>Ubuntu linux執行<span style="background-color: #eeeeee; color: var(--highlight-color); font-family: inherit; font-size: var(--_pr-code-fs); font-style: inherit; font-variant-caps: inherit; font-variant-ligatures: inherit; font-weight: inherit; white-space: inherit;">apt install ruby-dev</span><span style="background-color: #eeeeee;">&nbsp;&amp;&amp;&nbsp;</span><span style="background-color: #eeeeee;">gem install debug</span><span style="background-color: #eeeeee;">&nbsp;</span>即可</p>

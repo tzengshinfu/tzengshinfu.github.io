@@ -1,0 +1,42 @@
+---
+layout: post
+title: Maven 3.8.1+阻擋HTTP repositories(Blocked mirror for repositories)
+tag:
+- java
+- maven
+---
+
+<p>問題：</p>
+<p>Maven無法下載私服套件，錯誤訊息如下：</p>
+<p>[<span style="color: #cc0000;"><b>ERROR</b></span>] Failed to execute goal on project <span
+        style="color: #0b5394;">xxx</span>: <span style="color: #cc0000;"><b>Could not resolve dependencies for project
+            xxx:jar:1.5: Failed to collect dependencies at xxx:jar:1.0</b></span>: Failed to read artifact descriptor
+    for xxx:jar:1.0: Could not transfer artifact xxx:pom:1.0 from/to maven-default-http-blocker (http://0.0.0.0/):
+    Blocked mirror for repositories: [ooo (http://maven.ooo.org/nexus/content/repositories/ooo, default, releases)]
+    -&gt; <b>[Help 1]</b></p>
+<p><b><br /></b></p>
+<p>因為3.8.1+預設阻擋非HTTPS的倉庫。(<a href="https://maven.apache.org/docs/3.8.1/release-notes.html" rel="nofollow"
+        target="_blank">來源</a>)</p>
+<p><br /></p>
+<p>解法：</p>
+<p>在${user.home}/.m2/settings.xml新增以下內容</p><pre><code class="xml">
+<p>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</p>
+<p>&lt;settings xmlns="http://maven.apache.org/SETTINGS/1.2.0"</p>
+<p>&nbsp; xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</p>
+<p>&nbsp; xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0
+    https://maven.apache.org/xsd/settings-1.2.0.xsd"&gt;</p>
+<p>&nbsp; &lt;mirrors&gt;</p>
+<p>&nbsp; &nbsp; &lt;mirror&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &lt;id&gt;maven-default-http-blocker&lt;/id&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &lt;mirrorOf&gt;dummy&lt;/mirrorOf&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &lt;name&gt;Pseudo repository to mirror external repositories initially using HTTP.&lt;/name&gt;
+</p>
+<p>&nbsp; &nbsp; &nbsp; &lt;url&gt;http://0.0.0.0/&lt;/url&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &lt;blocked&gt;false&lt;/blocked&gt;</p>
+<p>&nbsp; &nbsp; &lt;/mirror&gt;</p>
+<p>&nbsp; &lt;/mirrors&gt;</p>
+<p>&lt;/settings&gt;</p>
+</code></pre>
+<p><br /></p>
+<p>參考來源：<a href="https://stackoverflow.com/a/68394404" rel="nofollow" target="_blank">How to disable maven blocking
+        external HTTP repositories?</a></p>

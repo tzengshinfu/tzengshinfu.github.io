@@ -1,0 +1,65 @@
+---
+layout: post
+title: 使用Apache Flink SQL+SQL Server CDC connector同步MSSQL資料表
+tag:
+- apache flink
+- change data capture
+- sql server
+---
+
+1.開啟來源SQL Server資料庫CDC(Change data capture)功能，<div>在SQL客戶端執行</div>
+<div><pre><code class="sql">EXEC sys.sp_cdc_enable_db</code></pre></div>
+<div><br /></div>
+<div>2.開啟來源資料表CDC功能，</div>
+<div>在SQL客戶端執行</div>
+<div><pre><code class="sql">EXEC sys.sp_cdc_enable_table</div>
+<div>@source_schema = N'dbo',</div>
+<div>@source_name&nbsp; &nbsp;= N'[來源資料表名稱]',</div>
+<div>@role_name&nbsp; &nbsp; &nbsp;= N'db_cdcadmin',</div>
+<div>@supports_net_changes = 0</code></pre></div>
+<div><br /></div>
+<div>3.驗證設定是否正確，</div>
+<div>在SQL客戶端執行</div>
+<div><pre><code class="sql">EXEC sys.sp_cdc_help_change_data_capture</code></pre></div>
+<div><br /></div>
+<div>4.複製</div>
+<div><a href="http://flink-sql-connector-sqlserver-cdc-2.3.0.jar" rel="nofollow"
+        target="_blank">flink-sql-connector-sqlserver-cdc-2.3.0.jar</a>(擷取來源SQL Server資料表CDC紀錄用)</div>
+<div>flink-connector-jdbc-3.1-SNAPSHOT.jar(寫入目的SQL Server資料表用)</div>
+<div><a href="https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/12.2.0.jre11/mssql-jdbc-12.2.0.jre11.jar"
+        rel="nofollow" target="_blank">mssql-jdbc-12.2.0.jre11.jar</a>(SQL Server JDBC驅動程式)</div>
+<div>以上3個jar檔到Apache Flink主機的$FLINK_HOME/lib目錄。</div>
+<div><br /></div>
+<div>※TaskManager和JobManager都要放置。</div>
+<div>※由於目前Maven Central Repository的flink-connector-jdbc-3.0還不支援SQL Server，</div>
+<div>所以需先到官方GitHub下載<a href="https://github.com/apache/flink-connector-jdbc/releases/tag/v3.1.0-rc1" rel="nofollow"
+        target="_blank">source code</a>依照<a href="https://github.com/apache/flink-connector-jdbc/blob/main/README.md"
+        rel="nofollow" target="_blank">說明</a>自行編譯。</div>
+<div><br /></div>
+<div>5.開啟Flink SQL CLI，</div>
+<div>在JobManager的shell執行</div><!--StartFragment--><!--EndFragment-->
+<div><pre><code class="bash">$FLINK_HOME/bin/sql-client.sh</code></pre></div>
+<div><br /></div>
+<div>6.建立來源資料表，</div>
+<div>參照<a href="https://ververica.github.io/flink-cdc-connectors/master/content/connectors/sqlserver-cdc.html"
+        rel="nofollow" target="_blank">Flink-CDC-connector官方文件</a>在Flink SQL CLI執行Flink SQL即可。</div>
+<div>語法類似SQL，但欄位型態需參照文件最下面的<b>Data Type Mapping</b>進行修正。</div>
+<div><br /></div>
+<div>7.驗證是否正常連接，</div>
+<div>在Flink SQL CLI執行<pre><code class="sql">SELECT * FROM [來源資料表];</code></pre></div>
+<div><br /></div>
+<div>8.建立目的資料表，</div>
+<div>參照<a href="https://github.com/apache/flink-connector-jdbc/blob/main/docs/content/docs/connectors/table/jdbc.md"
+        rel="nofollow" target="_blank">Flink-JDBC-connector官方文件</a>在Flink SQL CLI執行Flink SQL即可。</div>
+<div><br /></div>
+<div>9.驗證是否正常連接，</div>
+<div>在Flink SQL CLI執行<pre><code class="sql">SELECT * FROM [目的資料表];</code></pre></div>
+<div><br /></div>
+<div>10.建立同步作業，</div>
+<div>在Flink SQL CLI執行<pre><code class="sql">INSERT INTO [目的資料表]&nbsp;SELECT * FROM [來源資料表];</code></pre></div>
+<div><br /></div>
+<div>11.在Flink管理介面(http://[Flink主機位址]:8081/#/job/running)</div>
+<div>可看到該同步作業執行中。</div>
+<div>※在Flink SQL CLI會顯示新增作業的Job ID，比照Flink管理介面可看到該同步作業執行中。</div>
+<div><br /></div>
+<div>12.針對[來源資料表]進行CRUD作業，[目的資料表]資料也會(近乎)即時同步。</div>

@@ -1,0 +1,20 @@
+---
+layout: post
+title: Tabby的SFTP目前目錄跟著終端機cd指令而變動
+tag:
+- linux
+- tabby
+---
+
+<p>&nbsp;在遠端主機的使用者目錄下的Shell設定檔，</p>
+<p>Bash:</p>
+<p>編輯~/.bash_profile(不存在請自建)</p>
+<p>加上</p>
+<div><pre><code class="bash">export PS1="$PS1\[\e]1337;CurrentDir="'$(pwd)\a\]'</code></pre></div>
+<p>重新登入即可</p>
+<p><br /></p>
+<p>ZSH:</p>
+<p>編輯~/.zshrc(不存在請自建)</p>
+<p>加上</p>
+<div><pre><code class="bash">precmd () { echo -n "\x1b]1337;CurrentDir=$(pwd)\x07" }</code></pre></div>
+重新登入即可

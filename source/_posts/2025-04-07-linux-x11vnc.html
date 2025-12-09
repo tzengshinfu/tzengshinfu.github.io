@@ -1,0 +1,37 @@
+---
+layout: post
+title: Linux安裝X11VNC並設為服務
+tag:
+- linux
+- x11vnc
+- xrdp
+---
+
+<p><span style="font-family: Noto Sans JP;"></span></p><pre><span style="font-family: Noto Sans JP;"><code>sudo apt update<br />#更新APT套件清單</code></span></pre><p></p>
+<p><span style="font-family: Noto Sans JP;"></span></p><pre><span style="font-family: Noto Sans JP;"><code>sudo apt install -y x11vnc<br />#安裝X11VNC</code></span></pre><p></p>
+<p><span style="font-family: Noto Sans JP;"></span></p><pre><span style="font-family: Noto Sans JP;"><code>sudo vncpasswd<br />#建立VNC密碼檔(最多8個字元，可包含數字/特殊符號)</code></span></pre><p></p>
+<p><span style="font-family: Noto Sans JP;"></span></p><pre><span style="font-family: Noto Sans JP;"><code>sudo nano /etc/systemd/system/graphical.target<br />#新增<code data-end="23" data-start="5">graphical.target</code> 是一個 systemd 目標單元，負責啟動系統的圖形介面，並確保相關的服務（如顯示管理器和 VNC 服務）在適當的順序下啟動</code></span></pre>
+<p></p>
+<p><span style="font-family: Noto Sans JP;"><code data-end="23" data-start="5">graphical.target</code>內容如下：</span></p>
+<p><span style="font-family: Noto Sans JP;"></span></p><pre><span style="font-family: Noto Sans JP;"><code>[Unit]<br />Description=Graphical Interface<br />Documentation=man:systemd.special(7)<br />Requires=multi-user.target<br />After=multi-user.target<br />Conflicts=rescue.target<br />Wants=display-manager.service<br />Wants=x11vnc.service<br />AllowIsolate=yes</code></span></pre>
+<p></p>
+<p><span style="font-family: Noto Sans JP;">[Install]<br />Alias=default.target</span></p>
+<p><span style="font-family: Noto Sans JP;"><br /></span></p>
+<p><span style="font-family: Noto Sans JP;"></span></p><pre><span style="font-family: Noto Sans JP;"><code>sudo nano /etc/systemd/system/x11vnc.service<br />#新增X11VNC服務</code></span></pre><p></p>
+<p><span style="font-family: Noto Sans JP;">x11vnc.service內容如下：</span></p>
+<p><span style="font-family: Noto Sans JP;"></span></p><pre><span style="font-family: Noto Sans JP;"><code>[Unit]<br />Description=X11VNC service<br />Requires=display-manager.service<br />After=display-manager.service</code></span></pre><p></p>
+<p><span style="font-family: Noto Sans JP;">[Service]<br />Type=forking<br />ExecStart=/usr/bin/x11vnc \<br />-display
+        :0 \<br />-rfbport 5900 \<br />#-localhost \<br />-rfbauth [VNC密碼檔路徑] \<br />#-shared \<br />-bg \<br />-xkb
+        \<br />-ncache \<br />-ncache_cr \<br />-forever \<br />-repeat \<br />-auth guess</span></p>
+<p><span style="font-family: Noto Sans JP;">[Install]<br />WantedBy=display-manager.service</span></p>
+<p><span style="font-family: Noto Sans JP;"><br /></span></p>
+<p><span style="font-family: Noto Sans JP;"></span></p><pre><span style="font-family: Noto Sans JP;"><code>sudo systemctl daemon-reload<br />#重新讀取已新增的服務設定檔</code></span></pre><p></p>
+<p><span style="font-family: Noto Sans JP;"></span></p><pre><span style="font-family: Noto Sans JP;"><code>sudo systemctl start graphical.target<br />#啟動graphical.target服務</code></span></pre><p></p>
+<p><span style="font-family: Noto Sans JP;"></span></p><pre><span style="font-family: Noto Sans JP;"><code>sudo systemctl status graphical.target<br />#查看graphical.target服務狀態</code></span></pre>
+<p></p>
+<p><span style="font-family: Noto Sans JP;"></span></p><pre><span style="font-family: Noto Sans JP;"><code>sudo systemctl start x11vnc.service<br />#啟動X11VNC服務</code></span></pre><p></p>
+<p><span style="font-family: Noto Sans JP;"></span></p><pre><span style="font-family: Noto Sans JP;"><code>sudo systemctl status x11vnc.service<br />#查看X11VNC服務狀態</code></span></pre><span style="font-family: Noto Sans JP;"><br /></span><p></p>
+<p><span style="font-family: Noto Sans JP;"></span></p><pre><span style="font-family: Noto Sans JP;"><code>sudo systemctl enable graphical.target<br />#將graphical.target服務設為開機啟動</code></span></pre><p></p>
+<p><span style="font-family: Noto Sans JP;"></span></p><pre><span style="font-family: Noto Sans JP;"><code>sudo systemctl enable x11vnc.service<br />#將X11VNC服務設為開機啟動</code></span></pre><p></p>
+<p><span style="font-family: Noto Sans JP;"><br /></span></p><p><span style="font-family: Noto Sans JP;">(在樹莓派5實測還是<a href="https://learn.microsoft.com/zh-tw/azure/virtual-machines/linux/use-remote-desktop?tabs=azure-cli" rel="nofollow" target="_blank">xrdp</a>效能較佳)</span></p><p><span style="font-family: Noto Sans JP;"><br /></span></p>
+<p><span style="font-family: Noto Sans JP;">參考來源：<a href="https://unix.stackexchange.com/a/110308" rel="nofollow" target="_blank">launch x11vnc on bootup</a></span></p>

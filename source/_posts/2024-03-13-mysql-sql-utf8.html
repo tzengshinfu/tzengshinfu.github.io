@@ -1,0 +1,16 @@
+---
+layout: post
+title: MySQL容器SQL腳本初始化UTF8內容為亂碼
+tag:
+- docker
+- mysql
+---
+
+<p>原因：因為執行初始化的終端環境語系不是UTF-8。</p><p>解法：在docker-compose.yml MySQL服務的環境變數加上"LANG: C.UTF-8"即可。</p><pre><code class="yaml">
+version : '3.8'
+services:
+  mysql:
+  ..............
+    environment:
+      LANG: C.UTF-8 #加上這行
+      </code></pre><p>參考來源：<a href="https://www.codesky.me/archives/docker-mysql-utf8-encoded.wind" rel="nofollow" target="_blank">Docker Mysql DB 初始化 UTF8 乱码问题的解决</a></p>

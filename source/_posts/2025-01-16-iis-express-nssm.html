@@ -1,0 +1,29 @@
+---
+layout: post
+title: IIS Express使用NSSM掛載成本機網站服務
+tag:
+- iis express
+- nssm
+- windows
+---
+
+<p>&nbsp;本機有網頁格式的說明文件，想掛載成網站服務</p>
+<p><br /></p>
+<p>1.安裝NSSM</p>
+<p>執行</p><pre><code class="dos">winget install nssm.nssm</code></pre><p></p>
+<p><br /></p>
+<p>2.透過NSSM新增服務</p>
+<p>執行</p><pre><code class="dos">nssm install "服務名稱"</code></pre><p></p>
+<p>會啟動設定用的GUI</p>
+<div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzPXFD6BovrTw0zS4dgTrgCTbTVnU_PvP3vVHm9UbZeNlPFTsUEgv6x64MkL9-X3glpg46Vfz0URZgp9gXPBh_VfWNZP4W_KZXhEbdV7heP53N6c3wpTzkYCo3THM1jn1GUHOM9DPiKBpiLgLP10m-Md7jyVk2b3MsvmcQWPwyFJh2mD8PAe_uA5w6qkIK/s431/image_20250116_114557.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="232" data-original-width="431" height="172" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzPXFD6BovrTw0zS4dgTrgCTbTVnU_PvP3vVHm9UbZeNlPFTsUEgv6x64MkL9-X3glpg46Vfz0URZgp9gXPBh_VfWNZP4W_KZXhEbdV7heP53N6c3wpTzkYCo3THM1jn1GUHOM9DPiKBpiLgLP10m-Md7jyVk2b3MsvmcQWPwyFJh2mD8PAe_uA5w6qkIK/s320/image_20250116_114557.png" width="320" /></a></div><br />
+<p><br /></p>
+<p><br /></p>
+<p><br /></p>
+<p><br /></p>
+<p><br /></p>
+<p><br /></p>
+<p>在Path設定&lt;IIS Express路徑&gt;</p>
+<p>Arguments設定 /port:&lt;PORT號碼&gt; /path:"&lt;文件路徑&gt;"</p>
+<p><br /></p>
+<p>PS:如果直接執行sc create "IIS Express" binPath="&lt;IIS Express路徑&gt; /port:&lt;PORT號碼&gt; /path:"&lt;文件路徑&gt;" 新增服務，在啟動時會失敗並顯示"錯誤 1503
+    : 服務並未已適時的方式回應啟動獲控制請求"，因為IIS Express沒有能以服務啟動的介面。</p>

@@ -1,0 +1,18 @@
+---
+layout: post
+title: DOM操作注意事項
+tag:
+- javascript
+---
+
+<span style="font-family: inherit;">前提是要減少relayout及repaint。</span><br />
+<span style="font-family: inherit;"><br /></span>
+<span style="font-family: inherit;">1.不逐一改變node屬性,用className或是cssText一次設定。</span><br />
+<span style="font-family: inherit;">2.先設定node屬性,最後再一次插入childNode到DOM前。</span><br />
+<span style="font-family: inherit;">3.使用DocumentFragment。</span><br />
+<span style="font-family: inherit;">4.把要改變的node複製出來，設定好再取代舊的node。</span><br />
+<span style="font-family: inherit;">5.或用display：none屬性把node隱藏，設定好再顯示。</span><br />
+<span style="font-family: inherit;">6.如果要逐一改變屬性，則可快取屬性值，亦能提升效能。</span><br />
+<span style="font-family: inherit;"><br /></span>
+<span style="font-family: inherit;"><br /></span>
+<span style="font-family: inherit;">參考：<a href="http://www.cnblogs.com/ihardcoder/p/3927709.html">【翻译】浏览器渲染Rendering那些事：repaint、reflow/relayout、restyle</a></span>

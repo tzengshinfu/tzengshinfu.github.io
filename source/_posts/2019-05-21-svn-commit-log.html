@@ -1,0 +1,8 @@
+---
+layout: post
+title: SVN修改commit log訊息
+tag:
+- svn
+---
+
+將以下指令存成批次檔,路徑於SVN倉庫的hooks資料夾,檔名pre-revprop-change.bat<br /> 參考來源: https://stackoverflow.com/a/468475<br /> <br /><pre><code class="bat"> @ECHO OFF <br /> :: Set all parameters. Even though most are not used, in case you want to add <br /> :: changes that allow, for example, editing of the author or addition of log messages. <br /> set repository=%1 <br /> set revision=%2 <br /> set userName=%3 <br /> set propertyName=%4 <br /> set action=%5 <br /><br /> :: Only allow the log message to be changed, but not author, etc. <br /> if /I not "%propertyName%" == "svn:log" goto ERROR_PROPNAME <br /><br /> :: Only allow modification of a log message, not addition or deletion. <br /> if /I not "%action%" == "M" goto ERROR_ACTION <br /><br /> :: Make sure that the new svn:log message is not empty. <br /> set bIsEmpty=true <br /> for /f "tokens=*" %%g in ('find /V ""') do ( <br /> set bIsEmpty=false <br /> ) <br /> if "%bIsEmpty%" == "true" goto ERROR_EMPTY <br /><br /> goto :eof <br /><br /> :ERROR_EMPTY <br /> echo Empty svn:log messages are not allowed. &gt;&amp;2 <br /> goto ERROR_EXIT <br /><br /> :ERROR_PROPNAME <br /> echo Only changes to svn:log messages are allowed. &gt;&amp;2 <br /> goto ERROR_EXIT <br /><br /> :ERROR_ACTION <br /> echo Only modifications to svn:log revision properties are allowed. &gt;&amp;2 <br /> goto ERROR_EXIT <br /><br /> :ERROR_EXIT <br /> exit /b 1</code></pre>

@@ -1,0 +1,43 @@
+---
+layout: post
+title: 核決權限表設定注意事項
+tag:
+- easyflow gp
+---
+
+<font face="inherit">1.單位主管核定<br />
+<span style="color: blue;">勾選時表示就算參與者的主管層級已超過符合條件的層級也要簽核,</span><br />
+<span style="color: blue;">如主管是部級,但符合條件是課級,仍會送簽。</span><br />
+</font><div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiu7YMo27YOjDR5D2Y1s395CwdyMXTHR-Hgsv9uxXINiTjySk3SHaASvaQwzf1XGKq6WKMsQqmz9FRSXNtzq-ZS5_Fwwjc_CWN6LMUtVhyphenhyphenq8KwqduWu3Y_UraDDXuCw568JUvqKHXF1a5h9/s1600/att1.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><font face="inherit"><img border="0" data-original-height="195" data-original-width="1063" height="72" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiu7YMo27YOjDR5D2Y1s395CwdyMXTHR-Hgsv9uxXINiTjySk3SHaASvaQwzf1XGKq6WKMsQqmz9FRSXNtzq-ZS5_Fwwjc_CWN6LMUtVhyphenhyphenq8KwqduWu3Y_UraDDXuCw568JUvqKHXF1a5h9/s400/att1.png" width="400" /></font></a></div>
+<font face="inherit"><span style="color: blue;"><br /></span>
+<br />
+<br />
+<br />
+<br />
+<br />
+2.核決規則<br />
+<span style="color: blue;">1)必須涵蓋所有條件,不然會派送失敗。→可以加一個1==1的預設</span><span style="color: blue;">條件</span><span style="color: blue;">避免失敗。</span><br />
+<span style="color: blue;">2)由上向下逐一判斷,如果有相同條件則會先進入最接近上面的第1個條件。</span><br />
+<span style="color: blue;"><span style="font-family: verdana, sans-serif;"><span style="line-height: 1.4;">3)</span><span style="line-height: 1.4;">打</span><span style="color: #1c3387;">✓</span><span style="line-height: 1.4;">的右邊層級不管有勾沒勾都會全部跑到不會跳過。</span></span>
+
+</span><br />
+</font><table cellpadding="0" cellspacing="0" class="tr-caption-container" style="float: left; margin-right: 1em; text-align: left;"><tbody>
+<tr><td style="text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8vVciFLgZKcVGhwBxfN7kDnCaWghjG6bJPdEmqGsVCyTiwLdcveRyRyWzo67DcXc7H0vyUt1pl-0tDtVKPxo4L1DHBzol89c1zq84C8ie7jUktX6crI57KL4a-NOiaCQ8r66vCVkljtOd/s1600/att2.png" style="clear: left; margin-bottom: 1em; margin-left: auto; margin-right: auto;"><font face="inherit"><img border="0" data-original-height="239" data-original-width="802" height="118" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8vVciFLgZKcVGhwBxfN7kDnCaWghjG6bJPdEmqGsVCyTiwLdcveRyRyWzo67DcXc7H0vyUt1pl-0tDtVKPxo4L1DHBzol89c1zq84C8ie7jUktX6crI57KL4a-NOiaCQ8r66vCVkljtOd/s400/att2.png" width="400" /></font></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;"><font face="inherit"><br /></font></td></tr>
+</tbody></table><font face="inherit">
+<span style="color: blue;"><br /></span>
+<span style="color: blue;"><br /></span><br />
+<span style="color: blue;"><br /></span>
+<span style="color: blue;"><br /></span>
+<span style="color: blue;"><br /></span>
+<span style="color: blue;"><br /></span>
+<span style="color: blue;"><br /></span>
+<span style="color: blue;"><br /></span>
+<span style="color: blue;"><br /></span>
+<span style="color: blue;"><span style="color: black;">※如果課級</span></span>部門主管是處級單位成員,會造成系統誤判,跑到課級部門主管卻會為顯示處級,<br />
+所以會跳過部級主管,停留在處級部門主管(如下圖)<br />
+<span style="color: blue;">有調動的行為要檢查原單位是否已調離</span><br />
+</font><div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHSMLA0mgekf9a-nKb9T8DD3XdmS7ghYJ87TwNVCQckwE1T4JO7QIl5WsqlDLPj5SC_tCvu49HcsQTT-bkdGJg85oabR11T7KWB8LVyB-0ts-CxwhcIQ79_72zUAwomkCrNHFBkqooxrW2/s1600/Image_20191223095948.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><font face="inherit"><img border="0" data-original-height="323" data-original-width="647" height="198" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHSMLA0mgekf9a-nKb9T8DD3XdmS7ghYJ87TwNVCQckwE1T4JO7QIl5WsqlDLPj5SC_tCvu49HcsQTT-bkdGJg85oabR11T7KWB8LVyB-0ts-CxwhcIQ79_72zUAwomkCrNHFBkqooxrW2/s400/Image_20191223095948.png" width="400" /></font></a></div>
+<br />

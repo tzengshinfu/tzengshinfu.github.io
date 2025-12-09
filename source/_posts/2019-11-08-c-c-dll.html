@@ -1,0 +1,58 @@
+---
+layout: post
+title: C#機敏資訊放到C++ Dll以避免被直接反組譯
+tag:
+- c#
+---
+
+<font face="inherit">說明:<br />
+.Net Framework因為其特性,<br />
+編譯的執行檔或Dll有很多工具能反組譯,<br />
+機敏資訊如連線字串等如果直接寫在程式碼中<br />
+容易被取得造成資安問題。<br />
+但像C++/Delphi等語言(非託管)是直接編譯成機器碼,<br />
+反組譯難度較高,<br />
+所以如果將機敏資訊放在非託管Dll中,<br />
+反組譯工具就看不出內容而能提升安全性。<br />
+<br />
+做法:<br />
+1)Visual Studio開啟專案→Visual C++→Win32主控台應用程式→應用程式類型:DLL<br />
+<br />
+2)在cpp原始檔加上以下敘述,然後編譯成Dll</font><pre><code class="c"><font face="inherit">#include "stdafx.h"
+#include "COMDEF.H"
+
+extern "C" __declspec(dllexport) BSTR getConnectionString(BSTR hash) {
+    if (wcscmp(hash, L"＜驗證字串＞") == 0) {
+        return ::SysAllocString(L"＜連線字串＞");     
+    }
+    else {
+        return ::SysAllocString(L"error!");
+    }
+}</font></code></pre><div style="background-color: white; font-size: 14px; line-height: 19px; white-space: pre;"><div style="font-size: 14px;"><font face="inherit">3)引用的C#專案加上以下敘述</font></div><pre><code class="csharp"><font face="inherit">using System;
+using System.Runtime.InteropServices;
+
+namespace 專案名稱 {
+    class Program {
+
+        [DllImport(@"＜Dll完整路徑＞", CallingConvention = CallingConvention.Cdecl)]
+        [return: MarshalAs(UnmanagedType.BStr)]
+        private static extern string getConnectionString([MarshalAs(UnmanagedType.BStr)]string hash);
+        [DllImport(@"＜Dll完整路徑＞", CallingConvention = CallingConvention.Cdecl)]
+        [return: MarshalAs(UnmanagedType.BStr)]
+        private static extern string getConnectionString([MarshalAs(UnmanagedType.BStr)]string hash);
+        [return: MarshalAs(UnmanagedType.BStr)]
+        private static extern string getConnectionString([MarshalAs(UnmanagedType.BStr)]string hash);
+
+        static void Main(string[] args) {
+            var connStr = getConnectionString("＜驗證字串＞");
+        }
+    }
+}</font></code></pre><div style="font-size: 14px;"><div style="line-height: 19px;"><pre style="line-height: 19px;"><div><font face="inherit">※該Dll的屬性→建置動作必須是"內容",不能以ILMerge等套件編譯成同一個執行檔,
+不然會找不到。</font></div></pre><div style="font-size: 14px;"><font face="inherit">4)用反組譯工具來查看,看不到Dll存放的連線字串。
+但是最新的反組譯工具如dnSpy還是能執行以取得字串,
+要再提升安全性可能要使用其他工具將.Net程式編譯成機器碼。</font></div><div class="separator" style="clear: both; font-size: 14px; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSnE74YURhHPByYlhF4R9D1hBJd3lmgQ-d5ym_Nb23D2mcds2zYMJLsk_PeA1rb-FW86DSs63HyQGuiKJn24kT0tQCCtnF05IKlKRbKFB9o3PpvC8biNnXBhbmAQKgJ3jiQDvJV5Gp-eRz/s1600/Image_20191108155612.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="514" data-original-width="1157" height="177" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSnE74YURhHPByYlhF4R9D1hBJd3lmgQ-d5ym_Nb23D2mcds2zYMJLsk_PeA1rb-FW86DSs63HyQGuiKJn24kT0tQCCtnF05IKlKRbKFB9o3PpvC8biNnXBhbmAQKgJ3jiQDvJV5Gp-eRz/s400/Image_20191108155612.png" width="400" /></a></div><span style="font-size: 14px;">
+</span><div style="font-size: 14px;">
+<br /></div><span style="font-size: 14px;">
+</span></div><span style="font-size: 14px;">
+</span></div><span style="font-size: 14px;">
+</span></div>

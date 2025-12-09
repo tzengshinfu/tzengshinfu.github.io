@@ -1,0 +1,11 @@
+---
+layout: post
+title: jQuery soap插件(jQuery呼叫.Net web service用)的使用方法
+tag:
+- asp.net
+- jquery
+- web service
+---
+
+**IE瀏覽器**<br /> 網際網路選項→安全性→所對應的區域→自訂等級→存取跨網域的資料來源→啟用<br /> <a href="https://www.blogger.com/#"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgaK1gkQ57SerCtq5m6cec58M-8Yg2G-DSSornIO0P2xN2OJaxfXmYN2d1fRNbfdDRzNjXpDkRQaJV5ggaL3o8V-eLKQ1lSbFsx7MhK67ACk1D-jUBo4yq6gb3gmzmShORjc1XReaqczOtZ/s400/ie.png" /></a> <br /> <br /> <br /> 引用如下:<br /> &lt;!--IE8只能用jQuery 1.x版本--&gt;<br /><pre><code class="html"> &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"&gt;&lt;/script&gt; <br /> &lt;script src="http://cdn.zoanmgtinc.com/j_query/plugin/soap/jquery.soap.js"&gt;&lt;/script&gt;</code></pre><br /> <br /> <br /> 方法如下:<br /><pre><code class="js"> $.support.cors = true; /**修正"no transport"問題(for IE8, http://bugs.jquery.com/ticket/10660)*/<br /> $.soap({ <br /> url: "http://xxx.xxx.xxx.xxx/WebSite1_T/Service.asmx", <br /> method: "&lt;方法名稱&gt;", <br /> SOAPAction: "http://tempuri.org/&lt;方法名稱&gt;", <br /> envAttributes: { <br /> "xmlns": "http://tempuri.org/" <br /> }, <br /> data: { <br /> Code: "", /**參數1*/ <br /> Display: true /**參數2*/ <br /> }, <br /> appendMethodToURL: false, <br /> async: false, <br /> success: function (soapResponse) { <br /> /**成功時解析soapResponse的內容*/<br /> /**建議用$(soapResponse.toString())轉成jQuery的xml物件以利操作*/ <br /> }, <br /> error: function (soapResponse) { <br /> /**失敗時soapResponse會顯示伺服器回傳錯誤訊息*/ <br /> } <br /> });</code></pre> <br /> <br /> <br /> 在web service伺服器的web.config的&lt;configuration&gt;節點底下加上<div><pre><code class="xml"> &lt;system.webServer&gt; <br /> &lt;httpProtocol&gt; <br /> &lt;customHeaders&gt; <br /> &lt;add name="Access-Control-Allow-Origin" value="*" /&gt; <br /> &lt;add name="Access-Control-Allow-Headers" value="content-type, soapaction" /&gt; <br /> &lt;add name="Access-Control-Allow-Methods" value="*" /&gt; <br /> &lt;/customHeaders&gt; <br /> &lt;/httpProtocol&gt; <br /> &lt;/system.webServer&gt;</code></pre>
+</div>

@@ -1,0 +1,40 @@
+---
+layout: post
+title: Kettle Spoon在Linux主機執行相關設定
+tag:
+- kettle
+- linux
+- spoon
+- wsl2
+---
+
+<p>因為Kettle目前仍不能像VSCode或Intellij等軟體使用WSL2執行並除錯，<br />為彌平開發環境(Windows)與部署環境(Linux)的差異，<br />決定將開發區移至另一台與部署環境設定相同的Linux主機。
+</p>
+<p>1.安裝Java(推薦使用SDKMAN)</p>
+<p>2.安裝Kettle(<a href="https://tzengshinfu.blogspot.com/2022/06/kettle.html" rel="nofollow" target="_blank">注意事項</a>)
+</p>
+<p>3.安裝Fcitx中文輸入法</p>
+<p>4.Linux安裝Xfce桌面(<a href="https://www.linuxmi.com/ubuntu-20-04-xfce.html" rel="nofollow" target="_blank">教程</a>)</p>
+<p>5.安裝遠端桌面Xrdp(<a href="https://learn.microsoft.com/zh-tw/azure/virtual-machines/linux/use-remote-desktop?tabs=azure-cli" rel="nofollow" target="_blank">教程</a>)</p>
+<p>效果圖：</p>
+<div class="separator" style="clear: both; text-align: left;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEizUQ0XiTJ01kR_KA8V-0GcIiZX6OfOzSGbCGSnpGmLL0C9Y8jMakXdLvGtJjWOCf5ZNbvsOFTvU1Fog6ajorAVCQgwXyfJD9ADfm1Jvifu_FwY-qo5cyCAbzA5HBRTQGPSf_MK9SVhhCwtYghKystcKJjNU3sJ7HRj24DLYnNqO_BAPfKXzPpkvel_EA/s1370/img-20221116-171316.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="804" data-original-width="1370" height="188" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEizUQ0XiTJ01kR_KA8V-0GcIiZX6OfOzSGbCGSnpGmLL0C9Y8jMakXdLvGtJjWOCf5ZNbvsOFTvU1Fog6ajorAVCQgwXyfJD9ADfm1Jvifu_FwY-qo5cyCAbzA5HBRTQGPSf_MK9SVhhCwtYghKystcKJjNU3sJ7HRj24DLYnNqO_BAPfKXzPpkvel_EA/s320/img-20221116-171316.png" width="320" /></a></div><br />
+<div class="separator" style="clear: both; text-align: left;"><br /></div><br />
+<p>※2023/03/14更新，Windows 10組建 19044+已可執行Kettle GUI程式，</p>
+<p>建立程式捷徑如下：</p>
+<p>
+</p><div>
+    <pre><code class="bat">&gt; &lt;wslg.exe路徑&gt; (--user &lt;使用者帳號&gt;) -- &lt;spoon.sh路徑&gt;</code></pre>
+</div>
+<p>※2023/04/25更新，WSLg程式中文字型顯示亂碼，可安裝Windows字型</p>
+<p>在WSL2命令列執行指令如下：</p>
+<p>
+</p><div>
+    <pre><code class="bash">$ sudo ln -s /mnt/c/Windows/Fonts /usr/share/fonts/truetype/windows<br />$ fc-cache -fv</code></pre><pre><code class="bash"><br /></code></pre>
+</div>
+<p>參考來源：<a href="https://github.com/microsoft/wslg/issues/9#issuecomment-835320480" rel="nofollow" target="_blank">https://github.com/microsoft/wslg/issues/9#issuecomment-835320480</a></p>※2024/05/22更新，WSLg安裝中文輸入法<div><br /><div>在WSL2命令列執行指令如下：<br /><pre><code class="bash">$ sudo apt install fcitx # 中文輸入法<br />$ sudo apt install fcitx-table-cangjie3 # 倉頡第3代<br />$ sudo apt install fcitx-chewing # 新酷音</code></pre><div><br /></div>編輯/etc/locale.gen<br /><br />取消註解 zh_TW.UTF-8 UTF-8<br /><br />編輯~/.profile</div><div>新增以下設定<br /><div><pre style="background-color: whitesmoke; border-radius: 4px; border: 1px solid rgb(204, 204, 204); box-sizing: border-box; color: #333333; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; line-height: 1.42857; margin-bottom: 10px; margin-top: 0px; overflow-wrap: break-word; overflow: auto; padding: 9.5px; word-break: break-all;"><code style="background-color: transparent; border-radius: 0px; box-sizing: border-box; color: inherit; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0px; text-wrap: wrap;">export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export DefaultIMModule=fcitx
+fcitx-autostart &amp;&gt;/dev/null</code></pre><p style="box-sizing: border-box; margin: 0px 0px 20px; overflow-wrap: break-word;">套用設定<br />$ source ~/.profile<br /><br /><span face="arial, sans-serif" style="background-color: transparent; color: #2f2f2f; font-size: 16px;">參考來源：</span><a href="https://github.com/microsoft/wslg/issues/9#issuecomment-835320480" rel="nofollow" style="background-color: transparent; font-family: arial, sans-serif; font-size: 16px;" target="_blank"><span style="color: #2b00fe;">https://www.80shihua.com/archives/2994</span></a></p></div>
+<p></p>
+<p></p></div></div>

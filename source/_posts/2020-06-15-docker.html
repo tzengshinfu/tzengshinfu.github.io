@@ -1,0 +1,9 @@
+---
+layout: post
+title: 樹莓派安裝Docker
+tag:
+- docker
+- raspberry pi 4
+---
+
+<font face="inherit"><font color="#0b8043"># 裝https相關</font><br /><font color="#3367d6">$ sudo apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common</font></font><div><font face="inherit"><br /><font color="#0b8043"> # 取得Docker金鑰</font><br /><font color="#3367d6">$ curl -fsSL https://download.docker.com/linux/</font><span style="color: #3367d6; font-family: inherit; font-size: small;">$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -</span></font></div><div><font face="inherit"><br /><font color="#0b8043" style="font-family: inherit;"># 編輯Docker來源</font><br /><font color="#3367d6">$ echo "deb [arch=armhf] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \ $(lsb_release -cs) stable" | \ sudo tee /etc/apt/sources.list.d/docker.list</font></font></div><div><font face="inherit"><br /><font color="#0b8043"># 安裝Docker</font><br /><font color="#3367d6">$ sudo apt install -y --no-install-recommends \ docker-ce \ cgroupfs-mount</font><br /><br /><font color="#0b8043"># 加入pi到docker組</font><br /><font color="#3367d6">$ sudo addgroup --system docker $ sudo adduser pi docker $ newgrp docker</font><br /><br /> </font></div><div><font color="#0b8043" face="inherit"># 設為啟動服務</font></div><div><font face="inherit"><font color="#3367d6">$ sudo systemctl restart docker<br />$ sudo systemctl enable docker</font><br /><br /> </font></div><div><font face="inherit"><font color="#0b8043"># 測試Docker是否正常</font><br /><font color="#3367d6">$ docker run hello-world</font><br /><br /><font color="#0b8043"># 清理殘留軟體包</font></font></div><div><font face="inherit"><font color="#3367d6">$ sudo apt autoremove --purge<br />$ sudo apt clean</font><br /><br />參考來源:<br /><a href="https://www.blogger.com/#">yes-you-can-run-docker-on-raspbian</a></font></div>

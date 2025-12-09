@@ -1,0 +1,88 @@
+---
+layout: post
+title: Invoke關卡呼叫.Net web service(asmx)
+tag:
+- easyflow gp
+- web service
+---
+
+1-1.web service網站的web.config需新增HttpPost protocol<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6YKTFMGKubh2vxWtU26WbLwgmCVWHBbv1NAC_VupeHYgo2wKxJ-kBUmTFMevvj9wlfkPsBpvKjzc7MIcrMiVl4sVs6MQ7XyDGqM6kT1-7XNyMgTCG8S8L2tBiRxxZkyLUc1G72ubdfrxP/s1600/2.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="274" data-original-width="562" height="195" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6YKTFMGKubh2vxWtU26WbLwgmCVWHBbv1NAC_VupeHYgo2wKxJ-kBUmTFMevvj9wlfkPsBpvKjzc7MIcrMiVl4sVs6MQ7XyDGqM6kT1-7XNyMgTCG8S8L2tBiRxxZkyLUc1G72ubdfrxP/s400/2.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+1-2.在asmx.cs的開頭<br />
+將[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]<br />
+改成<span style="background-color: #d9ead3;">[WebServiceBinding(ConformsTo = WsiProfiles.None)]</span><br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPk9hpD-6gU99m_rGD0yXha24eatmXbPelPAcV3KN0BERgdtzsxLa1ZfCZJ6qXaS7Pyj1RlLxJpncxIclFYgah9ZXuBApZ0C88rdzQ9x0m8lAlwKZ-ViiouJl2cW5BOUYRMEKZOXaWPxKA/s1600/att0.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="172" data-original-width="670" height="102" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPk9hpD-6gU99m_rGD0yXha24eatmXbPelPAcV3KN0BERgdtzsxLa1ZfCZJ6qXaS7Pyj1RlLxJpncxIclFYgah9ZXuBApZ0C88rdzQ9x0m8lAlwKZ-ViiouJl2cW5BOUYRMEKZOXaWPxKA/s400/att0.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+1-3.在method開頭新增<br />
+<span style="background-color: #d9ead3;">[SoapRpcMethod(Use = System.Web.Services.Description.SoapBindingUse.Literal)]</span><br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgtBeP8qK44wavLsdiyk8RYtWGmsTOZ0xHU2Xgyox9qTnjLP_RfZCYuK4KMKUqKt_G9v2HortGDEQEzL2u5-vwuLEOWxzUB6bqffNvdDhjJdNfRM3HYhhT_PPUM244kIVeBOstUfywSAwI-/s1600/att2.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="123" data-original-width="749" height="65" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgtBeP8qK44wavLsdiyk8RYtWGmsTOZ0xHU2Xgyox9qTnjLP_RfZCYuK4KMKUqKt_G9v2HortGDEQEzL2u5-vwuLEOWxzUB6bqffNvdDhjJdNfRM3HYhhT_PPUM244kIVeBOstUfywSAwI-/s400/att2.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+注意:1-2跟1-3都要設定,不然會有參數值為null的問題;<br />
+另外method只支援string型態的參數跟回傳結果<br />
+1)如果參數其中之一不是string型態,則無法進入method(找不到method)<br />
+2)如果回傳結果不是string型態,則無法回傳結果<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-HqTUCLa6gwE-4-qnYWqwstY7LONQnqY78ROLemwY5AnegtfLm_tKL15x1MPdg-Kt8-GEfkv4yiOyY0lFVZ96JXnS7CrVBeUvDXlVeQIQ2KCQHhLXDwMFBsgeHR-00yIckPVbIJjxACLd/s1600/Image_20190923155508.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="129" data-original-width="789" height="65" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-HqTUCLa6gwE-4-qnYWqwstY7LONQnqY78ROLemwY5AnegtfLm_tKL15x1MPdg-Kt8-GEfkv4yiOyY0lFVZ96JXnS7CrVBeUvDXlVeQIQ2KCQHhLXDwMFBsgeHR-00yIckPVbIJjxACLd/s400/Image_20190923155508.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+2.Invoke關卡選擇web service<br />
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhRG9eHcCdrOGB3BzFH6H4uM0c7figPTUEUDGzIJJ-SnR9gULTbE-Xjj7DNHJ4hB_mJJaTupBnKYCaqrWIHLPiP3-dA6M9UKYhkxt5FLunBCz_TsnRn2ySQiggr16IrvgpNLHBrYHwxeAQ/s1600/1.png" style="clear: left; display: inline; margin-bottom: 1em; margin-right: 1em; text-align: center;"><img border="0" data-original-height="303" data-original-width="789" height="152" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhRG9eHcCdrOGB3BzFH6H4uM0c7figPTUEUDGzIJJ-SnR9gULTbE-Xjj7DNHJ4hB_mJJaTupBnKYCaqrWIHLPiP3-dA6M9UKYhkxt5FLunBCz_TsnRn2ySQiggr16IrvgpNLHBrYHwxeAQ/s400/1.png" width="400" /></a><br />
+<br />
+<br />
+3.選擇<span style="color: blue; font-size: 16px;">HttpPost</span><br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPtNd5sA6qD4qECYAgx5zv8N6D7-i-2epIVjEqKZdTx3ki-4_R4oliQOkEc1Ox4ysMK6RVsT7bepdUj28rCeGj4b7dVJL9oA59mPs1olqLbkdMjl4MBQ-ogQrQr6j3B0qlHo2KuIoD70R_/s1600/att9.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="221" data-original-width="420" height="210" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPtNd5sA6qD4qECYAgx5zv8N6D7-i-2epIVjEqKZdTx3ki-4_R4oliQOkEc1Ox4ysMK6RVsT7bepdUj28rCeGj4b7dVJL9oA59mPs1olqLbkdMjl4MBQ-ogQrQr6j3B0qlHo2KuIoD70R_/s400/att9.png" width="400" /></a></div>
+<span style="color: blue; font-size: 16px;"><br /></span>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+4.再設定參數對應的流程變數即可。<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhm82Q-p1kwH3hol98J24gTUqNysXMcOKjbyIIQsl1vk4XkQnDvd8gV0hasXgBHABNx3-3F01e7zehkP_PlEeAP_uVB5U0ZnMWbOuzAFwChORPBYc9p563GzpXnmj4I6V_vOtIYugnv1e3X/s1600/att10.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="175" data-original-width="804" height="86" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhm82Q-p1kwH3hol98J24gTUqNysXMcOKjbyIIQsl1vk4XkQnDvd8gV0hasXgBHABNx3-3F01e7zehkP_PlEeAP_uVB5U0ZnMWbOuzAFwChORPBYc9p563GzpXnmj4I6V_vOtIYugnv1e3X/s400/att10.png" width="400" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<br />
+<br />

@@ -1,0 +1,10 @@
+---
+layout: post
+title: 更新流程有效期間
+tag:
+- easyflow gp
+- sql
+---
+
+<div style="background-color: white; font-family: &quot;fira code retina&quot;, consolas, &quot;courier new&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><pre><code class="sql">UPDATE ProcessDefinitionHeader<br />SET validTo = '9999-12-31 23:59:59.000'<br />,objectVersion = objectVersion + 1<br />WHERE OID IN (<br />    SELECT<br />        ProcessDefinitionHeader.OID<br />    FROM ProcessDefinition<br />    INNER JOIN ProcessDefinitionHeader<br />        ON ProcessDefinition.headerOID = ProcessDefinitionHeader.OID<br />    INNER JOIN ProcessPackage_ProcessDef<br />        ON ProcessDefinition.OID = ProcessPackage_ProcessDef.ProcessDefinitionOID<br />    INNER JOIN ProcessPackage<br />        ON ProcessPackage_ProcessDef.ProcessPackageOID = ProcessPackage.OID<br />    INNER JOIN RedefinableHeader<br />        ON ProcessPackage.redefinableHeaderOID = RedefinableHeader.OID<br />    INNER JOIN ProcessPackageCmItem<br />        ON ProcessPackage.id = ProcessPackageCmItem.id<br />        AND RedefinableHeader.version = ProcessPackageCmItem.lastVersion<br />    WHERE 1 = 1<br />    AND validTo &gt;= GETDATE() /**不更新舊流程*/<br />    AND RedefinableHeader.publicationStatus = 'RELEASED' /**只更新RELEASE的*/<br />);</code></pre><div style="background-color: white; font-family: &quot;fira code retina&quot;, consolas, &quot;courier new&quot;, monospace; font-size: 14px; white-space: pre;"><font face="inherit">
+建議也可將表單截止有效日欄位設為NULL以避免突然找不到表單的問題。</font></div><pre><code class="sql">UPDATE FormDefinition SET validTo = NULL WHERE validTo IS NOT NULL</code></pre></div>

@@ -1,0 +1,26 @@
+---
+layout: post
+title: SDKMAN無法切換Java版本
+tag:
+- sdkman
+---
+
+<p>情況：</p>
+<p>1.之前已手動安裝Java 11</p>
+<p>2.在安裝SDKMAN後，用以下指令其安裝Java 17</p><div><pre><code class="shell"><span style="color: #38761d;"><b>me@server</b></span>:<span style="color: #0b5394;"><b>~</b></span>$ sdk install java 17.0.4.1-ms
+</code></pre><pre><code class="shell"><br /></code></pre></div>
+<p>3.設定Java當前版本</p><div><pre><code class="shell"><span style="color: #38761d;"><b>me@server</b></span>:<span style="color: #0b5394;"><b>~</b></span>$ sdk default java 17.0.4.1-ms
+</code></pre><pre><code class="shell"><br /></code></pre></div>
+<p>4.確認Java當前版本</p><div><pre><code class="shell"><span style="color: #38761d;"><b>me@server</b></span>:<span style="color: #0b5394;"><b>~</b></span>$ sdk current java
+<br />
+<span style="color: #cc0000;"><b>Not using any version of java</b></span>
+</code></pre></div>
+
+<p><br /></p><p>解法：</p><p>1.執行</p><div><pre><code class="shell"><span style="color: #38761d;"><b>me@server</b></span>:<span style="color: #0b5394;"><b>~</b></span>$ sdk selfupdate force
+</code></pre></div>
+
+<p><br /></p><p>2.再執行即可</p><div><pre><code class="shell"><span style="color: #38761d;"><b>me@server</b></span>:<span style="color: #0b5394;"><b>~</b></span>$ source "$HOME/.sdkman/bin/sdkman-init.sh"
+</code></pre></div><div><br /></div><div><br /></div>
+
+參考來源：
+<a href="https://stackoverflow.com/a/67084548">https://stackoverflow.com/a/67084548</a>

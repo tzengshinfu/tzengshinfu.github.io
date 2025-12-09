@@ -1,0 +1,8 @@
+---
+layout: post
+title: Linux各資料庫JDBC連線字串
+tag:
+- jdbc
+---
+
+<p>&nbsp;MSSQL 2014</p><p>jdbc:sqlserver://<b>&lt;資料庫位址&gt;</b>:1433;databaseName=<b>&lt;資料庫名稱&gt;</b></p><p><br /></p><p>※如果資料庫主機因未更新而只能用TLS v1.0連線，連線字串需加上 trustServerCertificate=true</p><p>要另外修改java.security內容，開放TLS v1.0</p><p>路徑 $JAVA_HOME/conf/security/java.security</p><p>找到 jdk.tls.disabledAlgorithms=SSLv3, <span style="color: #cc0000;">TLSv1</span>, <span style="color: #cc0000;">TLSv1.1</span>, RC4, DES, MD5withRSA</p><p>將<span style="color: #cc0000;">TLSv1</span>,&nbsp;<span style="color: #cc0000;">TLSv1.1</span>刪除並存檔</p><p><br /></p><p>Oracle 10g</p><p>jdbc:oracle:thin:@<b>&lt;資料庫位址&gt;</b>:1521:<b>&lt;資料庫名稱&gt;</b></p><p><br /></p><p>MariaDB 10</p><p>jdbc:mariadb://<b>&lt;資料庫位址&gt;</b>:3306/<b>&lt;資料庫名稱&gt;</b></p><div><br /></div>

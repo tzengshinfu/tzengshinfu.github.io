@@ -1,0 +1,19 @@
+---
+layout: post
+title: 用async/await避免UI無回應
+tag:
+- windows form
+---
+
+<font size="2"><span style="font-size: x-small;">private <span style="color: #e06666;"><b>async</b></span> void buttonExportExcel_Click(object sender, EventArgs e) {</span><br />
+<span style="font-size: x-small;">&nbsp; &nbsp; Button button = (Button)sender;</span><br />
+<span style="font-size: x-small;">&nbsp; &nbsp; button.Text = "請稍候...";</span><br />
+<span style="font-size: x-small;">&nbsp; &nbsp; button.Enabled = false;</span><br />
+<span style="font-size: x-small;">&nbsp; &nbsp; <span style="color: #e06666;"><b>await</b></span> Task.Run(() =&gt; {</span><br />
+<span style="font-size: x-small;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #93c47d;">/**用迴圈產生Excel內容的耗時作業*/</span></span><br />
+<span style="font-size: x-small;">&nbsp; &nbsp; });</span><br />
+<span style="font-size: x-small;">&nbsp; &nbsp; button.Text = "匯出Excel";</span><br />
+<span style="font-size: x-small;">&nbsp; &nbsp; button.Enabled = true;</span><br />
+<span style="font-size: x-small;">&nbsp; &nbsp; MessageBox.Show("儲存成功");</span><br />
+<span style="font-size: x-small;">}</span></font><br />
+<span style="font-size: x-small;"><br /></span>1.在Function新增async關鍵字,代表非同步作業。<br /> 2.在耗時作業的部份加上await關鍵字,就會另外開啟執行緒處理,UI不會無回應。 <br /> <br /> 參考:<a href="https://www.blogger.com/#">Using Async and Await to update the UI Thread</a>

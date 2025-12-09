@@ -1,0 +1,26 @@
+---
+layout: post
+title: 使用JBang產生原生平台程式
+tag:
+- java
+- jbang
+---
+
+1.使用SDKMAN!安裝JBang，<div>命令列執行<pre><code class="bash">sdk install jbang</code></pre></div><div><br /></div><div>2.安裝VSCode擴展套件JBang(增加引用語法//DEPS自動補完功能)&nbsp;</div><div><a href="https://marketplace.visualstudio.com/items?itemName=jbangdev.jbang-vscode">https://marketplace.visualstudio.com/items?itemName=jbangdev.jbang-vscode</a></div><div><br /></div><div>3.初始化，</div><div>命令列執行<pre><code class="bash">jbang init helloworld.java</code></pre></div><div><br /></div><div>4.撰寫Java程式</div><div><br /></div><div>5.偵錯與運行時參數</div><div>在.vscode/launch.json
+修改如下</div><div><pre><code class="json">{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "helloworld",
+            "request": "launch",
+            "mainClass": "helloworld",
+            "projectName": "helloworld.java",
+            "args": [
+                "args1",
+                "args2",
+                "args3"
+            ]
+        }
+    ]
+}</code></pre></div><div><br /></div><div>5.產生原生平台程式，</div><div>命令列執行<pre><code class="bash">jbang --native helloworld.java</code></pre></div><div>※進度輸出在編譯log，可用指令去追蹤，</div><div>命令列執行<pre><code class="bash">tail -f /tmp/jbang[亂數]native-image</code></pre></div><div><br /></div><div>6.如果編譯時有問題可清除快取，</div><div>命令列執行<pre><code class="bash">jbang cache clear</code></pre></div>

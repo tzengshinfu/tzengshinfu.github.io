@@ -1,0 +1,11 @@
+---
+layout: post
+title: clickonce執行script(Client端)
+tag:
+- clickonce
+- dos command
+- visual studio
+- windows form
+---
+
+<pre><code class="bat"> @ECHO OFF<br /> SET APP=%1<br /> ::此script檔執行需帶參數=%APP%<br /> <br /> ::建置ClickOnce專案<br /> "MSBuild.exe" "&lt;專案名稱&gt;.csproj" /target:publish /property:Configuration=Debug;PublishUrl=\\&lt;主機名稱&gt;\%APP%;AssemblyName=%APP%;PublisherName=&lt;公司名稱&gt;;ProductName=%APP%;ApplicationRevision=1;MinimumRequiredVersion=1.0.0.1<br /> <br /> ::建立Deploy資料夾<br /> wmic /node:'&lt;主機名稱&gt;' /user:&lt;網域\管理者名稱&gt; /password:'&lt;管理者密碼&gt;' process call create 'cmd.exe /c mkdir C:\%APP%'<br /> <br /> ::Deploy資料夾權限:everyone, 執行<br /> wmic /node:'&lt;主機名稱&gt;' /user:&lt;網域\管理者名稱&gt; /password:'&lt;管理者密碼&gt;' process call create 'cmd.exe /c icacls C:\%APP% /grant "everyone:RX"'<br /> <br /> ::複製專案到資料夾<br /> robocopy &lt;專案名稱&gt;\bin\Debug\app.publish \\&lt;主機名稱&gt;\C$\%APP% /MIR /Z /ZB /TBD /NP /R:5 /W:0 /MT:32 </code></pre>

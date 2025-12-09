@@ -1,0 +1,6 @@
+---
+layout: post
+title: PSTools使用簡介
+---
+
+1.<b>遠端安裝</b><br /> 1.1. <pre><code class="bat">psexec \\&lt;遠端電腦名稱&gt; -accepteula -u &lt;有管理權限的帳號&gt; -p &lt;密碼&gt; -h cmd  "/c &lt;指令&gt;“</code></pre><br />1.2. 案例：不在電腦前，想要安裝.net framework 4.6.2，可以下dos指令<br /><pre><code class="bat">psexec \\192.168.3.201 -u prologium\frank_tseng -p &lt;我的密碼&gt; -h cmd /c \\192.168.2.12\mes\NDP462-KB3151800-x86-x64-AllOS-ENU.exe /q /norestart /log %temp%\NDP462-KB3151800-x86-x64-AllOS-ENU.htm</code></pre><br /><br /> <br /> 2.<b>遠端啟動服務</b><br /> 2.1. <pre><code class="bat">psservice \\&lt;遠端電腦名稱&gt; -u &lt;有管理權限的帳號&gt; -p &lt;密碼&gt; start &lt;服務名稱&gt;</code></pre><br /> 2.2. 案例：不在電腦前，想要啟動遠端桌面的服務，可以下dos指令<br /> <pre><code class="bat">psservice \\192.168.3.201 -u prologium\frank_tseng -p &lt;我的密碼&gt; start termservice</code></pre>

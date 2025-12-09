@@ -1,0 +1,15 @@
+---
+layout: post
+title: 刪除使用者帳號SQL(請只用在誤加刪除時)
+tag:
+- easyflow gp
+- sql
+---
+
+<pre><code class="sql">DECLARE @userId nvarchar(100) = '[工號]'
+DECLARE @userOID char(32) = (SELECT OID FROM Users WHERE id = @userId)
+ 
+DELETE FROM Users where id = @userId;
+DELETE FROM Employee WHERE employeeId = @userId;
+DELETE FROM Functions where occupantOID = @userOID;
+</code></pre>

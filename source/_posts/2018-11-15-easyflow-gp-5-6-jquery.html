@@ -1,0 +1,12 @@
+---
+layout: post
+title: EasyFlow GP 5.6使用jQuery插件
+tag:
+- easyflow gp
+- jquery
+---
+
+在EFGP的架構下有些地方要注意:<br /> <br /> 發現只要引用其他來源的jQuery, <br /> 如document.write(''); 雖然起單時無任何問題, 但在第2關會有派送履歷無法顯示的異常。<br /> <a href="https://www.blogger.com/#"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLwFJItBrBGVOl62Q7rFXb8lCsylLQehjWg8qDzPA2ewf94l5Rs6U3fFvqUam8l-EvSoHPMWK9IgE1xwLFxvoktn5bjl04IzhyBxhs7rxHkz09KCJwwpBi7r27L4MtP0NvOdPk5jtvjIk_/s400/error1.png" /></a>&nbsp;<div><br /> <br /> 而且就算想用jQuery的noConflict()方法也不可行, 因為: <br /> 1.jQuery物件在EFGP被改名, 根本找不到。 <br /> <a href="https://www.blogger.com/#"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYGWYm-4EDCfVmkhzP_CmBtlaLsFSKPgZdw0ZoAbCIA3ng-wMwUJ1ZndSrNKHOM56iplAQFw9kYXj0wGbNEqaaam391kbtao_6Csoy-TjHcansAiDYa4Fdov3WyvNHq97krSYKuDDTwWPL/s1600/problem2.png" /></a> <br /> <br /> <br /> 2.$別名在EFGP已有別的用途。 <br /> <a href="https://www.blogger.com/#"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiEy6T4skSOQu1so8KCcLoMjjdMNEMoazyA0POkBZUoU4nSketvNwRWc0-DjSOLs_67NpWnADcGkLF8cB_hUq_0MMTNq_qvs9_lPxa7Nc0a6q6dw276bN4GOUtsoRuUELu24qyPdteOdWqy/s320/problem1.png" /></a> <br /> <br /> <br /> 解決方案: <br /> 查看EFGP的source code, 其本身也有jQuery library, 別名為【__jQuery】, <br /> 所以只要撰寫當<font size="2">var textBox1 = <font color="#b51200">$</font>(“#TextBox1”);</font>時<br /> 改為<font size="2">var textBox1 = <font color="#0b8043">__jQuery</font>(“#TextBox1”);</font>即可正常使用。 <br /> <br /> 而jQuery插件也要配合修改(以<a href="https://www.blogger.com/#">jQuery Soap</a>為例), <br /> <a href="https://www.blogger.com/#"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNsKzdIuGRWoLLoVY6OwIl_J57E8jESyn_UDMHvWGJJeK2OqNQzC_mee7aVRtJbaIkkelQmyu6MlaAXG7lYJ9-A8A2axQqOWGQ2AbY10PDQxvYwf_qzxV0nq0aYscsFg4T3oCDNT9QFer6/s400/before.png" /></a> <br /><br /></div><div> jQuery改為__jQuery即可。 <br /> <a href="https://www.blogger.com/#"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgV65k40xW7p3MFEJ5DWB57SGL7wtTgTCU2xFTMzG7D999jZfOymPVWxThrSmXM_wJwG90CooDLxWMEUOkXMTgn9IVtFkiWjrCpxyNzPbZrIplUBcJhzHYzcsMhgstXqRkgvdHnQjCBJ7BY/s400/after.png" /></a> <br />
+<div class="separator" style="clear: both; text-align: left;">
+<span style="font-family: , sans-serif; font-size: 12pt;"><br /></span></div>
+<span style="font-family: 微軟正黑體, sans-serif; font-size: 12pt;"></span></div>

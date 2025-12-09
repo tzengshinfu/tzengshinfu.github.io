@@ -1,0 +1,36 @@
+---
+layout: post
+title: '[啟動/偵錯異常]The Ribbon/COM Add-in helper required by add-in "增益集名稱" Add-In could
+  not be registered.'
+tag:
+- excel-dna
+---
+
+狀況:<br />
+偵錯時發現Excel顯示錯誤訊息<br />
+"<span style="color: red;">The Ribbon/COM Add-in helper required by add-in "增益集名稱" Add-In could not be registered.</span>"<br />
+而無法載入增益集(如下圖)<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMTsZ_RqhqP5gs3Tgyikl5lpIyO_VrgL_WpceXTclGby9QjyHXcK-hHHqtjdgJzrXE8yX1KagmrM2dzOfCF3RZh45wpDCpxDeum4unPldlUGLEhHbEFQTQqmsFiidksj7A_gExOLULYp8Z/s1600/step1.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="739" data-original-width="1366" height="216" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMTsZ_RqhqP5gs3Tgyikl5lpIyO_VrgL_WpceXTclGby9QjyHXcK-hHHqtjdgJzrXE8yX1KagmrM2dzOfCF3RZh45wpDCpxDeum4unPldlUGLEhHbEFQTQqmsFiidksj7A_gExOLULYp8Z/s400/step1.png" width="400" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+解法:<br />
+當開發過程中如果發生例外狀況的次數較多時,<br />
+Excel有時會自動停用我們撰寫的增益集,<br />
+此時只要手動啟用即可<br />
+(工具列&gt;選項&gt;增益集&gt;管理(A):&gt;選[停用的項目]&gt;執行(G)...&gt;把<span style="color: red;">"增益集名稱"</span>啟用)<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFm-GiIwCC6ujmQE6h_EC69OUhKRxxfMwWgCxWXCVRrZIwI4DZt5ZjLlup4ARbUtJS9EJrYClhfVdGr21tmjEZk9O1dH77vYP3sayqpCXnQHV254QZ_OpAyYglJ9lStepfCOmphBbj8h2Y/s1600/step2.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="736" data-original-width="1104" height="266" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFm-GiIwCC6ujmQE6h_EC69OUhKRxxfMwWgCxWXCVRrZIwI4DZt5ZjLlup4ARbUtJS9EJrYClhfVdGr21tmjEZk9O1dH77vYP3sayqpCXnQHV254QZ_OpAyYglJ9lStepfCOmphBbj8h2Y/s400/step2.png" width="400" /></a></div>
+<br />

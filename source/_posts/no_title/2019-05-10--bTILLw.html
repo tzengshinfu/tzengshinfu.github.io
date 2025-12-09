@@ -1,0 +1,9 @@
+---
+layout: post
+title: 刪除使用者帳號
+tag:
+- easyflow gp
+- sql
+---
+
+<pre><code class="sql"> DECLARE @userId nvarchar(100) = '[工號]' <br /> DECLARE @userOID char(32) = (SELECT OID FROM Users WHERE id = @userId) <br /> <br /> DELETE FROM Users where id = @userId; <br /> DELETE FROM Employee WHERE employeeId = @userId; <br /> DELETE FROM Functions where occupantOID = @userOID;</code></pre>
