@@ -28,7 +28,7 @@ if ($jekyllImportCmd.Source -like '*.bat') {
     }
 }
 
-for ($i = 1; $i -le 270; $i++) {
+for ($i = 1; $i -le 271; $i++) {
     Write-Output "=== Index $i ==="
     $src = "https://tzengshinfu.blogspot.com/feeds/posts/default?alt=rss&start-index=$i&max-results=1"
     $sourceArg = if ($escapeUrlForCmd) { $src -replace '&', '^&' } else { $src }
