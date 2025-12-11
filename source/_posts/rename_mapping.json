@@ -3,1614 +3,1883 @@
     "old": "2017-04-07-dom.html",
     "title": "DOM操作注意事項",
     "slug": "dom-operation-precautions",
-    "new": "2017-04-07-dom-operation-notes.html"
+    "new": "2017-04-07-dom-operation-precautions.html",
+    "slug_trim": "dom-operation-precautions"
   },
   {
     "old": "2017-04-07-interview-questions.html",
     "title": "面試問題",
     "slug": "interview-questions",
-    "new": "2017-04-07-interview-questions.html"
+    "new": "2017-04-07-interview-questions.html",
+    "slug_trim": "interview-questions"
   },
   {
     "old": "2017-04-07-pstools.html",
     "title": "PSTools使用簡介",
     "slug": "introduction-to-using-pstools",
-    "new": "2017-04-07-pstools-introduction.html"
+    "new": "2017-04-07-introduction-pstools-to-using.html",
+    "slug_trim": "introduction-pstools-to-using"
   },
   {
     "old": "2017-04-07-sql.html",
     "title": "快速取得SQL連線字串",
     "slug": "quick-sql-connection-string",
-    "new": "2017-04-07-quick-sql-connection-string.html"
+    "new": "2017-04-07-quick-sql-connection-string.html",
+    "slug_trim": "quick-sql-connection-string"
   },
   {
     "old": "2017-04-07-sql-merge-insert-update-delete.html",
     "title": "同一筆SQL指令進行新增/修改/刪除(MERGE)",
     "slug": "sql-merge-insert-update-delete",
-    "new": "2017-04-07-sql-merge-insert-update-delete.html"
+    "new": "2017-04-07-sql-merge-insert-update-delete.html",
+    "slug_trim": "sql-merge-insert-update-delete"
   },
   {
     "old": "2017-04-07-sql-1.html",
     "title": "欄位別名在同一筆SQL指令立即使用",
     "slug": "field-aliases-are-used-immediately-in-the-same-sql-command",
-    "new": "2017-04-07-.html"
+    "new": "2017-04-07-field-aliases-are-used-immediately.html",
+    "slug_trim": "field-aliases-are-used-immediately"
   },
   {
     "old": "2017-04-07-visual-studio2gb-memory.html",
     "title": "Visual Studio突破2GB Memory使用限制",
     "slug": "visual-studio-breaks-through-the-2gb-memory-usage-limit",
-    "new": "2017-04-07-.html"
+    "new": "2017-04-07-visual-studio-breaks-through-2gb.html",
+    "slug_trim": "visual-studio-breaks-through-2gb"
   },
   {
     "old": "2017-04-07-visual-studio.html",
     "title": "Visual Studio快速鍵",
     "slug": "visual-studio-shortcut-keys",
-    "new": "2017-04-07-.html"
+    "new": "2017-04-07-visual-studio-shortcut-keys.html",
+    "slug_trim": "visual-studio-shortcut-keys"
   },
   {
     "old": "2017-04-10-database-cannot.html",
     "title": "將資料庫檔案附加到另一台主機無法以原帳號登入",
     "slug": "attaching-the-database-file-to-another-host-cannot-log-in-with-the-original-account",
-    "new": "2017-04-10-attach-db-file-login-fails.html"
+    "new": "2017-04-10-attaching-database-file-another-host.html",
+    "slug_trim": "attaching-database-file-another-host"
   },
   {
     "old": "2017-04-12-error--foreach-variable-mapping.html",
     "title": "'Error: 無法套用 ForEach Variable Mapping 數字 1 至變數 \"User::xxxx\"'",
     "slug": "error-unable-to-apply-foreach-variable-mapping-number-1-to-variable-user-xxxx",
-    "new": "2017-04-12-foreach-variable-mapping-error.html"
+    "new": "2017-04-12-error-unable-apply-foreach-variable.html",
+    "slug_trim": "error-unable-apply-foreach-variable"
   },
   {
     "old": "2017-04-14-coded-ui-test-1.html",
     "title": "Coded UI Test在本機執行方式",
     "slug": "how-coded-ui-test-is-executed-on-the-local-machine",
-    "new": "2017-04-14-.html"
+    "new": "2017-04-14-how-coded-ui-test-is.html",
+    "slug_trim": "how-coded-ui-test-is"
   },
   {
     "old": "2017-04-14-easyflowdbsql.html",
     "title": "監看EasyFlow與DB間的SQL指令",
     "slug": "monitor-sql-commands-between-easyflow-and-db",
-    "new": "2017-04-14-.html"
+    "new": "2017-04-14-monitor-sql-commands-between-easyflow.html",
+    "slug_trim": "monitor-sql-commands-between-easyflow"
   },
   {
     "old": "2017-04-14-sql-agent.html",
     "title": "SQL Agent顯示[指定的索引鍵不在字典中]的錯誤",
     "slug": "sql-agent-displays-the-specified-index-key-is-not-in-the-dictionary-error",
-    "new": "2017-04-14-.html"
+    "new": "2017-04-14-sql-agent-displays-specified-index.html",
+    "slug_trim": "sql-agent-displays-specified-index"
   },
   {
     "old": "2017-04-14-windows-form-debugxmlserializer.html",
     "title": "Windows Form debug時拋出XmlSerializer例外",
     "slug": "xmlserializer-exception-thrown-when-windows-form-debug",
-    "new": "2017-04-14-.html"
+    "new": "2017-04-14-xmlserializer-exception-thrown-when-windows.html",
+    "slug_trim": "xmlserializer-exception-thrown-when-windows"
   },
   {
     "old": "2017-04-14-windows-form.html",
     "title": "Windows Form捕捉全域錯誤並處理",
     "slug": "windows-form-catches-global-errors-and-handles-them",
-    "new": "2017-04-14-.html"
+    "new": "2017-04-14-windows-form-catches-global-errors.html",
+    "slug_trim": "windows-form-catches-global-errors"
   },
   {
     "old": "2017-04-17-untitled.html",
     "title": "建立磁碟用量監控機制",
     "slug": "establish-a-disk-usage-monitoring-mechanism",
-    "new": "2017-04-17-.html"
+    "new": "2017-04-17-establish-a-disk-usage-monitoring.html",
+    "slug_trim": "establish-a-disk-usage-monitoring"
   },
   {
     "old": "2017-04-17-ssisexcel.html",
     "title": "SSIS讀入Excel只能讀到前幾列資料的解決方法",
     "slug": "solution-to-the-problem-that-ssis-can-only-read-the-first-few-columns-of-data-when-reading-excel",
-    "new": "2017-04-17-.html"
+    "new": "2017-04-17-solution-problem-that-ssis-can.html",
+    "slug_trim": "solution-problem-that-ssis-can"
   },
   {
     "old": "2017-04-21-start.html",
     "title": "加速電腦啟動速度",
     "slug": "speed-up-computer-startup-speed",
-    "new": "2017-04-21-.html"
+    "new": "2017-04-21-speed-up-computer-startup.html",
+    "slug_trim": "speed-up-computer-startup"
   },
   {
     "old": "2017-04-21-db-1.html",
     "title": "取得遠端DB所連接伺服器的檢視有錯誤訊息",
     "slug": "there-is-an-error-message-in-getting-the-view-of-the-server-connected-to-the-remote-db",
-    "new": "2017-04-21-.html"
+    "new": "2017-04-21-there-is-an-error-message.html",
+    "slug_trim": "there-is-an-error-message"
   },
   {
     "old": "2017-04-24-ssis-1.html",
     "title": "SSIS設定需特別注意之處",
     "slug": "ssis-settings-require-special-attention",
-    "new": "2017-04-24-.html"
+    "new": "2017-04-24-ssis-settings-require-special-attention.html",
+    "slug_trim": "ssis-settings-require-special-attention"
   },
   {
     "old": "2017-04-26-android-studio-gradle-1.html",
     "title": "加速Android Studio/Gradle建置",
     "slug": "accelerate-android-studio-gradle-build",
-    "new": "2017-04-26-.html"
+    "new": "2017-04-26-accelerate-android-studio-gradle-build.html",
+    "slug_trim": "accelerate-android-studio-gradle-build"
   },
   {
     "old": "2017-05-02-android-studiojar.html",
     "title": "Android Studio引用外部jar",
     "slug": "android-studio-references-external-jars",
-    "new": "2017-05-02-.html"
+    "new": "2017-05-02-android-studio-references-external-jars.html",
+    "slug_trim": "android-studio-references-external-jars"
   },
   {
     "old": "2017-05-02-wifi-1.html",
     "title": "以系統事件(如Wifi連線時)觸發程式啟動",
     "slug": "trigger-program-startup-by-system-events-such-as-when-wifi-is-connected",
-    "new": "2017-05-02-.html"
+    "new": "2017-05-02-trigger-program-startup-system-events.html",
+    "slug_trim": "trigger-program-startup-system-events"
   },
   {
     "old": "2017-05-10-mssqloraclerowid.html",
     "title": "MSSQL虛擬欄位(等同Oracle的ROWID)",
     "slug": "mssql-virtual-field-equivalent-to-oracle-s-rowid",
-    "new": "2017-05-10-.html"
+    "new": "2017-05-10-mssql-virtual-field-equivalent-oracle.html",
+    "slug_trim": "mssql-virtual-field-equivalent-oracle"
   },
   {
     "old": "2017-05-25-visual-studioslowcheetah-.html",
     "title": "Visual Studio套件:SlowCheetah(切換設定檔)--載點",
     "slug": "visual-studio-suite-slowcheetah-switch-profile---loading-point",
-    "new": "2017-05-25-.html"
+    "new": "2017-05-25-visual-studio-suite-slowcheetah-switch.html",
+    "slug_trim": "visual-studio-suite-slowcheetah-switch"
   },
   {
     "old": "2017-06-22-office-automation-1.html",
     "title": "執行Office Automation異常",
     "slug": "exception-when-executing-office-automation",
-    "new": "2017-06-22-.html"
+    "new": "2017-06-22-exception-when-executing-office-automation.html",
+    "slug_trim": "exception-when-executing-office-automation"
   },
   {
     "old": "2017-06-27-reportingservice-1.html",
     "title": "ReportingService每日首次啟動緩慢",
     "slug": "reportingservice-starts-slowly-for-the-first-time-every-day",
-    "new": "2017-06-27-.html"
+    "new": "2017-06-27-reportingservice-starts-slowly-first-time.html",
+    "slug_trim": "reportingservice-starts-slowly-first-time"
   },
   {
     "old": "2017-07-18-async-awaitui.html",
     "title": "用async/await避免UI無回應",
     "slug": "use-async-await-to-avoid-unresponsive-ui",
-    "new": "2017-07-18-.html"
+    "new": "2017-07-18-async-await-avoid-unresponsive-ui.html",
+    "slug_trim": "async-await-avoid-unresponsive-ui"
   },
   {
     "old": "2017-08-17-use-cannot-cannot.html",
     "title": "偵錯時出現[由於另一個處理序正在使用檔案，所以無法執行該檔案]的訊息而無法偵錯",
     "slug": "the-message-the-file-cannot-be-executed-because-it-is-being-used-by-another-process-appears-during-debugging-and-cannot-be-debugged",
-    "new": "2017-08-17-.html"
+    "new": "2017-08-17-message-file-cannot-be-executed.html",
+    "slug_trim": "message-file-cannot-be-executed"
   },
   {
     "old": "2017-08-18-windowssql-server.html",
     "title": "在Windows認證下用另一台主機的本機帳號登入SQL Server",
     "slug": "log-in-to-sql-server-using-the-local-account-of-another-host-under-windows-authentication",
-    "new": "2017-08-18-.html"
+    "new": "2017-08-18-log-sql-server-local-account.html",
+    "slug_trim": "log-sql-server-local-account"
   },
   {
     "old": "2017-09-11-iis-1.html",
     "title": "IIS設定遷移至新主機",
     "slug": "migrate-iis-settings-to-new-host",
-    "new": "2017-09-11-.html"
+    "new": "2017-09-11-migrate-iis-settings-host-to.html",
+    "slug_trim": "migrate-iis-settings-host-to"
   },
   {
     "old": "2017-09-14-delete.html",
     "title": "刪除特定天數以前的檔案",
     "slug": "delete-files-older-than-a-specific-number-of-days",
-    "new": "2017-09-14-.html"
+    "new": "2017-09-14-delete-files-older-than-a.html",
+    "slug_trim": "delete-files-older-than-a"
   },
   {
     "old": "2017-09-21-net-framework-47windows-7-sp1.html",
     "title": "\".NET Framework 4.7安裝在Windows 7 SP1的注意事項\"",
     "slug": "notes-on-installing-net-framework-4-7-on-windows-7-sp1",
-    "new": "2017-09-21-.html"
+    "new": "2017-09-21-notes-installing-net-framework-4.html",
+    "slug_trim": "notes-installing-net-framework-4"
   },
   {
     "old": "2017-09-22-excel-dna-1.html",
     "title": "Excel-DNA已設中斷點卻不會中斷",
     "slug": "excel-dna-has-set-a-break-point-but-it-will-not-break",
-    "new": "2017-09-22-.html"
+    "new": "2017-09-22-excel-dna-has-set-a.html",
+    "slug_trim": "excel-dna-has-set-a"
   },
   {
     "old": "2017-09-22-mssqlmysql.html",
     "title": "MSSQL連結MySQL",
     "slug": "mssql-linked-to-mysql",
-    "new": "2017-09-22-.html"
+    "new": "2017-09-22-mssql-linked-mysql-to.html",
+    "slug_trim": "mssql-linked-mysql-to"
   },
   {
     "old": "2017-09-22-uri-scheme-1.html",
     "title": "透過超連結開啟本機端程式(URI Scheme)",
     "slug": "open-local-program-through-hyperlink-uri-scheme",
-    "new": "2017-09-22-.html"
+    "new": "2017-09-22-open-local-program-through-hyperlink.html",
+    "slug_trim": "open-local-program-through-hyperlink"
   },
   {
     "old": "2017-10-02-excel-dnaxll.html",
     "title": "Excel-DNA輸出的XLL檔加上版本",
     "slug": "excel-dna-output-xll-file-plus-version",
-    "new": "2017-10-02-.html"
+    "new": "2017-10-02-excel-dna-output-xll-file.html",
+    "slug_trim": "excel-dna-output-xll-file"
   },
   {
     "old": "2017-10-10-visual-studio-codepython.html",
     "title": "用Visual Studio Code對Python程式偵錯顯示錯誤訊息的解法",
     "slug": "how-to-use-visual-studio-code-to-debug-and-display-error-messages-in-python-programs",
-    "new": "2017-10-10-.html"
+    "new": "2017-10-10-how-visual-studio-code-debug.html",
+    "slug_trim": "how-visual-studio-code-debug"
   },
   {
     "old": "2017-10-13-quick-switch.html",
     "title": "在[檢視程式碼]←→[設計工具檢視]快速切換",
     "slug": "quickly-switch-between-view-code-design-tool-view",
-    "new": "2017-10-13-.html"
+    "new": "2017-10-13-quickly-switch-between-view-code.html",
+    "slug_trim": "quickly-switch-between-view-code"
   },
   {
     "old": "2017-10-18--the-ribbon-com-add.html",
     "title": "'[啟動/偵錯異常]The Ribbon/COM Add-in helper required by add-in \"增益集名稱\" Add-In could",
     "slug": "startup-debug-exception-the-ribbon-com-add-in-helper-required-by-add-in-gain-set-name-add-in-could",
-    "new": "2017-10-18-.html"
+    "new": "2017-10-18-startup-debug-exception-ribbon-com.html",
+    "slug_trim": "startup-debug-exception-ribbon-com"
   },
   {
     "old": "2017-10-24-programmers-day.html",
     "title": "今天是[程式設計師節]!!",
-    "slug": "today-is-programmer-s-day",
-    "new": "2017-10-24-.html"
+    "slug": "programmers-day",
+    "new": "2017-10-24-programmers-day.html",
+    "slug_trim": "programmers-day"
   },
   {
     "old": "2017-11-06-xll-1.html",
     "title": "檢查XLL版本一直是舊版",
     "slug": "check-that-the-xll-version-is-always-an-old-version",
-    "new": "2017-11-06-.html"
+    "new": "2017-11-06-check-that-xll-version-is.html",
+    "slug_trim": "check-that-xll-version-is"
   },
   {
     "old": "2017-11-13-windows-10-1.html",
     "title": "把\"文件\"釘選到Windows 10的[開始]畫面",
     "slug": "pin-file-to-the-start-screen-of-windows-10",
-    "new": "2017-11-13-.html"
+    "new": "2017-11-13-pin-file-start-screen-windows.html",
+    "slug_trim": "pin-file-start-screen-windows"
   },
   {
     "old": "2017-11-22-ssrsaspnet-web-service.html",
     "title": "SSRS無法解析ASP.NET Web Service回傳結果",
     "slug": "ssrs-cannot-parse-asp-net-web-service-return-results",
-    "new": "2017-11-22-.html"
+    "new": "2017-11-22-ssrs-cannot-parse-asp-net.html",
+    "slug_trim": "ssrs-cannot-parse-asp-net"
   },
   {
     "old": "2017-11-30-android-studiocannot-resolve-xxx.html",
     "title": "Android Studio顯示錯誤訊息\"Cannot resolve XXX\"",
     "slug": "android-studio-displays-error-message-cannot-resolve-xxx",
-    "new": "2017-11-30-.html"
+    "new": "2017-11-30-android-studio-displays-error-message.html",
+    "slug_trim": "android-studio-displays-error-message"
   },
   {
     "old": "2017-12-05-debug-1.html",
     "title": "只在debug組態下設定變數及執行方法",
     "slug": "only-set-variables-and-execution-methods-in-debug-configuration",
-    "new": "2017-12-05-.html"
+    "new": "2017-12-05-only-set-variables-execution-methods.html",
+    "slug_trim": "only-set-variables-execution-methods"
   },
   {
     "old": "2017-12-20-android-studio-debugerrorplease-select-android.html",
     "title": "Android Studio 無法Debug顯示錯誤訊息\"Error:Please select Android SDK\"",
     "slug": "android-studio-cannot-debug-and-displays-the-error-message-error-please-select-android-sdk",
-    "new": "2017-12-20-.html"
+    "new": "2017-12-20-android-studio-cannot-debug-displays.html",
+    "slug_trim": "android-studio-cannot-debug-displays"
   },
   {
     "old": "2017-12-26-pivot-1.html",
     "title": "列欄轉置語法(PIVOT)",
     "slug": "column-transposition-syntax-pivot",
-    "new": "2017-12-26-.html"
+    "new": "2017-12-26-column-transposition-syntax-pivot.html",
+    "slug_trim": "column-transposition-syntax-pivot"
   },
   {
     "old": "2017-12-27-nuget-1.html",
     "title": "離線安裝Nuget套件",
     "slug": "install-nuget-suite-offline",
-    "new": "2017-12-27-.html"
+    "new": "2017-12-27-install-nuget-suite-offline.html",
+    "slug_trim": "install-nuget-suite-offline"
   },
   {
     "old": "2018-01-17-windows-10-.html",
     "title": "Windows 10 桌面右鍵選單出現\"很慢\"",
     "slug": "windows-10-desktop-right-click-menu-appears-very-slow",
-    "new": "2018-01-17-.html"
+    "new": "2018-01-17-windows-10-desktop-right-click.html",
+    "slug_trim": "windows-10-desktop-right-click"
   },
   {
     "old": "2018-02-01-ssis3dll.html",
     "title": "SSIS引用第3方DLL發生異常",
     "slug": "an-exception-occurred-when-ssis-referenced-a-3rd-party-dll",
-    "new": "2018-02-01-.html"
+    "new": "2018-02-01-an-exception-occurred-when-ssis.html",
+    "slug_trim": "an-exception-occurred-when-ssis"
   },
   {
     "old": "2018-02-06-windows-10-.html",
     "title": "Windows 10 優化系統速度",
     "slug": "windows-10-optimizes-system-speed",
-    "new": "2018-02-06-.html"
+    "new": "2018-02-06-windows-10-optimizes-system-speed.html",
+    "slug_trim": "windows-10-optimizes-system-speed"
   },
   {
     "old": "2018-02-08-use.html",
     "title": "用更直覺的欄位名稱進行儲存格計算而不須使用位址參照(欄名列號)",
     "slug": "use-more-intuitive-column-names-for-cell-calculations-without-using-address-references-column-names-and-column-numbers",
-    "new": "2018-02-08-.html"
+    "new": "2018-02-08-intuitive-column-names-cell-calculations.html",
+    "slug_trim": "intuitive-column-names-cell-calculations"
   },
   {
     "old": "2018-02-09-excel-1.html",
     "title": "移除Excel保護密碼(★★★僅供還原遺留原始碼,請勿用在非法用途!!!★★★)",
     "slug": "remove-excel-protection-password-only-for-restoring-legacy-source-code-please-do-not-use-it-for-illegal-purposes",
-    "new": "2018-02-09-.html"
+    "new": "2018-02-09-remove-excel-protection-password-only.html",
+    "slug_trim": "remove-excel-protection-password-only"
   },
   {
     "old": "2018-02-10-data.html",
     "title": "\"[構想]自主開發系統 - 資料儲存格式\"",
     "slug": "conception-self-developed-system---data-storage-format",
-    "new": "2018-02-10-.html"
+    "new": "2018-02-10-conception-self-developed-system-data.html",
+    "slug_trim": "conception-self-developed-system-data"
   },
   {
     "old": "2018-02-10-untitled.html",
     "title": "\"[構想]自主開發系統 - 權限設計\"",
     "slug": "conception-independent-development-system---permission-design",
-    "new": "2018-02-10-.html"
+    "new": "2018-02-10-conception-independent-development-system-permission.html",
+    "slug_trim": "conception-independent-development-system-permission"
   },
   {
     "old": "2018-03-01-sqlbulkcopy-1.html",
     "title": "SqlBulkCopy調整心得",
     "slug": "sqlbulkcopy-adjustment-experience",
-    "new": "2018-03-01-.html"
+    "new": "2018-03-01-sqlbulkcopy-adjustment-experience.html",
+    "slug_trim": "sqlbulkcopy-adjustment-experience"
   },
   {
     "old": "2018-03-29-dunitgui.html",
     "title": "用DUnit測試GUI介面",
     "slug": "test-gui-interface-with-dunit",
-    "new": "2018-03-29-.html"
+    "new": "2018-03-29-test-gui-interface-dunit-with.html",
+    "slug_trim": "test-gui-interface-dunit-with"
   },
   {
     "old": "2018-04-12-untitled.html",
     "title": "選擇技術評估(=入坑前須知)",
     "slug": "select-technical-assessment-things-to-know-before-entering-the-pit",
-    "new": "2018-04-12-.html"
+    "new": "2018-04-12-select-technical-assessment-things-know.html",
+    "slug_trim": "select-technical-assessment-things-know"
   },
   {
     "old": "2018-04-25-delphi-6aspnet-web-service.html",
     "title": "Delphi 6呼叫ASP.NET Web service",
     "slug": "delphi-6-calls-asp-net-web-service",
-    "new": "2018-04-25-.html"
+    "new": "2018-04-25-delphi-6-calls-asp-net.html",
+    "slug_trim": "delphi-6-calls-asp-net"
   },
   {
     "old": "2018-04-30-gnu-global-for-windows.html",
     "title": "GNU GLOBAL安裝/使用(for Windows)",
     "slug": "gnu-global-installation-use-for-windows",
-    "new": "2018-04-30-.html"
+    "new": "2018-04-30-gnu-global-installation-windows-use.html",
+    "slug_trim": "gnu-global-installation-windows-use"
   },
   {
     "old": "2018-05-02-untitled.html",
     "title": "檢查某目錄下檔案數量決定進行後續作業",
     "slug": "check-the-number-of-files-in-a-directory-to-determine-subsequent-operations",
-    "new": "2018-05-02-.html"
+    "new": "2018-05-02-check-number-files-a-directory.html",
+    "slug_trim": "check-number-files-a-directory"
   },
   {
     "old": "2018-05-07-show-error-message.html",
     "title": "繼承的表單在設計工具檢視模式顯示錯誤訊息",
     "slug": "inherited-form-displays-error-message-in-design-tool-view-mode",
-    "new": "2018-05-07-.html"
+    "new": "2018-05-07-inherited-form-displays-error-message.html",
+    "slug_trim": "inherited-form-displays-error-message"
   },
   {
     "old": "2018-05-15-settings.html",
     "title": "增進開發效率的桌機設定",
     "slug": "desktop-settings-to-improve-development-efficiency",
-    "new": "2018-05-15-.html"
+    "new": "2018-05-15-desktop-settings-improve-development-efficiency.html",
+    "slug_trim": "desktop-settings-improve-development-efficiency"
   },
   {
     "old": "2018-05-16-delphi-1.html",
     "title": "開啟Delphi專案卻是其他專案路徑",
     "slug": "opening-the-delphi-project-is-another-project-path",
-    "new": "2018-05-16-.html"
+    "new": "2018-05-16-opening-delphi-project-is-another.html",
+    "slug_trim": "opening-delphi-project-is-another"
   },
   {
     "old": "2018-05-22-dos-1.html",
     "title": "執行遠端主機的DOS指令",
     "slug": "execute-dos-commands-from-the-remote-host",
-    "new": "2018-05-22-.html"
+    "new": "2018-05-22-execute-dos-commands-remote-host.html",
+    "slug_trim": "execute-dos-commands-remote-host"
   },
   {
     "old": "2018-05-22-web-deploy.html",
     "title": "Web Deploy成功後執行指令",
     "slug": "execute-the-command-after-web-deploy-is-successful",
-    "new": "2018-05-22-.html"
+    "new": "2018-05-22-execute-command-after-web-deploy.html",
+    "slug_trim": "execute-command-after-web-deploy"
   },
   {
     "old": "2018-05-24-delphi-1.html",
     "title": "點擊Delphi專案檔時會顯示[傳送命令給程式時發生錯誤]而無法直接開啟",
     "slug": "when-clicking-on-the-delphi-project-file-it-will-display-an-error-occurred-while-sending-the-command-to-the-program-and-cannot-be-opened-directly",
-    "new": "2018-05-24-.html"
+    "new": "2018-05-24-when-clicking-delphi-project-file.html",
+    "slug_trim": "when-clicking-delphi-project-file"
   },
   {
     "old": "2018-05-30-xlwingsmodule-xlwings-has-no-attribute.html",
     "title": "xlwings錯誤:module 'xlwings' has no attribute 'Book'",
     "slug": "xlwings-module-xlwings-has-no-attribute-book",
-    "new": "2018-05-30-.html"
+    "new": "2018-05-30-xlwings-module-has-no-attribute.html",
+    "slug_trim": "xlwings-module-has-no-attribute"
   },
   {
     "old": "2018-06-23-msdeployscriptserver.html",
     "title": "msdeploy執行script(Server端)",
     "slug": "msdeploy-executes-script-server-side",
-    "new": "2018-06-23-.html"
+    "new": "2018-06-23-msdeploy-executes-script-server-side.html",
+    "slug_trim": "msdeploy-executes-script-server-side"
   },
   {
     "old": "2018-06-23-msdeployweb-deploy-0-.html",
     "title": "msdeploy(web deploy)後顯示錯誤連線{\"初始化字串的格式和開始於索引 0 的規格不相符\"}",
     "slug": "an-error-connection-is-displayed-after-msdeploy-web-deploy-the-format-of-the-initialization-string-does-not-match-the-specification-starting-at-index-0",
-    "new": "2018-06-23-.html"
+    "new": "2018-06-23-an-error-connection-is-displayed.html",
+    "slug_trim": "an-error-connection-is-displayed"
   },
   {
     "old": "2018-06-23-notes.html",
     "title": "單元測試需注意事項",
     "slug": "things-to-note-about-unit-testing",
-    "new": "2018-06-23-.html"
+    "new": "2018-06-23-things-note-about-unit-testing.html",
+    "slug_trim": "things-note-about-unit-testing"
   },
   {
     "old": "2018-06-23-untitled.html",
     "title": "鎖定工作站語法(作成捷徑圖示可實現一鍵鎖定電腦)",
     "slug": "lock-workstation-syntax-create-a-shortcut-icon-to-lock-the-computer-with-one-click",
-    "new": "2018-06-23-.html"
+    "new": "2018-06-23-lock-workstation-syntax-create-a.html",
+    "slug_trim": "lock-workstation-syntax-create-a"
   },
   {
     "old": "2018-06-25--batch-script.html",
     "title": "備份文件/清理電腦暫存檔的batch script",
     "slug": "back-up-files-clean-up-computer-temporary-archive-batch-scripts",
-    "new": "2018-06-25-.html"
+    "new": "2018-06-25-back-up-files-clean-computer.html",
+    "slug_trim": "back-up-files-clean-computer"
   },
   {
     "old": "2018-06-25-clickoncescriptclient.html",
     "title": "clickonce執行script(Client端)",
     "slug": "clickonce-executes-script-client-side",
-    "new": "2018-06-25-.html"
+    "new": "2018-06-25-clickonce-executes-script-client-side.html",
+    "slug_trim": "clickonce-executes-script-client-side"
   },
   {
     "old": "2018-06-26-c-roslyn-scripting-api-.html",
     "title": "C# Roslyn Scripting API(程式靈活性上升, 但穩健性卻會大幅下降, 需配合大量[單元測試]服用!)",
     "slug": "c-roslyn-scripting-api-program-flexibility-increases-but-robustness-decreases-significantly-and-needs-to-be-combined-with-a-large-number-of-unit-tests",
-    "new": "2018-06-26-.html"
+    "new": "2018-06-26-c-roslyn-scripting-api-program.html",
+    "slug_trim": "c-roslyn-scripting-api-program"
   },
   {
     "old": "2018-07-13-excelweb-service.html",
     "title": "Excel叫用Web service",
     "slug": "excel-calls-web-service",
-    "new": "2018-07-13-.html"
+    "new": "2018-07-13-excel-calls-web-service.html",
+    "slug_trim": "excel-calls-web-service"
   },
   {
     "old": "2018-10-24-programmers-day.html",
     "title": "今天是[程式設計師節]!!",
-    "slug": "today-is-programmer-s-day",
-    "new": "2018-10-24-.html"
+    "slug": "programmers-day",
+    "new": "2018-10-24-programmers-day.html",
+    "slug_trim": "programmers-day"
   },
   {
     "old": "2018-10-26-soapuirequest-payloadpost.html",
     "title": "SOAPUI模擬request payload形式的POST請求",
     "slug": "soapui-simulates-a-post-request-in-the-form-of-request-payload",
-    "new": "2018-10-26-.html"
+    "new": "2018-10-26-soapui-simulates-a-post-request.html",
+    "slug_trim": "soapui-simulates-a-post-request"
   },
   {
     "old": "2018-11-06-jquery-soapjquerynet-web-service.html",
     "title": "jQuery soap插件(jQuery呼叫.Net web service用)的使用方法",
     "slug": "how-to-use-jquery-soap-plug-in-used-by-jquery-to-call-net-web-service",
-    "new": "2018-11-06-.html"
+    "new": "2018-11-06-how-jquery-soap-plug-used.html",
+    "slug_trim": "how-jquery-soap-plug-used"
   },
   {
     "old": "2018-11-09-visual-studio-codedebugger-for-chrome.html",
     "title": "Visual Studio Code插件Debugger for Chrome偵錯本機檔案",
     "slug": "visual-studio-code-plug-in-debugger-for-chrome-debugs-local-files",
-    "new": "2018-11-09-.html"
+    "new": "2018-11-09-visual-studio-code-plug-debugger.html",
+    "slug_trim": "visual-studio-code-plug-debugger"
   },
   {
     "old": "2018-11-15-easyflow-gp-56jquery.html",
     "title": "EasyFlow GP 5.6使用jQuery插件",
     "slug": "easyflow-gp-5-6-uses-jquery-plug-in",
-    "new": "2018-11-15-.html"
+    "new": "2018-11-15-easyflow-gp-5-6-uses.html",
+    "slug_trim": "easyflow-gp-5-6-uses"
   },
   {
     "old": "2018-11-21-untitled.html",
     "title": "工作排程器提升優先順序",
     "slug": "work-scheduler-boosts-priority",
-    "new": "2018-11-21-.html"
+    "new": "2018-11-21-work-scheduler-boosts-priority.html",
+    "slug_trim": "work-scheduler-boosts-priority"
   },
   {
     "old": "2018-12-06-eclipseeasyflow.html",
     "title": "Eclipse偵錯鼎新EasyFlow組織設計師",
     "slug": "eclipse-debugging-reform-easyflow-organization-designer",
-    "new": "2018-12-06-.html"
+    "new": "2018-12-06-eclipse-debugging-reform-easyflow-organization.html",
+    "slug_trim": "eclipse-debugging-reform-easyflow-organization"
   },
   {
     "old": "2018-12-10-visual-studio-2017xamarin.html",
     "title": "Visual Studio 2017新增Xamarin專案異常",
     "slug": "visual-studio-2017-new-xamarin-project-exception",
-    "new": "2018-12-10-.html"
+    "new": "2018-12-10-visual-studio-2017-xamarin-project.html",
+    "slug_trim": "visual-studio-2017-xamarin-project"
   },
   {
     "old": "2018-12-26-chromeeasyflow-gp.html",
     "title": "Chrome偵錯鼎新EasyFlow GP顯示空白",
     "slug": "chrome-debugging-reform-easyflow-gp-displays-blank",
-    "new": "2018-12-26-.html"
+    "new": "2018-12-26-chrome-debugging-reform-easyflow-gp.html",
+    "slug_trim": "chrome-debugging-reform-easyflow-gp"
   },
   {
     "old": "2018-12-28-enable.html",
     "title": "批次修改流程代理人啟用結束時間",
     "slug": "batch-modification-process-agent-activation-end-time",
-    "new": "2018-12-28-.html"
+    "new": "2018-12-28-batch-modification-process-agent-activation.html",
+    "slug_trim": "batch-modification-process-agent-activation"
   },
   {
     "old": "2018-12-28-error.html",
     "title": "發單時選錯部門導致跑到錯誤的直屬主管之解決方法",
     "slug": "the-solution-to-selecting-the-wrong-department-when-issuing-an-order-leads-to-the-wrong-direct-supervisor",
-    "new": "2018-12-28-.html"
+    "new": "2018-12-28-solution-selecting-wrong-department-when.html",
+    "slug_trim": "solution-selecting-wrong-department-when"
   },
   {
     "old": "2019-01-07-untitled.html",
     "title": "修正進行中的表單欄位權限",
     "slug": "fix-form-field-permissions-in-progress",
-    "new": "2019-01-07-.html"
+    "new": "2019-01-07-fix-form-field-permissions-progress.html",
+    "slug_trim": "fix-form-field-permissions-progress"
   },
   {
     "old": "2019-01-08-localdb-1.html",
     "title": "本機LocalDB降版",
     "slug": "native-localdb-version-downgrade",
-    "new": "2019-01-08-.html"
+    "new": "2019-01-08-native-localdb-version-downgrade.html",
+    "slug_trim": "native-localdb-version-downgrade"
   },
   {
     "old": "2019-01-19-sql-1.html",
     "title": "查詢線上所有流程的全部關卡參與者的SQL語法",
     "slug": "query-the-sql-syntax-of-all-level-participants-in-all-online-processes",
-    "new": "2019-01-19-.html"
+    "new": "2019-01-19-query-sql-syntax-all-level.html",
+    "slug_trim": "query-sql-syntax-all-level"
   },
   {
     "old": "2019-01-23-sql-1.html",
     "title": "查詢線上特定流程流程的待處理關卡擱置時數的SQL語法",
     "slug": "sql-syntax-for-querying-the-number-of-pending-levels-for-a-specific-online-process",
-    "new": "2019-01-23-.html"
+    "new": "2019-01-23-sql-syntax-querying-number-pending.html",
+    "slug_trim": "sql-syntax-querying-number-pending"
   },
   {
     "old": "2019-02-01-sql-1.html",
     "title": "修正線上正在執行的流程關卡的SQL語法",
     "slug": "correct-the-sql-syntax-of-the-process-level-being-executed-online",
-    "new": "2019-02-01-.html"
+    "new": "2019-02-01-correct-sql-syntax-process-level.html",
+    "slug_trim": "correct-sql-syntax-process-level"
   },
   {
     "old": "2019-03-28-web-deploy1.html",
     "title": "web deploy第1次都會失敗",
     "slug": "web-deploy-will-fail-the-first-time",
-    "new": "2019-03-28-.html"
+    "new": "2019-03-28-web-deploy-will-fail-first.html",
+    "slug_trim": "web-deploy-will-fail-first"
   },
   {
     "old": "2019-04-17-iis-express.html",
     "title": "iis express允許外部連線",
     "slug": "iis-express-allows-external-connections",
-    "new": "2019-04-17-.html"
+    "new": "2019-04-17-iis-express-allows-external-connections.html",
+    "slug_trim": "iis-express-allows-external-connections"
   },
   {
     "old": "2019-04-19-iis-1.html",
     "title": "IIS不卡頓的設定",
     "slug": "settings-for-iis-to-avoid-lagging",
-    "new": "2019-04-19-.html"
+    "new": "2019-04-19-settings-iis-avoid-lagging-for.html",
+    "slug_trim": "settings-iis-avoid-lagging-for"
   },
   {
     "old": "2019-05-08-invokenet-web-serviceasmx.html",
     "title": "Invoke關卡呼叫.Net web service(asmx)",
     "slug": "invoke-level-call-net-web-service-asmx",
-    "new": "2019-05-08-.html"
+    "new": "2019-05-08-invoke-level-call-net-web.html",
+    "slug_trim": "invoke-level-call-net-web"
   },
   {
     "old": "2019-05-10-delete-use.html",
     "title": "刪除使用者帳號",
     "slug": "delete-user-account",
-    "new": "2019-05-10-.html"
+    "new": "2019-05-10-delete-user-account.html",
+    "slug_trim": "delete-user-account"
   },
   {
     "old": "2019-05-10-sql-sql-.html",
     "title": "SQL註冊器 SQL語法 測試區同步至正式區",
     "slug": "sql-registrar-sql-syntax-test-area-synchronized-to-official-area",
-    "new": "2019-05-10-.html"
+    "new": "2019-05-10-sql-registrar-syntax-test-area.html",
+    "slug_trim": "sql-registrar-syntax-test-area"
   },
   {
     "old": "2019-05-10-untitled.html",
     "title": "更新主部門,職務,核決層級,職稱",
     "slug": "update-the-main-department-position-approval-level-and-professional-title",
-    "new": "2019-05-10-.html"
+    "new": "2019-05-10-update-main-department-position-approval.html",
+    "slug_trim": "update-main-department-position-approval"
   },
   {
     "old": "2019-05-16-ab.html",
     "title": "複製流程A的附件到流程B",
     "slug": "copy-the-attachments-of-process-a-to-process-b",
-    "new": "2019-05-16-.html"
+    "new": "2019-05-16-copy-attachments-process-a-b.html",
+    "slug_trim": "copy-attachments-process-a-b"
   },
   {
     "old": "2019-05-16-data.html",
     "title": "修改表單欄位資料",
     "slug": "modify-form-field-data",
-    "new": "2019-05-16-.html"
+    "new": "2019-05-16-modify-form-field-data.html",
+    "slug_trim": "modify-form-field-data"
   },
   {
     "old": "2019-05-16-tiptopeasyflowxml-parser-error.html",
     "title": "TIPTOP按EasyFlow送簽出現XML parser error錯誤訊息而無法開單",
     "slug": "tiptoppress-easyflow-to-send-the-signature-and-an-xml-parser-error-message-appears-and-the-order-cannot-be-placed",
-    "new": "2019-05-16-.html"
+    "new": "2019-05-16-tiptoppress-easyflow-send-signature-an.html",
+    "slug_trim": "tiptoppress-easyflow-send-signature-an"
   },
   {
     "old": "2019-05-21-svncommit-log.html",
     "title": "SVN修改commit log訊息",
     "slug": "svn-modifies-commit-log-message",
-    "new": "2019-05-21-.html"
+    "new": "2019-05-21-svn-modifies-commit-log-message.html",
+    "slug_trim": "svn-modifies-commit-log-message"
   },
   {
     "old": "2019-05-28-js-1.html",
     "title": "修正線上進行中的舊表單Js程式",
     "slug": "correct-the-old-form-js-program-in-progress-online",
-    "new": "2019-05-28-.html"
+    "new": "2019-05-28-correct-form-js-program-progress.html",
+    "slug_trim": "correct-form-js-program-progress"
   },
   {
     "old": "2019-05-31-easyflowtiptop.html",
     "title": "EasyFlow與Tiptop整合設定存放處",
     "slug": "easyflow-and-tiptop-integrated-setting-storage",
-    "new": "2019-05-31-.html"
+    "new": "2019-05-31-easyflow-tiptop-integrated-setting-storage.html",
+    "slug_trim": "easyflow-tiptop-integrated-setting-storage"
   },
   {
     "old": "2019-06-04-ieeasyflow-gp.html",
     "title": "修正IE開啟EasyFlow GP的文件模式",
     "slug": "corrected-the-file-mode-of-ie-when-opening-easyflow-gp",
-    "new": "2019-06-04-.html"
+    "new": "2019-06-04-corrected-file-mode-ie-when.html",
+    "slug_trim": "corrected-file-mode-ie-when"
   },
   {
     "old": "2019-06-04-easyflow-1.html",
     "title": "避免EasyFlow測試區跑流程會通知使用者造成不必要的誤解",
     "slug": "avoid-the-easyflow-test-area-running-process-to-notify-users-and-cause-unnecessary-misunderstandings",
-    "new": "2019-06-04-.html"
+    "new": "2019-06-04-avoid-easyflow-test-area-running.html",
+    "slug_trim": "avoid-easyflow-test-area-running"
   },
   {
     "old": "2019-06-05-settings.html",
     "title": "修改表單設計師/設定輔助格線/格線大小的預設值",
     "slug": "modify-the-form-designer-set-the-default-value-of-auxiliary-grid-grid-size",
-    "new": "2019-06-05-.html"
+    "new": "2019-06-05-modify-form-designer-set-default.html",
+    "slug_trim": "modify-form-designer-set-default"
   },
   {
     "old": "2019-06-21--invoke-.html",
     "title": "關於流程設計師-invoke關卡-存入表單的一些小地方",
     "slug": "about-the-process-designer-invoke-level-some-small-places-to-save-the-form",
-    "new": "2019-06-21-.html"
+    "new": "2019-06-21-about-process-designer-invoke-level.html",
+    "slug_trim": "about-process-designer-invoke-level"
   },
   {
     "old": "2019-06-24-web-service.html",
     "title": "以web service起新流程時內容需換行的注意事項",
     "slug": "things-to-note-when-content-needs-to-be-wrapped-when-starting-a-new-process-using-web-services",
-    "new": "2019-06-24-.html"
+    "new": "2019-06-24-things-note-when-content-needs.html",
+    "slug_trim": "things-note-when-content-needs"
   },
   {
     "old": "2019-06-27-untitled.html",
     "title": "流程設計師.條件運算式的反向邏輯",
     "slug": "process-designer-reverse-logic-of-conditional-expressions",
-    "new": "2019-06-27-.html"
+    "new": "2019-06-27-process-designer-reverse-logic-conditional.html",
+    "slug_trim": "process-designer-reverse-logic-conditional"
   },
   {
     "old": "2019-07-17-untitled.html",
     "title": "取得線上全部流程序號名稱",
     "slug": "get-the-program-number-names-of-all-online-streams",
-    "new": "2019-07-17-.html"
+    "new": "2019-07-17-get-program-number-names-all.html",
+    "slug_trim": "get-program-number-names-all"
   },
   {
     "old": "2019-08-05-sql-1.html",
     "title": "修改附件檔名SQL",
     "slug": "modify-attachment-file-name-sql",
-    "new": "2019-08-05-.html"
+    "new": "2019-08-05-modify-attachment-file-name-sql.html",
+    "slug_trim": "modify-attachment-file-name-sql"
   },
   {
     "old": "2019-08-06-untitled.html",
     "title": "在特定上級單位與下屬單位之間增加中間簽核人員(非加簽)",
     "slug": "add-intermediate-sign-off-personnel-non-signature-between-specific-superior-units-and-subordinate-units",
-    "new": "2019-08-06-.html"
+    "new": "2019-08-06-add-intermediate-sign-off-personnel.html",
+    "slug_trim": "add-intermediate-sign-off-personnel"
   },
   {
     "old": "2019-08-08-mssql-server.html",
     "title": "MSSQL Server新增連結伺服器以取得網域資訊",
     "slug": "mssql-server-adds-a-new-link-server-to-obtain-domain-information",
-    "new": "2019-08-08-.html"
+    "new": "2019-08-08-mssql-server-adds-a-link.html",
+    "slug_trim": "mssql-server-adds-a-link"
   },
   {
     "old": "2019-08-27-sql-1.html",
     "title": "批次更新表單欄位SQL",
     "slug": "batch-update-form-fields-sql",
-    "new": "2019-08-27-.html"
+    "new": "2019-08-27-batch-update-form-fields-sql.html",
+    "slug_trim": "batch-update-form-fields-sql"
   },
   {
     "old": "2019-08-27-mssqlad.html",
     "title": "MSSQL查詢AD群組使用者清單",
     "slug": "mssql-query-ad-group-user-list",
-    "new": "2019-08-27-.html"
+    "new": "2019-08-27-mssql-query-ad-group-user.html",
+    "slug_trim": "mssql-query-ad-group-user"
   },
   {
     "old": "2019-08-28-reportingservicesql.html",
     "title": "ReportingService已更新SQL但報表預覽異常",
     "slug": "reportingservice-has-updated-the-sql-but-the-report-preview-is-abnormal",
-    "new": "2019-08-28-.html"
+    "new": "2019-08-28-reportingservice-has-updated-sql-but.html",
+    "slug_trim": "reportingservice-has-updated-sql-but"
   },
   {
     "old": "2019-08-30-easyflowc-vb6reportingservice.html",
     "title": "EasyFlow取得附件實體路徑程式碼(C#/VB6=ReportingService用)",
     "slug": "easyflow-obtains-the-attachment-entity-path-code-for-c-vb6-reportingservice",
-    "new": "2019-08-30-.html"
+    "new": "2019-08-30-easyflow-obtains-attachment-entity-path.html",
+    "slug_trim": "easyflow-obtains-attachment-entity-path"
   },
   {
     "old": "2019-09-05-dnspypdbdllaspnet-webform.html",
     "title": "dnSpy偵錯有pdb檔的dll(ASP.NET WebForm)",
     "slug": "dnspy-debugs-dll-with-pdb-file-asp-net-webform",
-    "new": "2019-09-05-.html"
+    "new": "2019-09-05-dnspy-debugs-dll-pdb-file.html",
+    "slug_trim": "dnspy-debugs-dll-pdb-file"
   },
   {
     "old": "2019-09-06-settings.html",
     "title": "優化主機效能設定",
     "slug": "optimize-host-performance-settings",
-    "new": "2019-09-06-.html"
+    "new": "2019-09-06-optimize-host-performance-settings.html",
+    "slug_trim": "optimize-host-performance-settings"
   },
   {
     "old": "2019-09-11-untitled.html",
     "title": "更新流程有效期間",
     "slug": "validity-period-of-the-update-process",
-    "new": "2019-09-11-.html"
+    "new": "2019-09-11-validity-period-update-process-of.html",
+    "slug_trim": "validity-period-update-process-of"
   },
   {
     "old": "2019-09-18-settings-notes.html",
     "title": "核決權限表設定注意事項",
     "slug": "things-to-note-when-setting-up-the-approval-authority-table",
-    "new": "2019-09-18-.html"
+    "new": "2019-09-18-things-note-when-setting-up.html",
+    "slug_trim": "things-note-when-setting-up"
   },
   {
     "old": "2019-09-18-untitled.html",
     "title": "流程定義相關語法",
     "slug": "syntax-related-to-process-definition",
-    "new": "2019-09-18-.html"
+    "new": "2019-09-18-syntax-related-process-definition-to.html",
+    "slug_trim": "syntax-related-process-definition-to"
   },
   {
     "old": "2019-09-19-untitled.html",
     "title": "組織異動相關語法",
     "slug": "grammar-related-to-organizational-changes",
-    "new": "2019-09-19-.html"
+    "new": "2019-09-19-grammar-related-organizational-changes-to.html",
+    "slug_trim": "grammar-related-organizational-changes-to"
   },
   {
     "old": "2019-10-04-aspnet.html",
     "title": "ASP.NET網站瓶頸測量",
     "slug": "asp-net-website-bottleneck-measurement",
-    "new": "2019-10-04-.html"
+    "new": "2019-10-04-asp-net-website-bottleneck-measurement.html",
+    "slug_trim": "asp-net-website-bottleneck-measurement"
   },
   {
     "old": "2019-10-04-untitled.html",
     "title": "工作排程器在前景/背景執行",
     "slug": "work-scheduler-executes-in-foreground-background",
-    "new": "2019-10-04-.html"
+    "new": "2019-10-04-work-scheduler-executes-foreground-background.html",
+    "slug_trim": "work-scheduler-executes-foreground-background"
   },
   {
     "old": "2019-10-23-easyflow-1.html",
     "title": "EasyFlow不斷發通知信",
     "slug": "easyflow-keeps-sending-notification-letters",
-    "new": "2019-10-23-.html"
+    "new": "2019-10-23-easyflow-keeps-sending-notification-letters.html",
+    "slug_trim": "easyflow-keeps-sending-notification-letters"
   },
   {
     "old": "2019-10-24-programmers-day.html",
     "title": "今天是[程式設計師節]!!",
-    "slug": "today-is-programmer-s-day",
-    "new": "2019-10-24-.html"
+    "slug": "programmers-day",
+    "new": "2019-10-24-programmers-day.html",
+    "slug_trim": "programmers-day"
   },
   {
     "old": "2019-11-05-raspberry-pi-4-install.html",
     "title": "全新樹莓派4安裝",
     "slug": "new-raspberry-pi-4-installation",
-    "new": "2019-11-05-.html"
+    "new": "2019-11-05-raspberry-pi-4-installation-new.html",
+    "slug_trim": "raspberry-pi-4-installation-new"
   },
   {
     "old": "2019-11-08-cc-dll.html",
     "title": "C#機敏資訊放到C++ Dll以避免被直接反組譯",
     "slug": "c-smart-information-is-placed-in-c-dll-to-avoid-direct-disassembly",
-    "new": "2019-11-08-.html"
+    "new": "2019-11-08-c-smart-information-is-placed.html",
+    "slug_trim": "c-smart-information-is-placed"
   },
   {
     "old": "2019-11-11-sql-1.html",
     "title": "流程發起權限設定值SQL",
     "slug": "process-initiation-permission-setting-value-sql",
-    "new": "2019-11-11-.html"
+    "new": "2019-11-11-process-initiation-permission-setting-value.html",
+    "slug_trim": "process-initiation-permission-setting-value"
   },
   {
     "old": "2019-12-12-javascript-foreachbreakcontinue.html",
     "title": "Javascript forEach函數的break及continue方式",
     "slug": "break-and-continue-methods-of-javascript-foreach-function",
-    "new": "2019-12-12-.html"
+    "new": "2019-12-12-break-continue-methods-javascript-foreach.html",
+    "slug_trim": "break-continue-methods-javascript-foreach"
   },
   {
     "old": "2019-12-18-webservice-1.html",
     "title": "找出WebService方法用在哪些流程中",
     "slug": "find-out-which-processes-the-webservice-method-is-used-in",
-    "new": "2019-12-18-.html"
+    "new": "2019-12-18-find-out-which-processes-webservice.html",
+    "slug_trim": "find-out-which-processes-webservice"
   },
   {
     "old": "2019-12-25-easyflowsql.html",
     "title": "EasyFlow簽核履歷完整版SQL",
     "slug": "easyflow-sign-off-resume-full-version-sql",
-    "new": "2019-12-25-.html"
+    "new": "2019-12-25-easyflow-sign-off-resume-full.html",
+    "slug_trim": "easyflow-sign-off-resume-full"
   },
   {
     "old": "2019-12-25-ssrsdeclaresql.html",
     "title": "在SSRS使用DECLARE陳述式的SQL無法預覽錯誤",
     "slug": "sql-cannot-preview-error-using-declare-statement-in-ssrs",
-    "new": "2019-12-25-.html"
+    "new": "2019-12-25-sql-cannot-preview-error-declare.html",
+    "slug_trim": "sql-cannot-preview-error-declare"
   },
   {
     "old": "2020-01-02-notes.html",
     "title": "修改代理人時段注意事項",
     "slug": "things-to-note-when-modifying-agent-time-slots",
-    "new": "2020-01-02-.html"
+    "new": "2020-01-02-things-note-when-modifying-agent.html",
+    "slug_trim": "things-note-when-modifying-agent"
   },
   {
     "old": "2020-01-04-seafile-community.html",
     "title": "安裝Seafile community版",
     "slug": "install-seafile-community-version",
-    "new": "2020-01-04-.html"
+    "new": "2020-01-04-install-seafile-community-version.html",
+    "slug_trim": "install-seafile-community-version"
   },
   {
     "old": "2020-01-09-notes.html",
     "title": "附件按鈕權限注意事項",
     "slug": "attachment-button-permission-considerations",
-    "new": "2020-01-09-.html"
+    "new": "2020-01-09-attachment-button-permission-considerations.html",
+    "slug_trim": "attachment-button-permission-considerations"
   },
   {
     "old": "2020-01-31-cannot.html",
     "title": "退回重辦後無法向後加簽",
     "slug": "after-returning-and-re-doing-it-you-cannot-add-a-signature-later",
-    "new": "2020-01-31-.html"
+    "new": "2020-01-31-after-returning-re-doing-it.html",
+    "slug_trim": "after-returning-re-doing-it"
   },
   {
     "old": "2020-02-06-settings-notes.html",
     "title": "流程關卡選項設定注意事項",
     "slug": "notes-on-setting-process-level-options",
-    "new": "2020-02-06-.html"
+    "new": "2020-02-06-notes-setting-process-level-options.html",
+    "slug_trim": "notes-setting-process-level-options"
   },
   {
     "old": "2020-03-03-vs-coderam-disk.html",
     "title": "將VS Code快取資料夾移到Ram disk以加快執行速度",
     "slug": "move-vs-code-cache-folder-to-ram-disk-for-faster-execution",
-    "new": "2020-03-03-.html"
+    "new": "2020-03-03-move-vs-code-cache-folder.html",
+    "slug_trim": "move-vs-code-cache-folder"
   },
   {
     "old": "2020-03-04-visual-studioram-disk.html",
     "title": "將Visual Studio快取資料夾移到Ram disk以加快編譯速度",
     "slug": "move-visual-studio-cache-folder-to-ram-disk-to-speed-up-compilation",
-    "new": "2020-03-04-.html"
+    "new": "2020-03-04-move-visual-studio-cache-folder.html",
+    "slug_trim": "move-visual-studio-cache-folder"
   },
   {
     "old": "2020-03-05-chromeram-diskssd.html",
     "title": "Chrome快取資料夾位置(可搬到Ram disk或SSD以增進顯示速度)",
     "slug": "chrome-cache-folder-location-can-be-moved-to-ram-disk-or-ssd-to-increase-display-speed",
-    "new": "2020-03-05-.html"
+    "new": "2020-03-05-chrome-cache-folder-location-can.html",
+    "slug_trim": "chrome-cache-folder-location-can"
   },
   {
     "old": "2020-03-30-use.html",
     "title": "開放一般使用者模擬身份以利公測",
     "slug": "open-simulated-identities-to-general-users-to-facilitate-public-testing",
-    "new": "2020-03-30-.html"
+    "new": "2020-03-30-open-simulated-identities-general-users.html",
+    "slug_trim": "open-simulated-identities-general-users"
   },
   {
     "old": "2020-06-15-docker-1.html",
     "title": "樹莓派安裝Docker",
     "slug": "install-docker-on-raspberry-pi",
-    "new": "2020-06-15-.html"
+    "new": "2020-06-15-install-docker-raspberry-pi-on.html",
+    "slug_trim": "install-docker-raspberry-pi-on"
   },
   {
     "old": "2020-06-17-untitled.html",
     "title": "核決權限關卡 - 單位主管核定",
     "slug": "approval-authority-level---approved-by-the-unit-supervisor",
-    "new": "2020-06-17-.html"
+    "new": "2020-06-17-approval-authority-level-approved-unit.html",
+    "slug_trim": "approval-authority-level-approved-unit"
   },
   {
     "old": "2020-07-14-ssmsplsql-developerselect.html",
     "title": "SSMS如PLSQL Developer一般從SELECT結果直接編輯資料列",
     "slug": "ssms-such-as-plsql-developer-generally-edits-data-columns-directly-from-select-results",
-    "new": "2020-07-14-.html"
+    "new": "2020-07-14-ssms-such-as-plsql-developer.html",
+    "slug_trim": "ssms-such-as-plsql-developer"
   },
   {
     "old": "2020-07-17-outlook-1.html",
     "title": "Outlook存檔時自動格式化圖片(加上邊框及超過規定大小則自動縮小)",
     "slug": "outlook-automatically-formats-the-picture-when-archiving-adds-borders-and-automatically-reduces-the-size-if-it-exceeds-the-specified-size",
-    "new": "2020-07-17-.html"
+    "new": "2020-07-17-outlook-automatically-formats-picture-when.html",
+    "slug_trim": "outlook-automatically-formats-picture-when"
   },
   {
     "old": "2020-07-21-untitled.html",
     "title": "工作排程器自訂觸發條件",
     "slug": "work-scheduler-custom-trigger-conditions",
-    "new": "2020-07-21-.html"
+    "new": "2020-07-21-work-scheduler-custom-trigger-conditions.html",
+    "slug_trim": "work-scheduler-custom-trigger-conditions"
   },
   {
     "old": "2020-07-24-sql-1.html",
     "title": "刪除使用者帳號SQL(請只用在誤加刪除時)",
     "slug": "delete-user-account-sql-please-only-use-it-when-deleting-by-mistake",
-    "new": "2020-07-24-.html"
+    "new": "2020-07-24-delete-user-account-sql-please.html",
+    "slug_trim": "delete-user-account-sql-please"
   },
   {
     "old": "2020-08-24-settings-notes.html",
     "title": "設定流程變數注意事項",
     "slug": "things-to-note-when-setting-process-variables",
-    "new": "2020-08-24-.html"
+    "new": "2020-08-24-things-note-when-setting-process.html",
+    "slug_trim": "things-note-when-setting-process"
   },
   {
     "old": "2020-09-04-serverlog.html",
     "title": "解決:server.log每次重開機都被覆蓋",
     "slug": "solution-server-log-is-overwritten-every-time-the-computer-is-restarted",
-    "new": "2020-09-04-.html"
+    "new": "2020-09-04-solution-server-log-is-overwritten.html",
+    "slug_trim": "solution-server-log-is-overwritten"
   },
   {
     "old": "2020-09-10-net-core-31iis-85windows-2012.html",
     "title": "\"(筆記)部署.Net Core 3.1到IIS 8.5在Windows 2012 R2\"",
     "slug": "notes-deploying-net-core-3-1-to-iis-8-5-on-windows-2012-r2",
-    "new": "2020-09-10-.html"
+    "new": "2020-09-10-notes-deploying-net-core-3.html",
+    "slug_trim": "notes-deploying-net-core-3"
   },
   {
     "old": "2020-10-24-programmers-day.html",
     "title": "今天是[程式設計師節]!!",
-    "slug": "today-is-programmer-s-day",
-    "new": "2020-10-24-.html"
+    "slug": "programmers-day",
+    "new": "2020-10-24-programmers-day.html",
+    "slug_trim": "programmers-day"
   },
   {
     "old": "2021-03-05-shortcuts.html",
     "title": "輸入法快速鍵被重置的解決方法",
     "slug": "solution-to-input-method-shortcut-keys-being-reset",
-    "new": "2021-03-05-.html"
+    "new": "2021-03-05-solution-input-method-shortcut-keys.html",
+    "slug_trim": "solution-input-method-shortcut-keys"
   },
   {
     "old": "2021-06-16-oracle-developer-tools-for-visual.html",
     "title": "Oracle Developer Tools for Visual Studio 2019安裝注意事項",
     "slug": "oracle-developer-tools-for-visual-studio-2019-installation-notes",
-    "new": "2021-06-16-.html"
+    "new": "2021-06-16-oracle-developer-tools-visual-studio.html",
+    "slug_trim": "oracle-developer-tools-visual-studio"
   },
   {
     "old": "2021-07-07-sql-1.html",
     "title": "找出部門主管在全部所屬單位的身份SQL",
     "slug": "find-out-the-identities-of-department-heads-in-all-units-they-belong-to-sql",
-    "new": "2021-07-07-.html"
+    "new": "2021-07-07-find-out-identities-department-heads.html",
+    "slug_trim": "find-out-identities-department-heads"
   },
   {
     "old": "2021-07-19-nuget-ssl-tls-.html",
     "title": "Nuget無法取得套件清單，顯示\"無法建立 SSL/TLS 的安全通道\"的錯誤",
     "slug": "nuget-cannot-obtain-the-package-list-and-displays-the-error-unable-to-establish-ssl-tls-secure-channel",
-    "new": "2021-07-19-.html"
+    "new": "2021-07-19-nuget-cannot-obtain-package-list.html",
+    "slug_trim": "nuget-cannot-obtain-package-list"
   },
   {
     "old": "2021-07-20-outlook-1.html",
     "title": "Outlook從遠端主機拉信回本機",
     "slug": "outlook-pulls-messages-from-the-remote-host-back-to-the-local-machine",
-    "new": "2021-07-20-.html"
+    "new": "2021-07-20-outlook-pulls-messages-remote-host.html",
+    "slug_trim": "outlook-pulls-messages-remote-host"
   },
   {
     "old": "2021-07-20-outlook-2.html",
     "title": "Outlook每隔特定時間區間自動執行特定動作",
     "slug": "outlook-automatically-performs-specific-actions-every-specific-time-interval",
-    "new": "2021-07-20-.html"
+    "new": "2021-07-20-outlook-automatically-performs-specific-actions.html",
+    "slug_trim": "outlook-automatically-performs-specific-actions"
   },
   {
     "old": "2021-07-22-powershell-1.html",
     "title": "PowerShell刪除啟動已逾期的特定執行緒",
     "slug": "powershell-removes-specific-threads-whose-launch-has-expired",
-    "new": "2021-07-22-.html"
+    "new": "2021-07-22-powershell-removes-specific-threads-whose.html",
+    "slug_trim": "powershell-removes-specific-threads-whose"
   },
   {
     "old": "2021-07-27-vs-codeeditorconfig.html",
     "title": "VS Code使用EditorConfig設定",
     "slug": "vs-code-uses-editorconfig-settings",
-    "new": "2021-07-27-.html"
+    "new": "2021-07-27-vs-code-uses-editorconfig-settings.html",
+    "slug_trim": "vs-code-uses-editorconfig-settings"
   },
   {
     "old": "2021-07-28-vs-codeblazor.html",
     "title": "VS Code對Blazor應用程式偵錯時顯示[遠端憑證無效]的異常",
     "slug": "vs-code-displays-an-invalid-remote-certificate-exception-when-debugging-blazor-applications",
-    "new": "2021-07-28-.html"
+    "new": "2021-07-28-vs-code-displays-an-invalid.html",
+    "slug_trim": "vs-code-displays-an-invalid"
   },
   {
     "old": "2021-09-10-cexcel.html",
     "title": "C#背景操作Excel不會殘留執行緒的方式",
     "slug": "c-how-to-operate-excel-in-the-background-without-leaving-threads",
-    "new": "2021-09-10-.html"
+    "new": "2021-09-10-c-how-operate-excel-background.html",
+    "slug_trim": "c-how-operate-excel-background"
   },
   {
     "old": "2021-09-15-c-filesystemwatcher-changed2.html",
     "title": "C# FileSystemWatcher Changed會偵測2次的解決方式",
     "slug": "c-filesystemwatcher-changed-will-detect-the-solution-twice",
-    "new": "2021-09-15-.html"
+    "new": "2021-09-15-c-filesystemwatcher-changed-will-detect.html",
+    "slug_trim": "c-filesystemwatcher-changed-will-detect"
   },
   {
     "old": "2021-10-23-programmers-day.html",
     "title": "今天是[程式設計師節]!!",
-    "slug": "today-is-programmer-s-day",
-    "new": "2021-10-23-.html"
+    "slug": "programmers-day",
+    "new": "2021-10-23-programmers-day.html",
+    "slug_trim": "programmers-day"
   },
   {
     "old": "2022-03-11-javascript-.html",
     "title": "JavaScript 非同步方法鏈式呼叫",
     "slug": "javascript-asynchronous-method-chain-call",
-    "new": "2022-03-11-.html"
+    "new": "2022-03-11-javascript-asynchronous-method-chain-call.html",
+    "slug_trim": "javascript-asynchronous-method-chain-call"
   },
   {
     "old": "2022-03-11-c-.html",
     "title": "C# 非同步方法鏈式呼叫",
     "slug": "c-asynchronous-method-chain-call",
-    "new": "2022-03-11-.html"
+    "new": "2022-03-11-c-asynchronous-method-chain-call.html",
+    "slug_trim": "c-asynchronous-method-chain-call"
   },
   {
     "old": "2022-03-16-sslnginx.html",
     "title": "合併SSL憑證供Nginx使用",
     "slug": "consolidate-ssl-certificates-for-use-by-nginx",
-    "new": "2022-03-16-.html"
+    "new": "2022-03-16-consolidate-ssl-certificates-nginx-for.html",
+    "slug_trim": "consolidate-ssl-certificates-nginx-for"
   },
   {
     "old": "2022-03-17-crtpfxiis.html",
     "title": "將CRT憑證轉換成PFX格式供IIS使用",
     "slug": "convert-crt-credentials-to-pfx-format-for-use-by-iis",
-    "new": "2022-03-17-.html"
+    "new": "2022-03-17-convert-crt-credentials-pfx-format.html",
+    "slug_trim": "convert-crt-credentials-pfx-format"
   },
   {
     "old": "2022-04-13-linux--odbc-.html",
     "title": "Linux 各資料庫 ODBC 設定",
     "slug": "linux-database-odbc-settings",
-    "new": "2022-04-13-.html"
+    "new": "2022-04-13-linux-database-odbc-settings.html",
+    "slug_trim": "linux-database-odbc-settings"
   },
   {
     "old": "2022-05-30-linuxjdbc.html",
     "title": "Linux各資料庫JDBC連線字串",
     "slug": "linux-database-jdbc-connection-string",
-    "new": "2022-05-30-.html"
+    "new": "2022-05-30-linux-database-jdbc-connection-string.html",
+    "slug_trim": "linux-database-jdbc-connection-string"
   },
   {
     "old": "2022-06-20-iis-1.html",
     "title": "IIS資料夾搬移至其他主機注意事項",
     "slug": "things-to-note-when-moving-iis-folders-to-other-hosts",
-    "new": "2022-06-20-.html"
+    "new": "2022-06-20-things-note-when-moving-iis.html",
+    "slug_trim": "things-note-when-moving-iis"
   },
   {
     "old": "2022-06-21-efcore-scaffold-dbcontextpmc.html",
     "title": "EFCore Scaffold-DbContext語法(PMC)",
     "slug": "efcore-scaffold-dbcontext-syntax-pmc",
-    "new": "2022-06-21-.html"
+    "new": "2022-06-21-efcore-scaffold-dbcontext-syntax-pmc.html",
+    "slug_trim": "efcore-scaffold-dbcontext-syntax-pmc"
   },
   {
     "old": "2022-06-22-kettle-1.html",
     "title": "Kettle注意事項",
     "slug": "things-to-note-about-kettle",
-    "new": "2022-06-22-.html"
+    "new": "2022-06-22-things-note-about-kettle-to.html",
+    "slug_trim": "things-note-about-kettle-to"
   },
   {
     "old": "2022-08-30-doserrorlevel0.html",
     "title": "DOS指令不顯示錯誤訊息且同時ERRORLEVEL設為0(正常結束)",
     "slug": "the-dos-command-does-not-display-an-error-message-and-errorlevel-is-set-to-0-normal-end",
-    "new": "2022-08-30-.html"
+    "new": "2022-08-30-dos-command-does-not-display.html",
+    "slug_trim": "dos-command-does-not-display"
   },
   {
     "old": "2022-09-27-notepad-1.html",
     "title": "將Notepad++設為開啟未知副檔名檔案的預設程式",
     "slug": "set-notepad-as-the-default-program-for-opening-files-with-unknown-file-extensions",
-    "new": "2022-09-27-.html"
+    "new": "2022-09-27-set-notepad-as-default-program.html",
+    "slug_trim": "set-notepad-as-default-program"
   },
   {
     "old": "2022-09-29-linuxmssqlprovider-ssl-provider-error-31.html",
     "title": "'Linux無法連接MSSQL(provider: SSL Provider, error: 31 - Encryption(ssl/tls) handshake",
     "slug": "linux-cannot-connect-to-mssql-provider-ssl-provider-error-31---encryption-ssl-tls-handshake",
-    "new": "2022-09-29-.html"
+    "new": "2022-09-29-linux-cannot-connect-mssql-provider.html",
+    "slug_trim": "linux-cannot-connect-mssql-provider"
   },
   {
     "old": "2022-10-23-programmers-day.html",
     "title": "今天是[程式設計師節]!!",
-    "slug": "today-is-programmer-s-day",
-    "new": "2022-10-23-.html"
+    "slug": "programmers-day",
+    "new": "2022-10-23-programmers-day.html",
+    "slug_trim": "programmers-day"
   },
   {
     "old": "2022-11-14-sdkman-1.html",
     "title": "SDKMAN在登入時無法使用",
     "slug": "sdkman-cannot-be-used-when-logging-in",
-    "new": "2022-11-14-.html"
+    "new": "2022-11-14-sdkman-cannot-be-used-when.html",
+    "slug_trim": "sdkman-cannot-be-used-when"
   },
   {
     "old": "2022-11-14-sdkmanjava.html",
     "title": "SDKMAN無法切換Java版本",
     "slug": "sdkman-cannot-switch-java-version",
-    "new": "2022-11-14-.html"
+    "new": "2022-11-14-sdkman-cannot-switch-java-version.html",
+    "slug_trim": "sdkman-cannot-switch-java-version"
   },
   {
     "old": "2022-11-14-tabbysftpcd.html",
     "title": "Tabby的SFTP目前目錄跟著終端機cd指令而變動",
     "slug": "tabby-s-sftp-current-directory-changes-according-to-the-terminal-cd-command",
-    "new": "2022-11-14-.html"
+    "new": "2022-11-14-tabby-s-sftp-current-directory.html",
+    "slug_trim": "tabby-s-sftp-current-directory"
   },
   {
     "old": "2022-11-14-vscodejunitjavafiddler-classic.html",
     "title": "VSCode使用JUnit對Java程式除錯並以Fiddler Classic擷取封包內容",
     "slug": "vscode-uses-junit-to-debug-java-programs-and-capture-packet-contents-with-fiddler-classic",
-    "new": "2022-11-14-.html"
+    "new": "2022-11-14-vscode-uses-junit-debug-java.html",
+    "slug_trim": "vscode-uses-junit-debug-java"
   },
   {
     "old": "2022-11-16-kettle-spoonlinux.html",
     "title": "Kettle Spoon在Linux主機執行相關設定",
     "slug": "kettle-spoon-performs-relevant-settings-on-the-linux-host",
-    "new": "2022-11-16-.html"
+    "new": "2022-11-16-kettle-spoon-performs-relevant-settings.html",
+    "slug_trim": "kettle-spoon-performs-relevant-settings"
   },
   {
     "old": "2022-12-15-vscodejshellmaven.html",
     "title": "VSCode新增JShell插件指令(Maven限定)",
     "slug": "vscode-adds-jshell-plug-in-instructions-maven-only",
-    "new": "2022-12-15-.html"
+    "new": "2022-12-15-vscode-adds-jshell-plug-instructions.html",
+    "slug_trim": "vscode-adds-jshell-plug-instructions"
   },
   {
     "old": "2022-12-20-javakettle.html",
     "title": "Java程式整合Kettle(未完成)",
     "slug": "java-program-integration-with-kettle-unfinished",
-    "new": "2022-12-20-.html"
+    "new": "2022-12-20-java-program-integration-kettle-unfinished.html",
+    "slug_trim": "java-program-integration-kettle-unfinished"
   },
   {
     "old": "2022-12-20-pdi-kettlearthas.html",
     "title": "PDI Kettle異常使用Arthas偵錯排除",
     "slug": "use-arthas-to-debug-and-troubleshoot-pdi-kettle-exceptions",
-    "new": "2022-12-20-.html"
+    "new": "2022-12-20-arthas-debug-troubleshoot-pdi-kettle.html",
+    "slug_trim": "arthas-debug-troubleshoot-pdi-kettle"
   },
   {
     "old": "2022-12-20-tabbywsllinux.html",
     "title": "讓Tabby一啟動WSL就進入Linux使用者目錄",
     "slug": "let-tabby-enter-the-linux-user-directory-as-soon-as-she-starts-wsl",
-    "new": "2022-12-20-.html"
+    "new": "2022-12-20-let-tabby-enter-linux-user.html",
+    "slug_trim": "let-tabby-enter-linux-user"
   },
   {
     "old": "2022-12-27-modified-javascript-valuetransformation1step.html",
     "title": "Modified JavaScript value在Transformation的第1個Step無任何輸出",
     "slug": "modified-javascript-value-has-no-output-in-the-first-step-of-transformation",
-    "new": "2022-12-27-.html"
+    "new": "2022-12-27-modified-javascript-value-has-no.html",
+    "slug_trim": "modified-javascript-value-has-no"
   },
   {
     "old": "2023-01-04-windowsw.html",
     "title": "Windows右鍵選單的新增(W)項目增加檔案類型",
     "slug": "new-w-item-in-windows-right-click-menu-adds-file-type",
-    "new": "2023-01-04-.html"
+    "new": "2023-01-04-w-item-windows-right-click.html",
+    "slug_trim": "w-item-windows-right-click"
   },
   {
     "old": "2023-02-08-easyflowhttpsnginxproxy.html",
     "title": "EasyFlow改用https連線(以Nginx作為反向proxy)",
     "slug": "easyflow-switches-to-https-connection-using-nginx-as-reverse-proxy",
-    "new": "2023-02-08-.html"
+    "new": "2023-02-08-easyflow-switches-https-connection-nginx.html",
+    "slug_trim": "easyflow-switches-https-connection-nginx"
   },
   {
     "old": "2023-03-13-kettlenginx.html",
     "title": "Kettle用Nginx作為反向代理的注意事項",
     "slug": "things-to-note-when-kettle-uses-nginx-as-a-reverse-proxy",
-    "new": "2023-03-13-.html"
+    "new": "2023-03-13-things-note-when-kettle-uses.html",
+    "slug_trim": "things-note-when-kettle-uses"
   },
   {
     "old": "2023-03-15-osgit.html",
     "title": "開發端在不同OS的git換行符號設定",
     "slug": "git-newline-symbol-settings-for-different-oss-on-the-development-side",
-    "new": "2023-03-15-.html"
+    "new": "2023-03-15-git-newline-symbol-settings-different.html",
+    "slug_trim": "git-newline-symbol-settings-different"
   },
   {
     "old": "2023-03-29-docker-composedocker.html",
     "title": "用docker-compose啟動docker有時佔用內網網段造成連線異常",
     "slug": "using-docker-compose-to-start-docker-sometimes-occupies-the-intranet-segment-and-causes-connection-abnormalities",
-    "new": "2023-03-29-.html"
+    "new": "2023-03-29-docker-compose-start-sometimes-occupies.html",
+    "slug_trim": "docker-compose-start-sometimes-occupies"
   },
   {
     "old": "2023-04-10-dockeranki.html",
     "title": "用Docker在樹莓派建立Anki同步伺服器",
     "slug": "use-docker-to-create-an-anki-synchronization-server-on-raspberry-pi",
-    "new": "2023-04-10-.html"
+    "new": "2023-04-10-docker-create-an-anki-synchronization.html",
+    "slug_trim": "docker-create-an-anki-synchronization"
   },
   {
     "old": "2023-04-12-vscode-.html",
     "title": "VSCode 遠端開發無法儲存檔案",
     "slug": "vscode-remote-development-cannot-save-files",
-    "new": "2023-04-12-.html"
+    "new": "2023-04-12-vscode-remote-development-cannot-save.html",
+    "slug_trim": "vscode-remote-development-cannot-save"
   },
   {
     "old": "2023-04-13-ubuntu-2004oracle.html",
     "title": "Ubuntu 20.04連Oracle資料庫",
     "slug": "ubuntu-20-04-connected-to-oracle-database",
-    "new": "2023-04-13-.html"
+    "new": "2023-04-13-ubuntu-20-04-connected-oracle.html",
+    "slug_trim": "ubuntu-20-04-connected-oracle"
   },
   {
     "old": "2023-04-21-vscodelimesurvey.html",
     "title": "VSCode在LimeSurvey進行開發除錯",
     "slug": "vscode-develops-and-debugs-in-limesurvey",
-    "new": "2023-04-21-.html"
+    "new": "2023-04-21-vscode-develops-debugs-limesurvey-and.html",
+    "slug_trim": "vscode-develops-debugs-limesurvey-and"
   },
   {
     "old": "2023-04-27-apache-flink-sqlsql-server-cdc.html",
     "title": "使用Apache Flink SQL+SQL Server CDC connector同步MSSQL資料表",
     "slug": "synchronize-mssql-data-tables-using-apache-flink-sql-sql-server-cdc-connector",
-    "new": "2023-04-27-.html"
+    "new": "2023-04-27-synchronize-mssql-data-tables-apache.html",
+    "slug_trim": "synchronize-mssql-data-tables-apache"
   },
   {
     "old": "2023-05-08-clinktab.html",
     "title": "Clink使用Tab鍵自動補完指令",
     "slug": "clink-uses-the-tab-key-to-automatically-complete-instructions",
-    "new": "2023-05-08-.html"
+    "new": "2023-05-08-clink-uses-tab-key-automatically.html",
+    "slug_trim": "clink-uses-tab-key-automatically"
   },
   {
     "old": "2023-05-12-maven-381http-repositoriesblocked-mirror-for.html",
     "title": "Maven 3.8.1+阻擋HTTP repositories(Blocked mirror for repositories)",
     "slug": "maven-3-8-1-http-repositories-blocked-mirror-for-repositories",
-    "new": "2023-05-12-.html"
+    "new": "2023-05-12-maven-3-8-1-http.html",
+    "slug_trim": "maven-3-8-1-http"
   },
   {
     "old": "2023-05-12-autohotkey-1.html",
     "title": "用AutoHotKey針對應用程式自訂快捷鍵",
     "slug": "use-autohotkey-to-customize-shortcut-keys-for-applications",
-    "new": "2023-05-12-.html"
+    "new": "2023-05-12-autohotkey-customize-shortcut-keys-applications.html",
+    "slug_trim": "autohotkey-customize-shortcut-keys-applications"
   },
   {
     "old": "2023-06-21-how-to-1-settings.html",
     "title": "如何除錯時在空區塊或方法最後1個陳述式設定中斷點不被跳過",
     "slug": "how-to-set-a-break-point-in-an-empty-block-or-the-last-statement-of-a-method-so-that-it-will-not-be-skipped-when-debugging",
-    "new": "2023-06-21-.html"
+    "new": "2023-06-21-how-set-a-break-point.html",
+    "slug_trim": "how-set-a-break-point"
   },
   {
     "old": "2023-06-26-delete.html",
     "title": "每日排程刪除資源回收筒(保留一段時間)",
     "slug": "daily-schedule-to-delete-the-recycle-bin-keep-it-for-a-period-of-time",
-    "new": "2023-06-26-.html"
+    "new": "2023-06-26-daily-schedule-delete-recycle-bin.html",
+    "slug_trim": "daily-schedule-delete-recycle-bin"
   },
   {
     "old": "2023-07-11-chatrwkvwsl24gbnvidia-quadro-p1000.html",
     "title": "試用本地小模型ChatRWKV、WSL2、4GB顯卡NVIDIA Quadro P1000",
     "slug": "try-the-local-small-model-chatrwkv-wsl2-4gb-graphics-card-nvidia-quadro-p1000",
-    "new": "2023-07-11-.html"
+    "new": "2023-07-11-try-local-small-model-chatrwkv.html",
+    "slug_trim": "try-local-small-model-chatrwkv"
   },
   {
     "old": "2023-07-18-docker-log.html",
     "title": "限制Docker log大小",
     "slug": "limit-docker-log-size",
-    "new": "2023-07-18-.html"
+    "new": "2023-07-18-limit-docker-log-size.html",
+    "slug_trim": "limit-docker-log-size"
   },
   {
     "old": "2023-07-19-chatglm2-6bgoogle-colab.html",
     "title": "試用大模型ChatGLM2-6B、Google Colab",
     "slug": "try-large-models-chatglm2-6b-google-colab",
-    "new": "2023-07-19-.html"
+    "new": "2023-07-19-try-large-models-chatglm2-6b.html",
+    "slug_trim": "try-large-models-chatglm2-6b"
   },
   {
     "old": "2023-08-14-jbang-1.html",
     "title": "使用JBang產生原生平台程式",
     "slug": "use-jbang-to-generate-native-platform-programs",
-    "new": "2023-08-14-.html"
+    "new": "2023-08-14-jbang-generate-native-platform-programs.html",
+    "slug_trim": "jbang-generate-native-platform-programs"
   },
   {
     "old": "2023-09-14-linux-1.html",
     "title": "Linux修改登入時的目錄位置",
     "slug": "linux-changes-the-directory-location-when-logging-in",
-    "new": "2023-09-14-.html"
+    "new": "2023-09-14-linux-changes-directory-location-when.html",
+    "slug_trim": "linux-changes-directory-location-when"
   },
   {
     "old": "2023-09-19-jvms-java-version-manager-for.html",
     "title": "JVMS - Java version manager for Windows",
     "slug": "jvms---java-version-manager-for-windows",
-    "new": "2023-09-19-.html"
+    "new": "2023-09-19-jvms-java-version-manager-windows.html",
+    "slug_trim": "jvms-java-version-manager-windows"
   },
   {
     "old": "2023-09-20-linuxeclipse.html",
     "title": "Linux無法啟動Eclipse",
     "slug": "linux-cannot-start-eclipse",
-    "new": "2023-09-20-.html"
+    "new": "2023-09-20-linux-cannot-start-eclipse.html",
+    "slug_trim": "linux-cannot-start-eclipse"
   },
   {
     "old": "2023-10-23-programmers-day.html",
     "title": "今天是[程式設計師節]!!",
-    "slug": "today-is-programmer-s-day",
-    "new": "2023-10-23-.html"
+    "slug": "programmers-day",
+    "new": "2023-10-23-programmers-day.html",
+    "slug_trim": "programmers-day"
   },
   {
     "old": "2023-11-30-rubyalpine-linuxdebug-gem.html",
     "title": "Ruby在Alpine Linux安裝debug gem失敗",
     "slug": "ruby-fails-to-install-debug-gem-on-alpine-linux",
-    "new": "2023-11-30-.html"
+    "new": "2023-11-30-ruby-fails-install-debug-gem.html",
+    "slug_trim": "ruby-fails-install-debug-gem"
   },
   {
     "old": "2024-01-18-bigbluebutton-1.html",
     "title": "安裝BigBlueButton(白板系統)注意事項",
     "slug": "things-to-note-when-installing-bigbluebutton-whiteboard-system",
-    "new": "2024-01-18-.html"
+    "new": "2024-01-18-things-note-when-installing-bigbluebutton.html",
+    "slug_trim": "things-note-when-installing-bigbluebutton"
   },
   {
     "old": "2024-02-06-mariadb-1.html",
     "title": "MariaDB開放外連",
     "slug": "mariadb-open-external-connection",
-    "new": "2024-02-06-.html"
+    "new": "2024-02-06-mariadb-open-external-connection.html",
+    "slug_trim": "mariadb-open-external-connection"
   },
   {
     "old": "2024-02-19-docker-1.html",
     "title": "複製尚未啟動Docker映像檔內的檔案",
     "slug": "copy-the-files-in-the-docker-image-that-has-not-yet-been-started",
-    "new": "2024-02-19-.html"
+    "new": "2024-02-19-copy-files-docker-image-that.html",
+    "slug_trim": "copy-files-docker-image-that"
   },
   {
     "old": "2024-02-24-autohotkey-1.html",
     "title": "用AutoHotKey建立全域自訂快捷鍵",
     "slug": "use-autohotkey-to-create-global-custom-shortcut-keys",
-    "new": "2024-02-24-.html"
+    "new": "2024-02-24-autohotkey-create-global-custom-shortcut.html",
+    "slug_trim": "autohotkey-create-global-custom-shortcut"
   },
   {
     "old": "2024-02-27-docker-ps-.html",
     "title": "docker ps 輸出結果格式化",
     "slug": "docker-ps-output-formatting",
-    "new": "2024-02-27-.html"
+    "new": "2024-02-27-docker-ps-output-formatting.html",
+    "slug_trim": "docker-ps-output-formatting"
   },
   {
     "old": "2024-03-05-smtp-1.html",
     "title": "假的SMTP伺服器",
     "slug": "fake-smtp-server",
-    "new": "2024-03-05-.html"
+    "new": "2024-03-05-fake-smtp-server.html",
+    "slug_trim": "fake-smtp-server"
   },
   {
     "old": "2024-03-08-docker-compose-v1v2.html",
     "title": "docker compose v1遷移到v2指令的變化",
     "slug": "changes-in-instructions-for-migrating-docker-compose-v1-to-v2",
-    "new": "2024-03-08-.html"
+    "new": "2024-03-08-changes-instructions-migrating-docker-compose.html",
+    "slug_trim": "changes-instructions-migrating-docker-compose"
   },
   {
     "old": "2024-03-13-mysqlsqlutf8.html",
     "title": "MySQL容器SQL腳本初始化UTF8內容為亂碼",
     "slug": "mysql-container-sql-script-initializes-utf8-content-as-garbled-characters",
-    "new": "2024-03-13-.html"
+    "new": "2024-03-13-mysql-container-sql-script-initializes.html",
+    "slug_trim": "mysql-container-sql-script-initializes"
   },
   {
     "old": "2024-03-19-git-on-windows-ssl-certificate.html",
     "title": "'Git on Windows: SSL certificate problem: unable to get local issuer certificate'",
     "slug": "git-on-windows-ssl-certificate-problem-unable-to-get-local-issuer-certificate",
-    "new": "2024-03-19-.html"
+    "new": "2024-03-19-git-windows-ssl-certificate-problem.html",
+    "slug_trim": "git-windows-ssl-certificate-problem"
   },
   {
     "old": "2024-03-20-git-on-linux-server-certificate.html",
     "title": "'Git on Linux: server certificate verification failed. CAfile: none CRLfile:",
     "slug": "git-on-linux-server-certificate-verification-failed-cafile-none-crlfile",
-    "new": "2024-03-20-.html"
+    "new": "2024-03-20-git-linux-server-certificate-verification.html",
+    "slug_trim": "git-linux-server-certificate-verification"
   },
   {
     "old": "2024-03-24-windows-10.html",
     "title": "Windows 10啟動資料夾路徑",
     "slug": "windows-10-startup-folder-path",
-    "new": "2024-03-24-.html"
+    "new": "2024-03-24-windows-10-startup-folder-path.html",
+    "slug_trim": "windows-10-startup-folder-path"
   },
   {
     "old": "2024-03-28-docker-v26port2375.html",
     "title": "Docker v.26開啟管理port:2375",
     "slug": "docker-v-26-opens-management-port-2375",
-    "new": "2024-03-28-.html"
+    "new": "2024-03-28-docker-v-26-opens-management.html",
+    "slug_trim": "docker-v-26-opens-management"
   },
   {
     "old": "2024-04-17-limesurvey-1.html",
     "title": "LimeSurvey特定問題依其他題目的答案而變更為選填或必填",
     "slug": "limesurvey-specific-questions-become-optional-or-required-based-on-answers-to-other-questions",
-    "new": "2024-04-17-.html"
+    "new": "2024-04-17-limesurvey-specific-questions-become-optional.html",
+    "slug_trim": "limesurvey-specific-questions-become-optional"
   },
   {
     "old": "2024-05-06-kaggleqanything.html",
     "title": "在Kaggle執行QAnything(支援任意格式檔或資料庫的本地知識庫問答系統)",
     "slug": "run-qanything-on-kaggle-a-local-knowledge-base-q-a-system-that-supports-any-format-file-or-database",
-    "new": "2024-05-06-.html"
+    "new": "2024-05-06-qanything-kaggle-a-local-knowledge.html",
+    "slug_trim": "qanything-kaggle-a-local-knowledge"
   },
   {
     "old": "2024-05-10-kagglepaddleocrocr-library.html",
     "title": "在Kaggle執行PaddleOCR(百度的OCR library)",
     "slug": "execute-paddleocr-baidu-s-ocr-library-on-kaggle",
-    "new": "2024-05-10-.html"
+    "new": "2024-05-10-execute-paddleocr-baidu-s-ocr.html",
+    "slug_trim": "execute-paddleocr-baidu-s-ocr"
   },
   {
     "old": "2024-06-21-zram-1.html",
     "title": "樹莓派啟用ZRAM以改善效能",
     "slug": "raspberry-pi-enables-zram-to-improve-performance",
-    "new": "2024-06-21-.html"
+    "new": "2024-06-21-raspberry-pi-enables-zram-improve.html",
+    "slug_trim": "raspberry-pi-enables-zram-improve"
   },
   {
     "old": "2024-07-09-windows-10.html",
     "title": "設定Windows 10右下角通知停留時間",
     "slug": "set-the-notification-dwell-time-in-the-lower-right-corner-of-windows-10",
-    "new": "2024-07-09-.html"
+    "new": "2024-07-09-set-notification-dwell-time-lower.html",
+    "slug_trim": "set-notification-dwell-time-lower"
   },
   {
     "old": "2024-10-23-programmers-day.html",
     "title": "今天是[程式設計師節]!!",
-    "slug": "today-is-programmer-s-day",
-    "new": "2024-10-23-.html"
+    "slug": "programmers-day",
+    "new": "2024-10-23-programmers-day.html",
+    "slug_trim": "programmers-day"
   },
   {
     "old": "2024-12-05-synology-drive-clientgit.html",
     "title": "Synology Drive Client同步Git資料夾失敗",
     "slug": "synology-drive-client-fails-to-sync-git-folder",
-    "new": "2024-12-05-.html"
+    "new": "2024-12-05-synology-drive-client-fails-sync.html",
+    "slug_trim": "synology-drive-client-fails-sync"
   },
   {
     "old": "2024-12-30-vs2022netframework40.html",
     "title": "VS2022開啓.NETFramework4.0的專案",
     "slug": "vs2022-opens-the-net-framework-4-0-project",
-    "new": "2024-12-30-.html"
+    "new": "2024-12-30-vs2022-opens-net-framework-4.html",
+    "slug_trim": "vs2022-opens-net-framework-4"
   },
   {
     "old": "2025-01-16-iis-expressnssm.html",
     "title": "IIS Express使用NSSM掛載成本機網站服務",
     "slug": "iis-express-uses-nssm-to-mount-local-website-services",
-    "new": "2025-01-16-.html"
+    "new": "2025-01-16-iis-express-uses-nssm-mount.html",
+    "slug_trim": "iis-express-uses-nssm-mount"
   },
   {
     "old": "2025-02-21-jetbrains-toolboxwsl.html",
     "title": "JetBrains Toolbox在WSL執行未回應",
     "slug": "jetbrains-toolbox-not-responding-during-wsl-execution",
-    "new": "2025-02-21-.html"
+    "new": "2025-02-21-jetbrains-toolbox-not-responding-during.html",
+    "slug_trim": "jetbrains-toolbox-not-responding-during"
   },
   {
     "old": "2025-02-24-gitignore-1.html",
     "title": "已加入gitignore的檔案移除版控並保留本機檔案",
     "slug": "files-that-have-been-added-to-gitignore-will-be-removed-from-version-control-and-local-files-will-be-retained",
-    "new": "2025-02-24-.html"
+    "new": "2025-02-24-files-that-have-been-added.html",
+    "slug_trim": "files-that-have-been-added"
   },
   {
     "old": "2025-02-25-mozilla-thunderbird.html",
     "title": "備份Mozilla Thunderbird設定",
     "slug": "back-up-mozilla-thunderbird-settings",
-    "new": "2025-02-25-.html"
+    "new": "2025-02-25-back-up-mozilla-thunderbird-settings.html",
+    "slug_trim": "back-up-mozilla-thunderbird-settings"
   },
   {
     "old": "2025-03-04-keepassxcclearfield.html",
     "title": "KeePassXC自動輸入{CLEARFIELD}無法清除欄位內容",
     "slug": "keepassxc-automatic-input-clearfield-cannot-clear-the-field-content",
-    "new": "2025-03-04-.html"
+    "new": "2025-03-04-keepassxc-automatic-input-clearfield-cannot.html",
+    "slug_trim": "keepassxc-automatic-input-clearfield-cannot"
   },
   {
     "old": "2025-03-04-procdumpwindbgnet-framework.html",
     "title": "使用ProcDump+WinDbg定位.NET Framework問題(筆記)",
     "slug": "use-procdump-windbg-to-locate-net-framework-problems-notes",
-    "new": "2025-03-04-.html"
+    "new": "2025-03-04-procdump-windbg-locate-net-framework.html",
+    "slug_trim": "procdump-windbg-locate-net-framework"
   },
   {
     "old": "2025-03-07-windows-1.html",
     "title": "Windows新電腦快速還原安裝程式(含設定)",
     "slug": "windows-new-computer-quick-restore-installer-including-settings",
-    "new": "2025-03-07-.html"
+    "new": "2025-03-07-windows-computer-quick-restore-installer.html",
+    "slug_trim": "windows-computer-quick-restore-installer"
   },
   {
     "old": "2025-03-17-windows-11net-framework-35.html",
     "title": "Windows 11無法安裝.NET Framework 3.5",
     "slug": "windows-11-cannot-install-net-framework-3-5",
-    "new": "2025-03-17-.html"
+    "new": "2025-03-17-windows-11-cannot-install-net.html",
+    "slug_trim": "windows-11-cannot-install-net"
   },
   {
     "old": "2025-03-18-windows-formssqlitelibrary-esqlite3.html",
     "title": "Windows Forms建立SQLite連線時顯示Library e_sqlite3找不到的錯誤",
     "slug": "library-e-sqlite3-not-found-error-displayed-when-windows-forms-establishes-sqlite-connection",
-    "new": "2025-03-18-.html"
+    "new": "2025-03-18-library-e-sqlite3-not-found.html",
+    "slug_trim": "library-e-sqlite3-not-found"
   },
   {
     "old": "2025-03-26-gx-works2-.html",
     "title": "GX Works2 切換介面語系",
     "slug": "gx-works2-switch-interface-language",
-    "new": "2025-03-26-.html"
+    "new": "2025-03-26-gx-works2-switch-interface-language.html",
+    "slug_trim": "gx-works2-switch-interface-language"
   },
   {
     "old": "2025-03-31-quick-switch-settings.html",
     "title": "快速切換網路介面卡設定",
     "slug": "quickly-switch-network-interface-card-settings",
-    "new": "2025-03-31-.html"
+    "new": "2025-03-31-quickly-switch-network-interface-card.html",
+    "slug_trim": "quickly-switch-network-interface-card"
   },
   {
     "old": "2025-04-03-linuxlocal.html",
     "title": "Linux無法用.local域名連線",
     "slug": "linux-cannot-connect-using-local-domain-name",
-    "new": "2025-04-03-.html"
+    "new": "2025-04-03-linux-cannot-connect-local-domain.html",
+    "slug_trim": "linux-cannot-connect-local-domain"
   },
   {
     "old": "2025-04-03-windowsssh-copy-id.html",
     "title": "Windows無法用ssh-copy-id複製公鑰的替代方法",
     "slug": "windows-cannot-copy-public-key-with-ssh-copy-id-alternative",
-    "new": "2025-04-03-.html"
+    "new": "2025-04-03-windows-cannot-copy-public-key.html",
+    "slug_trim": "windows-cannot-copy-public-key"
   },
   {
     "old": "2025-04-07-linuxx11vnc.html",
     "title": "Linux安裝X11VNC並設為服務",
     "slug": "install-x11vnc-on-linux-and-set-it-as-a-service",
-    "new": "2025-04-07-.html"
+    "new": "2025-04-07-install-x11vnc-linux-set-it.html",
+    "slug_trim": "install-x11vnc-linux-set-it"
   },
   {
     "old": "2025-04-16-rdp-1.html",
     "title": "RDP視窗自動縮放",
     "slug": "rdp-window-auto-zooming",
-    "new": "2025-04-16-.html"
+    "new": "2025-04-16-rdp-window-zooming-auto.html",
+    "slug_trim": "rdp-window-zooming-auto"
   },
   {
     "old": "2025-04-16-vscodelinux.html",
     "title": "VSCode在Linux同步異常",
     "slug": "vscode-synchronization-exception-in-linux",
-    "new": "2025-04-16-.html"
+    "new": "2025-04-16-vscode-synchronization-exception-linux-in.html",
+    "slug_trim": "vscode-synchronization-exception-linux-in"
   },
   {
     "old": "2025-04-25-windows-11notepad.html",
     "title": "Windows 11修改Notepad++檔案圖示",
     "slug": "modify-notepad-file-icon-in-windows-11",
-    "new": "2025-04-25-.html"
+    "new": "2025-04-25-modify-notepad-file-icon-windows.html",
+    "slug_trim": "modify-notepad-file-icon-windows"
   },
   {
     "old": "2025-06-12-untitled.html",
     "title": "取得測試專案路徑",
     "slug": "get-test-project-path",
-    "new": "2025-06-12-.html"
+    "new": "2025-06-12-get-test-project-path.html",
+    "slug_trim": "get-test-project-path"
   },
   {
     "old": "2025-06-12-show.html",
     "title": "測試專案顯示組件相依性問題",
     "slug": "test-project-shows-component-dependency-issues",
-    "new": "2025-06-12-.html"
+    "new": "2025-06-12-test-project-shows-component-dependency.html",
+    "slug_trim": "test-project-shows-component-dependency"
   },
   {
     "old": "2025-08-06-windowsterminal-1.html",
     "title": "在資料夾右鍵新增\"在終端中開啟\"(WindowsTerminal)",
     "slug": "right-click-on-the-folder-and-add-open-in-terminal-windows-terminal",
-    "new": "2025-08-06-.html"
+    "new": "2025-08-06-right-click-folder-add-open.html",
+    "slug_trim": "right-click-folder-add-open"
   },
   {
     "old": "2025-08-22-claude-codevscodeprofile.html",
     "title": "Claude Code在VSCode終端機多行輸入及多Profile快捷鍵問題及解法",
     "slug": "claude-code-s-multi-line-input-and-multi-profile-shortcut-key-problems-and-solutions-in-the-vscode-terminal",
-    "new": "2025-08-22-.html"
+    "new": "2025-08-22-claude-code-s-multi-line.html",
+    "slug_trim": "claude-code-s-multi-line"
   },
   {
     "old": "2025-09-02-visual-studio-2022windows-terminal.html",
     "title": "Visual Studio 2022在方案總管直接打開Windows Terminal",
     "slug": "visual-studio-2022-opens-windows-terminal-directly-in-the-program-manager",
-    "new": "2025-09-02-.html"
+    "new": "2025-09-02-visual-studio-2022-opens-windows.html",
+    "slug_trim": "visual-studio-2022-opens-windows"
   },
   {
     "old": "2025-09-02-visual-studio-2022.html",
     "title": "Visual Studio 2022偵錯所選擇的專案",
     "slug": "visual-studio-2022-debug-selected-project",
-    "new": "2025-09-02-.html"
+    "new": "2025-09-02-visual-studio-2022-debug-selected.html",
+    "slug_trim": "visual-studio-2022-debug-selected"
   },
   {
     "old": "2025-09-05-dev-drive-vs-ramdisk.html",
     "title": "Dev Drive vs RamDisk",
     "slug": "dev-drive-vs-ramdisk",
-    "new": "2025-09-05-.html"
+    "new": "2025-09-05-dev-drive-vs-ramdisk.html",
+    "slug_trim": "dev-drive-vs-ramdisk"
   },
   {
     "old": "2025-09-05-visual-studio-2022-bin-obj.html",
     "title": "Visual Studio 2022 清除專案同時清空bin/obj資料夾",
     "slug": "visual-studio-2022-clears-the-project-and-clears-the-bin-obj-folder",
-    "new": "2025-09-05-.html"
+    "new": "2025-09-05-visual-studio-2022-clears-project.html",
+    "slug_trim": "visual-studio-2022-clears-project"
   },
   {
     "old": "2025-09-12-openai-codex-cli.html",
     "title": "安裝OpenAI Codex CLI",
     "slug": "install-openai-codex-cli",
-    "new": "2025-09-12-.html"
+    "new": "2025-09-12-install-openai-codex-cli.html",
+    "slug_trim": "install-openai-codex-cli"
   },
   {
     "old": "2025-09-20-openai-codex-cli.html",
     "title": "OpenAI Codex CLI另一種編寫提示詞的方式",
     "slug": "openai-codex-cli-another-way-to-write-prompt-words",
-    "new": "2025-09-20-.html"
+    "new": "2025-09-20-openai-codex-cli-another-way.html",
+    "slug_trim": "openai-codex-cli-another-way"
   },
   {
     "old": "2025-09-30-visual-studio-2022.html",
     "title": "Visual Studio 2022同時偵錯(啟動)多個專案",
     "slug": "visual-studio-2022-debugs-starts-multiple-projects-at-the-same-time",
-    "new": "2025-09-30-.html"
+    "new": "2025-09-30-visual-studio-2022-debugs-starts.html",
+    "slug_trim": "visual-studio-2022-debugs-starts"
   },
   {
     "old": "2025-10-08-git-worktree-addtortoisegitlogwindows.html",
     "title": "在git worktree add後使用TortoiseGit查看log的錯誤(Windows)",
     "slug": "use-tortoisegit-to-view-log-errors-after-git-worktree-add-windows",
-    "new": "2025-10-08-.html"
+    "new": "2025-10-08-tortoisegit-view-log-errors-after.html",
+    "slug_trim": "tortoisegit-view-log-errors-after"
   },
   {
     "old": "2025-10-13-github-copilot-cli.html",
     "title": "安裝GitHub Copilot CLI",
     "slug": "install-github-copilot-cli",
-    "new": "2025-10-13-.html"
+    "new": "2025-10-13-install-github-copilot-cli.html",
+    "slug_trim": "install-github-copilot-cli"
   },
   {
     "old": "2025-10-23-github-copilot-cliwindows-terminalshiftenter.html",
     "title": "GitHub Copilot CLI在Windows Terminal按Shift+Enter換行",
     "slug": "github-copilot-cli-press-shift-enter-to-change-line-in-windows-terminal",
-    "new": "2025-10-23-.html"
+    "new": "2025-10-23-github-copilot-cli-press-shift.html",
+    "slug_trim": "github-copilot-cli-press-shift"
   },
   {
     "old": "2025-10-23-github-copilot-cli.html",
     "title": "GitHub Copilot CLI工作完成發送桌面通知",
     "slug": "github-copilot-cli-sends-desktop-notification-when-job-completes",
-    "new": "2025-10-23-.html"
+    "new": "2025-10-23-github-copilot-cli-sends-desktop.html",
+    "slug_trim": "github-copilot-cli-sends-desktop"
   },
   {
     "old": "2025-10-24-programmers-day.html",
     "title": "今天是[程式設計師節]!!",
-    "slug": "today-is-programmer-s-day",
-    "new": "2025-10-24-.html"
+    "slug": "programmers-day",
+    "new": "2025-10-24-programmers-day.html",
+    "slug_trim": "programmers-day"
   },
   {
     "old": "2025-12-03-ap-1.html",
     "title": "在受限的網路環境(沒有無線AP)連線遠端主機",
     "slug": "connect-to-the-remote-host-in-a-restricted-network-environment-no-wireless-ap",
-    "new": "2025-12-03-.html"
+    "new": "2025-12-03-connect-remote-host-a-restricted.html",
+    "slug_trim": "connect-remote-host-a-restricted"
   }
 ]
