@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+
+  <!-- Minima -->
+  <!-- Hexo theme created by @adisaktijrs -->
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+
+  
+  <title>PDI Kettle異常使用Arthas偵錯排除</title>
+  
+  <link rel="sitemap" href="https://tzengshinfu.github.iositemap.xml" />
+  
+  <link rel="canonical" href="https://tzengshinfu.github.io/2022/12/20/kettle-debug-with-arthas/">
+  
+  <meta name="description" content="1.Kettle Spoon的[Run SSH commands]連線異常  2.下載Arthas並執行，附加到&amp;#x2F;&amp;lt;Kettle目錄&amp;gt;&amp;#x2F;launcher&amp;#x2F;launcher.jar 3.在GitHub搜尋source code，得知進行SSH連線的元件是com">
+  
+  
+  <meta name="author" content="tzengshinfu">
+  
+  
+  
+  <meta property="og:site_name" content="工作備忘錄" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="PDI Kettle異常使用Arthas偵錯排除" />
+  
+  <meta property="og:description" content="1.Kettle Spoon的[Run SSH commands]連線異常  2.下載Arthas並執行，附加到&amp;#x2F;&amp;lt;Kettle目錄&amp;gt;&amp;#x2F;launcher&amp;#x2F;launcher.jar 3.在GitHub搜尋source code，得知進行SSH連線的元件是com">
+  
+  <meta property="og:url" content="https://tzengshinfu.github.io/2022/12/20/kettle-debug-with-arthas/" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PDI Kettle異常使用Arthas偵錯排除">
+  
+  <meta name="twitter:description" content="1.Kettle Spoon的[Run SSH commands]連線異常  2.下載Arthas並執行，附加到&amp;#x2F;&amp;lt;Kettle目錄&amp;gt;&amp;#x2F;launcher&amp;#x2F;launcher.jar 3.在GitHub搜尋source code，得知進行SSH連線的元件是com">
+  
+  
+  
+  
+  <meta name="twitter:url" content="https://tzengshinfu.github.io/2022/12/20/kettle-debug-with-arthas/" />
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Preload fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preload" href="/fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+<link rel="stylesheet" href="/css/normalize.css">
+
+  
+<link rel="stylesheet" href="/css/skeleton.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+<link rel="stylesheet" href="/css/prism-dark.css">
+
+  
+<link rel="stylesheet" href="/css/prism-line-numbers.css">
+
+  <!-- User css -->
+  
+  
+<link rel="stylesheet" href="/css/user.css">
+
+  
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="/images/craftsman.png">
+
+  <!-- Custom Theme Color Style
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <style>
+  a:not(.icon) {
+    text-decoration-color: #0FA0CE;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      #0FA0CE 50%
+    );
+  }
+  blockquote {
+    border-left: 8px solid #0FA0CE;
+  }
+  .nanobar .bar {
+    background: #0FA0CE;
+  }
+  .button.button-primary:hover,
+  button.button-primary:hover,
+  input[type="submit"].button-primary:hover,
+  input[type="reset"].button-primary:hover,
+  input[type="button"].button-primary:hover,
+  .button.button-primary:focus,
+  button.button-primary:focus,
+  input[type="submit"].button-primary:focus,
+  input[type="reset"].button-primary:focus,
+  input[type="button"].button-primary:focus {
+    background-color: #0FA0CE;
+    border-color: #0FA0CE;
+  }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    border: 1px solid #0FA0CE;
+  }
+</style>
+
+  <!-- Google Analytics (With Privacy Settings On)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+
+  
+  <script src="/js/pic.min.js" defer></script>
+  
+
+  
+  <script src="/js/search.min.js" defer></script>
+  
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div>
+
+        <div class="row">
+  <div class="two columns" style="max-width: 50px">
+    <h1 class="mt-2 mode">
+      <div onclick=setDarkMode(true) id="darkBtn">🌑</div>
+      <div onclick=setDarkMode(false) id="lightBtn" class=hidden>☀️</div>
+      <script >
+        if (localStorage.getItem('preferredTheme') == 'dark') {
+          setDarkMode(true)
+        }
+        function setDarkMode(isDark) {
+          var darkBtn = document.getElementById('darkBtn')
+          var lightBtn = document.getElementById('lightBtn')
+          if (isDark) {
+            lightBtn.style.display = "block"
+            darkBtn.style.display = "none"
+            localStorage.setItem('preferredTheme', 'dark');
+          } else {
+            lightBtn.style.display = "none"
+            darkBtn.style.display = "block"
+            localStorage.removeItem('preferredTheme');
+          }
+          document.body.classList.toggle("darkmode");
+        }
+      </script>
+    </h1>
+  </div>
+
+  <div class="six columns ml-1">
+    <h1 class="mt-2">
+      工作備忘錄
+    </h1>
+  </div>
+
+  <div class="twelve columns">
+    <div class="row">
+      <div class="nine columns left">
+        <a href="/">Home</a>
+        
+          
+        
+          
+        
+          
+          <a href="/archives" class="ml">Posts</a>
+          
+        
+        
+      </div>
+    </div>
+    <hr style="margin-bottom: 2.6rem">
+  </div>
+</div>
+
+        <div class="trans">
+            <h2>PDI Kettle異常使用Arthas偵錯排除</h2>
+
+  <p>1.Kettle Spoon的[Run SSH commands]連線異常</p>
+<p><a href="image.png"><img src="/2022/12/20/kettle-debug-with-arthas/image-small.png"></a></p>
+<p>2.下載<a target="_blank" rel="noopener" href="https://arthas.aliyun.com/doc/" title="https:&#x2F;&#x2F;arthas.aliyun.com&#x2F;doc&#x2F;">Arthas</a>並執行，附加到&#x2F;&lt;Kettle目錄&gt;&#x2F;launcher&#x2F;launcher.jar</p>
+<p>3.在GitHub搜尋<a target="_blank" rel="noopener" href="https://github.com/jenkinsci/trilead-ssh2/blob/main/src/com/trilead/ssh2/Connection.java" title="https:&#x2F;&#x2F;github.com&#x2F;jenkinsci&#x2F;trilead-ssh2&#x2F;blob&#x2F;main&#x2F;src&#x2F;com&#x2F;trilead&#x2F;ssh2&#x2F;Connection.java">source code</a>，得知進行SSH連線的元件是com.trilead.ssh2，方法是connect</p>
+<p>4.輸入tt -t com.trilead.ssh2.Connection connect監控connect方法</p>
+<p>5.回到Spoon，點擊[Test connection]按鈕重現錯誤，記下INDEX數字(本例為1000)</p>
+<p>6.輸入tt -i 1000 -w ‘target.connect’觸發錯誤</p>
+<p>7.查看~&#x2F;logs&#x2F;arthas&#x2F;arthas.log，發現”Caused by: java.io.IOException: Cannot negotiate, proposals do not match”的異常</p>
+<p>8.查詢此<a target="_blank" rel="noopener" href="https://www.dell.com/support/kbdoc/zh-tw/000196454/srm-4-7-%E5%B7%B2%E6%8E%92%E5%AE%9A-%E5%A0%B1%E5%91%8A-%E9%81%A0%E7%AB%AF-%E4%BD%8D%E7%BD%AE-ssh-%E5%82%B3%E8%BC%B8-%E5%A4%B1%E6%95%97-%E5%87%BA%E7%8F%BE-cannot-negotiate-proposals-do-not-match-%E9%8C%AF%E8%AA%A4" title="https:&#x2F;&#x2F;www.dell.com&#x2F;support&#x2F;kbdoc&#x2F;zh-tw&#x2F;000196454&#x2F;srm-4-7-%E5%B7%B2%E6%8E%92%E5%AE%9A-%E5%A0%B1%E5%91%8A-%E9%81%A0%E7%AB%AF-%E4%BD%8D%E7%BD%AE-ssh-%E5%82%B3%E8%BC%B8-%E5%A4%B1%E6%95%97-%E5%87%BA%E7%8F%BE-cannot-negotiate-proposals-do-not-match-%E9%8C%AF%E8%AA%A4">錯誤</a>為SSH演算法不相容，修改伺服端主機的&#x2F;etc&#x2F;ssh&#x2F;sshd_config，<br>MACS區段加入hmac-sha1-96，Kexalgorithms區段加入diffie-hellman-group-exchange-sha1<br>※Windows主機為%programdata%\ssh\sshd_config</p>
+<p>新增內容如下</p>
+<p>Match Group administrators</p>
+<p>       AuthorizedKeysFile __PROGRAMDATA__&#x2F;ssh&#x2F;administrators_authorized_keys</p>
+<p>Match all&lt;–如果有Match Group要加這行關閉Match block</p>
+<h1 id="Pentaho-Kettle-Run-SSH-commands"><a href="#Pentaho-Kettle-Run-SSH-commands" class="headerlink" title="Pentaho Kettle [Run SSH commands]"></a>Pentaho Kettle [Run SSH commands]</h1><p>Kexalgorithms +diffie-hellman-group-exchange-sha1</p>
+<p>MACS +hmac-sha1-96</p>
+<p>HostKeyAlgorithms +ssh-rsa,ssh-dss&lt;–Windows主機再加這行</p>
+<p>9.重啟SSH服務</p>
+<p>10.Kettle Spoon的[Run SSH commands]連線即正常</p>
+<p>PS:Arthas誠為神器也</p>
+<p>PS:sshd<a target="_blank" rel="noopener" href="https://github.com/PowerShell/Win32-OpenSSH/wiki/Logging-Facilities" title="https:&#x2F;&#x2F;github.com&#x2F;PowerShell&#x2F;Win32-OpenSSH&#x2F;wiki&#x2F;Logging-Facilities">啟用log紀錄</a>會很有幫助</p>
+
+  <p><a class="classtest-link" href="/tags/arthas/" rel="tag">arthas</a>, <a class="classtest-link" href="/tags/java/" rel="tag">java</a>, <a class="classtest-link" href="/tags/kettle/" rel="tag">kettle</a> — 2022年12月20日</p>
+  
+
+
+        </div>
+        <div class="row mt-2">
+  <h3>Search</h3>
+  <div><input id="search-text" title="search" class="search-text" type="text" placeholder="search......"></div>
+  <div style="margin-top: 1.5rem;">
+    <ul id="result"></ul>
+  </div>
+</div>
+        <div class="row mt-2">
+  
+    <div class="eight columns">
+      <p id="madewith">Made with ❤ and
+        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
+        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+        </a>
+        
+        at <a href="https://en.wikipedia.org/wiki/Taiwan" target="_blank" rel="noreferrer">Taiwan</a>.</p>
+        
+    </div>
+
+    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
+    <div class="four columns mb-3 posisi" >
+      
+      <a class="ml-0 footer-link icon" href="https://github.com/tzengshinfu" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="GitHub">
+        <svg class="github svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      
+
+      
+      <a class="ml-0 footer-link icon" href="https://linkedin.com/in/tzengshinfu" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="LinkedIn">
+        <svg class="linkedin svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      
+
+      
+
+      
+
+      
+
+    </div>
+  
+</div>
+
+      </div>
+
+    </div>
+
+  </div>
+  <script src="/js/nanobar.min.js"></script>
+
+  <script>
+    var options = {
+      classname: 'nanobar',
+      id: 'myNanobar'
+    };
+    var nanobar = new Nanobar(options);
+    nanobar.go(30);
+    nanobar.go(76);
+    nanobar.go(100);
+  </script>
+
+</body>
+
+</html>
