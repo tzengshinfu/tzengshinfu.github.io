@@ -1,0 +1,23 @@
+---
+layout: post
+title: 找出部門主管在全部所屬單位的身份SQL
+date: 2021-07-07 10:23:00
+tags:
+- easyflow gp
+- sql
+---
+
+```
+SELECT
+    OrganizationUnit.id AS organizationUnitID, OrganizationUnit.organizationUnitName, Users.id AS userID, Users.userName,
+    CASE WHEN OrganizationUnit.managerOID = Users.OID THEN 'Y' ELSE 'N' END AS isManager,
+    CASE WHEN Functions.isMain = 1 THEN 'Y' ELSE 'N' END AS isMainUnit
+FROM Users
+INNER JOIN Functions
+ON Functions.occupantOID = Users.OID
+INNER JOIN OrganizationUnit
+ON OrganizationUnit.OID = Functions.organizationUnitOID AND OrganizationUnit.validType = 1
+INNER JOIN (SELECT DISTINCT managerOID FROM OrganizationUnit WHERE validType = 1) AS Managers ON Managers.managerOID = Users.OID
+WHERE Users.leaveDate IS NULL
+ORDER BY Users.id, OrganizationUnit.id;
+```
