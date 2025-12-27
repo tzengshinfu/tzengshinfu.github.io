@@ -11,40 +11,36 @@
   <meta charset="utf-8">
 
   
-  <title>All Posts - tzengshinfu</title>
+  <title>自訂PowerShell 6+快捷鍵</title>
   
   <link rel="sitemap" href="https://tzengshinfu.github.iositemap.xml" />
   
-  <link rel="canonical" href="https://tzengshinfu.github.io/archives/page/26/">
+  <link rel="canonical" href="https://tzengshinfu.github.io/2025/12/27/powershell-custom-shortcut/">
   
-  <meta name="description" content="">
+  <meta name="description" content="列出已綁定的快捷鍵。PS $env:USERPROFILE&amp;gt; Get-PSReadLineKeyHandler  列出其他未綁定的快捷鍵。PS $env:USERPROFILE&amp;gt; Get-PSReadLineKeyHandler -Unbound  要綁定的快捷鍵功能可參考上述指令結果。">
   
   
   <meta name="author" content="tzengshinfu">
   
   
-  <meta property="og:image" content="https://tzengshinfu.github.io/images/thumbnail.jpg">
-  
   
   <meta property="og:site_name" content="工作備忘錄" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="All Posts - tzengshinfu" />
+  <meta property="og:title" content="自訂PowerShell 6+快捷鍵" />
   
-  <meta property="og:description" content="">
+  <meta property="og:description" content="列出已綁定的快捷鍵。PS $env:USERPROFILE&amp;gt; Get-PSReadLineKeyHandler  列出其他未綁定的快捷鍵。PS $env:USERPROFILE&amp;gt; Get-PSReadLineKeyHandler -Unbound  要綁定的快捷鍵功能可參考上述指令結果。">
   
-  <meta property="og:url" content="https://tzengshinfu.github.io/archives/page/26/" />
+  <meta property="og:url" content="https://tzengshinfu.github.io/2025/12/27/powershell-custom-shortcut/" />
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="All Posts - tzengshinfu">
+  <meta name="twitter:title" content="自訂PowerShell 6+快捷鍵">
   
-  <meta name="twitter:description" content="">
-  
-  
-  
-  <meta name="twitter:image" content="https://tzengshinfu.github.io/images/thumbnail.jpg">
+  <meta name="twitter:description" content="列出已綁定的快捷鍵。PS $env:USERPROFILE&amp;gt; Get-PSReadLineKeyHandler  列出其他未綁定的快捷鍵。PS $env:USERPROFILE&amp;gt; Get-PSReadLineKeyHandler -Unbound  要綁定的快捷鍵功能可參考上述指令結果。">
   
   
-  <meta name="twitter:url" content="https://tzengshinfu.github.io/archives/page/26/" />
+  
+  
+  <meta name="twitter:url" content="https://tzengshinfu.github.io/2025/12/27/powershell-custom-shortcut/" />
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -199,196 +195,25 @@
 </div>
 
         <div class="trans">
-          
-<h2>All Posts</h2>
+            <h2>自訂PowerShell 6+快捷鍵</h2>
 
+  <ol>
+<li><p>列出已綁定的快捷鍵。<br><code>PS $env:USERPROFILE&gt; Get-PSReadLineKeyHandler</code></p>
+</li>
+<li><p>列出其他未綁定的快捷鍵。<br><code>PS $env:USERPROFILE&gt; Get-PSReadLineKeyHandler -Unbound</code></p>
+</li>
+<li><p>要綁定的快捷鍵功能可參考上述指令結果。</p>
+</li>
+<li><p>編輯設定檔。<br><code>PS $env:USERPROFILE&gt; notepad(或其他文字編輯器) $PROFILE</code></p>
+</li>
+<li><p>寫入新的快捷鍵並存檔，如：<br><code>Set-PSReadLineKeyHandler -Key Tab -Function ForwardChar Set-PSReadLineKeyHandler -Key Ctrl+k -Function ForwardDeleteInput Set-PSReadLineKeyHandler -Key Ctrl+RightArrow -Function ForwardWord</code></p>
+</li>
+<li><p>即套用在新的PowerShell視窗。</p>
+</li>
+</ol>
 
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2017年4月21日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2017/04/21/connect-remote-database-error-message/" class="">
-            
-              取得遠端DB所連接伺服器的檢視有錯誤訊息
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2017年4月21日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2017/04/21/speedup-computer-startup/" class="">
-            
-              加速電腦啟動速度
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2017年4月17日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2017/04/17/establish-disk-usage-monitoring-mechanism/" class="">
-            
-              建立磁碟用量監控機制
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2017年4月17日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2017/04/17/ssis-read-first-row-problem/" class="">
-            
-              SSIS讀入Excel只能讀到前幾列資料的解決方法
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2017年4月14日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2017/04/14/xmlserializer-exception-thrown-windows_form/" class="">
-            
-              Windows Form debug時拋出XmlSerializer例外
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2017年4月14日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2017/04/14/monitor-sql-command-between-easyflow_gp5_6/" class="">
-            
-              監看EasyFlow與DB間的SQL指令
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2017年4月14日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2017/04/14/windows_form-catch-global-error/" class="">
-            
-              Windows Form捕捉全域錯誤並處理
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2017年4月14日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2017/04/14/run-coded-ui-test-locally/" class="">
-            
-              Coded UI Test在本機執行方式
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2017年4月14日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2017/04/14/sql-agent-specified-index-error/" class="">
-            
-              SQL Agent顯示[指定的索引鍵不在字典中]的錯誤
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2017年4月12日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2017/04/12/error-foreach-variable-mapping-1/" class="">
-            
-              Error: 無法套用 ForEach Variable Mapping 數字 1 至變數 "User::xxxx"
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-<div class="pagination-bar">
-  <ul class="pagination">
-    
-
-    <a class="mr" href="/archives/page/25/">
-      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
-      </svg>
-      <span>Recent</span>
-    </a>
-
-    
-    
-
-    <a class="" href="/archives/page/27/">
-      <span>Older</span>
-      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5A.5.5 0 0 0 4 8z" />
-      </svg>
-    </a>
-
-    
-  </ul>
-</div>
+  <p><a class="classtest-link" href="/tags/PowerShell/" rel="tag">PowerShell</a> — 2025年12月27日</p>
+  
 
 
         </div>
