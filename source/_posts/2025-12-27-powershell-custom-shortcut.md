@@ -24,7 +24,7 @@ PS $env:USERPROFILE> notepad(或其他文字編輯器) $PROFILE
 
 5. 寫入新的快捷鍵並存檔，如：  
 `
-Set-PSReadLineKeyHandler -Key Tab -Function ForwardChar
+Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineKeyHandler -Key Ctrl+k -Function ForwardDeleteInput
 Set-PSReadLineKeyHandler -Key Ctrl+RightArrow -Function ForwardWord
 `
