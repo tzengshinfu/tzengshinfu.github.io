@@ -11,40 +11,36 @@
   <meta charset="utf-8">
 
   
-  <title>工作備忘錄</title>
+  <title>置換Tiptop預設Shell</title>
   
   <link rel="sitemap" href="https://tzengshinfu.github.iositemap.xml" />
   
-  <link rel="canonical" href="https://tzengshinfu.github.io/page/24/">
+  <link rel="canonical" href="https://tzengshinfu.github.io/2026/04/14/replace-tiptop-shell/">
   
-  <meta name="description" content="">
+  <meta name="description" content="目前Tiptop的預設Shell是KSH，對於常用鍵(Backspace&amp;#x2F;Delete)支援相當不友善。 可以用指令改善支援狀況，分為2種情境：  在Vtcp for TIPTOP輸入stty sane &amp;amp;&amp;amp; set -o emacs &amp;amp;&amp;amp; stty era">
   
   
   <meta name="author" content="tzengshinfu">
   
   
-  <meta property="og:image" content="https://tzengshinfu.github.io/images/thumbnail.jpg">
-  
   
   <meta property="og:site_name" content="工作備忘錄" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="工作備忘錄" />
+  <meta property="og:title" content="置換Tiptop預設Shell" />
   
-  <meta property="og:description" content="">
+  <meta property="og:description" content="目前Tiptop的預設Shell是KSH，對於常用鍵(Backspace&amp;#x2F;Delete)支援相當不友善。 可以用指令改善支援狀況，分為2種情境：  在Vtcp for TIPTOP輸入stty sane &amp;amp;&amp;amp; set -o emacs &amp;amp;&amp;amp; stty era">
   
-  <meta property="og:url" content="https://tzengshinfu.github.io/page/24/" />
+  <meta property="og:url" content="https://tzengshinfu.github.io/2026/04/14/replace-tiptop-shell/" />
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="工作備忘錄">
+  <meta name="twitter:title" content="置換Tiptop預設Shell">
   
-  <meta name="twitter:description" content="">
-  
-  
-  
-  <meta name="twitter:image" content="https://tzengshinfu.github.io/images/thumbnail.jpg">
+  <meta name="twitter:description" content="目前Tiptop的預設Shell是KSH，對於常用鍵(Backspace&amp;#x2F;Delete)支援相當不友善。 可以用指令改善支援狀況，分為2種情境：  在Vtcp for TIPTOP輸入stty sane &amp;amp;&amp;amp; set -o emacs &amp;amp;&amp;amp; stty era">
   
   
-  <meta name="twitter:url" content="https://tzengshinfu.github.io/page/24/" />
+  
+  
+  <meta name="twitter:url" content="https://tzengshinfu.github.io/2026/04/14/replace-tiptop-shell/" />
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -199,76 +195,20 @@
 </div>
 
         <div class="trans">
-          <div class="row">
-  <div class="column">
-    <!-- Main information, edit it on theme/_config.yml -->
-    <h2 class="mb-2">好記性不如爛筆頭</h2>
-    <p></p>
-    <p></p>
-  </div>
-</div>
+            <h2>置換Tiptop預設Shell</h2>
 
-<h3>Recent Posts</h3>
+  <p>目前Tiptop的預設Shell是KSH，對於常用鍵(Backspace&#x2F;Delete)支援相當不友善。</p>
+<p>可以用指令改善支援狀況，分為2種情境：</p>
+<ol>
+<li><p>在Vtcp for TIPTOP<br>輸入<code>stty sane &amp;&amp; set -o emacs &amp;&amp; stty erase &quot;^H&quot; &amp;&amp; bind &quot;^I=complete&quot; &amp;&amp; bind &quot;^?=delete-char-forward&quot;</code>。</p>
+</li>
+<li><p>在其他終端機<br>先輸入<strong>bash</strong>切換到BASH，<br>再輸入<code>stty sane &amp;&amp; stty erase &quot;^?&quot;</code>。</p>
+</li>
+</ol>
 
+  <p><a class="classtest-link" href="/tags/tiptop/" rel="tag">tiptop</a> — 2026年4月14日</p>
+  
 
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2026年4月14日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2026/04/14/replace-tiptop-shell/" >
-      
-        置換Tiptop預設Shell
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2025年12月27日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2025/12/27/powershell-custom-shortcut/" >
-      
-        自訂PowerShell 6+快捷鍵
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2025年12月3日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2025/12/03/connect-remote-host-restricted-network/" >
-      
-        在受限的網路環境(沒有無線AP)連線遠端主機
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2025年10月24日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2025/10/24/programmers-day/" >
-      
-        今天是[程式設計師節]!!
-      
-    </a>
-  </div>
-</div>
-
-
-<h4> <a href="/archives">All Posts</a></h4>
 
         </div>
         <div class="row mt-2">
