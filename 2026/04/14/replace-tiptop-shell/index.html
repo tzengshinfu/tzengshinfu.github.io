@@ -200,7 +200,11 @@
   <p>目前Tiptop的預設Shell是KSH，對於常用鍵(Backspace&#x2F;Delete)支援相當不友善。</p>
 <p>可以用指令改善支援狀況，分為2種情境：</p>
 <ol>
-<li><p>在Vtcp for TIPTOP<br>輸入<code>stty sane &amp;&amp; set -o emacs &amp;&amp; stty erase &quot;^H&quot; &amp;&amp; bind &quot;^I=complete&quot; &amp;&amp; bind &quot;^?=delete-char-forward&quot;</code>。</p>
+<li><p>在Vtcp for TIPTOP<br>輸入<code>stty sane &amp;&amp; set -o emacs &amp;&amp; stty erase &quot;^H&quot; &amp;&amp; bind &quot;^I=complete&quot; &amp;&amp; bind &quot;^?=delete-char-forward&quot; &amp;&amp; bind &quot;^[B=backward-word&quot; &amp;&amp; bind &quot;^[F=forward-word&quot;</code>，<br>並在終端機選單<code>Setup[C]</code>&gt;<code>Keyboard ...</code>&gt;<code>Key maps ...</code>&gt;<code>Ctrl_Key ...</code>新增對應按鍵組合  </p>
+<ul>
+<li><em>Ctl_Lft</em>輸入<code>&lt;ESC&gt;B</code></li>
+<li><em>Ctl_Rgt</em>輸入<code>&lt;ESC&gt;F</code><br><a href="telnet32_20260415_095136.png"><img src="/2026/04/14/replace-tiptop-shell/telnet32_20260415_095136.png"></a></li>
+</ul>
 </li>
 <li><p>在其他終端機<br>先輸入<strong>bash</strong>切換到BASH，<br>再輸入<code>stty sane &amp;&amp; stty erase &quot;^?&quot;</code>。</p>
 </li>
