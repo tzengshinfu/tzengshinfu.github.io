@@ -11,40 +11,36 @@
   <meta charset="utf-8">
 
   
-  <title>工作備忘錄</title>
+  <title>WSL2鏡像網路模式異常處理</title>
   
   <link rel="sitemap" href="https://tzengshinfu.github.iositemap.xml" />
   
-  <link rel="canonical" href="https://tzengshinfu.github.io/page/20/">
+  <link rel="canonical" href="https://tzengshinfu.github.io/2026/04/17/wsl-networkingmode-mirrored-issue/">
   
-  <meta name="description" content="">
+  <meta name="description" content="問題在.wslconfig設定鏡像網路模式，   [wsl2] networkingMode=mirrored  啟動時遭遇以下錯誤而無法連接到其他內網主機。   CreateInstance/CreateVm/ConfigureNetworking/0x8007054f wsl: 無法設定 net">
   
   
   <meta name="author" content="tzengshinfu">
   
   
-  <meta property="og:image" content="https://tzengshinfu.github.io/images/thumbnail.jpg">
-  
   
   <meta property="og:site_name" content="工作備忘錄" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="工作備忘錄" />
+  <meta property="og:title" content="WSL2鏡像網路模式異常處理" />
   
-  <meta property="og:description" content="">
+  <meta property="og:description" content="問題在.wslconfig設定鏡像網路模式，   [wsl2] networkingMode=mirrored  啟動時遭遇以下錯誤而無法連接到其他內網主機。   CreateInstance/CreateVm/ConfigureNetworking/0x8007054f wsl: 無法設定 net">
   
-  <meta property="og:url" content="https://tzengshinfu.github.io/page/20/" />
+  <meta property="og:url" content="https://tzengshinfu.github.io/2026/04/17/wsl-networkingmode-mirrored-issue/" />
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="工作備忘錄">
+  <meta name="twitter:title" content="WSL2鏡像網路模式異常處理">
   
-  <meta name="twitter:description" content="">
-  
-  
-  
-  <meta name="twitter:image" content="https://tzengshinfu.github.io/images/thumbnail.jpg">
+  <meta name="twitter:description" content="問題在.wslconfig設定鏡像網路模式，   [wsl2] networkingMode=mirrored  啟動時遭遇以下錯誤而無法連接到其他內網主機。   CreateInstance/CreateVm/ConfigureNetworking/0x8007054f wsl: 無法設定 net">
   
   
-  <meta name="twitter:url" content="https://tzengshinfu.github.io/page/20/" />
+  
+  
+  <meta name="twitter:url" content="https://tzengshinfu.github.io/2026/04/17/wsl-networkingmode-mirrored-issue/" />
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -199,76 +195,35 @@
 </div>
 
         <div class="trans">
-          <div class="row">
-  <div class="column">
-    <!-- Main information, edit it on theme/_config.yml -->
-    <h2 class="mb-2">好記性不如爛筆頭</h2>
-    <p></p>
-    <p></p>
-  </div>
-</div>
+            <h2>WSL2鏡像網路模式異常處理</h2>
 
-<h3>Recent Posts</h3>
+  <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>在.wslconfig設定<em>鏡像網路模式</em>，  </p>
+<pre class="line-numbers language-toml" data-language="toml"><code class="language-toml"><span class="token punctuation">[</span><span class="token table class-name">wsl2</span><span class="token punctuation">]</span>
+<span class="token key property">networkingMode</span><span class="token punctuation">=</span>mirrored<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
+<p>啟動時遭遇以下錯誤而無法連接到其他內網主機。  </p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">CreateInstance/CreateVm/ConfigureNetworking/0x8007054f
+wsl: 無法設定 networkingMode Mirrored 的網络<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<div class="row">
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><ol>
+<li>關閉WSL2及WSL2網路服務。</li>
+</ol>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">wsl <span class="token operator">--</span>shutdown
+net stop winnat
+net <span class="token function">start</span> winnat
+<span class="token function">sc</span> stop WSLService<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-  <div class="three columns left lit">
-    <p class="bottom">2026年4月17日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2026/04/17/wsl-networkingmode-mirrored-issue/" >
-      
-        WSL2鏡像網路模式異常處理
-      
-    </a>
-  </div>
-</div>
+<ol start="2">
+<li><p>使用Process Explorer查看並移除與WSL2相關的佔用。<br><a href="procexp64_20260417_104243.png"><img src="/2026/04/17/wsl-networkingmode-mirrored-issue/procexp64_20260417_104243.png"></a></p>
+</li>
+<li><p>重啟WSL2即可。</p>
+</li>
+</ol>
+<p>參考來源：<a target="_blank" rel="noopener" href="https://github.com/microsoft/WSL/issues/12351#issuecomment-4140573866">Error code: CreateInstance&#x2F;CreateVm&#x2F;ConfigureNetworking&#x2F;0x8007054fs</a></p>
 
-<div class="row">
+  <p><a class="classtest-link" href="/tags/wsl2/" rel="tag">wsl2</a> — 2026年4月17日</p>
+  
 
-  <div class="three columns left lit">
-    <p class="bottom">2026年4月16日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2026/04/16/daisy-chain-task-scheduler-tasks/" >
-      
-        設定工作排程器的工作2開始於工作1的結束
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2026年4月15日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2026/04/15/genero-studio-cant-add-column/" >
-      
-        GENERO_STUDIO_無法新增欄位
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2026年4月14日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2026/04/14/replace-tiptop-shell/" >
-      
-        置換Tiptop預設Shell
-      
-    </a>
-  </div>
-</div>
-
-
-<h4> <a href="/archives">All Posts</a></h4>
 
         </div>
         <div class="row mt-2">
