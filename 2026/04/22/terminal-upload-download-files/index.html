@@ -11,40 +11,36 @@
   <meta charset="utf-8">
 
   
-  <title>All Posts - tzengshinfu</title>
+  <title>Windows終端機直接上傳下載檔案的輕量級方案</title>
   
   <link rel="sitemap" href="https://tzengshinfu.github.iositemap.xml" />
   
-  <link rel="canonical" href="https://tzengshinfu.github.io/archives/page/13/">
+  <link rel="canonical" href="https://tzengshinfu.github.io/2026/04/22/terminal-upload-download-files/">
   
-  <meta name="description" content="">
+  <meta name="description" content="場景說明  本機: Windows 遠端: Linux  設定手順  在本機執行winget install tssh安裝trzsz-ssh(tssh)。 在本機執行winget install lrzsz安裝lrzsz。 修改%USERPROFILE%.ssh\config，新增以下區段以支援ZM">
   
   
   <meta name="author" content="tzengshinfu">
   
   
-  <meta property="og:image" content="https://tzengshinfu.github.io/images/thumbnail.jpg">
-  
   
   <meta property="og:site_name" content="工作備忘錄" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="All Posts - tzengshinfu" />
+  <meta property="og:title" content="Windows終端機直接上傳下載檔案的輕量級方案" />
   
-  <meta property="og:description" content="">
+  <meta property="og:description" content="場景說明  本機: Windows 遠端: Linux  設定手順  在本機執行winget install tssh安裝trzsz-ssh(tssh)。 在本機執行winget install lrzsz安裝lrzsz。 修改%USERPROFILE%.ssh\config，新增以下區段以支援ZM">
   
-  <meta property="og:url" content="https://tzengshinfu.github.io/archives/page/13/" />
+  <meta property="og:url" content="https://tzengshinfu.github.io/2026/04/22/terminal-upload-download-files/" />
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="All Posts - tzengshinfu">
+  <meta name="twitter:title" content="Windows終端機直接上傳下載檔案的輕量級方案">
   
-  <meta name="twitter:description" content="">
-  
-  
-  
-  <meta name="twitter:image" content="https://tzengshinfu.github.io/images/thumbnail.jpg">
+  <meta name="twitter:description" content="場景說明  本機: Windows 遠端: Linux  設定手順  在本機執行winget install tssh安裝trzsz-ssh(tssh)。 在本機執行winget install lrzsz安裝lrzsz。 修改%USERPROFILE%.ssh\config，新增以下區段以支援ZM">
   
   
-  <meta name="twitter:url" content="https://tzengshinfu.github.io/archives/page/13/" />
+  
+  
+  <meta name="twitter:url" content="https://tzengshinfu.github.io/2026/04/22/terminal-upload-download-files/" />
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -199,196 +195,35 @@
 </div>
 
         <div class="trans">
-          
-<h2>All Posts</h2>
+            <h2>Windows終端機直接上傳下載檔案的輕量級方案</h2>
 
+  <p>場景說明</p>
+<ul>
+<li>本機: Windows</li>
+<li>遠端: Linux</li>
+</ul>
+<p>設定手順</p>
+<ol>
+<li>在本機執行<code>winget install tssh</code>安裝<strong>trzsz-ssh(tssh)</strong>。</li>
+<li>在本機執行<code>winget install lrzsz</code>安裝<strong>lrzsz</strong>。</li>
+<li>修改%USERPROFILE%.ssh\config，新增以下區段以支援<em>ZMODEM檔案傳輸</em>：</li>
+</ol>
+<pre class="line-numbers language-config" data-language="config"><code class="language-config">Host *
+    #!! EnableZmodem Yes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-    <article>
-      <div class="row">
+<p>另外如果要啟用拖拉檔案自動上傳遠端，則需要加上以下2行：<br>(注意，<em>使用者帳戶控制</em>必須啟用，而且Windows終端機不能以<em>系統管理員</em>身份執行。)</p>
+<pre class="line-numbers language-config" data-language="config"><code class="language-config">#!! EnableDragFile Yes
+#!! DragFileUploadCommand rz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-        <div class="three columns left lit">
-          <p class="bottom">2021年6月16日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2021/06/16/oracle-developer-tool-visual_studio/" class="">
-            
-              Oracle Developer Tools for Visual Studio 2019安裝注意事項
-            
-          </a>
-        </div>
-      </div>
-    </article>
+<ol start="4">
+<li>原本ssh連線指令改用tssh連線，其餘參數不變。</li>
+<li>要上傳本機檔案到遠端，在遠端執行<code>rz</code>，會顯示檔案選擇介面以選取上傳檔案。<br><a href="WindowsTerminal_20260422_133132.png"><img src="/2026/04/22/terminal-upload-download-files/WindowsTerminal_20260422_133132.png"></a></li>
+<li>要下載遠端檔案到本機，在遠端執行<code>sz {檔案名稱}</code>，會顯示資料夾選擇介面以選取下載儲存路徑。<br><a href="WindowsTerminal_20260422_133817.png"><img src="/2026/04/22/terminal-upload-download-files/WindowsTerminal_20260422_133817.png"></a></li>
+</ol>
+<p>參考來源：<a target="_blank" rel="noopener" href="https://github.com/microsoft/terminal/issues/1999#issuecomment-1828895334">Plugin: add support for [XYZ]MODEM file transfers</a></p>
 
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2021年3月5日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2021/03/05/input-method-shortcut-reset-solution/" class="">
-            
-              輸入法快速鍵被重置的解決方法
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2020年10月24日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2020/10/24/programmers-day/" class="">
-            
-              今天是[程式設計師節]!!
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2020年9月10日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2020/09/10/netcore3_1-deploy_iis8_5-windows2012_r2/" class="">
-            
-              (筆記)部署.Net Core 3.1到IIS 8.5在Windows 2012 R2
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2020年9月4日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2020/09/04/server-log-overwritten-solution/" class="">
-            
-              解決:server.log每次重開機都被覆蓋
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2020年8月24日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2020/08/24/process-variable-note/" class="">
-            
-              設定流程變數注意事項
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2020年7月21日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2020/07/21/task_scheduler-custom-trigger-condition/" class="">
-            
-              工作排程器自訂觸發條件
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2020年7月17日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2020/07/17/outlook-format-picture-automatically/" class="">
-            
-              Outlook存檔時自動格式化圖片(加上邊框及超過規定大小則自動縮小)
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2020年7月14日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2020/07/14/ssms-edit-column-data/" class="">
-            
-              SSMS如PLSQL Developer一般從SELECT結果直接編輯資料列
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2020年6月17日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2020/06/17/easyflow_gp5_6-approval-authority-level-note/" class="">
-            
-              核決權限關卡 - 單位主管核定
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-<div class="pagination-bar">
-  <ul class="pagination">
-    
-
-    <a class="mr" href="/archives/page/12/">
-      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
-      </svg>
-      <span>Recent</span>
-    </a>
-
-    
-    
-
-    <a class="" href="/archives/page/14/">
-      <span>Older</span>
-      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5A.5.5 0 0 0 4 8z" />
-      </svg>
-    </a>
-
-    
-  </ul>
-</div>
+  <p><a class="classtest-link" href="/tags/windows-terminal/" rel="tag">windows terminal</a> — 2026年4月22日</p>
+  
 
 
         </div>
