@@ -21,6 +21,14 @@ Host *
     #!! EnableZmodem Yes
 ```
 
+另外如果要啟用拖拉檔案自動上傳遠端，則需要加上以下2行：  
+(注意，*使用者帳戶控制*必須啟用，而且Windows終端機不能以*系統管理員*身份執行。)
+
+```config
+    #!! EnableDragFile Yes
+    #!! DragFileUploadCommand rz
+```
+
 4. 原本ssh連線指令改用tssh連線，其餘參數不變。
 5. 要上傳本機檔案到遠端，在遠端執行`rz`，會顯示檔案選擇介面以選取上傳檔案。  
 [![](WindowsTerminal_20260422_133132.png)](WindowsTerminal_20260422_133132.png)
