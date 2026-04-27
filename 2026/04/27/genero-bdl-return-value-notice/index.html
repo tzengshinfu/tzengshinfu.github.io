@@ -11,40 +11,36 @@
   <meta charset="utf-8">
 
   
-  <title>All Posts - tzengshinfu</title>
+  <title>Genero BDL函式回傳注意事項</title>
   
   <link rel="sitemap" href="https://tzengshinfu.github.iositemap.xml" />
   
-  <link rel="canonical" href="https://tzengshinfu.github.io/archives/page/26/">
+  <link rel="canonical" href="https://tzengshinfu.github.io/2026/04/27/genero-bdl-return-value-notice/">
   
-  <meta name="description" content="">
+  <meta name="description" content="問題函式最後傳回一個拼接的字串如下:     ......     RETURN p_field CLIPPED, &amp;quot;&amp;#x3D;&amp;quot;, l_result CLIPPED, &amp;quot;; export &amp;quot;, p_field CLIPPED END FUNCTION  執">
   
   
   <meta name="author" content="tzengshinfu">
   
   
-  <meta property="og:image" content="https://tzengshinfu.github.io/images/thumbnail.jpg">
-  
   
   <meta property="og:site_name" content="工作備忘錄" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="All Posts - tzengshinfu" />
+  <meta property="og:title" content="Genero BDL函式回傳注意事項" />
   
-  <meta property="og:description" content="">
+  <meta property="og:description" content="問題函式最後傳回一個拼接的字串如下:     ......     RETURN p_field CLIPPED, &amp;quot;&amp;#x3D;&amp;quot;, l_result CLIPPED, &amp;quot;; export &amp;quot;, p_field CLIPPED END FUNCTION  執">
   
-  <meta property="og:url" content="https://tzengshinfu.github.io/archives/page/26/" />
+  <meta property="og:url" content="https://tzengshinfu.github.io/2026/04/27/genero-bdl-return-value-notice/" />
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="All Posts - tzengshinfu">
+  <meta name="twitter:title" content="Genero BDL函式回傳注意事項">
   
-  <meta name="twitter:description" content="">
-  
-  
-  
-  <meta name="twitter:image" content="https://tzengshinfu.github.io/images/thumbnail.jpg">
+  <meta name="twitter:description" content="問題函式最後傳回一個拼接的字串如下:     ......     RETURN p_field CLIPPED, &amp;quot;&amp;#x3D;&amp;quot;, l_result CLIPPED, &amp;quot;; export &amp;quot;, p_field CLIPPED END FUNCTION  執">
   
   
-  <meta name="twitter:url" content="https://tzengshinfu.github.io/archives/page/26/" />
+  
+  
+  <meta name="twitter:url" content="https://tzengshinfu.github.io/2026/04/27/genero-bdl-return-value-notice/" />
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -199,196 +195,37 @@
 </div>
 
         <div class="trans">
-          
-<h2>All Posts</h2>
+            <h2>Genero BDL函式回傳注意事項</h2>
 
+  <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>函式最後傳回一個拼接的字串如下:</p>
+<pre class="line-numbers language-bdl" data-language="bdl"><code class="language-bdl">    ......
+    RETURN p_field CLIPPED, &quot;&#x3D;&quot;, l_result CLIPPED, &quot;; export &quot;, p_field CLIPPED
+END FUNCTION<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-    <article>
-      <div class="row">
+<p>執行時發生錯誤如下:<br><a href="2.png"><img src="/2026/04/27/genero-bdl-return-value-notice/2.png"></a></p>
+<p>此錯誤代碼意為<code>函式回傳值的數量與預期不符</code>。<br><a href="3.png"><img src="/2026/04/27/genero-bdl-return-value-notice/3.png"></a></p>
+<p>另一個函式則會在編譯時發生錯誤如下，也是相同意思:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">..</span>/42m/xxx.4gl:117:1:121:12:error:<span class="token punctuation">(</span>-6611<span class="token punctuation">)</span> Function <span class="token string">'concat_string'</span><span class="token builtin class-name">:</span> unexpected number of returned values.
+The compilation was not successful.  Errors found: <span class="token number">1</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-        <div class="three columns left lit">
-          <p class="bottom">2017年7月18日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2017/07/18/async-await-avoid-ui-unresponsive/" class="">
-            
-              用async/await避免UI無回應
-            
-          </a>
-        </div>
-      </div>
-    </article>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><ol>
+<li><p>在函式先宣告STRING型態變數。</p>
+ <pre class="line-numbers language-bdl" data-language="bdl"><code class="language-bdl">FUNCTION concat_string()
+    # 宣告要回傳的STRING型態變數
+    DEFINE l_result STRING
+    ......<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>在最後回傳時先將結果寫入這個變數即可。</p>
+<pre class="line-numbers language-bdl" data-language="bdl"><code class="language-bdl">   ......
+   # 拼接字串先寫入這個變數
+   LET l_result &#x3D; p_field CLIPPED, &quot;&#x3D;&quot;, l_result CLIPPED, &quot;; export &quot;, p_field CLIPPED
+   # 回傳這個變數
+   RETURN l_result
+END FUNCTION<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
 
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2017年6月27日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2017/06/27/ssrs-start-slowly-first-time/" class="">
-            
-              ReportingService每日首次啟動緩慢
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2017年6月22日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2017/06/22/office-automation-exception/" class="">
-            
-              執行Office Automation異常
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2017年5月25日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2017/05/25/visual_studio-extension-slowcheetah/" class="">
-            
-              Visual Studio套件:SlowCheetah(切換設定檔)--載點
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2017年5月10日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2017/05/10/mssql-virtual-field-oracle-rowid/" class="">
-            
-              MSSQL虛擬欄位(等同Oracle的ROWID)
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2017年5月2日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2017/05/02/android_studio-reference-external-jar/" class="">
-            
-              Android Studio引用外部jar
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2017年5月2日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2017/05/02/trigger-program-by-system-event/" class="">
-            
-              以系統事件(如Wifi連線時)觸發程式啟動
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2017年4月26日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2017/04/26/speedup-android_studio-gradle-build/" class="">
-            
-              加速Android Studio/Gradle建置
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2017年4月24日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2017/04/24/ssis-setting-note/" class="">
-            
-              SSIS設定需特別注意之處
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">2017年4月21日</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2017/04/21/connect-remote-database-error-message/" class="">
-            
-              取得遠端DB所連接伺服器的檢視有錯誤訊息
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-<div class="pagination-bar">
-  <ul class="pagination">
-    
-
-    <a class="mr" href="/archives/page/25/">
-      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
-      </svg>
-      <span>Recent</span>
-    </a>
-
-    
-    
-
-    <a class="" href="/archives/page/27/">
-      <span>Older</span>
-      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5A.5.5 0 0 0 4 8z" />
-      </svg>
-    </a>
-
-    
-  </ul>
-</div>
+  <p><a class="classtest-link" href="/tags/tiptop/" rel="tag">tiptop</a> — 2026年4月27日</p>
+  
 
 
         </div>
