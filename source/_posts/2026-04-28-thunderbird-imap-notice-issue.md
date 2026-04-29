@@ -18,7 +18,7 @@ tags:
 
 5. 另外建議: 點選Tools─►Settings─►General─►Incoming Mails  
    取消選擇`Use the system notification`。  
-   [![](thunderbird_20260428_143754.png)](thunderbird_20260428_143754.png)
+   [![](thunderbird_20260428_164045.png)](thunderbird_20260428_164045.png)
    
    - 勾選時的通知，統一格式:  
    [![](Capture_20260428_165007.png)](Capture_20260428_165007.png)
