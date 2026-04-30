@@ -49,3 +49,5 @@ The compilation was not successful.  Errors found: 1.
        RETURN l_result
     END FUNCTION
    ```
+
+3. 或改用`||`拼接字串。(但如果其中一個字串為NULL，則會直接回傳NULL。)
