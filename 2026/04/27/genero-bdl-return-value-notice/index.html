@@ -221,7 +221,10 @@ The compilation was not successful.  Errors found: <span class="token number">1<
    LET l_result &#x3D; p_field CLIPPED, &quot;&#x3D;&quot;, l_result CLIPPED, &quot;; export &quot;, p_field CLIPPED
    # 回傳這個變數
    RETURN l_result
-END FUNCTION<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+END FUNCTION<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>或改用<code>||</code>拼接字串。(但如果其中一個字串為NULL，則會直接回傳NULL。)</p>
+</li>
 </ol>
 
   <p><a class="classtest-link" href="/tags/tiptop/" rel="tag">tiptop</a> — 2026年4月27日</p>
