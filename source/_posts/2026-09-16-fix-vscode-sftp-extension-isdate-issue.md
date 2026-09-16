@@ -17,10 +17,10 @@ natizyskunk.sftp
 
 解法：  
 執行以下指令  
-`
+```bash
 cd ~/.vscode/extensions/natizyskunk.sftp-1.16.3
 npm install ssh2@1.17.0 --omit=dev
-`
+```
 
 參考來源：  
 [isDate is not a function (and temporary fix)](https://github.com/Natizyskunk/vscode-sftp/issues/586#issue-4580618915)
