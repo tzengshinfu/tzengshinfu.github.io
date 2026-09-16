@@ -17,7 +17,7 @@
   
   <link rel="canonical" href="https://tzengshinfu.github.io/2026/09/16/fix-vscode-sftp-extension-isdate-issue/">
   
-  <meta name="description" content="套件：natizyskunk.sftp 情況：在上傳下載檔案會顯示錯誤訊息。 原因：因為隨著VSCode升級，底層Node.js也升至v23並已移除該函數導致異常。 解法：執行以下指令cd ~/.vscode/extensions/natizyskunk.sftp-1.16.3 npm instal">
+  <meta name="description" content="套件：natizyskunk.sftp 情況：在上傳下載檔案會顯示錯誤訊息。 原因：因為隨著VSCode升級，底層Node.js也升至v23並已移除該函數導致異常。 解法：執行以下指令   cd ~/.vscode/extensions/natizyskunk.sftp-1.16.3 npm ins">
   
   
   <meta name="author" content="tzengshinfu">
@@ -28,14 +28,14 @@
   <meta property="og:type" content="article" />
   <meta property="og:title" content="VSCode的SFTP擴充套件無法正常上傳下載" />
   
-  <meta property="og:description" content="套件：natizyskunk.sftp 情況：在上傳下載檔案會顯示錯誤訊息。 原因：因為隨著VSCode升級，底層Node.js也升至v23並已移除該函數導致異常。 解法：執行以下指令cd ~/.vscode/extensions/natizyskunk.sftp-1.16.3 npm instal">
+  <meta property="og:description" content="套件：natizyskunk.sftp 情況：在上傳下載檔案會顯示錯誤訊息。 原因：因為隨著VSCode升級，底層Node.js也升至v23並已移除該函數導致異常。 解法：執行以下指令   cd ~/.vscode/extensions/natizyskunk.sftp-1.16.3 npm ins">
   
   <meta property="og:url" content="https://tzengshinfu.github.io/2026/09/16/fix-vscode-sftp-extension-isdate-issue/" />
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="VSCode的SFTP擴充套件無法正常上傳下載">
   
-  <meta name="twitter:description" content="套件：natizyskunk.sftp 情況：在上傳下載檔案會顯示錯誤訊息。 原因：因為隨著VSCode升級，底層Node.js也升至v23並已移除該函數導致異常。 解法：執行以下指令cd ~/.vscode/extensions/natizyskunk.sftp-1.16.3 npm instal">
+  <meta name="twitter:description" content="套件：natizyskunk.sftp 情況：在上傳下載檔案會顯示錯誤訊息。 原因：因為隨著VSCode升級，底層Node.js也升至v23並已移除該函數導致異常。 解法：執行以下指令   cd ~/.vscode/extensions/natizyskunk.sftp-1.16.3 npm ins">
   
   
   
@@ -200,7 +200,10 @@
   <p>套件：<br>natizyskunk.sftp<br><a href="Code_20260916_140959.png"><img src="/2026/09/16/fix-vscode-sftp-extension-isdate-issue/Code_20260916_140959.png"></a></p>
 <p>情況：<br>在上傳下載檔案會顯示錯誤訊息。<br><a href="Code_20260916_140937.png"><img src="/2026/09/16/fix-vscode-sftp-extension-isdate-issue/Code_20260916_140937.png"></a></p>
 <p>原因：<br>因為隨著VSCode升級，底層Node.js也升至v23並已移除該函數導致異常。</p>
-<p>解法：<br>執行以下指令<br><code>cd ~/.vscode/extensions/natizyskunk.sftp-1.16.3 npm install ssh2@1.17.0 --omit=dev</code></p>
+<p>解法：<br>執行以下指令  </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> ~/.vscode/extensions/natizyskunk.sftp-1.16.3
+<span class="token function">npm</span> <span class="token function">install</span> ssh2@1.17.0 <span class="token parameter variable">--omit</span><span class="token operator">=</span>dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>參考來源：<br><a target="_blank" rel="noopener" href="https://github.com/Natizyskunk/vscode-sftp/issues/586#issue-4580618915">isDate is not a function (and temporary fix)</a></p>
 
   <p><a class="classtest-link" href="/tags/visual-studio-code/" rel="tag">visual studio code</a> — 2026年9月16日</p>
