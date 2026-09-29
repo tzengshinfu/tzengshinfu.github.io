@@ -276,17 +276,19 @@ LISTEN <span class="token number">0</span>      <span class="token number">4096<
 <pre class="line-numbers language-dos" data-language="dos"><code class="language-dos">winget install --id Docker.DockerCLI &amp;&amp; winget install --id Docker.DockerCompose<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>設定環境變數</p>
-<pre class="line-numbers language-dos" data-language="dos"><code class="language-dos">setx DOCKER_HOST 127.0.0.1:2375<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>讓Windows的VSCode的Container Tools也能管理Docker<br>為了能同時管理WSL2和Remote SSH的容器，所以需將IP設為<code>0.0.0.0</code>。</p>
-<p>在設定檔的JSON加入：</p>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-dos" data-language="dos"><code class="language-dos">setx DOCKER_HOST 127.0.0.1:2375<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<p>⭐Windows的VSCode(v1.139.1)的Container Tools已不需以下設定變數。</p>
+<ol start="6">
+<li><p><del>讓Windows的VSCode的Container Tools也能管理Docker</del><br><del>為了能同時管理WSL2和Remote SSH的容器，所以需將IP設為<code>0.0.0.0</code>。</del></p>
+<p><del>在設定檔的JSON加入：</del></p>
+<pre><code><del>{
     ......
-    <span class="token property">"containers.environment"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-        <span class="token property">"DOCKER_HOST"</span><span class="token operator">:</span> <span class="token string">"tcp://0.0.0.0:2375"</span>
-    <span class="token punctuation">&#125;</span>
+    "containers.environment": {
+        "DOCKER_HOST": "tcp://0.0.0.0:2375"
+    }
     ......
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+}</del></code></pre></li>
 </ol>
 
   <p><a class="classtest-link" href="/tags/visual-studio-code/" rel="tag">visual studio code</a>, <a class="classtest-link" href="/tags/windows/" rel="tag">windows</a>, <a class="classtest-link" href="/tags/wsl2/" rel="tag">wsl2</a> — 2026年9月22日</p>
