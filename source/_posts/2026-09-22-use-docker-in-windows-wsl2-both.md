@@ -134,7 +134,8 @@ tags:
    setx DOCKER_HOST 127.0.0.1:2375
    ```
 
-6. 讓Windows的VSCode的Container Tools也能管理Docker
+6. 讓Windows的VSCode的Container Tools也能管理Docker  
+   為了能同時管理WSL2和Remote SSH的容器，所以需將IP設為`0.0.0.0`。
 
    在設定檔的JSON加入：
 
@@ -142,7 +143,7 @@ tags:
    {
        ......
        "containers.environment": {
-           "DOCKER_HOST": "tcp://127.0.0.1:2375"
+           "DOCKER_HOST": "tcp://0.0.0.0:2375"
        }
        ......
    }
