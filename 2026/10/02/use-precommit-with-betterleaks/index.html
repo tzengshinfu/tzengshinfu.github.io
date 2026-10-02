@@ -11,40 +11,36 @@
   <meta charset="utf-8">
 
   
-  <title>工作備忘錄</title>
+  <title>在commit前偵測硬編碼的密鑰</title>
   
   <link rel="sitemap" href="https://tzengshinfu.github.iositemap.xml" />
   
-  <link rel="canonical" href="https://tzengshinfu.github.io/page/2/">
+  <link rel="canonical" href="https://tzengshinfu.github.io/2026/10/02/use-precommit-with-betterleaks/">
   
-  <meta name="description" content="">
+  <meta name="description" content="目的：在git commit前利用hooks呼叫pre-commit(Python)並使用betterleaks(Golang)進行程式碼有無硬編碼的密鑰的檢測，如果發現則阻止git commit。 手順：  安裝Python及Golang。  安裝pre-commit。 pip install p">
   
   
   <meta name="author" content="tzengshinfu">
   
   
-  <meta property="og:image" content="https://tzengshinfu.github.io/images/thumbnail.jpg">
-  
   
   <meta property="og:site_name" content="工作備忘錄" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="工作備忘錄" />
+  <meta property="og:title" content="在commit前偵測硬編碼的密鑰" />
   
-  <meta property="og:description" content="">
+  <meta property="og:description" content="目的：在git commit前利用hooks呼叫pre-commit(Python)並使用betterleaks(Golang)進行程式碼有無硬編碼的密鑰的檢測，如果發現則阻止git commit。 手順：  安裝Python及Golang。  安裝pre-commit。 pip install p">
   
-  <meta property="og:url" content="https://tzengshinfu.github.io/page/2/" />
+  <meta property="og:url" content="https://tzengshinfu.github.io/2026/10/02/use-precommit-with-betterleaks/" />
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="工作備忘錄">
+  <meta name="twitter:title" content="在commit前偵測硬編碼的密鑰">
   
-  <meta name="twitter:description" content="">
-  
-  
-  
-  <meta name="twitter:image" content="https://tzengshinfu.github.io/images/thumbnail.jpg">
+  <meta name="twitter:description" content="目的：在git commit前利用hooks呼叫pre-commit(Python)並使用betterleaks(Golang)進行程式碼有無硬編碼的密鑰的檢測，如果發現則阻止git commit。 手順：  安裝Python及Golang。  安裝pre-commit。 pip install p">
   
   
-  <meta name="twitter:url" content="https://tzengshinfu.github.io/page/2/" />
+  
+  
+  <meta name="twitter:url" content="https://tzengshinfu.github.io/2026/10/02/use-precommit-with-betterleaks/" />
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -199,76 +195,48 @@
 </div>
 
         <div class="trans">
-          <div class="row">
-  <div class="column">
-    <!-- Main information, edit it on theme/_config.yml -->
-    <h2 class="mb-2">好記性不如爛筆頭</h2>
-    <p></p>
-    <p></p>
-  </div>
-</div>
+            <h2>在commit前偵測硬編碼的密鑰</h2>
 
-<h3>Recent Posts</h3>
+  <p>目的：<br>在git commit前利用hooks呼叫pre-commit(Python)並使用betterleaks(Golang)進行程式碼有無硬編碼的密鑰的檢測，如果發現則阻止git commit。</p>
+<p>手順：</p>
+<ol>
+<li><p>安裝Python及Golang。</p>
+</li>
+<li><p>安裝pre-commit。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pip <span class="token function">install</span> pre-commit<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>安裝beterleaks。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">go <span class="token function">install</span> github.com/betterleaks/betterleaks/v2@latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>在要掃描專案根目錄新增空白檔案<code>.pre-commit-config.yaml</code>。<br>內容為</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">repos</span><span class="token punctuation">:</span>
+<span class="token punctuation">-</span>   <span class="token key atrule">repo</span><span class="token punctuation">:</span> local
+    <span class="token key atrule">hooks</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span>   <span class="token key atrule">id</span><span class="token punctuation">:</span> betterleaks<span class="token punctuation">-</span>system
+        <span class="token key atrule">name</span><span class="token punctuation">:</span> 偵測硬編碼中
+        <span class="token key atrule">entry</span><span class="token punctuation">:</span> betterleaks <span class="token punctuation">-</span><span class="token punctuation">-</span>redact <span class="token comment"># 將密碼顯示為"REDACT"</span>
+        <span class="token key atrule">language</span><span class="token punctuation">:</span> system<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>安裝precommit hook。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ pre-commit <span class="token function">install</span>
+pre-commit installed at .git/hooks/pre-commit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>commit時如果偵測到硬編碼的密鑰會顯示如以下錯誤訊息並中止commit。</p>
+<pre class="line-numbers language-log" data-language="log"><code class="language-log">┌─github<span class="token operator">-</span>pat──○
+│
+│ <span class="token number">1</span> │  ⟨binary⟩ string xxxToken <span class="token operator">=</span> <span class="token string">"REDACTED"</span><span class="token operator">;</span>
+│   │                           <span class="token operator">^</span><span class="token operator">^</span><span class="token operator">^</span><span class="token operator">^</span><span class="token operator">^</span><span class="token operator">^</span><span class="token operator">^</span><span class="token operator">^</span>
+│
+│   path <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> Program<span class="token punctuation">.</span>cs
+│   confidence <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> HIGH
+│ attributes<span class="token operator">:</span>
+│   resource <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token domain constant">fs.content</span>
+└○<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
 
+  <p><a class="classtest-link" href="/tags/git/" rel="tag">git</a> — 2026年10月2日</p>
+  
 
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2026年10月2日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2026/10/02/use-precommit-with-betterleaks/" >
-      
-        在commit前偵測硬編碼的密鑰
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2026年9月22日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2026/09/22/use-docker-in-windows-wsl2-both/" >
-      
-        移除Docker Desktop on Windows並在Windows與WSL2安裝原生Docker
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2026年9月16日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2026/09/16/fix-vscode-sftp-extension-isdate-issue/" >
-      
-        VSCode的SFTP擴充套件無法正常上傳下載
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2026年9月3日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2026/09/03/vscode-contextmenu/" >
-      
-        VSCode用winget安裝時不會註冊右鍵選單
-      
-    </a>
-  </div>
-</div>
-
-
-<h4> <a href="/archives">All Posts</a></h4>
 
         </div>
         <div class="row mt-2">
