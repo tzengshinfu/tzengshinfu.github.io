@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+
+  <!-- Minima -->
+  <!-- Hexo theme created by @adisaktijrs -->
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+
+  
+  <title>Apache Hop docker-compose.yaml設定</title>
+  
+  <link rel="sitemap" href="https://tzengshinfu.github.iositemap.xml" />
+  
+  <link rel="canonical" href="https://tzengshinfu.github.io/2026/10/07/apache-hop-docker-compose/">
+  
+  <meta name="description" content="設定如下，依個人需求新增或修改： services:   hop-server: # 執行管道的伺服器     image: apache/hop:latest # 注意，生產環境需固定映像檔版本     ports:       - &#34;12000:8080&#34; # 設宿主機12000埠(需與hop-">
+  
+  
+  <meta name="author" content="tzengshinfu">
+  
+  
+  
+  <meta property="og:site_name" content="工作備忘錄" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Apache Hop docker-compose.yaml設定" />
+  
+  <meta property="og:description" content="設定如下，依個人需求新增或修改： services:   hop-server: # 執行管道的伺服器     image: apache/hop:latest # 注意，生產環境需固定映像檔版本     ports:       - &#34;12000:8080&#34; # 設宿主機12000埠(需與hop-">
+  
+  <meta property="og:url" content="https://tzengshinfu.github.io/2026/10/07/apache-hop-docker-compose/" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Apache Hop docker-compose.yaml設定">
+  
+  <meta name="twitter:description" content="設定如下，依個人需求新增或修改： services:   hop-server: # 執行管道的伺服器     image: apache/hop:latest # 注意，生產環境需固定映像檔版本     ports:       - &#34;12000:8080&#34; # 設宿主機12000埠(需與hop-">
+  
+  
+  
+  
+  <meta name="twitter:url" content="https://tzengshinfu.github.io/2026/10/07/apache-hop-docker-compose/" />
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Preload fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preload" href="/fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+<link rel="stylesheet" href="/css/normalize.css">
+
+  
+<link rel="stylesheet" href="/css/skeleton.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+<link rel="stylesheet" href="/css/prism-dark.css">
+
+  
+<link rel="stylesheet" href="/css/prism-line-numbers.css">
+
+  <!-- User css -->
+  
+  
+<link rel="stylesheet" href="/css/user.css">
+
+  
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="/images/craftsman.png">
+
+  <!-- Custom Theme Color Style
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <style>
+  a:not(.icon) {
+    text-decoration-color: #0FA0CE;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      #0FA0CE 50%
+    );
+  }
+  blockquote {
+    border-left: 8px solid #0FA0CE;
+  }
+  .nanobar .bar {
+    background: #0FA0CE;
+  }
+  .button.button-primary:hover,
+  button.button-primary:hover,
+  input[type="submit"].button-primary:hover,
+  input[type="reset"].button-primary:hover,
+  input[type="button"].button-primary:hover,
+  .button.button-primary:focus,
+  button.button-primary:focus,
+  input[type="submit"].button-primary:focus,
+  input[type="reset"].button-primary:focus,
+  input[type="button"].button-primary:focus {
+    background-color: #0FA0CE;
+    border-color: #0FA0CE;
+  }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    border: 1px solid #0FA0CE;
+  }
+</style>
+
+  <!-- Google Analytics (With Privacy Settings On)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+
+  
+  <script src="/js/pic.min.js" defer></script>
+  
+
+  
+  <script src="/js/search.min.js" defer></script>
+  
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div>
+
+        <div class="row">
+  <div class="two columns" style="max-width: 50px">
+    <h1 class="mt-2 mode">
+      <div onclick=setDarkMode(true) id="darkBtn">🌑</div>
+      <div onclick=setDarkMode(false) id="lightBtn" class=hidden>☀️</div>
+      <script >
+        if (localStorage.getItem('preferredTheme') == 'dark') {
+          setDarkMode(true)
+        }
+        function setDarkMode(isDark) {
+          var darkBtn = document.getElementById('darkBtn')
+          var lightBtn = document.getElementById('lightBtn')
+          if (isDark) {
+            lightBtn.style.display = "block"
+            darkBtn.style.display = "none"
+            localStorage.setItem('preferredTheme', 'dark');
+          } else {
+            lightBtn.style.display = "none"
+            darkBtn.style.display = "block"
+            localStorage.removeItem('preferredTheme');
+          }
+          document.body.classList.toggle("darkmode");
+        }
+      </script>
+    </h1>
+  </div>
+
+  <div class="six columns ml-1">
+    <h1 class="mt-2">
+      工作備忘錄
+    </h1>
+  </div>
+
+  <div class="twelve columns">
+    <div class="row">
+      <div class="nine columns left">
+        <a href="/">Home</a>
+        
+          
+        
+          
+        
+          
+          <a href="/archives" class="ml">Posts</a>
+          
+        
+        
+      </div>
+    </div>
+    <hr style="margin-bottom: 2.6rem">
+  </div>
+</div>
+
+        <div class="trans">
+            <h2>Apache Hop docker-compose.yaml設定</h2>
+
+  <p>設定如下，依個人需求新增或修改：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">hop-server</span><span class="token punctuation">:</span> <span class="token comment"># 執行管道的伺服器</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> apache/hop<span class="token punctuation">:</span>latest <span class="token comment"># 注意，生產環境需固定映像檔版本</span>
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"12000:8080"</span> <span class="token comment"># 設宿主機12000埠(需與hop-web錯開)</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">HOP_CONFIG_FOLDER</span><span class="token punctuation">:</span> /files/config <span class="token comment"># 系統設定路徑(資料庫連線設定等)</span>
+      <span class="token key atrule">HOP_AUDIT_FOLDER</span><span class="token punctuation">:</span> /files/audit
+      <span class="token key atrule">HOP_PROJECT_FOLDER</span><span class="token punctuation">:</span> /files/projects/usun <span class="token comment"># 專案路徑</span>
+      <span class="token key atrule">HOP_PROJECT_NAME</span><span class="token punctuation">:</span> usun <span class="token comment"># 專案名稱</span>
+      <span class="token key atrule">HOP_SHARED_JDBC_FOLDERS</span><span class="token punctuation">:</span> /opt/hop/lib/jdbc<span class="token punctuation">,</span>/files/jdbc <span class="token comment"># JDBC驅動程式路徑</span>
+      <span class="token key atrule">HOP_PLUGIN_BASE_FOLDERS</span><span class="token punctuation">:</span> /opt/hop/plugins<span class="token punctuation">,</span>/files/plugins <span class="token comment"># 外掛路徑</span>
+      <span class="token key atrule">HOP_SERVER_HOSTNAME</span><span class="token punctuation">:</span> <span class="token string">"0.0.0.0"</span>
+      <span class="token key atrule">HOP_SERVER_PORT</span><span class="token punctuation">:</span> <span class="token string">"8080"</span>
+      <span class="token key atrule">HOP_SERVER_USER</span><span class="token punctuation">:</span> admin
+      <span class="token key atrule">HOP_SERVER_PASS</span><span class="token punctuation">:</span> admin
+      <span class="token key atrule">HOP_SERVER_SHUTDOWN_TIMEOUT</span><span class="token punctuation">:</span> <span class="token string">"120"</span> <span class="token comment"># 延遲120秒結束(等內部正常關閉)</span>
+      <span class="token key atrule">HOP_SERVER_METADATA_FOLDER</span><span class="token punctuation">:</span> /files/projects/usun/metadata <span class="token comment"># Hop Web Service使用</span>
+      <span class="token key atrule">HOP_OPTIONS</span><span class="token punctuation">:</span> <span class="token string">"-XX:+AggressiveHeap -Duser.timezone=Asia/Taipei"</span> <span class="token comment"># 時區設為本地端</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span> <span class="token comment"># 對應到宿主機相同路徑如:`./config`，使2個容器能共用設定、專案等；另外以下5個資料夾需在宿主機設定擁有者為`501:501(=hop:hop)`</span>
+      <span class="token punctuation">-</span> ./config<span class="token punctuation">:</span>/files/config
+      <span class="token punctuation">-</span> ./audit<span class="token punctuation">:</span>/files/audit
+      <span class="token punctuation">-</span> ./projects<span class="token punctuation">:</span>/files/projects
+      <span class="token punctuation">-</span> ./jdbc<span class="token punctuation">:</span>/files/jdbc
+      <span class="token punctuation">-</span> ./plugins<span class="token punctuation">:</span>/files/plugins
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> unless<span class="token punctuation">-</span>stopped
+    <span class="token key atrule">stop_grace_period</span><span class="token punctuation">:</span> 120s
+
+  <span class="token key atrule">hop-web</span><span class="token punctuation">:</span> <span class="token comment"># 設計管道的Web IDE</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> apache/hop<span class="token punctuation">-</span>web<span class="token punctuation">:</span>latest <span class="token comment"># 注意，生產環境需固定映像檔版本</span>
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"12001:8080"</span> <span class="token comment"># 設宿主機12001埠(需與hop-server錯開)</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">HOP_CONFIG_FOLDER</span><span class="token punctuation">:</span> /hop/config <span class="token comment"># 系統設定路徑(資料庫連線設定等)</span>
+      <span class="token key atrule">HOP_AUDIT_FOLDER</span><span class="token punctuation">:</span> /hop/audit
+      <span class="token key atrule">HOP_PROJECT_FOLDER</span><span class="token punctuation">:</span> /hop/projects/usun <span class="token comment"># 專案路徑</span>
+      <span class="token key atrule">HOP_PROJECT_NAME</span><span class="token punctuation">:</span> usun <span class="token comment"># 專案名稱</span>
+      <span class="token key atrule">HOP_SHARED_JDBC_FOLDERS</span><span class="token punctuation">:</span> /usr/local/tomcat/jdbc<span class="token punctuation">-</span>drivers<span class="token punctuation">,</span>/hop/jdbc <span class="token comment"># JDBC驅動程式路徑</span>
+      <span class="token key atrule">HOP_PLUGIN_BASE_FOLDERS</span><span class="token punctuation">:</span> /usr/local/tomcat/plugins<span class="token punctuation">,</span>/hop/plugins <span class="token comment"># 外掛路徑</span>
+      <span class="token key atrule">HOP_WEB_SECURITY_MODE</span><span class="token punctuation">:</span> BASIC
+      <span class="token key atrule">HOP_WEB_ADMIN_USER</span><span class="token punctuation">:</span> admin
+      <span class="token key atrule">HOP_WEB_ADMIN_PASSWORD</span><span class="token punctuation">:</span> admin
+      <span class="token key atrule">HOP_OPTIONS</span><span class="token punctuation">:</span> <span class="token string">"-XX:+AggressiveHeap -Dorg.eclipse.rap.rwt.resourceLocation=/tmp/rwt-resources -Duser.timezone=Asia/Taipei"</span> <span class="token comment"># 時區設為本地端</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span> <span class="token comment"># 對應到宿主機相同路徑如:`./config`，使2個容器能共用設定、專案等；另外以下5個資料夾需在宿主機設定擁有者為`501:501(=hop:hop)`</span>
+      <span class="token punctuation">-</span> ./config<span class="token punctuation">:</span>/hop/config
+      <span class="token punctuation">-</span> ./audit<span class="token punctuation">:</span>/hop/audit
+      <span class="token punctuation">-</span> ./projects<span class="token punctuation">:</span>/hop/projects
+      <span class="token punctuation">-</span> ./jdbc<span class="token punctuation">:</span>/hop/jdbc
+      <span class="token punctuation">-</span> ./plugins<span class="token punctuation">:</span>/hop/plugins
+
+<span class="token key atrule">networks</span><span class="token punctuation">:</span>
+  <span class="token key atrule">hop-network</span><span class="token punctuation">:</span>
+    <span class="token key atrule">driver</span><span class="token punctuation">:</span> bridge<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+  <p><a class="classtest-link" href="/tags/apache-hop/" rel="tag">apache hop</a>, <a class="classtest-link" href="/tags/docker/" rel="tag">docker</a> — 2026年10月7日</p>
+  
+
+
+        </div>
+        <div class="row mt-2">
+  <h3>Search</h3>
+  <div><input id="search-text" title="search" class="search-text" type="text" placeholder="search......"></div>
+  <div style="margin-top: 1.5rem;">
+    <ul id="result"></ul>
+  </div>
+</div>
+        <div class="row mt-2">
+  
+    <div class="eight columns">
+      <p id="madewith">Made with ❤ and
+        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
+        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+        </a>
+        
+        at <a href="https://en.wikipedia.org/wiki/Taiwan" target="_blank" rel="noreferrer">Taiwan</a>.</p>
+        
+    </div>
+
+    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
+    <div class="four columns mb-3 posisi" >
+      
+      <a class="ml-0 footer-link icon" href="https://github.com/tzengshinfu" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="GitHub">
+        <svg class="github svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      
+
+      
+      <a class="ml-0 footer-link icon" href="https://linkedin.com/in/tzengshinfu" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="LinkedIn">
+        <svg class="linkedin svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      
+
+      
+
+      
+
+      
+
+    </div>
+  
+</div>
+
+      </div>
+
+    </div>
+
+  </div>
+  <script src="/js/nanobar.min.js"></script>
+
+  <script>
+    var options = {
+      classname: 'nanobar',
+      id: 'myNanobar'
+    };
+    var nanobar = new Nanobar(options);
+    nanobar.go(30);
+    nanobar.go(76);
+    nanobar.go(100);
+  </script>
+
+</body>
+
+</html>
