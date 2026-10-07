@@ -217,7 +217,7 @@
       <span class="token key atrule">HOP_SERVER_SHUTDOWN_TIMEOUT</span><span class="token punctuation">:</span> <span class="token string">"120"</span> <span class="token comment"># 延遲120秒結束(等內部正常關閉)</span>
       <span class="token key atrule">HOP_SERVER_METADATA_FOLDER</span><span class="token punctuation">:</span> /files/projects/usun/metadata <span class="token comment"># Hop Web Service使用</span>
       <span class="token key atrule">HOP_OPTIONS</span><span class="token punctuation">:</span> <span class="token string">"-XX:+AggressiveHeap -Duser.timezone=Asia/Taipei"</span> <span class="token comment"># 時區設為本地端</span>
-    <span class="token key atrule">volumes</span><span class="token punctuation">:</span> <span class="token comment"># 對應到宿主機相同路徑如:`./config`，使2個容器能共用設定、專案等</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span> <span class="token comment"># 對應到宿主機相同路徑如:`./config`，使2個容器能共用設定、專案等；另外以下5個資料夾需在宿主機設定擁有者為`501:501(=hop)`</span>
       <span class="token punctuation">-</span> ./config<span class="token punctuation">:</span>/files/config
       <span class="token punctuation">-</span> ./audit<span class="token punctuation">:</span>/files/audit
       <span class="token punctuation">-</span> ./projects<span class="token punctuation">:</span>/files/projects
@@ -241,7 +241,7 @@
       <span class="token key atrule">HOP_WEB_ADMIN_USER</span><span class="token punctuation">:</span> admin
       <span class="token key atrule">HOP_WEB_ADMIN_PASSWORD</span><span class="token punctuation">:</span> admin
       <span class="token key atrule">HOP_OPTIONS</span><span class="token punctuation">:</span> <span class="token string">"-XX:+AggressiveHeap -Dorg.eclipse.rap.rwt.resourceLocation=/tmp/rwt-resources -Duser.timezone=Asia/Taipei"</span> <span class="token comment"># 時區設為本地端</span>
-    <span class="token key atrule">volumes</span><span class="token punctuation">:</span> <span class="token comment"># 對應到宿主機相同路徑如:`./config`，使2個容器能共用設定、專案等</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span> <span class="token comment"># 對應到宿主機相同路徑如:`./config`，使2個容器能共用設定、專案等；另外以下5個資料夾需在宿主機設定擁有者為`501:501(=hop)`</span>
       <span class="token punctuation">-</span> ./config<span class="token punctuation">:</span>/hop/config
       <span class="token punctuation">-</span> ./audit<span class="token punctuation">:</span>/hop/audit
       <span class="token punctuation">-</span> ./projects<span class="token punctuation">:</span>/hop/projects
