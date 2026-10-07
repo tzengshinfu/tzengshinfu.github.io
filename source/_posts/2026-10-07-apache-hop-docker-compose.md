@@ -28,7 +28,7 @@ services:
       HOP_SERVER_SHUTDOWN_TIMEOUT: "120" # 延遲120秒結束(等內部正常關閉)
       HOP_SERVER_METADATA_FOLDER: /files/projects/usun/metadata # Hop Web Service使用
       HOP_OPTIONS: "-XX:+AggressiveHeap -Duser.timezone=Asia/Taipei" # 時區設為本地端
-    volumes: # 對應到宿主機相同路徑如:`./config`，使2個容器能共用設定、專案等；另外以下5個資料夾需在宿主機設定擁有者為`501:501(=hop)`
+    volumes: # 對應到宿主機相同路徑如:`./config`，使2個容器能共用設定、專案等；另外以下5個資料夾需在宿主機設定擁有者為`501:501(=hop:hop)`
       - ./config:/files/config
       - ./audit:/files/audit
       - ./projects:/files/projects
@@ -52,7 +52,7 @@ services:
       HOP_WEB_ADMIN_USER: admin
       HOP_WEB_ADMIN_PASSWORD: admin
       HOP_OPTIONS: "-XX:+AggressiveHeap -Dorg.eclipse.rap.rwt.resourceLocation=/tmp/rwt-resources -Duser.timezone=Asia/Taipei" # 時區設為本地端
-    volumes: # 對應到宿主機相同路徑如:`./config`，使2個容器能共用設定、專案等；另外以下5個資料夾需在宿主機設定擁有者為`501:501(=hop)`
+    volumes: # 對應到宿主機相同路徑如:`./config`，使2個容器能共用設定、專案等；另外以下5個資料夾需在宿主機設定擁有者為`501:501(=hop:hop)`
       - ./config:/hop/config
       - ./audit:/hop/audit
       - ./projects:/hop/projects
