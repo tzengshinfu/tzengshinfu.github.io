@@ -17,7 +17,7 @@
   
   <link rel="canonical" href="https://tzengshinfu.github.io/2026/10/07/apache-hop-docker-compose/">
   
-  <meta name="description" content="設定如下，依個人需求新增或修改： services:   hop-server:     image: apache/hop:latest # 注意，生產環境需固定映像檔版本     ports:       - &#34;12000:8080&#34; # 設宿主機12000埠(需與hop-web錯開)     ">
+  <meta name="description" content="設定如下，依個人需求新增或修改： services:   hop-server: # 執行管道的伺服器     image: apache/hop:latest # 注意，生產環境需固定映像檔版本     ports:       - &#34;12000:8080&#34; # 設宿主機12000埠(需與hop-">
   
   
   <meta name="author" content="tzengshinfu">
@@ -28,14 +28,14 @@
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Apache Hop docker-compose.yaml設定" />
   
-  <meta property="og:description" content="設定如下，依個人需求新增或修改： services:   hop-server:     image: apache/hop:latest # 注意，生產環境需固定映像檔版本     ports:       - &#34;12000:8080&#34; # 設宿主機12000埠(需與hop-web錯開)     ">
+  <meta property="og:description" content="設定如下，依個人需求新增或修改： services:   hop-server: # 執行管道的伺服器     image: apache/hop:latest # 注意，生產環境需固定映像檔版本     ports:       - &#34;12000:8080&#34; # 設宿主機12000埠(需與hop-">
   
   <meta property="og:url" content="https://tzengshinfu.github.io/2026/10/07/apache-hop-docker-compose/" />
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Apache Hop docker-compose.yaml設定">
   
-  <meta name="twitter:description" content="設定如下，依個人需求新增或修改： services:   hop-server:     image: apache/hop:latest # 注意，生產環境需固定映像檔版本     ports:       - &#34;12000:8080&#34; # 設宿主機12000埠(需與hop-web錯開)     ">
+  <meta name="twitter:description" content="設定如下，依個人需求新增或修改： services:   hop-server: # 執行管道的伺服器     image: apache/hop:latest # 注意，生產環境需固定映像檔版本     ports:       - &#34;12000:8080&#34; # 設宿主機12000埠(需與hop-">
   
   
   
@@ -199,7 +199,7 @@
 
   <p>設定如下，依個人需求新增或修改：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">services</span><span class="token punctuation">:</span>
-  <span class="token key atrule">hop-server</span><span class="token punctuation">:</span>
+  <span class="token key atrule">hop-server</span><span class="token punctuation">:</span> <span class="token comment"># 執行管道的伺服器</span>
     <span class="token key atrule">image</span><span class="token punctuation">:</span> apache/hop<span class="token punctuation">:</span>latest <span class="token comment"># 注意，生產環境需固定映像檔版本</span>
     <span class="token key atrule">ports</span><span class="token punctuation">:</span>
       <span class="token punctuation">-</span> <span class="token string">"12000:8080"</span> <span class="token comment"># 設宿主機12000埠(需與hop-web錯開)</span>
@@ -226,7 +226,7 @@
     <span class="token key atrule">restart</span><span class="token punctuation">:</span> unless<span class="token punctuation">-</span>stopped
     <span class="token key atrule">stop_grace_period</span><span class="token punctuation">:</span> 120s
 
-  <span class="token key atrule">hop-web</span><span class="token punctuation">:</span>
+  <span class="token key atrule">hop-web</span><span class="token punctuation">:</span> <span class="token comment"># 設計管道的Web IDE</span>
     <span class="token key atrule">image</span><span class="token punctuation">:</span> apache/hop<span class="token punctuation">-</span>web<span class="token punctuation">:</span>latest <span class="token comment"># 注意，生產環境需固定映像檔版本</span>
     <span class="token key atrule">ports</span><span class="token punctuation">:</span>
       <span class="token punctuation">-</span> <span class="token string">"12001:8080"</span> <span class="token comment"># 設宿主機12001埠(需與hop-server錯開)</span>
@@ -252,7 +252,7 @@
   <span class="token key atrule">hop-network</span><span class="token punctuation">:</span>
     <span class="token key atrule">driver</span><span class="token punctuation">:</span> bridge<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-  <p> — 2026年10月7日</p>
+  <p><a class="classtest-link" href="/tags/apache-hop/" rel="tag">apache hop</a>, <a class="classtest-link" href="/tags/docker/" rel="tag">docker</a> — 2026年10月7日</p>
   
 
 
