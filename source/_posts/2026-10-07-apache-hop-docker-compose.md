@@ -2,13 +2,15 @@
 title: Apache Hop docker-compose.yaml設定
 date: 2026-10-07 16:22:28
 tags:
+- apache hop
+- docker
 ---
 
 設定如下，依個人需求新增或修改：
 
 ```yml
 services:
-  hop-server:
+  hop-server: # 執行管道的伺服器
     image: apache/hop:latest # 注意，生產環境需固定映像檔版本
     ports:
       - "12000:8080" # 設宿主機12000埠(需與hop-web錯開)
@@ -35,7 +37,7 @@ services:
     restart: unless-stopped
     stop_grace_period: 120s
 
-  hop-web:
+  hop-web: # 設計管道的Web IDE
     image: apache/hop-web:latest # 注意，生產環境需固定映像檔版本
     ports:
       - "12001:8080" # 設宿主機12001埠(需與hop-server錯開)
