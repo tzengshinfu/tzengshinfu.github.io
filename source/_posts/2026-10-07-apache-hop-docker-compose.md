@@ -52,6 +52,8 @@ services:
       HOP_WEB_ADMIN_USER: admin
       HOP_WEB_ADMIN_PASSWORD: admin
       HOP_OPTIONS: "-XX:+AggressiveHeap -Dorg.eclipse.rap.rwt.resourceLocation=/tmp/rwt-resources -Duser.timezone=Asia/Taipei" # 時區設為本地端
+    tmpfs: # 將暫存目錄掛到宿主機記憶體以加速畫面渲染
+      - /tmp/rwt-resources:size=512m,mode=1777
     volumes: # 各容器路徑皆對應到宿主機相同路徑如:`./config`，以利共用設定／專案等；另外各宿主機資料夾需設定擁有者為`501:501(=hop:hop)`
       - ./config:/hop/config
       - ./audit:/hop/audit
