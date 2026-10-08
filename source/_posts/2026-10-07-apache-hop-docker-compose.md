@@ -11,12 +11,12 @@ tags:
 ```yml
 services:
   hop-server: # 執行管道的伺服器
-    image: apache/hop:latest # 注意，生產環境需固定映像檔版本
+    image: apache/hop:latest # 注意，生產環境建議固定映像檔版本
     ports:
       - "12000:8080" # 設宿主機12000埠(需與hop-web錯開)
     environment:
       HOP_CONFIG_FOLDER: /files/config # 系統設定路徑(資料庫連線設定等)
-      HOP_AUDIT_FOLDER: /files/audit
+      HOP_AUDIT_FOLDER: /files/audit # 執行日誌路徑
       HOP_PROJECT_FOLDER: /files/projects/usun # 專案路徑
       HOP_PROJECT_NAME: usun # 專案名稱
       HOP_SHARED_JDBC_FOLDERS: /opt/hop/lib/jdbc,/files/jdbc # JDBC驅動程式路徑
@@ -28,7 +28,7 @@ services:
       HOP_SERVER_SHUTDOWN_TIMEOUT: "120" # 延遲120秒結束(等內部正常關閉)
       HOP_SERVER_METADATA_FOLDER: /files/projects/usun/metadata # Hop Web Service使用
       HOP_OPTIONS: "-XX:+AggressiveHeap -Duser.timezone=Asia/Taipei" # 時區設為本地端
-    volumes: # 對應到宿主機相同路徑如:`./config`，使2個容器能共用設定、專案等；另外以下5個資料夾需在宿主機設定擁有者為`501:501(=hop:hop)`
+    volumes: # 各容器路徑皆對應到宿主機相同路徑如:`./config`，以利共用設定／專案等；另外各宿主機資料夾需設定擁有者為`501:501(=hop:hop)`
       - ./config:/files/config
       - ./audit:/files/audit
       - ./projects:/files/projects
@@ -38,13 +38,13 @@ services:
     stop_grace_period: 120s
 
   hop-web: # 設計管道的Web IDE
-    image: apache/hop-web:latest # 注意，生產環境需固定映像檔版本
+    image: apache/hop-web:latest # 注意，生產環境建議固定映像檔版本
     ports:
       - "12001:8080" # 設宿主機12001埠(需與hop-server錯開)
     environment:
       HOP_CONFIG_FOLDER: /hop/config # 系統設定路徑(資料庫連線設定等)
-      HOP_AUDIT_FOLDER: /hop/audit
-      HOP_PROJECT_FOLDER: /hop/projects/usun # 專案路徑
+      HOP_AUDIT_FOLDER: /hop/audit # 執行日誌路徑
+      HOP_PROJECT_FOLDER: /hop/projects/usun # 專案路徑；在設計管道時如果有存取檔案時需設為`相對路徑`以利容器之間共用
       HOP_PROJECT_NAME: usun # 專案名稱
       HOP_SHARED_JDBC_FOLDERS: /usr/local/tomcat/jdbc-drivers,/hop/jdbc # JDBC驅動程式路徑
       HOP_PLUGIN_BASE_FOLDERS: /usr/local/tomcat/plugins,/hop/plugins # 外掛路徑
@@ -52,7 +52,7 @@ services:
       HOP_WEB_ADMIN_USER: admin
       HOP_WEB_ADMIN_PASSWORD: admin
       HOP_OPTIONS: "-XX:+AggressiveHeap -Dorg.eclipse.rap.rwt.resourceLocation=/tmp/rwt-resources -Duser.timezone=Asia/Taipei" # 時區設為本地端
-    volumes: # 對應到宿主機相同路徑如:`./config`，使2個容器能共用設定、專案等；另外以下5個資料夾需在宿主機設定擁有者為`501:501(=hop:hop)`
+    volumes: # 各容器路徑皆對應到宿主機相同路徑如:`./config`，以利共用設定／專案等；另外各宿主機資料夾需設定擁有者為`501:501(=hop:hop)`
       - ./config:/hop/config
       - ./audit:/hop/audit
       - ./projects:/hop/projects
