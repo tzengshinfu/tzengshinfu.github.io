@@ -17,7 +17,7 @@
   
   <link rel="canonical" href="https://tzengshinfu.github.io/2026/10/07/apache-hop-docker-compose/">
   
-  <meta name="description" content="設定如下，依個人需求新增或修改： services:   hop-server: # 執行管道的伺服器     image: apache/hop:latest # 注意，生產環境需固定映像檔版本     ports:       - &#34;12000:8080&#34; # 設宿主機12000埠(需與hop-">
+  <meta name="description" content="設定如下，依個人需求新增或修改： services:   hop-server: # 執行管道的伺服器     image: apache/hop:latest # 注意，生產環境建議固定映像檔版本     ports:       - &#34;12000:8080&#34; # 設宿主機12000埠(需與hop">
   
   
   <meta name="author" content="tzengshinfu">
@@ -28,14 +28,14 @@
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Apache Hop docker-compose.yaml設定" />
   
-  <meta property="og:description" content="設定如下，依個人需求新增或修改： services:   hop-server: # 執行管道的伺服器     image: apache/hop:latest # 注意，生產環境需固定映像檔版本     ports:       - &#34;12000:8080&#34; # 設宿主機12000埠(需與hop-">
+  <meta property="og:description" content="設定如下，依個人需求新增或修改： services:   hop-server: # 執行管道的伺服器     image: apache/hop:latest # 注意，生產環境建議固定映像檔版本     ports:       - &#34;12000:8080&#34; # 設宿主機12000埠(需與hop">
   
   <meta property="og:url" content="https://tzengshinfu.github.io/2026/10/07/apache-hop-docker-compose/" />
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Apache Hop docker-compose.yaml設定">
   
-  <meta name="twitter:description" content="設定如下，依個人需求新增或修改： services:   hop-server: # 執行管道的伺服器     image: apache/hop:latest # 注意，生產環境需固定映像檔版本     ports:       - &#34;12000:8080&#34; # 設宿主機12000埠(需與hop-">
+  <meta name="twitter:description" content="設定如下，依個人需求新增或修改： services:   hop-server: # 執行管道的伺服器     image: apache/hop:latest # 注意，生產環境建議固定映像檔版本     ports:       - &#34;12000:8080&#34; # 設宿主機12000埠(需與hop">
   
   
   
@@ -200,12 +200,12 @@
   <p>設定如下，依個人需求新增或修改：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">services</span><span class="token punctuation">:</span>
   <span class="token key atrule">hop-server</span><span class="token punctuation">:</span> <span class="token comment"># 執行管道的伺服器</span>
-    <span class="token key atrule">image</span><span class="token punctuation">:</span> apache/hop<span class="token punctuation">:</span>latest <span class="token comment"># 注意，生產環境需固定映像檔版本</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> apache/hop<span class="token punctuation">:</span>latest <span class="token comment"># 注意，生產環境建議固定映像檔版本</span>
     <span class="token key atrule">ports</span><span class="token punctuation">:</span>
       <span class="token punctuation">-</span> <span class="token string">"12000:8080"</span> <span class="token comment"># 設宿主機12000埠(需與hop-web錯開)</span>
     <span class="token key atrule">environment</span><span class="token punctuation">:</span>
       <span class="token key atrule">HOP_CONFIG_FOLDER</span><span class="token punctuation">:</span> /files/config <span class="token comment"># 系統設定路徑(資料庫連線設定等)</span>
-      <span class="token key atrule">HOP_AUDIT_FOLDER</span><span class="token punctuation">:</span> /files/audit
+      <span class="token key atrule">HOP_AUDIT_FOLDER</span><span class="token punctuation">:</span> /files/audit <span class="token comment"># 執行日誌路徑</span>
       <span class="token key atrule">HOP_PROJECT_FOLDER</span><span class="token punctuation">:</span> /files/projects/usun <span class="token comment"># 專案路徑</span>
       <span class="token key atrule">HOP_PROJECT_NAME</span><span class="token punctuation">:</span> usun <span class="token comment"># 專案名稱</span>
       <span class="token key atrule">HOP_SHARED_JDBC_FOLDERS</span><span class="token punctuation">:</span> /opt/hop/lib/jdbc<span class="token punctuation">,</span>/files/jdbc <span class="token comment"># JDBC驅動程式路徑</span>
@@ -217,7 +217,7 @@
       <span class="token key atrule">HOP_SERVER_SHUTDOWN_TIMEOUT</span><span class="token punctuation">:</span> <span class="token string">"120"</span> <span class="token comment"># 延遲120秒結束(等內部正常關閉)</span>
       <span class="token key atrule">HOP_SERVER_METADATA_FOLDER</span><span class="token punctuation">:</span> /files/projects/usun/metadata <span class="token comment"># Hop Web Service使用</span>
       <span class="token key atrule">HOP_OPTIONS</span><span class="token punctuation">:</span> <span class="token string">"-XX:+AggressiveHeap -Duser.timezone=Asia/Taipei"</span> <span class="token comment"># 時區設為本地端</span>
-    <span class="token key atrule">volumes</span><span class="token punctuation">:</span> <span class="token comment"># 對應到宿主機相同路徑如:`./config`，使2個容器能共用設定、專案等；另外以下5個資料夾需在宿主機設定擁有者為`501:501(=hop:hop)`</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span> <span class="token comment"># 各容器路徑皆對應到宿主機相同路徑如:`./config`，以利共用設定／專案等；另外各宿主機資料夾需設定擁有者為`501:501(=hop:hop)`</span>
       <span class="token punctuation">-</span> ./config<span class="token punctuation">:</span>/files/config
       <span class="token punctuation">-</span> ./audit<span class="token punctuation">:</span>/files/audit
       <span class="token punctuation">-</span> ./projects<span class="token punctuation">:</span>/files/projects
@@ -227,13 +227,13 @@
     <span class="token key atrule">stop_grace_period</span><span class="token punctuation">:</span> 120s
 
   <span class="token key atrule">hop-web</span><span class="token punctuation">:</span> <span class="token comment"># 設計管道的Web IDE</span>
-    <span class="token key atrule">image</span><span class="token punctuation">:</span> apache/hop<span class="token punctuation">-</span>web<span class="token punctuation">:</span>latest <span class="token comment"># 注意，生產環境需固定映像檔版本</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> apache/hop<span class="token punctuation">-</span>web<span class="token punctuation">:</span>latest <span class="token comment"># 注意，生產環境建議固定映像檔版本</span>
     <span class="token key atrule">ports</span><span class="token punctuation">:</span>
       <span class="token punctuation">-</span> <span class="token string">"12001:8080"</span> <span class="token comment"># 設宿主機12001埠(需與hop-server錯開)</span>
     <span class="token key atrule">environment</span><span class="token punctuation">:</span>
       <span class="token key atrule">HOP_CONFIG_FOLDER</span><span class="token punctuation">:</span> /hop/config <span class="token comment"># 系統設定路徑(資料庫連線設定等)</span>
-      <span class="token key atrule">HOP_AUDIT_FOLDER</span><span class="token punctuation">:</span> /hop/audit
-      <span class="token key atrule">HOP_PROJECT_FOLDER</span><span class="token punctuation">:</span> /hop/projects/usun <span class="token comment"># 專案路徑</span>
+      <span class="token key atrule">HOP_AUDIT_FOLDER</span><span class="token punctuation">:</span> /hop/audit <span class="token comment"># 執行日誌路徑</span>
+      <span class="token key atrule">HOP_PROJECT_FOLDER</span><span class="token punctuation">:</span> /hop/projects/usun <span class="token comment"># 專案路徑；在設計管道時如果有存取檔案時需設為`相對路徑`以利容器之間共用</span>
       <span class="token key atrule">HOP_PROJECT_NAME</span><span class="token punctuation">:</span> usun <span class="token comment"># 專案名稱</span>
       <span class="token key atrule">HOP_SHARED_JDBC_FOLDERS</span><span class="token punctuation">:</span> /usr/local/tomcat/jdbc<span class="token punctuation">-</span>drivers<span class="token punctuation">,</span>/hop/jdbc <span class="token comment"># JDBC驅動程式路徑</span>
       <span class="token key atrule">HOP_PLUGIN_BASE_FOLDERS</span><span class="token punctuation">:</span> /usr/local/tomcat/plugins<span class="token punctuation">,</span>/hop/plugins <span class="token comment"># 外掛路徑</span>
@@ -241,7 +241,9 @@
       <span class="token key atrule">HOP_WEB_ADMIN_USER</span><span class="token punctuation">:</span> admin
       <span class="token key atrule">HOP_WEB_ADMIN_PASSWORD</span><span class="token punctuation">:</span> admin
       <span class="token key atrule">HOP_OPTIONS</span><span class="token punctuation">:</span> <span class="token string">"-XX:+AggressiveHeap -Dorg.eclipse.rap.rwt.resourceLocation=/tmp/rwt-resources -Duser.timezone=Asia/Taipei"</span> <span class="token comment"># 時區設為本地端</span>
-    <span class="token key atrule">volumes</span><span class="token punctuation">:</span> <span class="token comment"># 對應到宿主機相同路徑如:`./config`，使2個容器能共用設定、專案等；另外以下5個資料夾需在宿主機設定擁有者為`501:501(=hop:hop)`</span>
+    <span class="token key atrule">tmpfs</span><span class="token punctuation">:</span> <span class="token comment"># 將暫存目錄掛到宿主機記憶體以加速畫面渲染</span>
+      <span class="token punctuation">-</span> /tmp/rwt<span class="token punctuation">-</span>resources<span class="token punctuation">:</span>size=512m<span class="token punctuation">,</span>mode=1777
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span> <span class="token comment"># 各容器路徑皆對應到宿主機相同路徑如:`./config`，以利共用設定／專案等；另外各宿主機資料夾需設定擁有者為`501:501(=hop:hop)`</span>
       <span class="token punctuation">-</span> ./config<span class="token punctuation">:</span>/hop/config
       <span class="token punctuation">-</span> ./audit<span class="token punctuation">:</span>/hop/audit
       <span class="token punctuation">-</span> ./projects<span class="token punctuation">:</span>/hop/projects
@@ -250,7 +252,7 @@
 
 <span class="token key atrule">networks</span><span class="token punctuation">:</span>
   <span class="token key atrule">hop-network</span><span class="token punctuation">:</span>
-    <span class="token key atrule">driver</span><span class="token punctuation">:</span> bridge<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token key atrule">driver</span><span class="token punctuation">:</span> bridge<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
   <p><a class="classtest-link" href="/tags/apache-hop/" rel="tag">apache hop</a>, <a class="classtest-link" href="/tags/docker/" rel="tag">docker</a> — 2026年10月7日</p>
   
